@@ -269,6 +269,9 @@ function Index() {
             <a className="transition-colors hover:text-foreground" href="#proces">
               Cum funcționează
             </a>
+            <a className="transition-colors hover:text-foreground" href="#intrebari">
+              Întrebări
+            </a>
             <a className="transition-colors hover:text-foreground" href="#contact">
               Contact
             </a>
