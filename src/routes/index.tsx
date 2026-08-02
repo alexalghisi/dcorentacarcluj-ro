@@ -28,7 +28,7 @@ import carXc90 from "@/assets/car-xc90.jpg";
 const SITE = "https://dcorentacarcluj.ro";
 const TITLE = "Rent a Car Cluj, Gilău & Florești | Mașini de închiriat de la 70 lei/zi";
 const DESCRIPTION =
-  "Închiriez mașini în Cluj, Gilău și Florești de la 70 lei/zi, fără garanție. Predare personală în Gilău, contract și factură, ITP, RCA, rovinietă și AC incluse.";
+  "Închiriez mașini în Cluj, Gilău și Florești de la 70 lei/zi. Predare personală în Gilău, mașini verificate cu ITP, RCA, rovinietă și AC incluse.";
 
 const faq = [
   {
