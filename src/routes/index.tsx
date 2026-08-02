@@ -36,7 +36,7 @@ const faq = [
   },
   {
     q: "Ce mașini sunt disponibile?",
-    a: "Flota include Citroën C5 2010 automat, VW Passat 2008 automat și 2013 manual, Ford Focus 2011, 2009 și 2007, Volvo S40 2010, Opel Astra H 2007, VW Bora 2002, Renault Mégane 2004 și Smart ForFour 2006. Toate au ITP, RCA, rovinietă și aer condiționat.",
+    a: "Flota include Citroën C5 2010 automat, VW Passat break 2013, Ford Focus break și Škoda Fabia. Toate au ITP, RCA, rovinietă și aer condiționat. Sunați pentru disponibilitatea exactă.",
   },
   {
     q: "Ce documente sunt necesare pentru închiriere?",
