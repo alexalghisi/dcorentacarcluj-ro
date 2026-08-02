@@ -21,10 +21,37 @@ import carEconomy from "@/assets/car-economy.jpg";
 import carSedan from "@/assets/car-sedan.jpg";
 import carVan from "@/assets/car-van.jpg";
 
-const SITE = "https://dcorentacarcluj-ro.lovable.app";
-const TITLE = "DCO Rent a Car Cluj — Închirieri auto Gilău & Aeroport Cluj";
+const SITE = "https://dcorentacarcluj.ro";
+const TITLE = "Rent a Car Cluj & Gilău | Închirieri auto Aeroport Cluj – DCO";
 const DESCRIPTION =
-  "DCO Rent a Car Cluj: închirieri auto în Gilău, Cluj-Napoca și la Aeroportul Cluj. Flotă verificată, tarife clare, predare rapidă, fără garanții ascunse.";
+  "Închirieri auto Cluj de la 22 €/zi: predare gratuită la Aeroportul Cluj, Gilău și Cluj-Napoca. Kilometraj nelimitat, garanție mică, rezervare în 10 minute.";
+
+const faq = [
+  {
+    q: "Cât costă închirierea unei mașini în Cluj?",
+    a: "Tarifele DCO Rent a Car pornesc de la 22 €/zi pentru clasa economy, 39 €/zi pentru clasa business și 55 €/zi pentru minivanul de 7 locuri. Prețul include RCA, rovinieta și kilometraj nelimitat în România.",
+  },
+  {
+    q: "Pot ridica mașina de la Aeroportul Internațional Cluj?",
+    a: "Da. Predăm și preluăm mașina în parcarea Aeroportului Cluj la ora aterizării sau a plecării, fără costuri suplimentare, 24/7.",
+  },
+  {
+    q: "Ce documente sunt necesare pentru închiriere?",
+    a: "Aveți nevoie de permis de conducere valabil de minimum 1 an, carte de identitate sau pașaport și vârsta minimă de 21 de ani.",
+  },
+  {
+    q: "Cât este garanția?",
+    a: "Garanția este mică, iar cu pachetul full cover puteți închiria fără blocarea unei sume pe card.",
+  },
+  {
+    q: "Pot ieși din țară cu mașina închiriată?",
+    a: "Da, pe baza unui acord scris solicitat înainte de plecare. Vă pregătim documentele necesare pentru trecerea frontierei.",
+  },
+  {
+    q: "Cum rezerv o mașină în Gilău sau Cluj-Napoca?",
+    a: "Ne sunați la (0742) 925 934, ne scrieți pe WhatsApp sau completați formularul de pe site. Confirmăm disponibilitatea în aproximativ 10 minute.",
+  },
+];
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -32,30 +59,109 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: TITLE },
       { name: "description", content: DESCRIPTION },
+      {
+        name: "keywords",
+        content:
+          "rent a car cluj, inchirieri auto cluj, inchirieri auto gilau, rent a car aeroport cluj, masini de inchiriat cluj napoca",
+      },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
+      { name: "author", content: "DCO Rent a Car Cluj" },
+      { name: "geo.region", content: "RO-CJ" },
+      { name: "geo.placename", content: "Gilău, Cluj" },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "website" },
       { property: "og:url", content: SITE },
+      { property: "og:locale", content: "ro_RO" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESCRIPTION },
     ],
-    links: [{ rel: "canonical", href: SITE }],
+    links: [
+      { rel: "canonical", href: SITE },
+      { rel: "alternate", hrefLang: "ro-RO", href: SITE },
+      { rel: "alternate", hrefLang: "x-default", href: SITE },
+    ],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "AutoRental",
+          "@id": `${SITE}#business`,
           name: "DCO Rent a Car Cluj",
+          alternateName: "DCO Rent a Car Gilău",
           description: DESCRIPTION,
           url: SITE,
+          telephone: "+40742925934",
+          email: "Ovidiu_danciu@yahoo.com",
+          priceRange: "€€",
+          currenciesAccepted: "EUR, RON",
+          paymentAccepted: "Cash, Card",
           address: {
             "@type": "PostalAddress",
             addressLocality: "Gilău",
             addressRegion: "Cluj",
+            postalCode: "407310",
             addressCountry: "RO",
           },
-          areaServed: "Județul Cluj",
-          openingHours: "Mo-Su 08:00-20:00",
+          geo: { "@type": "GeoCoordinates", latitude: 46.7469, longitude: 23.3736 },
+          areaServed: [
+            { "@type": "City", name: "Cluj-Napoca" },
+            { "@type": "City", name: "Gilău" },
+            { "@type": "AdministrativeArea", name: "Județul Cluj" },
+          ],
+          openingHoursSpecification: [
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday",
+              ],
+              opens: "08:00",
+              closes: "20:00",
+            },
+          ],
+          makesOffer: [
+            {
+              "@type": "Offer",
+              name: "Închiriere auto clasa Economy",
+              price: "22",
+              priceCurrency: "EUR",
+              eligibleDuration: { "@type": "QuantitativeValue", value: 1, unitCode: "DAY" },
+            },
+            {
+              "@type": "Offer",
+              name: "Închiriere auto clasa Business",
+              price: "39",
+              priceCurrency: "EUR",
+              eligibleDuration: { "@type": "QuantitativeValue", value: 1, unitCode: "DAY" },
+            },
+            {
+              "@type": "Offer",
+              name: "Închiriere minivan 7 locuri",
+              price: "55",
+              priceCurrency: "EUR",
+              eligibleDuration: { "@type": "QuantitativeValue", value: 1, unitCode: "DAY" },
+            },
+          ],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faq.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
         }),
       },
     ],
