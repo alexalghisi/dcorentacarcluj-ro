@@ -386,11 +386,40 @@ function Index() {
               </article>
             ))}
           </div>
-          <p className="mt-6 text-sm text-muted-foreground">
-            Modelele sunt orientative, în funcție de disponibilitatea din flotă
-            la data rezervării.
-          </p>
+          <div className="mt-12 card-eco p-6 md:p-8">
+            <h3 className="text-lg font-semibold">Mașini disponibile pentru închiriere</h3>
+            <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {cars.map((c) => (
+                <li
+                  key={`${c.model}-${c.year}`}
+                  className="flex items-center justify-between gap-3 border-b border-border pb-3 text-sm"
+                >
+                  <span className="font-semibold">
+                    {c.model} <span className="text-muted-foreground">{c.year}</span>
+                  </span>
+                  <span className="flex shrink-0 items-center gap-3 text-xs text-muted-foreground">
+                    <span className="flex items-center gap-1">
+                      <Fuel className="h-3.5 w-3.5 text-primary" />
+                      {c.fuel}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Settings2 className="h-3.5 w-3.5 text-primary" />
+                      {c.gear}
+                    </span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-5 text-sm text-muted-foreground">
+              Disponibilitatea variază în funcție de perioadă. Sunați la{" "}
+              <a href="tel:+40742925934" className="font-semibold text-primary">
+                (0742) 925 934
+              </a>{" "}
+              pentru mașina și prețul exact.
+            </p>
+          </div>
         </section>
+
 
         {/* Avantaje */}
         <section id="avantaje" className="bg-surface py-20 md:py-28">
