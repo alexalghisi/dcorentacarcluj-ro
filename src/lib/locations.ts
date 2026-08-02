@@ -24,18 +24,18 @@ export const locations: LocationPage[] = [
     city: "Cluj-Napoca",
     navLabel: "Cluj-Napoca",
     h1: "Rent a Car Cluj-Napoca — mașini de închiriat de la 70 lei/zi",
-    metaTitle: "Rent a Car Cluj-Napoca | Mașini de închiriat de la 70 lei/zi, fără garanție",
+    metaTitle: "Rent a Car Cluj-Napoca | Mașini de închiriat de la 70 lei/zi",
     description:
-      "Închirieri auto în Cluj-Napoca fără garanție blocată pe card: de la 70 lei/zi, contract și factură, predare personală. Sună (0742) 925 934.",
+      "Închirieri auto în Cluj-Napoca de la 70 lei/zi, predare personală. Sună (0742) 925 934.",
     keywords:
-      "rent a car cluj napoca, inchirieri auto cluj napoca, masini de inchiriat cluj, inchiriere auto fara garantie cluj",
+      "rent a car cluj napoca, inchirieri auto cluj napoca, masini de inchiriat cluj",
     intro:
-      "Închiriezi mașina direct de la proprietar, fără birou de terminal și fără garanție blocată pe card. Predare stabilită de comun acord pentru clienții din Cluj-Napoca, cu contract și factură emise pe loc.",
+      "Închiriezi mașina direct de la proprietar, fără birou de terminal. Predare stabilită de comun acord pentru clienții din Cluj-Napoca, mașini verificate înainte de predare.",
     highlights: [
       { label: "Tarif de la", value: "70 lei/zi" },
-      { label: "Garanție", value: "0 lei" },
-      { label: "Contract", value: "+ factură" },
       { label: "Predare", value: "Personală" },
+      { label: "Mașini", value: "Verificate" },
+      { label: "Disponibilitate", value: "Rapidă" },
     ],
     sections: [
       {
