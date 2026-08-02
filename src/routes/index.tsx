@@ -544,15 +544,6 @@ function Index() {
                     </span>
                   </span>
                 </div>
-                <div className="flex items-start gap-3 rounded-xl border border-ink-foreground/15 p-4">
-                  <Clock className="mt-0.5 h-5 w-5 text-signal" />
-                  <span>
-                    <span className="block text-xs uppercase tracking-widest text-ink-foreground/60">
-                      Program
-                    </span>
-                    <span className="font-semibold">Luni – Duminică, 08:00 – 20:00</span>
-                  </span>
-                </div>
               </div>
             </div>
 
