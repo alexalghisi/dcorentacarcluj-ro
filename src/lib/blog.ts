@@ -22,18 +22,18 @@ export const posts: BlogPost[] = [
     title: "Închirieri auto în Cluj: ghidul complet pentru 2026",
     metaTitle: "Închirieri auto Cluj 2026: ghid complet, tarife și acte | DCO Rent a Car",
     description:
-      "Ghid practic pentru închirieri auto în Cluj-Napoca și Gilău: tarife reale de la 70 lei/zi, actele necesare, garanție, kilometraj și sfaturi de rezervare.",
+      "Ghid practic pentru închirieri auto în Cluj-Napoca și Gilău: tarife reale de la 70 lei/zi, actele necesare, kilometraj și sfaturi de rezervare.",
     date: "2026-07-12",
     readingMinutes: 6,
     category: "Ghid",
     excerpt:
-      "Cât costă o mașină de închiriat în Cluj, ce acte îți trebuie, cum eviți garanțiile mari și ce trebuie verificat înainte de a semna contractul.",
+      "Cât costă o mașină de închiriat în Cluj, ce acte îți trebuie și ce trebuie verificat înainte de a pleca la drum.",
     sections: [
       {
         heading: "Cât costă închirierea unei mașini în Cluj",
         paragraphs: [
-          "Prețurile pentru închirieri auto în zona Cluj-Napoca variază în funcție de clasă, sezon și durata contractului. La DCO Rent a Car tarifele pornesc de la 70 lei pe zi, iar pentru perioade mai lungi de o săptămână prețul pe zi scade.",
-          "Diferența majoră față de firmele mari din aeroport este garanția: la noi nu se blochează bani pe card, iar predarea se face personal în Gilău, la 12 km de centrul Clujului.",
+          "Prețurile pentru închirieri auto în zona Cluj-Napoca variază în funcție de clasă, sezon și durata închirierii. La DCO Rent a Car tarifele pornesc de la 70 lei pe zi, iar pentru perioade mai lungi de o săptămână prețul pe zi scade.",
+          "Diferența majoră față de firmele mari din aeroport este predarea personală: la noi te întâlnești direct cu proprietarul în Gilău, la 12 km de centrul Clujului, fără birou de terminal.",
         ],
         bullets: [
           "Clasa economică (Škoda Fabia, Renault Clio Symbol): de la 70 lei/zi",
@@ -45,7 +45,7 @@ export const posts: BlogPost[] = [
       {
         heading: "Ce acte îți trebuie",
         paragraphs: [
-          "Pentru a închiria o mașină în Cluj ai nevoie de carte de identitate sau pașaport și de permis de conducere valabil de minimum un an. Se semnează contract de închiriere și se emite factură, inclusiv pentru firme.",
+          "Pentru a închiria o mașină în Cluj ai nevoie de carte de identitate sau pașaport și de permis de conducere valabil de minimum un an. Predarea se face personal în Gilău, iar la cerere putem emite factură.",
         ],
       },
       {
@@ -162,7 +162,7 @@ export const posts: BlogPost[] = [
       {
         heading: "De ce e mai ieftin decât în aeroport",
         paragraphs: [
-          "Firmele cu birou în terminal includ în tarif costul spațiului și taxele de aeroport. Noi predăm mașinile personal în Gilău, fără garanție blocată pe card, iar diferența de preț pe o săptămână poate depăși valoarea a două zile de închiriere.",
+          "Firmele cu birou în terminal includ în tarif costul spațiului și taxele de aeroport. Noi predăm mașinile personal în Gilău, iar diferența de preț pe o săptămână poate depăși valoarea a două zile de închiriere.",
         ],
       },
     ],
