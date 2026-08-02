@@ -161,76 +161,92 @@ export const Route = createFileRoute("/")({
 
 const fleet = [
   {
-    img: carEconomy,
-    name: "Clasa Economy",
-    example: "VW Polo, Skoda Fabia sau similar",
-    price: "de la 22 €/zi",
-    specs: ["4 locuri", "Manuală", "Benzină 5.2 l"],
-  },
-  {
     img: carSedan,
-    name: "Clasa Business",
-    example: "Skoda Octavia, VW Passat sau similar",
-    price: "de la 39 €/zi",
-    specs: ["5 locuri", "Automată", "Diesel 5.8 l"],
+    name: "Automate & confort",
+    example: "Citroën C5 2010 · VW Passat 2008 · Smart 800 cm³",
+    price: "de la 70 lei/zi",
+    specs: ["5 locuri", "Automată", "Diesel"],
   },
   {
     img: carVan,
-    name: "Minivan 7 locuri",
-    example: "VW Touran, Opel Zafira sau similar",
-    price: "de la 55 €/zi",
-    specs: ["7 locuri", "Manuală", "Diesel 6.4 l"],
+    name: "Familie & break",
+    example: "VW Passat 2013 · Ford Focus 2011 / 2009 / 2007 · Volvo S40 2010",
+    price: "de la 70 lei/zi",
+    specs: ["5 locuri", "Manuală", "Diesel"],
   },
+  {
+    img: carEconomy,
+    name: "Economic & oraș",
+    example: "Opel Astra H 2007 · VW Bora 2002 · Renault Mégane 2004 · Smart ForFour 2006",
+    price: "de la 70 lei/zi",
+    specs: ["4-5 locuri", "Manuală", "Diesel / Benzină"],
+  },
+];
+
+const cars = [
+  { model: "Citroën C5", year: "2010", fuel: "Diesel", gear: "Automat" },
+  { model: "VW Passat", year: "2013", fuel: "Diesel", gear: "Manual" },
+  { model: "VW Passat", year: "2008", fuel: "Diesel", gear: "Automat" },
+  { model: "Ford Focus", year: "2011", fuel: "Diesel", gear: "Manual" },
+  { model: "Ford Focus", year: "2009", fuel: "Diesel", gear: "Manual" },
+  { model: "Ford Focus", year: "2007", fuel: "Diesel", gear: "Manual" },
+  { model: "Volvo S40", year: "2010", fuel: "Diesel", gear: "Manual" },
+  { model: "Opel Astra H", year: "2007", fuel: "Diesel", gear: "Manual" },
+  { model: "VW Bora", year: "2002", fuel: "Diesel", gear: "Manual" },
+  { model: "Renault Mégane", year: "2004", fuel: "Diesel", gear: "Manual" },
+  { model: "Smart ForFour", year: "2006", fuel: "Benzină", gear: "Manual" },
+  { model: "Smart 800 cm³", year: "—", fuel: "Diesel", gear: "Automat" },
 ];
 
 const perks = [
   {
-    icon: Plane,
-    title: "Predare la Aeroportul Cluj",
-    text: "Vă așteptăm cu mașina în parcarea aeroportului, la ora aterizării. Predare și retur fără costuri suplimentare.",
+    icon: ShieldCheck,
+    title: "Fără garanție",
+    text: "Nu percepem garanție și nu blocăm sume pe card. Închirierea se face simplu, pe bază de contract.",
   },
   {
     icon: CreditCard,
-    title: "Tarife clare, fără surprize",
-    text: "Prețul include asigurarea RCA, rovinieta și kilometraj nelimitat în România. Fără taxe ascunse la retur.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Garanție mică sau zero",
-    text: "Alegeți pachetul full cover și plecați fără blocarea unei sume mari pe card.",
+    title: "Prețuri de la 70 lei/zi",
+    text: "Tarif negociabil în funcție de mașină și de durata contractuală, cu reducere pentru perioade lungi.",
   },
   {
     icon: BadgeCheck,
-    title: "Mașini verificate",
-    text: "Fiecare auto trece prin service și curățenie completă înainte de fiecare închiriere.",
+    title: "Contract și factură",
+    text: "Se încheie contract de închiriere și se emite factură — potrivit și pentru firme.",
+  },
+  {
+    icon: Car,
+    title: "Mașini în stare perfectă",
+    text: "Toate autoturismele au AC, ITP valabil, rovinietă și asigurare, verificate înainte de predare.",
+  },
+  {
+    icon: MapPin,
+    title: "Predare personală în Gilău",
+    text: "Vă întâmpinăm personal în Gilău, la o oră stabilită împreună. Servim Cluj-Napoca, Florești și Gilău.",
   },
   {
     icon: Clock,
-    title: "Rezervare în 10 minute",
-    text: "Un telefon sau un mesaj și confirmăm disponibilitatea pe loc, inclusiv în weekend.",
-  },
-  {
-    icon: KeyRound,
-    title: "Închirieri lungi",
-    text: "Tarife speciale pentru perioade de peste 7, 30 sau 90 de zile, pentru persoane fizice și firme.",
+    title: "Răspuns rapid",
+    text: "Un telefon sau un mesaj pe WhatsApp și confirmăm disponibilitatea, inclusiv în weekend.",
   },
 ];
 
 const steps = [
-  { n: "01", title: "Alegeți mașina", text: "Ne spuneți perioada și clasa dorită." },
-  { n: "02", title: "Confirmăm", text: "Primiți tariful final și confirmarea rezervării." },
-  { n: "03", title: "Preluați auto", text: "În Gilău, Cluj-Napoca sau la aeroport." },
-  { n: "04", title: "Returnați simplu", text: "Verificare rapidă și eliberarea garanției." },
+  { n: "01", title: "Alegeți mașina", text: "Ne spuneți perioada și modelul dorit din flotă." },
+  { n: "02", title: "Primiți prețul", text: "Tarif final, negociat în funcție de durată." },
+  { n: "03", title: "Contract în Gilău", text: "Predare personală, contract și factură." },
+  { n: "04", title: "Returnați simplu", text: "Verificare rapidă, fără garanție de eliberat." },
 ];
 
 const conditions = [
-  "Vârstă minimă 21 de ani",
   "Permis auto valabil de minimum 1 an",
   "Carte de identitate sau pașaport",
-  "Kilometraj nelimitat în România",
-  "Ieșire din țară pe bază de acord scris",
-  "Plata cash sau card",
+  "Fără garanție",
+  "Contract de închiriere și factură",
+  "Preț în funcție de mașină și perioadă",
+  "Predare personală în Gilău",
 ];
+
 
 function Index() {
   return (
