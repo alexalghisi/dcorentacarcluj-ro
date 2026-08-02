@@ -117,22 +117,6 @@ export const Route = createFileRoute("/")({
             { "@type": "City", name: "Gilău" },
             { "@type": "AdministrativeArea", name: "Județul Cluj" },
           ],
-          openingHoursSpecification: [
-            {
-              "@type": "OpeningHoursSpecification",
-              dayOfWeek: [
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday",
-                "Sunday",
-              ],
-              opens: "08:00",
-              closes: "20:00",
-            },
-          ],
           makesOffer: [
             {
               "@type": "Offer",
