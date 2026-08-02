@@ -201,6 +201,7 @@ const cars = [
   { model: "VW Bora", year: "2002", fuel: "Diesel", gear: "Manual" },
   { model: "Renault Mégane", year: "2004", fuel: "Diesel", gear: "Manual" },
   { model: "Smart ForFour", year: "2006", fuel: "Benzină", gear: "Manual" },
+  { model: "Škoda Fabia", year: "2012", fuel: "Benzină", gear: "Manual" },
   { model: "Smart 800 cm³", year: "—", fuel: "Diesel", gear: "Automat" },
 ];
 
