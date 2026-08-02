@@ -167,7 +167,7 @@ function Index() {
               Contact
             </a>
           </nav>
-          <a href="tel:+40700000000" className="btn-base btn-primary px-5 py-2.5 text-sm">
+          <a href="tel:+40742925934" className="btn-base btn-primary px-5 py-2.5 text-sm">
             <Phone className="h-4 w-4" /> Rezervă
           </a>
         </div>
