@@ -247,10 +247,10 @@ const steps = [
 const conditions = [
   "Permis auto valabil de minimum 1 an",
   "Carte de identitate sau pașaport",
-  "Fără garanție",
-  "Contract de închiriere și factură",
   "Preț în funcție de mașină și perioadă",
   "Predare personală în Gilău",
+  "Mașini verificate înainte de predare",
+  "Asistență telefonică rapidă",
 ];
 
 
@@ -320,13 +320,13 @@ function Index() {
           <div className="relative mx-auto max-w-6xl px-5 py-24 md:py-32">
             <p className="eyebrow text-signal">Cluj · Gilău · Florești</p>
             <h1 className="mt-4 max-w-3xl font-display text-4xl font-extrabold leading-[1.05] text-ink-foreground md:text-6xl">
-              Mașini de închiriat în Cluj de la 70 lei/zi, fără garanție.
+              Mașini de închiriat în Cluj de la 70 lei/zi.
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-foreground/80 md:text-lg">
               DCO Rent a Car închiriază autoturisme în stare perfectă de
-              funcționare, cu AC, ITP, rovinietă și asigurare. Contract și
-              factură, predare personală în Gilău. Prețuri negociabile în
-              funcție de mașină și de durata contractului.
+              funcționare, cu AC, ITP, rovinietă și asigurare. Predare personală
+              în Gilău, mașini verificate înainte de predare. Prețuri negociabile
+              în funcție de mașina aleasă și de durata închirierii.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <a href="#contact" className="btn-base btn-signal">
@@ -339,8 +339,8 @@ function Index() {
             <dl className="mt-14 grid max-w-2xl grid-cols-2 gap-6 border-t border-ink-foreground/15 pt-8 md:grid-cols-4">
               {[
                 ["70 lei", "tarif de la / zi"],
-                ["0 lei", "garanție"],
-                ["Contract", "și factură"],
+                ["8 mașini", "în flotă"],
+                ["ITP + RCA", "incluse"],
                 ["Gilău", "predare personală"],
               ].map(([big, small]) => (
                 <div key={small}>
