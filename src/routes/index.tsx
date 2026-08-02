@@ -284,9 +284,11 @@ function Index() {
         <section className="relative isolate overflow-hidden">
           <img
             src={heroCar}
-            alt="Mașină de închiriat pe un drum din județul Cluj la apus"
+            alt="Mașină de închiriat de la DCO Rent a Car pe un drum din județul Cluj la apus"
             width={1600}
             height={1008}
+            fetchPriority="high"
+            decoding="async"
             className="absolute inset-0 h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-[linear-gradient(100deg,oklch(0.17_0.03_262/0.95)_0%,oklch(0.2_0.05_262/0.85)_52%,oklch(0.2_0.05_262/0.3)_100%)]" />
@@ -432,6 +434,29 @@ function Index() {
             </ul>
           </div>
         </section>
+
+        {/* FAQ */}
+        <section id="intrebari" className="bg-surface py-20 md:py-28">
+          <div className="mx-auto max-w-3xl px-5">
+            <p className="eyebrow">Întrebări frecvente</p>
+            <h2 className="mt-3 text-3xl font-bold md:text-4xl">
+              Tot ce trebuie să știți despre închirierea unei mașini în Cluj
+            </h2>
+            <div className="mt-10 divide-y divide-border">
+              {faq.map((f) => (
+                <details key={f.q} className="group py-5">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold">
+                    <h3 className="text-base font-semibold">{f.q}</h3>
+                    <ArrowRight className="h-4 w-4 shrink-0 text-primary transition-transform group-open:rotate-90" />
+                  </summary>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+
 
         {/* Contact */}
         <section id="contact" className="surface-ink">
