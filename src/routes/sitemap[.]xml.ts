@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { posts } from "@/lib/blog";
+import { locations } from "@/lib/locations";
 
 const BASE_URL = "https://dcorentacarcluj.ro";
 
