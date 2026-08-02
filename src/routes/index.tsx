@@ -303,14 +303,15 @@ function Index() {
           />
           <div className="absolute inset-0 bg-[linear-gradient(100deg,oklch(0.17_0.03_262/0.95)_0%,oklch(0.2_0.05_262/0.85)_52%,oklch(0.2_0.05_262/0.3)_100%)]" />
           <div className="relative mx-auto max-w-6xl px-5 py-24 md:py-32">
-            <p className="eyebrow text-signal">Închirieri auto în județul Cluj</p>
+            <p className="eyebrow text-signal">Cluj · Gilău · Florești</p>
             <h1 className="mt-4 max-w-3xl font-display text-4xl font-extrabold leading-[1.05] text-ink-foreground md:text-6xl">
-              Mașina potrivită, pregătită de plecare când aterizați în Cluj.
+              Mașini de închiriat în Cluj de la 70 lei/zi, fără garanție.
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-foreground/80 md:text-lg">
-              DCO Rent a Car Cluj închiriază mașini verificate, cu tarife clare
-              și kilometraj nelimitat. Predare în Gilău, Cluj-Napoca sau direct
-              la Aeroportul Internațional Cluj.
+              DCO Rent a Car închiriază autoturisme în stare perfectă de
+              funcționare, cu AC, ITP, rovinietă și asigurare. Contract și
+              factură, predare personală în Gilău. Prețuri negociabile în
+              funcție de mașină și de durata contractului.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <a href="#contact" className="btn-base btn-signal">
@@ -322,10 +323,10 @@ function Index() {
             </div>
             <dl className="mt-14 grid max-w-2xl grid-cols-2 gap-6 border-t border-ink-foreground/15 pt-8 md:grid-cols-4">
               {[
-                ["22 €", "tarif de la / zi"],
-                ["0 km", "limită de rulaj"],
-                ["24/7", "predare la aeroport"],
-                ["10 min", "confirmare rezervare"],
+                ["70 lei", "tarif de la / zi"],
+                ["0 lei", "garanție"],
+                ["12", "mașini în flotă"],
+                ["Gilău", "predare personală"],
               ].map(([big, small]) => (
                 <div key={small}>
                   <dt className="font-display text-2xl font-bold text-ink-foreground">
@@ -342,8 +343,9 @@ function Index() {
         <section id="flota" className="mx-auto max-w-6xl px-5 py-20 md:py-28">
           <p className="eyebrow">Flota</p>
           <h2 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">
-            Trei clase care acoperă orice drum din Transilvania
+            12 mașini disponibile, manuale și automate
           </h2>
+
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {fleet.map((c) => (
               <article key={c.name} className="card-eco overflow-hidden">
