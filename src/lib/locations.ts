@@ -112,7 +112,7 @@ export const locations: LocationPage[] = [
         ],
         bullets: [
           "Predare și preluare în Gilău, fără taxă de livrare",
-          "Program flexibil, stabilit prin telefon",
+          "Ora predării o stabilim împreună, telefonic",
           "Tarife reduse pentru închirieri lunare",
           "Asistență rapidă în zonă",
         ],
