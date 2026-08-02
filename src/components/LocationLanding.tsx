@@ -1,11 +1,20 @@
 import { Link } from "@tanstack/react-router";
-import { Car, Phone, Mail, MapPin, Check, ArrowRight, ArrowLeft } from "lucide-react";
+import { Car, Phone, Mail, MapPin, Check, ArrowRight, ArrowLeft, MessageCircle } from "lucide-react";
 
 import type { LocationPage } from "@/lib/locations";
 import { locations } from "@/lib/locations";
 
+const PHONE_HREF = "tel:+40742925934";
+
+function waLink(city: string) {
+  const text = `Bună ziua! Vreau să închiriez o mașină (${city}). Perioada dorită: `;
+  return `https://wa.me/40742925934?text=${encodeURIComponent(text)}`;
+}
+
 export function LocationLanding({ page }: { page: LocationPage }) {
   const others = locations.filter((l) => l.slug !== page.slug);
+  const whatsapp = waLink(page.city);
+
 
   return (
     <div className="min-h-screen bg-background">
@@ -22,9 +31,22 @@ export function LocationLanding({ page }: { page: LocationPage }) {
               </span>
             </span>
           </Link>
-          <a href="tel:+40742925934" className="btn-base btn-primary px-5 py-2.5 text-sm">
-            <Phone className="h-4 w-4" /> (0742) 925 934
-          </a>
+          <div className="flex items-center gap-2">
+            <a
+              href={whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Scrie pe WhatsApp"
+              className="btn-base btn-outline-ink px-4 py-2.5 text-sm"
+            >
+              <MessageCircle className="h-4 w-4" /> <span className="hidden sm:inline">WhatsApp</span>
+            </a>
+            <a href={PHONE_HREF} className="btn-base btn-primary px-5 py-2.5 text-sm">
+              <Phone className="h-4 w-4" /> <span className="hidden sm:inline">(0742) 925 934</span>
+              <span className="sm:hidden">Sună</span>
+            </a>
+          </div>
+
         </div>
       </header>
 
@@ -57,13 +79,17 @@ export function LocationLanding({ page }: { page: LocationPage }) {
             </div>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <a href="tel:+40742925934" className="btn-base btn-signal">
+              <a href={PHONE_HREF} className="btn-base btn-primary">
                 <Phone className="h-4 w-4" /> Sună acum
+              </a>
+              <a href={whatsapp} target="_blank" rel="noopener noreferrer" className="btn-base btn-signal">
+                <MessageCircle className="h-4 w-4" /> WhatsApp
               </a>
               <Link to="/" hash="contact" className="btn-base btn-outline-ink">
                 Cere o ofertă <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
+
           </div>
         </section>
 
@@ -100,8 +126,11 @@ export function LocationLanding({ page }: { page: LocationPage }) {
               garanție blocată pe card.
             </p>
             <div className="mt-5 flex flex-wrap gap-3">
-              <a href="tel:+40742925934" className="btn-base btn-primary">
+              <a href={PHONE_HREF} className="btn-base btn-primary">
                 <Phone className="h-4 w-4" /> (0742) 925 934
+              </a>
+              <a href={whatsapp} target="_blank" rel="noopener noreferrer" className="btn-base btn-signal">
+                <MessageCircle className="h-4 w-4" /> Scrie pe WhatsApp
               </a>
               <a href="mailto:Ovidiu_danciu@yahoo.com" className="btn-base btn-outline-ink">
                 <Mail className="h-4 w-4" /> Ovidiu_danciu@yahoo.com
@@ -110,6 +139,7 @@ export function LocationLanding({ page }: { page: LocationPage }) {
                 Formular de rezervare <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
+
           </div>
 
           <div className="mt-12">
@@ -143,13 +173,29 @@ export function LocationLanding({ page }: { page: LocationPage }) {
         </section>
       </main>
 
-      <footer className="border-t border-border bg-background">
+      <footer className="border-t border-border bg-background pb-20 md:pb-0">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-5 py-8 text-sm text-muted-foreground md:flex-row md:items-center md:justify-between">
           <p className="font-semibold text-foreground">DCO RENT A CAR CLUJ</p>
           <p>Gilău · Cluj-Napoca · Florești</p>
           <p>© {new Date().getFullYear()} Toate drepturile rezervate.</p>
         </div>
       </footer>
+
+      {/* Bară fixă mobil: sună + WhatsApp */}
+      <div className="fixed inset-x-0 bottom-0 z-50 grid grid-cols-2 gap-2 border-t border-border bg-background/95 p-3 backdrop-blur md:hidden">
+        <a href={PHONE_HREF} className="btn-base btn-primary w-full justify-center py-3">
+          <Phone className="h-4 w-4" /> Sună
+        </a>
+        <a
+          href={whatsapp}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-base btn-signal w-full justify-center py-3"
+        >
+          <MessageCircle className="h-4 w-4" /> WhatsApp
+        </a>
+      </div>
+
     </div>
   );
 }
