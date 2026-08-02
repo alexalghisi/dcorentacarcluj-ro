@@ -19,6 +19,10 @@ import carPassat from "@/assets/car-passat.jpg";
 import carC5 from "@/assets/car-c5.jpg";
 import carFocus from "@/assets/car-focus.jpg";
 import carFabia from "@/assets/car-fabia.jpg";
+import carClio from "@/assets/car-clio.jpg";
+import carVolvoS40 from "@/assets/car-volvo-s40.jpg";
+import carVolvoS40Grey from "@/assets/car-volvo-s40-grey.jpg";
+import carXc90 from "@/assets/car-xc90.jpg";
 
 const SITE = "https://dcorentacarcluj.ro";
 const TITLE = "Rent a Car Cluj, Gilău & Florești | Mașini de închiriat de la 70 lei/zi";
