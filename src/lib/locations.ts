@@ -76,12 +76,12 @@ export const locations: LocationPage[] = [
         a: "Tarifele pornesc de la 70 lei pe zi pentru clasa economică. Pentru închirieri de peste 7 zile prețul pe zi scade.",
       },
       {
-        q: "Trebuie card de credit sau garanție?",
-        a: "Nu. Nu blocăm garanție pe card. Ai nevoie doar de buletin sau pașaport și permis valabil de minimum un an.",
+        q: "Ce acte îmi trebuie?",
+        a: "Ai nevoie doar de buletin sau pașaport și permis valabil de minimum un an.",
       },
       {
         q: "Pot închiria mașina pe firmă?",
-        a: "Da, emitem factură pe firmă și semnăm contract de închiriere.",
+        a: "Da, putem emite factură pe firmă la cerere.",
       },
     ],
   },
