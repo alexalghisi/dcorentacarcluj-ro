@@ -542,7 +542,7 @@ function Index() {
                       Punct de predare
                     </span>
                     <span className="font-semibold">
-                      Gilău, Cluj · Aeroport Cluj
+                      Gilău, județul Cluj (predare personală)
                     </span>
                   </span>
                 </div>
@@ -604,7 +604,7 @@ function Index() {
                   <textarea
                     rows={3}
                     className="mt-1.5 w-full resize-none rounded-lg border border-input bg-background px-3.5 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-ring/25"
-                    placeholder="Ex: minivan 7 locuri, preluare de la Aeroport Cluj la 21:30"
+                    placeholder="Ex: VW Passat automat, preluare din Gilău la 18:00, 5 zile"
                   />
                 </label>
               </div>
@@ -622,7 +622,7 @@ function Index() {
       <footer className="border-t border-border bg-background">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-5 py-8 text-sm text-muted-foreground md:flex-row md:items-center md:justify-between">
           <p className="font-semibold text-foreground">DCO RENT A CAR CLUJ</p>
-          <p>Gilău · Cluj-Napoca · Aeroport Internațional Cluj</p>
+          <p>Gilău · Cluj-Napoca · Florești</p>
           <p>© {new Date().getFullYear()} Toate drepturile rezervate.</p>
         </div>
       </footer>
