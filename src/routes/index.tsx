@@ -332,7 +332,7 @@ function Index() {
               {[
                 ["70 lei", "tarif de la / zi"],
                 ["0 lei", "garanție"],
-                ["12", "mașini în flotă"],
+                ["13", "mașini în flotă"],
                 ["Gilău", "predare personală"],
               ].map(([big, small]) => (
                 <div key={small}>
@@ -350,7 +350,7 @@ function Index() {
         <section id="flota" className="mx-auto max-w-6xl px-5 py-20 md:py-28">
           <p className="eyebrow">Flota</p>
           <h2 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">
-            12 mașini disponibile, manuale și automate
+            13 mașini disponibile, manuale și automate
           </h2>
 
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
