@@ -1,9 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
   Car,
-  KeyRound,
   ShieldCheck,
-  Plane,
   CreditCard,
   Clock,
   Phone,
