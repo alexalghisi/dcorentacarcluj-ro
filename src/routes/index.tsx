@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Car,
   ShieldCheck,
@@ -286,6 +286,9 @@ function Index() {
             <a className="transition-colors hover:text-foreground" href="#intrebari">
               Întrebări
             </a>
+            <Link className="transition-colors hover:text-foreground" to="/blog">
+              Blog
+            </Link>
             <a className="transition-colors hover:text-foreground" href="#contact">
               Contact
             </a>
