@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Car,
@@ -601,5 +602,122 @@ function Index() {
         </div>
       </footer>
     </div>
+  );
+}
+
+const FIELD_CLASS =
+  "mt-1.5 w-full rounded-lg border border-input bg-background px-3.5 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-ring/25";
+
+function BookingForm() {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [pickup, setPickup] = useState("");
+  const [ret, setRet] = useState("");
+  const [details, setDetails] = useState("");
+  const [sent, setSent] = useState(false);
+
+  const message = [
+    "Cerere de rezervare — DCO Rent a Car",
+    `Nume / firmă: ${name}`,
+    `Telefon: ${phone}`,
+    `Preluare: ${pickup || "—"}`,
+    `Retur: ${ret || "—"}`,
+    `Detalii: ${details || "—"}`,
+  ].join("\n");
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    window.open(
+      `https://wa.me/40742925934?text=${encodeURIComponent(message)}`,
+      "_blank",
+      "noopener,noreferrer",
+    );
+    setSent(true);
+  }
+
+  const mailto = `mailto:Ovidiu_danciu@yahoo.com?subject=${encodeURIComponent(
+    "Cerere de rezervare — DCO Rent a Car",
+  )}&body=${encodeURIComponent(message)}`;
+
+  return (
+    <form
+      className="rounded-2xl bg-card p-6 text-card-foreground shadow-[var(--shadow-lift)]"
+      onSubmit={handleSubmit}
+    >
+      <h3 className="text-lg font-semibold">Cerere de rezervare</h3>
+      <p className="mt-1 text-sm text-muted-foreground">
+        Completați datele și vă confirmăm disponibilitatea.
+      </p>
+      <div className="mt-5 space-y-4">
+        <label className="block">
+          <span className="text-sm font-medium">Nume / firmă</span>
+          <input
+            type="text"
+            required
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className={FIELD_CLASS}
+          />
+        </label>
+        <label className="block">
+          <span className="text-sm font-medium">Telefon</span>
+          <input
+            type="tel"
+            required
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            className={FIELD_CLASS}
+          />
+        </label>
+        <div className="grid gap-4 sm:grid-cols-2">
+          <label className="block">
+            <span className="text-sm font-medium">Preluare</span>
+            <input
+              type="date"
+              value={pickup}
+              onChange={(e) => setPickup(e.target.value)}
+              className={FIELD_CLASS}
+            />
+          </label>
+          <label className="block">
+            <span className="text-sm font-medium">Retur</span>
+            <input
+              type="date"
+              value={ret}
+              onChange={(e) => setRet(e.target.value)}
+              className={FIELD_CLASS}
+            />
+          </label>
+        </div>
+        <label className="block">
+          <span className="text-sm font-medium">Clasa dorită / detalii</span>
+          <textarea
+            rows={3}
+            value={details}
+            onChange={(e) => setDetails(e.target.value)}
+            className={`${FIELD_CLASS} resize-none`}
+            placeholder="Ex: VW Passat automat, preluare din Gilău la 18:00, 5 zile"
+          />
+        </label>
+      </div>
+      <button type="submit" className="btn-base btn-primary mt-6 w-full">
+        Trimite cererea pe WhatsApp
+      </button>
+      <a href={mailto} className="btn-base btn-outline-ink mt-3 w-full justify-center">
+        <Mail className="h-4 w-4" /> Trimite pe e-mail
+      </a>
+      {sent ? (
+        <p className="mt-3 rounded-lg bg-primary/10 px-3 py-2 text-xs font-medium text-foreground">
+          Cererea a fost pregătită în WhatsApp. Dacă nu s-a deschis, folosiți butonul de e-mail sau
+          sunați direct.
+        </p>
+      ) : null}
+      <p className="mt-3 text-xs text-muted-foreground">
+        Sau apelați direct:{" "}
+        <a href="tel:+40742925934" className="underline">
+          (0742) 925 934
+        </a>
+      </p>
+    </form>
   );
 }
