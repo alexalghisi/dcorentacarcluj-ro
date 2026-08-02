@@ -132,7 +132,7 @@ export const locations: LocationPage[] = [
       {
         heading: "Ce mașini sunt disponibile",
         paragraphs: [
-          "Flota include 13 autoturisme: variante automate (Citroën C5, VW Passat), break-uri spațioase (Ford Focus, VW Passat), berline economice (Volvo S40, Opel Astra H, VW Bora, Renault Mégane) și mașini mici (Škoda Fabia, Smart ForFour).",
+          "Flota include variantă automată (Citroën C5), break-uri spațioase (VW Passat, Ford Focus) și o mașină mică, economică (Škoda Fabia). Sunați pentru disponibilitate în perioada dorită.",
         ],
       },
     ],
