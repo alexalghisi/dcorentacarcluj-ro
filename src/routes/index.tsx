@@ -63,8 +63,9 @@ export const Route = createFileRoute("/")({
       {
         name: "keywords",
         content:
-          "rent a car cluj, inchirieri auto cluj, inchirieri auto gilau, rent a car aeroport cluj, masini de inchiriat cluj napoca",
+          "rent a car cluj, inchirieri auto cluj, masini de inchiriat cluj, rent a car gilau, rent a car floresti, inchirieri auto ieftine cluj, masini de inchiriat fara garantie",
       },
+
       { name: "robots", content: "index, follow, max-image-preview:large" },
       { name: "author", content: "DCO Rent a Car Cluj" },
       { name: "geo.region", content: "RO-CJ" },
