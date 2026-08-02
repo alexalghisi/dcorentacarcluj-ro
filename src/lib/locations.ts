@@ -132,7 +132,7 @@ export const locations: LocationPage[] = [
       {
         heading: "Ce mașini sunt disponibile",
         paragraphs: [
-          "Flota include variantă automată (Citroën C5), break-uri spațioase (VW Passat, Ford Focus) și o mașină mică, economică (Škoda Fabia). Sunați pentru disponibilitate în perioada dorită.",
+          "Flota include variantă automată (Citroën C5), break-uri spațioase (VW Passat, Ford Focus), berline Volvo S40, mașini mici și economice (Škoda Fabia, Renault Clio Symbol) și un Volvo XC90 cu 7 locuri. Sunați pentru disponibilitate în perioada dorită.",
         ],
       },
     ],
