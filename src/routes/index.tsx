@@ -300,7 +300,7 @@ function Index() {
         <section className="relative isolate overflow-hidden">
           <img
             src={heroCar}
-            alt="Mașină de închiriat de la DCO Rent a Car pe un drum din județul Cluj la apus"
+            alt="Flota DCO Rent a Car în Gilău, Cluj: Citroën C5, Volvo S40, Renault Mégane pregătite pentru închiriere"
             width={1600}
             height={1008}
             fetchPriority="high"
