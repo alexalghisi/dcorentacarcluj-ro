@@ -107,7 +107,7 @@ export const locations: LocationPage[] = [
       {
         heading: "Avantajul unei firme locale din Gilău",
         paragraphs: [
-          "Fiind din Gilău, putem preda mașina și în afara programului obișnuit, iar dacă apare o problemă pe drum ajungem repede. Deservim constant Gilău, Florești, Luna de Sus, Someșu Rece și Căpușu Mare.",
+          "Fiind din Gilău, putem preda mașina și în afara orelor obișnuite, iar dacă apare o problemă pe drum ajungem repede. Deservim constant Gilău, Florești, Luna de Sus, Someșu Rece și Căpușu Mare.",
           "Pentru localnici, închirierea pe termen mediu (o lună sau mai mult) are tarif special — util cât timp mașina personală e în service sau când ai nevoie de un al doilea autoturism în familie.",
         ],
         bullets: [
