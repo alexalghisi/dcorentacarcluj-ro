@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Car,
@@ -625,7 +625,7 @@ function BookingForm() {
     `Detalii: ${details || "—"}`,
   ].join("\n");
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     window.open(
       `https://wa.me/40742925934?text=${encodeURIComponent(message)}`,
