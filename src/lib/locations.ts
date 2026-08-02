@@ -34,7 +34,7 @@ export const locations: LocationPage[] = [
     highlights: [
       { label: "Tarif de la", value: "70 lei/zi" },
       { label: "Garanție", value: "0 lei" },
-      { label: "Mașini în flotă", value: "13" },
+      { label: "Contract", value: "+ factură" },
       { label: "Predare", value: "Personală" },
     ],
     sections: [
