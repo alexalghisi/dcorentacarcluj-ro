@@ -42,7 +42,7 @@ export const locations: LocationPage[] = [
         heading: "De ce să închiriezi de la noi în Cluj-Napoca",
         paragraphs: [
           "Firmele mari din Cluj-Napoca cer de obicei o garanție de câteva mii de lei blocată pe cardul de credit și percep taxe suplimentare pentru al doilea șofer sau pentru predarea în afara programului. La noi nu se blochează bani, iar programul îl stabilim împreună.",
-          "Flota este alcătuită din mașini întreținute, cu consum mic, potrivite atât pentru oraș, cât și pentru drumuri lungi: Citroën C5 automat, VW Passat break, Ford Focus break și Škoda Fabia pentru parcări strâmte în centru.",
+          "Flota este alcătuită din mașini întreținute, cu consum mic, potrivite atât pentru oraș, cât și pentru drumuri lungi: Škoda Fabia și Renault Clio Symbol pentru parcări strâmte în centru, Ford Focus break și VW Passat break pentru bagaje, Volvo S40, Citroën C5 automat și Volvo XC90 cu 7 locuri.",
         ],
         bullets: [
           "Fără garanție și fără card de credit",
@@ -132,7 +132,7 @@ export const locations: LocationPage[] = [
       {
         heading: "Ce mașini sunt disponibile",
         paragraphs: [
-          "Flota include variantă automată (Citroën C5), break-uri spațioase (VW Passat, Ford Focus) și o mașină mică, economică (Škoda Fabia). Sunați pentru disponibilitate în perioada dorită.",
+          "Flota include variantă automată (Citroën C5), break-uri spațioase (VW Passat, Ford Focus), berline Volvo S40, mașini mici și economice (Škoda Fabia, Renault Clio Symbol) și un Volvo XC90 cu 7 locuri. Sunați pentru disponibilitate în perioada dorită.",
         ],
       },
     ],
