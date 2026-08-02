@@ -22,36 +22,37 @@ import carSedan from "@/assets/car-sedan.jpg";
 import carVan from "@/assets/car-van.jpg";
 
 const SITE = "https://dcorentacarcluj.ro";
-const TITLE = "Rent a Car Cluj & Gilău | Închirieri auto Aeroport Cluj – DCO";
+const TITLE = "Rent a Car Cluj, Gilău & Florești | Mașini de închiriat de la 70 lei/zi";
 const DESCRIPTION =
-  "Închirieri auto Cluj de la 22 €/zi: predare gratuită la Aeroportul Cluj, Gilău și Cluj-Napoca. Kilometraj nelimitat, garanție mică, rezervare în 10 minute.";
+  "Închiriez mașini în Cluj, Gilău și Florești de la 70 lei/zi, fără garanție. Predare personală în Gilău, contract și factură, ITP, RCA, rovinietă și AC incluse.";
 
 const faq = [
   {
-    q: "Cât costă închirierea unei mașini în Cluj?",
-    a: "Tarifele DCO Rent a Car pornesc de la 22 €/zi pentru clasa economy, 39 €/zi pentru clasa business și 55 €/zi pentru minivanul de 7 locuri. Prețul include RCA, rovinieta și kilometraj nelimitat în România.",
+    q: "Cât costă închirierea unei mașini în Cluj sau Gilău?",
+    a: "Prețurile pornesc de la 70 lei/zi și sunt negociabile în funcție de mașina aleasă și de durata contractului. Pentru perioade mai lungi oferim reducere.",
   },
   {
-    q: "Pot ridica mașina de la Aeroportul Internațional Cluj?",
-    a: "Da. Predăm și preluăm mașina în parcarea Aeroportului Cluj la ora aterizării sau a plecării, fără costuri suplimentare, 24/7.",
+    q: "Se percepe garanție?",
+    a: "Nu percepem garanție. Închirierea se face pe bază de contract, fără blocarea unei sume pe card.",
+  },
+  {
+    q: "Ce mașini sunt disponibile?",
+    a: "Flota include Citroën C5 2010 automat, VW Passat 2008 automat și 2013 manual, Ford Focus 2011, 2009 și 2007, Volvo S40 2010, Opel Astra H 2007, VW Bora 2002, Renault Mégane 2004 și Smart ForFour 2006. Toate au ITP, RCA, rovinietă și aer condiționat.",
   },
   {
     q: "Ce documente sunt necesare pentru închiriere?",
-    a: "Aveți nevoie de permis de conducere valabil de minimum 1 an, carte de identitate sau pașaport și vârsta minimă de 21 de ani.",
+    a: "Permis de conducere valabil de minimum 1 an și carte de identitate sau pașaport. Se încheie contract de închiriere și se oferă factură.",
   },
   {
-    q: "Cât este garanția?",
-    a: "Garanția este mică, iar cu pachetul full cover puteți închiria fără blocarea unei sume pe card.",
+    q: "De unde se preia mașina?",
+    a: "Predarea se face personal în Gilău, județul Cluj, la o oră stabilită împreună. Servim clienți din Cluj-Napoca, Florești și Gilău.",
   },
   {
-    q: "Pot ieși din țară cu mașina închiriată?",
-    a: "Da, pe baza unui acord scris solicitat înainte de plecare. Vă pregătim documentele necesare pentru trecerea frontierei.",
-  },
-  {
-    q: "Cum rezerv o mașină în Gilău sau Cluj-Napoca?",
-    a: "Ne sunați la (0742) 925 934, ne scrieți pe WhatsApp sau completați formularul de pe site. Confirmăm disponibilitatea în aproximativ 10 minute.",
+    q: "Cum rezerv o mașină?",
+    a: "Sunați la (0742) 925 934, scrieți pe WhatsApp sau completați formularul de pe site. Confirmăm disponibilitatea rapid, inclusiv în weekend.",
   },
 ];
+
 
 export const Route = createFileRoute("/")({
   component: Index,
