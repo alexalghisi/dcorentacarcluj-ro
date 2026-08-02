@@ -77,11 +77,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "DCO Rent a Car Cluj — Închirieri auto Gilău & Aeroport Cluj" },
+      { title: "DCO Rent a Car Cluj — Mașini de închiriat Gilău & Florești" },
       {
         name: "description",
         content:
-          "Închirieri auto în Gilău, Cluj-Napoca și la Aeroportul Cluj: flotă verificată, tarife clare, kilometraj nelimitat.",
+          "Mașini de închiriat în Cluj, Gilău și Florești de la 70 lei/zi, fără garanție. Contract și factură, predare personală în Gilău.",
       },
       { property: "og:site_name", content: "DCO Rent a Car Cluj" },
       { property: "og:type", content: "website" },
