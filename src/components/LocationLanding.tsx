@@ -1,11 +1,20 @@
 import { Link } from "@tanstack/react-router";
-import { Car, Phone, Mail, MapPin, Check, ArrowRight, ArrowLeft } from "lucide-react";
+import { Car, Phone, Mail, MapPin, Check, ArrowRight, ArrowLeft, MessageCircle } from "lucide-react";
 
 import type { LocationPage } from "@/lib/locations";
 import { locations } from "@/lib/locations";
 
+const PHONE_HREF = "tel:+40742925934";
+
+function waLink(city: string) {
+  const text = `Bună ziua! Vreau să închiriez o mașină (${city}). Perioada dorită: `;
+  return `https://wa.me/40742925934?text=${encodeURIComponent(text)}`;
+}
+
 export function LocationLanding({ page }: { page: LocationPage }) {
   const others = locations.filter((l) => l.slug !== page.slug);
+  const whatsapp = waLink(page.city);
+
 
   return (
     <div className="min-h-screen bg-background">
