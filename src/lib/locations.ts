@@ -92,11 +92,11 @@ export const locations: LocationPage[] = [
     h1: "Rent a Car Gilău — închirieri auto local, predare pe loc",
     metaTitle: "Rent a Car Gilău | Închirieri auto de la 70 lei/zi, predare în Gilău",
     description:
-      "Închirieri auto în Gilău: bază locală, predare personală pe loc, tarife de la 70 lei/zi, fără garanție. Deservim și Florești, Luna de Sus și Someșu Rece.",
+      "Închirieri auto în Gilău: bază locală, predare personală pe loc, tarife de la 70 lei/zi. Deservim și Florești, Luna de Sus și Someșu Rece.",
     keywords:
       "rent a car gilau, inchirieri auto gilau, masini de inchiriat gilau, inchiriere auto floresti cluj",
     intro:
-      "Baza noastră este în Gilău, așa că preluarea mașinii se face rapid, direct de la fața locului, fără drum până în centrul Clujului și fără garanție blocată pe card.",
+      "Baza noastră este în Gilău, așa că preluarea mașinii se face rapid, direct de la fața locului, fără drum până în centrul Clujului.",
     highlights: [
       { label: "Bază", value: "Gilău" },
       { label: "Tarif de la", value: "70 lei/zi" },
@@ -156,18 +156,18 @@ export const locations: LocationPage[] = [
     city: "Aeroport Cluj",
     navLabel: "Aeroport Cluj",
     h1: "Rent a Car Aeroport Cluj — mașină pregătită la aterizare",
-    metaTitle: "Rent a Car Aeroport Cluj | Mașini de închiriat de la 70 lei/zi, fără garanție",
+    metaTitle: "Rent a Car Aeroport Cluj | Mașini de închiriat de la 70 lei/zi",
     description:
-      "Închirieri auto pentru pasagerii Aeroportului Cluj: mașină pregătită la aterizare, fără garanție pe card, de la 70 lei/zi. Aeroport – Gilău în ~35 de minute.",
+      "Închirieri auto pentru pasagerii Aeroportului Cluj: mașină pregătită la aterizare, de la 70 lei/zi. Aeroport – Gilău în ~35 de minute.",
     keywords:
       "rent a car aeroport cluj, inchirieri auto aeroport cluj, masina de inchiriat aeroport cluj napoca",
     intro:
-      "Vii cu avionul în Cluj? Pregătim mașina pentru ziua și ora aterizării, cu tarife mai mici decât la ghișeele din terminal, pentru că nu plătim spațiu în aeroport și nu blocăm garanție pe card.",
+      "Vii cu avionul în Cluj? Pregătim mașina pentru ziua și ora aterizării, cu tarife mai mici decât la ghișeele din terminal, pentru că nu plătim spațiu în aeroport.",
     highlights: [
       { label: "Aeroport – Gilău", value: "~35 min" },
       { label: "Distanță", value: "25 km" },
       { label: "Tarif de la", value: "70 lei/zi" },
-      { label: "Garanție", value: "0 lei" },
+      { label: "Predare", value: "Personală" },
     ],
     sections: [
       {
@@ -178,8 +178,8 @@ export const locations: LocationPage[] = [
         ],
         bullets: [
           "Confirmăm disponibilitatea în funcție de ora aterizării",
-          "Fără taxe de aeroport și fără garanție pe card",
-          "Contract și factură la predare",
+          "Fără taxe de aeroport",
+          "Predare personală în Gilău",
           "Rovinietă inclusă, kilometraj generos",
         ],
       },
