@@ -36,7 +36,7 @@ const faq = [
   },
   {
     q: "Ce mașini sunt disponibile?",
-    a: "Flota include Citroën C5 2010 automat, VW Passat 2008 automat și 2013 manual, Ford Focus 2011, 2009 și 2007, Volvo S40 2010, Opel Astra H 2007, VW Bora 2002, Renault Mégane 2004 și Smart ForFour 2006. Toate au ITP, RCA, rovinietă și aer condiționat.",
+    a: "Flota include Citroën C5 2010 automat, VW Passat break 2013, Ford Focus break și Škoda Fabia. Toate au ITP, RCA, rovinietă și aer condiționat. Sunați pentru disponibilitatea exactă.",
   },
   {
     q: "Ce documente sunt necesare pentru închiriere?",
@@ -176,7 +176,7 @@ const fleet = [
   {
     img: carFocus,
     name: "Ford Focus Break",
-    example: "Modele 2011 / 2009 / 2007, economice și fiabile",
+    example: "Economic și fiabil, portbagaj generos",
     price: "de la 70 lei/zi",
     specs: ["5 locuri", "Manuală", "Diesel"],
   },
@@ -189,21 +189,6 @@ const fleet = [
   },
 ];
 
-const cars = [
-  { model: "Citroën C5", year: "2010", fuel: "Diesel", gear: "Automat" },
-  { model: "VW Passat", year: "2013", fuel: "Diesel", gear: "Manual" },
-  { model: "VW Passat", year: "2008", fuel: "Diesel", gear: "Automat" },
-  { model: "Ford Focus", year: "2011", fuel: "Diesel", gear: "Manual" },
-  { model: "Ford Focus", year: "2009", fuel: "Diesel", gear: "Manual" },
-  { model: "Ford Focus", year: "2007", fuel: "Diesel", gear: "Manual" },
-  { model: "Volvo S40", year: "2010", fuel: "Diesel", gear: "Manual" },
-  { model: "Opel Astra H", year: "2007", fuel: "Diesel", gear: "Manual" },
-  { model: "VW Bora", year: "2002", fuel: "Diesel", gear: "Manual" },
-  { model: "Renault Mégane", year: "2004", fuel: "Diesel", gear: "Manual" },
-  { model: "Smart ForFour", year: "2006", fuel: "Benzină", gear: "Manual" },
-  { model: "Škoda Fabia", year: "2012", fuel: "Benzină", gear: "Manual" },
-  { model: "Smart 800 cm³", year: "—", fuel: "Diesel", gear: "Automat" },
-];
 
 const perks = [
   {
@@ -310,7 +295,7 @@ function Index() {
         <section className="relative isolate overflow-hidden">
           <img
             src={heroCar}
-            alt="Flota DCO Rent a Car în Gilău, Cluj: Citroën C5, Volvo S40, Renault Mégane pregătite pentru închiriere"
+            alt="Flota DCO Rent a Car în Gilău, Cluj: mașini pregătite pentru închiriere"
             width={1600}
             height={1008}
             fetchPriority="high"
@@ -341,7 +326,7 @@ function Index() {
               {[
                 ["70 lei", "tarif de la / zi"],
                 ["0 lei", "garanție"],
-                ["13", "mașini în flotă"],
+                ["Contract", "și factură"],
                 ["Gilău", "predare personală"],
               ].map(([big, small]) => (
                 <div key={small}>
@@ -359,7 +344,7 @@ function Index() {
         <section id="flota" className="mx-auto max-w-6xl px-5 py-20 md:py-28">
           <p className="eyebrow">Flota</p>
           <h2 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">
-            13 mașini disponibile, manuale și automate
+            Mașini disponibile, manuale și automate
           </h2>
 
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -403,30 +388,7 @@ function Index() {
             ))}
           </div>
           <div className="mt-12 card-eco p-6 md:p-8">
-            <h3 className="text-lg font-semibold">Mașini disponibile pentru închiriere</h3>
-            <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {cars.map((c) => (
-                <li
-                  key={`${c.model}-${c.year}`}
-                  className="flex items-center justify-between gap-3 border-b border-border pb-3 text-sm"
-                >
-                  <span className="font-semibold">
-                    {c.model} <span className="text-muted-foreground">{c.year}</span>
-                  </span>
-                  <span className="flex shrink-0 items-center gap-3 text-xs text-muted-foreground">
-                    <span className="flex items-center gap-1">
-                      <Fuel className="h-3.5 w-3.5 text-primary" />
-                      {c.fuel}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Settings2 className="h-3.5 w-3.5 text-primary" />
-                      {c.gear}
-                    </span>
-                  </span>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-5 text-sm text-muted-foreground">
+            <p className="text-sm text-muted-foreground">
               Disponibilitatea variază în funcție de perioadă. Sunați la{" "}
               <a href="tel:+40742925934" className="font-semibold text-primary">
                 (0742) 925 934

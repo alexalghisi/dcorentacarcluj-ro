@@ -26,7 +26,7 @@ export const locations: LocationPage[] = [
     h1: "Rent a Car Cluj-Napoca — mașini de închiriat de la 70 lei/zi",
     metaTitle: "Rent a Car Cluj-Napoca | Mașini de închiriat de la 70 lei/zi, fără garanție",
     description:
-      "Închirieri auto în Cluj-Napoca fără garanție blocată pe card: 13 mașini disponibile, de la 70 lei/zi, contract și factură, predare personală. Sună (0742) 925 934.",
+      "Închirieri auto în Cluj-Napoca fără garanție blocată pe card: de la 70 lei/zi, contract și factură, predare personală. Sună (0742) 925 934.",
     keywords:
       "rent a car cluj napoca, inchirieri auto cluj napoca, masini de inchiriat cluj, inchiriere auto fara garantie cluj",
     intro:
@@ -34,7 +34,7 @@ export const locations: LocationPage[] = [
     highlights: [
       { label: "Tarif de la", value: "70 lei/zi" },
       { label: "Garanție", value: "0 lei" },
-      { label: "Mașini în flotă", value: "13" },
+      { label: "Contract", value: "+ factură" },
       { label: "Predare", value: "Personală" },
     ],
     sections: [
@@ -42,7 +42,7 @@ export const locations: LocationPage[] = [
         heading: "De ce să închiriezi de la noi în Cluj-Napoca",
         paragraphs: [
           "Firmele mari din Cluj-Napoca cer de obicei o garanție de câteva mii de lei blocată pe cardul de credit și percep taxe suplimentare pentru al doilea șofer sau pentru predarea în afara programului. La noi nu se blochează bani, iar programul îl stabilim împreună.",
-          "Flota este alcătuită din mașini întreținute, cu consum mic, potrivite atât pentru oraș, cât și pentru drumuri lungi: VW Passat, Citroën C5 automat, Ford Focus, Opel Astra, Volvo S40, Renault Mégane, Škoda Fabia și Smart pentru parcări strâmte în centru.",
+          "Flota este alcătuită din mașini întreținute, cu consum mic, potrivite atât pentru oraș, cât și pentru drumuri lungi: Citroën C5 automat, VW Passat break, Ford Focus break și Škoda Fabia pentru parcări strâmte în centru.",
         ],
         bullets: [
           "Fără garanție și fără card de credit",
@@ -132,7 +132,7 @@ export const locations: LocationPage[] = [
       {
         heading: "Ce mașini sunt disponibile",
         paragraphs: [
-          "Flota include 13 autoturisme: variante automate (Citroën C5, VW Passat), break-uri spațioase (Ford Focus, VW Passat), berline economice (Volvo S40, Opel Astra H, VW Bora, Renault Mégane) și mașini mici (Škoda Fabia, Smart ForFour).",
+          "Flota include variantă automată (Citroën C5), break-uri spațioase (VW Passat, Ford Focus) și o mașină mică, economică (Škoda Fabia). Sunați pentru disponibilitate în perioada dorită.",
         ],
       },
     ],
