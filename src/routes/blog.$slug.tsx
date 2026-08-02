@@ -152,8 +152,7 @@ function BlogPostPage() {
         <aside className="mt-14 rounded-2xl border border-border bg-card p-7">
           <h2 className="font-display text-lg font-bold">Ai nevoie de o mașină în Cluj?</h2>
           <p className="mt-2 text-sm text-muted-foreground">
-            Tarife de la 70 lei/zi, fără garanție, predare personală în Gilău. Contract și factură
-            incluse.
+            Tarife de la 70 lei/zi, predare personală în Gilău, mașini verificate pentru drumurile din Cluj.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
             <a href="tel:+40742925934" className="btn-base btn-primary px-5 py-2.5 text-sm">

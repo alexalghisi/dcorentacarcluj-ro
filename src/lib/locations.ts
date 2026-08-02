@@ -24,31 +24,31 @@ export const locations: LocationPage[] = [
     city: "Cluj-Napoca",
     navLabel: "Cluj-Napoca",
     h1: "Rent a Car Cluj-Napoca — mașini de închiriat de la 70 lei/zi",
-    metaTitle: "Rent a Car Cluj-Napoca | Mașini de închiriat de la 70 lei/zi, fără garanție",
+    metaTitle: "Rent a Car Cluj-Napoca | Mașini de închiriat de la 70 lei/zi",
     description:
-      "Închirieri auto în Cluj-Napoca fără garanție blocată pe card: de la 70 lei/zi, contract și factură, predare personală. Sună (0742) 925 934.",
+      "Închirieri auto în Cluj-Napoca de la 70 lei/zi, predare personală. Sună (0742) 925 934.",
     keywords:
-      "rent a car cluj napoca, inchirieri auto cluj napoca, masini de inchiriat cluj, inchiriere auto fara garantie cluj",
+      "rent a car cluj napoca, inchirieri auto cluj napoca, masini de inchiriat cluj",
     intro:
-      "Închiriezi mașina direct de la proprietar, fără birou de terminal și fără garanție blocată pe card. Predare stabilită de comun acord pentru clienții din Cluj-Napoca, cu contract și factură emise pe loc.",
+      "Închiriezi mașina direct de la proprietar, fără birou de terminal. Predare stabilită de comun acord pentru clienții din Cluj-Napoca, mașini verificate înainte de predare.",
     highlights: [
       { label: "Tarif de la", value: "70 lei/zi" },
-      { label: "Garanție", value: "0 lei" },
-      { label: "Contract", value: "+ factură" },
       { label: "Predare", value: "Personală" },
+      { label: "Mașini", value: "Verificate" },
+      { label: "Disponibilitate", value: "Rapidă" },
     ],
     sections: [
       {
         heading: "De ce să închiriezi de la noi în Cluj-Napoca",
         paragraphs: [
-          "Firmele mari din Cluj-Napoca cer de obicei o garanție de câteva mii de lei blocată pe cardul de credit și percep taxe suplimentare pentru al doilea șofer sau pentru predarea în afara orelor obișnuite. La noi nu se blochează bani, iar ora predării o stabilim împreună.",
+          "Firmele mari din Cluj-Napoca percep de obicei taxe suplimentare pentru al doilea șofer sau pentru predarea în afara orelor obișnuite. La noi predarea se face personal, iar ora o stabilim împreună.",
           "Flota este alcătuită din mașini întreținute, cu consum mic, potrivite atât pentru oraș, cât și pentru drumuri lungi: Škoda Fabia și Renault Clio Symbol pentru parcări strâmte în centru, Ford Focus break și VW Passat break pentru bagaje, Volvo S40, Citroën C5 automat și Volvo XC90 cu 7 locuri.",
         ],
         bullets: [
-          "Fără garanție și fără card de credit",
-          "Contract de închiriere și factură, inclusiv pentru firme",
-          "Rovinietă inclusă, anvelope de sezon",
+          "Predare personală, fără birou de terminal",
+          "Mașini verificate, rovinietă inclusă, anvelope de sezon",
           "Permis de conducere valabil de minimum 1 an",
+          "Disponibilitate confirmată rapid",
         ],
       },
       {
@@ -76,12 +76,12 @@ export const locations: LocationPage[] = [
         a: "Tarifele pornesc de la 70 lei pe zi pentru clasa economică. Pentru închirieri de peste 7 zile prețul pe zi scade.",
       },
       {
-        q: "Trebuie card de credit sau garanție?",
-        a: "Nu. Nu blocăm garanție pe card. Ai nevoie doar de buletin sau pașaport și permis valabil de minimum un an.",
+        q: "Ce acte îmi trebuie?",
+        a: "Ai nevoie doar de buletin sau pașaport și permis valabil de minimum un an.",
       },
       {
         q: "Pot închiria mașina pe firmă?",
-        a: "Da, emitem factură pe firmă și semnăm contract de închiriere.",
+        a: "Da, putem emite factură pe firmă la cerere.",
       },
     ],
   },
@@ -92,11 +92,11 @@ export const locations: LocationPage[] = [
     h1: "Rent a Car Gilău — închirieri auto local, predare pe loc",
     metaTitle: "Rent a Car Gilău | Închirieri auto de la 70 lei/zi, predare în Gilău",
     description:
-      "Închirieri auto în Gilău: bază locală, predare personală pe loc, tarife de la 70 lei/zi, fără garanție. Deservim și Florești, Luna de Sus și Someșu Rece.",
+      "Închirieri auto în Gilău: bază locală, predare personală pe loc, tarife de la 70 lei/zi. Deservim și Florești, Luna de Sus și Someșu Rece.",
     keywords:
       "rent a car gilau, inchirieri auto gilau, masini de inchiriat gilau, inchiriere auto floresti cluj",
     intro:
-      "Baza noastră este în Gilău, așa că preluarea mașinii se face rapid, direct de la fața locului, fără drum până în centrul Clujului și fără garanție blocată pe card.",
+      "Baza noastră este în Gilău, așa că preluarea mașinii se face rapid, direct de la fața locului, fără drum până în centrul Clujului.",
     highlights: [
       { label: "Bază", value: "Gilău" },
       { label: "Tarif de la", value: "70 lei/zi" },
@@ -156,18 +156,18 @@ export const locations: LocationPage[] = [
     city: "Aeroport Cluj",
     navLabel: "Aeroport Cluj",
     h1: "Rent a Car Aeroport Cluj — mașină pregătită la aterizare",
-    metaTitle: "Rent a Car Aeroport Cluj | Mașini de închiriat de la 70 lei/zi, fără garanție",
+    metaTitle: "Rent a Car Aeroport Cluj | Mașini de închiriat de la 70 lei/zi",
     description:
-      "Închirieri auto pentru pasagerii Aeroportului Cluj: mașină pregătită la aterizare, fără garanție pe card, de la 70 lei/zi. Aeroport – Gilău în ~35 de minute.",
+      "Închirieri auto pentru pasagerii Aeroportului Cluj: mașină pregătită la aterizare, de la 70 lei/zi. Aeroport – Gilău în ~35 de minute.",
     keywords:
       "rent a car aeroport cluj, inchirieri auto aeroport cluj, masina de inchiriat aeroport cluj napoca",
     intro:
-      "Vii cu avionul în Cluj? Pregătim mașina pentru ziua și ora aterizării, cu tarife mai mici decât la ghișeele din terminal, pentru că nu plătim spațiu în aeroport și nu blocăm garanție pe card.",
+      "Vii cu avionul în Cluj? Pregătim mașina pentru ziua și ora aterizării, cu tarife mai mici decât la ghișeele din terminal, pentru că nu plătim spațiu în aeroport.",
     highlights: [
       { label: "Aeroport – Gilău", value: "~35 min" },
       { label: "Distanță", value: "25 km" },
       { label: "Tarif de la", value: "70 lei/zi" },
-      { label: "Garanție", value: "0 lei" },
+      { label: "Predare", value: "Personală" },
     ],
     sections: [
       {
@@ -178,8 +178,8 @@ export const locations: LocationPage[] = [
         ],
         bullets: [
           "Confirmăm disponibilitatea în funcție de ora aterizării",
-          "Fără taxe de aeroport și fără garanție pe card",
-          "Contract și factură la predare",
+          "Fără taxe de aeroport",
+          "Predare personală în Gilău",
           "Rovinietă inclusă, kilometraj generos",
         ],
       },

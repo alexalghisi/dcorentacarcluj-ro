@@ -122,8 +122,7 @@ export function LocationLanding({ page }: { page: LocationPage }) {
               Rezervă o mașină pentru {page.city}
             </h2>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Sună sau scrie-ne cu perioada dorită și clasa de mașină. Confirmăm disponibilitatea rapid, fără
-              garanție blocată pe card.
+              Sună sau scrie-ne cu perioada dorită și clasa de mașină. Confirmăm disponibilitatea rapid.
             </p>
             <div className="mt-5 flex flex-wrap gap-3">
               <a href={PHONE_HREF} className="btn-base btn-primary">

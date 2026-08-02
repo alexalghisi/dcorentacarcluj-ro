@@ -28,16 +28,12 @@ import carXc90 from "@/assets/car-xc90.jpg";
 const SITE = "https://dcorentacarcluj.ro";
 const TITLE = "Rent a Car Cluj, Gilău & Florești | Mașini de închiriat de la 70 lei/zi";
 const DESCRIPTION =
-  "Închiriez mașini în Cluj, Gilău și Florești de la 70 lei/zi, fără garanție. Predare personală în Gilău, contract și factură, ITP, RCA, rovinietă și AC incluse.";
+  "Închiriez mașini în Cluj, Gilău și Florești de la 70 lei/zi. Predare personală în Gilău, mașini verificate cu ITP, RCA, rovinietă și AC incluse.";
 
 const faq = [
   {
     q: "Cât costă închirierea unei mașini în Cluj sau Gilău?",
-    a: "Prețurile pornesc de la 70 lei/zi și sunt negociabile în funcție de mașina aleasă și de durata contractului. Pentru perioade mai lungi oferim reducere.",
-  },
-  {
-    q: "Se percepe garanție?",
-    a: "Nu percepem garanție. Închirierea se face pe bază de contract, fără blocarea unei sume pe card.",
+    a: "Prețurile pornesc de la 70 lei/zi și sunt negociabile în funcție de mașina aleasă și de durata închirierii. Pentru perioade mai lungi oferim reducere.",
   },
   {
     q: "Ce mașini sunt disponibile?",
@@ -45,7 +41,7 @@ const faq = [
   },
   {
     q: "Ce documente sunt necesare pentru închiriere?",
-    a: "Permis de conducere valabil de minimum 1 an și carte de identitate sau pașaport. Se încheie contract de închiriere și se oferă factură.",
+    a: "Permis de conducere valabil de minimum 1 an și carte de identitate sau pașaport.",
   },
   {
     q: "De unde se preia mașina?",
@@ -67,7 +63,7 @@ export const Route = createFileRoute("/")({
       {
         name: "keywords",
         content:
-          "rent a car cluj, inchirieri auto cluj, masini de inchiriat cluj, rent a car gilau, rent a car floresti, inchirieri auto ieftine cluj, masini de inchiriat fara garantie",
+          "rent a car cluj, inchirieri auto cluj, masini de inchiriat cluj, rent a car gilau, rent a car floresti, inchirieri auto ieftine cluj",
       },
 
       { name: "robots", content: "index, follow, max-image-preview:large" },
@@ -124,7 +120,7 @@ export const Route = createFileRoute("/")({
               price: "70",
               priceCurrency: "RON",
               description:
-                "Tarif de la 70 lei/zi, fără garanție, negociabil în funcție de mașină și perioadă.",
+                "Tarif de la 70 lei/zi, negociabil în funcție de mașină și perioadă.",
               eligibleDuration: { "@type": "QuantitativeValue", value: 1, unitCode: "DAY" },
             },
           ],
@@ -211,23 +207,23 @@ const fleet = [
 const perks = [
   {
     icon: ShieldCheck,
-    title: "Fără garanție",
-    text: "Nu percepem garanție și nu blocăm sume pe card. Închirierea se face simplu, pe bază de contract.",
+    title: "Predare personală",
+    text: "Ne întâlnim în Gilău și predăm mașina direct, cu explicații și verificare împreună.",
   },
   {
     icon: CreditCard,
     title: "Prețuri de la 70 lei/zi",
-    text: "Tarif negociabil în funcție de mașină și de durata contractuală, cu reducere pentru perioade lungi.",
+    text: "Tarif negociabil în funcție de mașina aleasă și de durata închirierii, cu reducere pentru perioade lungi.",
   },
   {
     icon: BadgeCheck,
-    title: "Contract și factură",
-    text: "Se încheie contract de închiriere și se emite factură — potrivit și pentru firme.",
+    title: "Mașini verificate",
+    text: "Toate autoturismele au AC, ITP valabil, rovinietă și asigurare, verificate înainte de predare.",
   },
   {
     icon: Car,
-    title: "Mașini în stare perfectă",
-    text: "Toate autoturismele au AC, ITP valabil, rovinietă și asigurare, verificate înainte de predare.",
+    title: "Flotă variată",
+    text: "De la mașini mici și economice la break-uri, berline automate și SUV cu 7 locuri.",
   },
   {
     icon: MapPin,
@@ -244,17 +240,17 @@ const perks = [
 const steps = [
   { n: "01", title: "Alegeți mașina", text: "Ne spuneți perioada și modelul dorit din flotă." },
   { n: "02", title: "Primiți prețul", text: "Tarif final, negociat în funcție de durată." },
-  { n: "03", title: "Contract în Gilău", text: "Predare personală, contract și factură." },
-  { n: "04", title: "Returnați simplu", text: "Verificare rapidă, fără garanție de eliberat." },
+  { n: "03", title: "Predare în Gilău", text: "Ne întâlnim personal și predăm mașina verificată." },
+  { n: "04", title: "Returnați simplu", text: "Verificare rapidă la finalul perioadei." },
 ];
 
 const conditions = [
   "Permis auto valabil de minimum 1 an",
   "Carte de identitate sau pașaport",
-  "Fără garanție",
-  "Contract de închiriere și factură",
   "Preț în funcție de mașină și perioadă",
   "Predare personală în Gilău",
+  "Mașini verificate înainte de predare",
+  "Asistență telefonică rapidă",
 ];
 
 
@@ -324,13 +320,13 @@ function Index() {
           <div className="relative mx-auto max-w-6xl px-5 py-24 md:py-32">
             <p className="eyebrow text-signal">Cluj · Gilău · Florești</p>
             <h1 className="mt-4 max-w-3xl font-display text-4xl font-extrabold leading-[1.05] text-ink-foreground md:text-6xl">
-              Mașini de închiriat în Cluj de la 70 lei/zi, fără garanție.
+              Mașini de închiriat în Cluj de la 70 lei/zi.
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-foreground/80 md:text-lg">
               DCO Rent a Car închiriază autoturisme în stare perfectă de
-              funcționare, cu AC, ITP, rovinietă și asigurare. Contract și
-              factură, predare personală în Gilău. Prețuri negociabile în
-              funcție de mașină și de durata contractului.
+              funcționare, cu AC, ITP, rovinietă și asigurare. Predare personală
+              în Gilău, mașini verificate înainte de predare. Prețuri negociabile
+              în funcție de mașina aleasă și de durata închirierii.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <a href="#contact" className="btn-base btn-signal">
@@ -343,8 +339,8 @@ function Index() {
             <dl className="mt-14 grid max-w-2xl grid-cols-2 gap-6 border-t border-ink-foreground/15 pt-8 md:grid-cols-4">
               {[
                 ["70 lei", "tarif de la / zi"],
-                ["0 lei", "garanție"],
-                ["Contract", "și factură"],
+                ["8 mașini", "în flotă"],
+                ["ITP + RCA", "incluse"],
                 ["Gilău", "predare personală"],
               ].map(([big, small]) => (
                 <div key={small}>

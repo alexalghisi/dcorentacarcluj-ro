@@ -81,7 +81,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Mașini de închiriat în Cluj, Gilău și Florești de la 70 lei/zi, fără garanție. Contract și factură, predare personală în Gilău.",
+          "Mașini de închiriat în Cluj, Gilău și Florești de la 70 lei/zi. Predare personală în Gilău, mașini verificate.",
       },
       { property: "og:site_name", content: "DCO Rent a Car Cluj" },
       { property: "og:type", content: "website" },
