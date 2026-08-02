@@ -352,7 +352,7 @@ function Index() {
             12 mașini disponibile, manuale și automate
           </h2>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {fleet.map((c) => (
               <article key={c.name} className="card-eco overflow-hidden">
                 <img
