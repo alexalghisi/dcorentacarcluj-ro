@@ -31,9 +31,22 @@ export function LocationLanding({ page }: { page: LocationPage }) {
               </span>
             </span>
           </Link>
-          <a href="tel:+40742925934" className="btn-base btn-primary px-5 py-2.5 text-sm">
-            <Phone className="h-4 w-4" /> (0742) 925 934
-          </a>
+          <div className="flex items-center gap-2">
+            <a
+              href={whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Scrie pe WhatsApp"
+              className="btn-base btn-outline-ink px-4 py-2.5 text-sm"
+            >
+              <MessageCircle className="h-4 w-4" /> <span className="hidden sm:inline">WhatsApp</span>
+            </a>
+            <a href={PHONE_HREF} className="btn-base btn-primary px-5 py-2.5 text-sm">
+              <Phone className="h-4 w-4" /> <span className="hidden sm:inline">(0742) 925 934</span>
+              <span className="sm:hidden">Sună</span>
+            </a>
+          </div>
+
         </div>
       </header>
 
