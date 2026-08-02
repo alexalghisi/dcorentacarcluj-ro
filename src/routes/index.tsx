@@ -176,7 +176,7 @@ const fleet = [
   {
     img: carFocus,
     name: "Ford Focus Break",
-    example: "Modele 2011 / 2009 / 2007, economice și fiabile",
+    example: "Economic și fiabil, portbagaj generos",
     price: "de la 70 lei/zi",
     specs: ["5 locuri", "Manuală", "Diesel"],
   },
@@ -189,21 +189,6 @@ const fleet = [
   },
 ];
 
-const cars = [
-  { model: "Citroën C5", year: "2010", fuel: "Diesel", gear: "Automat" },
-  { model: "VW Passat", year: "2013", fuel: "Diesel", gear: "Manual" },
-  { model: "VW Passat", year: "2008", fuel: "Diesel", gear: "Automat" },
-  { model: "Ford Focus", year: "2011", fuel: "Diesel", gear: "Manual" },
-  { model: "Ford Focus", year: "2009", fuel: "Diesel", gear: "Manual" },
-  { model: "Ford Focus", year: "2007", fuel: "Diesel", gear: "Manual" },
-  { model: "Volvo S40", year: "2010", fuel: "Diesel", gear: "Manual" },
-  { model: "Opel Astra H", year: "2007", fuel: "Diesel", gear: "Manual" },
-  { model: "VW Bora", year: "2002", fuel: "Diesel", gear: "Manual" },
-  { model: "Renault Mégane", year: "2004", fuel: "Diesel", gear: "Manual" },
-  { model: "Smart ForFour", year: "2006", fuel: "Benzină", gear: "Manual" },
-  { model: "Škoda Fabia", year: "2012", fuel: "Benzină", gear: "Manual" },
-  { model: "Smart 800 cm³", year: "—", fuel: "Diesel", gear: "Automat" },
-];
 
 const perks = [
   {
