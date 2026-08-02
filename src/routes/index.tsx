@@ -40,7 +40,7 @@ const faq = [
   },
   {
     q: "Ce mașini sunt disponibile?",
-    a: "Flota include Citroën C5 2010 automat, VW Passat break 2013, Ford Focus break și Škoda Fabia. Toate au ITP, RCA, rovinietă și aer condiționat. Sunați pentru disponibilitatea exactă.",
+    a: "Flota include Škoda Fabia, Renault Clio Symbol, Ford Focus break, VW Passat break, două Volvo S40, Citroën C5 automat și Volvo XC90 cu 7 locuri. Toate au ITP, RCA, rovinietă și aer condiționat. Sunați pentru disponibilitatea exactă.",
   },
   {
     q: "Ce documente sunt necesare pentru închiriere?",
