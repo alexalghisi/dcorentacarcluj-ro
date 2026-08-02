@@ -33,11 +33,7 @@ const DESCRIPTION =
 const faq = [
   {
     q: "Cât costă închirierea unei mașini în Cluj sau Gilău?",
-    a: "Prețurile pornesc de la 70 lei/zi și sunt negociabile în funcție de mașina aleasă și de durata contractului. Pentru perioade mai lungi oferim reducere.",
-  },
-  {
-    q: "Se percepe garanție?",
-    a: "Nu percepem garanție. Închirierea se face pe bază de contract, fără blocarea unei sume pe card.",
+    a: "Prețurile pornesc de la 70 lei/zi și sunt negociabile în funcție de mașina aleasă și de durata închirierii. Pentru perioade mai lungi oferim reducere.",
   },
   {
     q: "Ce mașini sunt disponibile?",
@@ -45,7 +41,7 @@ const faq = [
   },
   {
     q: "Ce documente sunt necesare pentru închiriere?",
-    a: "Permis de conducere valabil de minimum 1 an și carte de identitate sau pașaport. Se încheie contract de închiriere și se oferă factură.",
+    a: "Permis de conducere valabil de minimum 1 an și carte de identitate sau pașaport.",
   },
   {
     q: "De unde se preia mașina?",
