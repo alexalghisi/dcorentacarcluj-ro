@@ -164,34 +164,63 @@ export const Route = createFileRoute("/")({
 
 const fleet = [
   {
-    img: carC5,
-    name: "Citroën C5 2010",
-    example: "Berlină automată, confortabilă pentru drumuri lungi",
+    img: carFabia,
+    name: "Škoda Fabia",
+    example: "Compactă, economică, perfectă pentru oraș",
     price: "de la 70 lei/zi",
-    specs: ["5 locuri", "Automată", "Diesel"],
+    specs: ["5 locuri", "Manuală", "Benzină"],
   },
   {
-    img: carPassat,
-    name: "VW Passat Break 2013",
-    example: "Portbagaj mare, ideal pentru familie sau bagaje",
+    img: carClio,
+    name: "Renault Clio Symbol",
+    example: "Cea mai accesibilă opțiune, consum mic",
     price: "de la 70 lei/zi",
-    specs: ["5 locuri", "Manuală", "Diesel"],
+    specs: ["5 locuri", "Manuală", "Benzină"],
   },
   {
     img: carFocus,
     name: "Ford Focus Break",
-    example: "Economic și fiabil, portbagaj generos",
+    example: "Portbagaj generos, fiabil pe drum lung",
     price: "de la 70 lei/zi",
     specs: ["5 locuri", "Manuală", "Diesel"],
   },
   {
-    img: carFabia,
-    name: "Škoda Fabia",
-    example: "Compactă, perfectă pentru oraș și parcare ușoară",
-    price: "de la 70 lei/zi",
-    specs: ["5 locuri", "Manuală", "Benzină"],
+    img: carPassat,
+    name: "VW Passat Break",
+    example: "Spațios și confortabil, ideal pentru familie",
+    price: "de la 90 lei/zi",
+    specs: ["5 locuri", "Manuală", "Diesel"],
+  },
+  {
+    img: carVolvoS40,
+    name: "Volvo S40 2.0D",
+    example: "Berlină sigură și silențioasă",
+    price: "de la 80 lei/zi",
+    specs: ["5 locuri", "Manuală", "Diesel"],
+  },
+  {
+    img: carVolvoS40Grey,
+    name: "Volvo S40",
+    example: "A doua unitate S40, disponibilă la cerere",
+    price: "de la 80 lei/zi",
+    specs: ["5 locuri", "Manuală", "Diesel"],
+  },
+  {
+    img: carC5,
+    name: "Citroën C5",
+    example: "Berlină automată, confort maxim pe autostradă",
+    price: "de la 100 lei/zi",
+    specs: ["5 locuri", "Automată", "Diesel"],
+  },
+  {
+    img: carXc90,
+    name: "Volvo XC90 D5",
+    example: "SUV premium 7 locuri, tracțiune integrală",
+    price: "la cerere",
+    specs: ["7 locuri", "Automată", "Diesel"],
   },
 ];
+
 
 
 const perks = [
