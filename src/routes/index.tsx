@@ -207,23 +207,23 @@ const fleet = [
 const perks = [
   {
     icon: ShieldCheck,
-    title: "Fără garanție",
-    text: "Nu percepem garanție și nu blocăm sume pe card. Închirierea se face simplu, pe bază de contract.",
+    title: "Predare personală",
+    text: "Ne întâlnim în Gilău și predăm mașina direct, cu explicații și verificare împreună.",
   },
   {
     icon: CreditCard,
     title: "Prețuri de la 70 lei/zi",
-    text: "Tarif negociabil în funcție de mașină și de durata contractuală, cu reducere pentru perioade lungi.",
+    text: "Tarif negociabil în funcție de mașina aleasă și de durata închirierii, cu reducere pentru perioade lungi.",
   },
   {
     icon: BadgeCheck,
-    title: "Contract și factură",
-    text: "Se încheie contract de închiriere și se emite factură — potrivit și pentru firme.",
+    title: "Mașini verificate",
+    text: "Toate autoturismele au AC, ITP valabil, rovinietă și asigurare, verificate înainte de predare.",
   },
   {
     icon: Car,
-    title: "Mașini în stare perfectă",
-    text: "Toate autoturismele au AC, ITP valabil, rovinietă și asigurare, verificate înainte de predare.",
+    title: "Flotă variată",
+    text: "De la mașini mici și economice la break-uri, berline automate și SUV cu 7 locuri.",
   },
   {
     icon: MapPin,
