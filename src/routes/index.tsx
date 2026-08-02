@@ -14,10 +14,11 @@ import {
   BadgeCheck,
 } from "lucide-react";
 
-import heroCar from "@/assets/hero-car.jpg";
-import carEconomy from "@/assets/car-economy.jpg";
-import carSedan from "@/assets/car-sedan.jpg";
-import carVan from "@/assets/car-van.jpg";
+import heroCar from "@/assets/hero-fleet.jpg";
+import carPassat from "@/assets/car-passat.jpg";
+import carC5 from "@/assets/car-c5.jpg";
+import carFocus from "@/assets/car-focus.jpg";
+import carFabia from "@/assets/car-fabia.jpg";
 
 const SITE = "https://dcorentacarcluj.ro";
 const TITLE = "Rent a Car Cluj, Gilău & Florești | Mașini de închiriat de la 70 lei/zi";
@@ -159,25 +160,32 @@ export const Route = createFileRoute("/")({
 
 const fleet = [
   {
-    img: carSedan,
-    name: "Automate & confort",
-    example: "Citroën C5 2010 · VW Passat 2008 · Smart 800 cm³",
+    img: carC5,
+    name: "Citroën C5 2010",
+    example: "Berlină automată, confortabilă pentru drumuri lungi",
     price: "de la 70 lei/zi",
     specs: ["5 locuri", "Automată", "Diesel"],
   },
   {
-    img: carVan,
-    name: "Familie & break",
-    example: "VW Passat 2013 · Ford Focus 2011 / 2009 / 2007 · Volvo S40 2010",
+    img: carPassat,
+    name: "VW Passat Break 2013",
+    example: "Portbagaj mare, ideal pentru familie sau bagaje",
     price: "de la 70 lei/zi",
     specs: ["5 locuri", "Manuală", "Diesel"],
   },
   {
-    img: carEconomy,
-    name: "Economic & oraș",
-    example: "Opel Astra H 2007 · VW Bora 2002 · Renault Mégane 2004 · Smart ForFour 2006",
+    img: carFocus,
+    name: "Ford Focus Break",
+    example: "Modele 2011 / 2009 / 2007, economice și fiabile",
     price: "de la 70 lei/zi",
-    specs: ["4-5 locuri", "Manuală", "Diesel / Benzină"],
+    specs: ["5 locuri", "Manuală", "Diesel"],
+  },
+  {
+    img: carFabia,
+    name: "Škoda Fabia",
+    example: "Compactă, perfectă pentru oraș și parcare ușoară",
+    price: "de la 70 lei/zi",
+    specs: ["5 locuri", "Manuală", "Benzină"],
   },
 ];
 
@@ -193,6 +201,7 @@ const cars = [
   { model: "VW Bora", year: "2002", fuel: "Diesel", gear: "Manual" },
   { model: "Renault Mégane", year: "2004", fuel: "Diesel", gear: "Manual" },
   { model: "Smart ForFour", year: "2006", fuel: "Benzină", gear: "Manual" },
+  { model: "Škoda Fabia", year: "2012", fuel: "Benzină", gear: "Manual" },
   { model: "Smart 800 cm³", year: "—", fuel: "Diesel", gear: "Automat" },
 ];
 
@@ -292,7 +301,7 @@ function Index() {
         <section className="relative isolate overflow-hidden">
           <img
             src={heroCar}
-            alt="Mașină de închiriat de la DCO Rent a Car pe un drum din județul Cluj la apus"
+            alt="Flota DCO Rent a Car în Gilău, Cluj: Citroën C5, Volvo S40, Renault Mégane pregătite pentru închiriere"
             width={1600}
             height={1008}
             fetchPriority="high"
@@ -323,7 +332,7 @@ function Index() {
               {[
                 ["70 lei", "tarif de la / zi"],
                 ["0 lei", "garanție"],
-                ["12", "mașini în flotă"],
+                ["13", "mașini în flotă"],
                 ["Gilău", "predare personală"],
               ].map(([big, small]) => (
                 <div key={small}>
@@ -341,10 +350,10 @@ function Index() {
         <section id="flota" className="mx-auto max-w-6xl px-5 py-20 md:py-28">
           <p className="eyebrow">Flota</p>
           <h2 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">
-            12 mașini disponibile, manuale și automate
+            13 mașini disponibile, manuale și automate
           </h2>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {fleet.map((c) => (
               <article key={c.name} className="card-eco overflow-hidden">
                 <img
