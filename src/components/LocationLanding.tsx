@@ -109,8 +109,11 @@ export function LocationLanding({ page }: { page: LocationPage }) {
               garanție blocată pe card.
             </p>
             <div className="mt-5 flex flex-wrap gap-3">
-              <a href="tel:+40742925934" className="btn-base btn-primary">
+              <a href={PHONE_HREF} className="btn-base btn-primary">
                 <Phone className="h-4 w-4" /> (0742) 925 934
+              </a>
+              <a href={whatsapp} target="_blank" rel="noopener noreferrer" className="btn-base btn-signal">
+                <MessageCircle className="h-4 w-4" /> Scrie pe WhatsApp
               </a>
               <a href="mailto:Ovidiu_danciu@yahoo.com" className="btn-base btn-outline-ink">
                 <Mail className="h-4 w-4" /> Ovidiu_danciu@yahoo.com
@@ -119,6 +122,7 @@ export function LocationLanding({ page }: { page: LocationPage }) {
                 Formular de rezervare <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
+
           </div>
 
           <div className="mt-12">
