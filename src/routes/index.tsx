@@ -354,7 +354,7 @@ function Index() {
                   </span>
                 </a>
                 <a
-                  href="mailto:contact@dcorentacarcluj.ro"
+                  href="mailto:Ovidiu_danciu@yahoo.com"
                   className="flex items-start gap-3 rounded-xl border border-ink-foreground/15 p-4 transition-colors hover:bg-ink-foreground/10"
                 >
                   <Mail className="mt-0.5 h-5 w-5 text-signal" />
@@ -362,7 +362,7 @@ function Index() {
                     <span className="block text-xs uppercase tracking-widest text-ink-foreground/60">
                       E-mail
                     </span>
-                    <span className="font-semibold">contact@dcorentacarcluj.ro</span>
+                    <span className="font-semibold">Ovidiu_danciu@yahoo.com</span>
                   </span>
                 </a>
                 <div className="flex items-start gap-3 rounded-xl border border-ink-foreground/15 p-4">
