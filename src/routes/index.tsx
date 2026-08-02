@@ -341,7 +341,7 @@ function Index() {
               </p>
               <div className="mt-10 grid gap-5 sm:grid-cols-2">
                 <a
-                  href="tel:+40700000000"
+                  href="tel:+40742925934"
                   className="flex items-start gap-3 rounded-xl border border-ink-foreground/15 p-4 transition-colors hover:bg-ink-foreground/10"
                 >
                   <Phone className="mt-0.5 h-5 w-5 text-signal" />
@@ -349,7 +349,8 @@ function Index() {
                     <span className="block text-xs uppercase tracking-widest text-ink-foreground/60">
                       Telefon / WhatsApp
                     </span>
-                    <span className="font-semibold">0700 000 000</span>
+                    <span className="font-semibold">(0742) 925 934</span>
+                    <span className="block text-xs text-ink-foreground/60">Ovidiu Danciu</span>
                   </span>
                 </a>
                 <a
