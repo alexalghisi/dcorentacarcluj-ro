@@ -1,9 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
   Car,
-  KeyRound,
   ShieldCheck,
-  Plane,
   CreditCard,
   Clock,
   Phone,
@@ -22,36 +20,37 @@ import carSedan from "@/assets/car-sedan.jpg";
 import carVan from "@/assets/car-van.jpg";
 
 const SITE = "https://dcorentacarcluj.ro";
-const TITLE = "Rent a Car Cluj & Gilău | Închirieri auto Aeroport Cluj – DCO";
+const TITLE = "Rent a Car Cluj, Gilău & Florești | Mașini de închiriat de la 70 lei/zi";
 const DESCRIPTION =
-  "Închirieri auto Cluj de la 22 €/zi: predare gratuită la Aeroportul Cluj, Gilău și Cluj-Napoca. Kilometraj nelimitat, garanție mică, rezervare în 10 minute.";
+  "Închiriez mașini în Cluj, Gilău și Florești de la 70 lei/zi, fără garanție. Predare personală în Gilău, contract și factură, ITP, RCA, rovinietă și AC incluse.";
 
 const faq = [
   {
-    q: "Cât costă închirierea unei mașini în Cluj?",
-    a: "Tarifele DCO Rent a Car pornesc de la 22 €/zi pentru clasa economy, 39 €/zi pentru clasa business și 55 €/zi pentru minivanul de 7 locuri. Prețul include RCA, rovinieta și kilometraj nelimitat în România.",
+    q: "Cât costă închirierea unei mașini în Cluj sau Gilău?",
+    a: "Prețurile pornesc de la 70 lei/zi și sunt negociabile în funcție de mașina aleasă și de durata contractului. Pentru perioade mai lungi oferim reducere.",
   },
   {
-    q: "Pot ridica mașina de la Aeroportul Internațional Cluj?",
-    a: "Da. Predăm și preluăm mașina în parcarea Aeroportului Cluj la ora aterizării sau a plecării, fără costuri suplimentare, 24/7.",
+    q: "Se percepe garanție?",
+    a: "Nu percepem garanție. Închirierea se face pe bază de contract, fără blocarea unei sume pe card.",
+  },
+  {
+    q: "Ce mașini sunt disponibile?",
+    a: "Flota include Citroën C5 2010 automat, VW Passat 2008 automat și 2013 manual, Ford Focus 2011, 2009 și 2007, Volvo S40 2010, Opel Astra H 2007, VW Bora 2002, Renault Mégane 2004 și Smart ForFour 2006. Toate au ITP, RCA, rovinietă și aer condiționat.",
   },
   {
     q: "Ce documente sunt necesare pentru închiriere?",
-    a: "Aveți nevoie de permis de conducere valabil de minimum 1 an, carte de identitate sau pașaport și vârsta minimă de 21 de ani.",
+    a: "Permis de conducere valabil de minimum 1 an și carte de identitate sau pașaport. Se încheie contract de închiriere și se oferă factură.",
   },
   {
-    q: "Cât este garanția?",
-    a: "Garanția este mică, iar cu pachetul full cover puteți închiria fără blocarea unei sume pe card.",
+    q: "De unde se preia mașina?",
+    a: "Predarea se face personal în Gilău, județul Cluj, la o oră stabilită împreună. Servim clienți din Cluj-Napoca, Florești și Gilău.",
   },
   {
-    q: "Pot ieși din țară cu mașina închiriată?",
-    a: "Da, pe baza unui acord scris solicitat înainte de plecare. Vă pregătim documentele necesare pentru trecerea frontierei.",
-  },
-  {
-    q: "Cum rezerv o mașină în Gilău sau Cluj-Napoca?",
-    a: "Ne sunați la (0742) 925 934, ne scrieți pe WhatsApp sau completați formularul de pe site. Confirmăm disponibilitatea în aproximativ 10 minute.",
+    q: "Cum rezerv o mașină?",
+    a: "Sunați la (0742) 925 934, scrieți pe WhatsApp sau completați formularul de pe site. Confirmăm disponibilitatea rapid, inclusiv în weekend.",
   },
 ];
+
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -62,8 +61,9 @@ export const Route = createFileRoute("/")({
       {
         name: "keywords",
         content:
-          "rent a car cluj, inchirieri auto cluj, inchirieri auto gilau, rent a car aeroport cluj, masini de inchiriat cluj napoca",
+          "rent a car cluj, inchirieri auto cluj, masini de inchiriat cluj, rent a car gilau, rent a car floresti, inchirieri auto ieftine cluj, masini de inchiriat fara garantie",
       },
+
       { name: "robots", content: "index, follow, max-image-preview:large" },
       { name: "author", content: "DCO Rent a Car Cluj" },
       { name: "geo.region", content: "RO-CJ" },
@@ -130,26 +130,15 @@ export const Route = createFileRoute("/")({
           makesOffer: [
             {
               "@type": "Offer",
-              name: "Închiriere auto clasa Economy",
-              price: "22",
-              priceCurrency: "EUR",
-              eligibleDuration: { "@type": "QuantitativeValue", value: 1, unitCode: "DAY" },
-            },
-            {
-              "@type": "Offer",
-              name: "Închiriere auto clasa Business",
-              price: "39",
-              priceCurrency: "EUR",
-              eligibleDuration: { "@type": "QuantitativeValue", value: 1, unitCode: "DAY" },
-            },
-            {
-              "@type": "Offer",
-              name: "Închiriere minivan 7 locuri",
-              price: "55",
-              priceCurrency: "EUR",
+              name: "Închiriere auto Cluj / Gilău",
+              price: "70",
+              priceCurrency: "RON",
+              description:
+                "Tarif de la 70 lei/zi, fără garanție, negociabil în funcție de mașină și perioadă.",
               eligibleDuration: { "@type": "QuantitativeValue", value: 1, unitCode: "DAY" },
             },
           ],
+
         }),
       },
       {
@@ -170,76 +159,92 @@ export const Route = createFileRoute("/")({
 
 const fleet = [
   {
-    img: carEconomy,
-    name: "Clasa Economy",
-    example: "VW Polo, Skoda Fabia sau similar",
-    price: "de la 22 €/zi",
-    specs: ["4 locuri", "Manuală", "Benzină 5.2 l"],
-  },
-  {
     img: carSedan,
-    name: "Clasa Business",
-    example: "Skoda Octavia, VW Passat sau similar",
-    price: "de la 39 €/zi",
-    specs: ["5 locuri", "Automată", "Diesel 5.8 l"],
+    name: "Automate & confort",
+    example: "Citroën C5 2010 · VW Passat 2008 · Smart 800 cm³",
+    price: "de la 70 lei/zi",
+    specs: ["5 locuri", "Automată", "Diesel"],
   },
   {
     img: carVan,
-    name: "Minivan 7 locuri",
-    example: "VW Touran, Opel Zafira sau similar",
-    price: "de la 55 €/zi",
-    specs: ["7 locuri", "Manuală", "Diesel 6.4 l"],
+    name: "Familie & break",
+    example: "VW Passat 2013 · Ford Focus 2011 / 2009 / 2007 · Volvo S40 2010",
+    price: "de la 70 lei/zi",
+    specs: ["5 locuri", "Manuală", "Diesel"],
   },
+  {
+    img: carEconomy,
+    name: "Economic & oraș",
+    example: "Opel Astra H 2007 · VW Bora 2002 · Renault Mégane 2004 · Smart ForFour 2006",
+    price: "de la 70 lei/zi",
+    specs: ["4-5 locuri", "Manuală", "Diesel / Benzină"],
+  },
+];
+
+const cars = [
+  { model: "Citroën C5", year: "2010", fuel: "Diesel", gear: "Automat" },
+  { model: "VW Passat", year: "2013", fuel: "Diesel", gear: "Manual" },
+  { model: "VW Passat", year: "2008", fuel: "Diesel", gear: "Automat" },
+  { model: "Ford Focus", year: "2011", fuel: "Diesel", gear: "Manual" },
+  { model: "Ford Focus", year: "2009", fuel: "Diesel", gear: "Manual" },
+  { model: "Ford Focus", year: "2007", fuel: "Diesel", gear: "Manual" },
+  { model: "Volvo S40", year: "2010", fuel: "Diesel", gear: "Manual" },
+  { model: "Opel Astra H", year: "2007", fuel: "Diesel", gear: "Manual" },
+  { model: "VW Bora", year: "2002", fuel: "Diesel", gear: "Manual" },
+  { model: "Renault Mégane", year: "2004", fuel: "Diesel", gear: "Manual" },
+  { model: "Smart ForFour", year: "2006", fuel: "Benzină", gear: "Manual" },
+  { model: "Smart 800 cm³", year: "—", fuel: "Diesel", gear: "Automat" },
 ];
 
 const perks = [
   {
-    icon: Plane,
-    title: "Predare la Aeroportul Cluj",
-    text: "Vă așteptăm cu mașina în parcarea aeroportului, la ora aterizării. Predare și retur fără costuri suplimentare.",
+    icon: ShieldCheck,
+    title: "Fără garanție",
+    text: "Nu percepem garanție și nu blocăm sume pe card. Închirierea se face simplu, pe bază de contract.",
   },
   {
     icon: CreditCard,
-    title: "Tarife clare, fără surprize",
-    text: "Prețul include asigurarea RCA, rovinieta și kilometraj nelimitat în România. Fără taxe ascunse la retur.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Garanție mică sau zero",
-    text: "Alegeți pachetul full cover și plecați fără blocarea unei sume mari pe card.",
+    title: "Prețuri de la 70 lei/zi",
+    text: "Tarif negociabil în funcție de mașină și de durata contractuală, cu reducere pentru perioade lungi.",
   },
   {
     icon: BadgeCheck,
-    title: "Mașini verificate",
-    text: "Fiecare auto trece prin service și curățenie completă înainte de fiecare închiriere.",
+    title: "Contract și factură",
+    text: "Se încheie contract de închiriere și se emite factură — potrivit și pentru firme.",
+  },
+  {
+    icon: Car,
+    title: "Mașini în stare perfectă",
+    text: "Toate autoturismele au AC, ITP valabil, rovinietă și asigurare, verificate înainte de predare.",
+  },
+  {
+    icon: MapPin,
+    title: "Predare personală în Gilău",
+    text: "Vă întâmpinăm personal în Gilău, la o oră stabilită împreună. Servim Cluj-Napoca, Florești și Gilău.",
   },
   {
     icon: Clock,
-    title: "Rezervare în 10 minute",
-    text: "Un telefon sau un mesaj și confirmăm disponibilitatea pe loc, inclusiv în weekend.",
-  },
-  {
-    icon: KeyRound,
-    title: "Închirieri lungi",
-    text: "Tarife speciale pentru perioade de peste 7, 30 sau 90 de zile, pentru persoane fizice și firme.",
+    title: "Răspuns rapid",
+    text: "Un telefon sau un mesaj pe WhatsApp și confirmăm disponibilitatea, inclusiv în weekend.",
   },
 ];
 
 const steps = [
-  { n: "01", title: "Alegeți mașina", text: "Ne spuneți perioada și clasa dorită." },
-  { n: "02", title: "Confirmăm", text: "Primiți tariful final și confirmarea rezervării." },
-  { n: "03", title: "Preluați auto", text: "În Gilău, Cluj-Napoca sau la aeroport." },
-  { n: "04", title: "Returnați simplu", text: "Verificare rapidă și eliberarea garanției." },
+  { n: "01", title: "Alegeți mașina", text: "Ne spuneți perioada și modelul dorit din flotă." },
+  { n: "02", title: "Primiți prețul", text: "Tarif final, negociat în funcție de durată." },
+  { n: "03", title: "Contract în Gilău", text: "Predare personală, contract și factură." },
+  { n: "04", title: "Returnați simplu", text: "Verificare rapidă, fără garanție de eliberat." },
 ];
 
 const conditions = [
-  "Vârstă minimă 21 de ani",
   "Permis auto valabil de minimum 1 an",
   "Carte de identitate sau pașaport",
-  "Kilometraj nelimitat în România",
-  "Ieșire din țară pe bază de acord scris",
-  "Plata cash sau card",
+  "Fără garanție",
+  "Contract de închiriere și factură",
+  "Preț în funcție de mașină și perioadă",
+  "Predare personală în Gilău",
 ];
+
 
 function Index() {
   return (
@@ -296,14 +301,15 @@ function Index() {
           />
           <div className="absolute inset-0 bg-[linear-gradient(100deg,oklch(0.17_0.03_262/0.95)_0%,oklch(0.2_0.05_262/0.85)_52%,oklch(0.2_0.05_262/0.3)_100%)]" />
           <div className="relative mx-auto max-w-6xl px-5 py-24 md:py-32">
-            <p className="eyebrow text-signal">Închirieri auto în județul Cluj</p>
+            <p className="eyebrow text-signal">Cluj · Gilău · Florești</p>
             <h1 className="mt-4 max-w-3xl font-display text-4xl font-extrabold leading-[1.05] text-ink-foreground md:text-6xl">
-              Mașina potrivită, pregătită de plecare când aterizați în Cluj.
+              Mașini de închiriat în Cluj de la 70 lei/zi, fără garanție.
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-foreground/80 md:text-lg">
-              DCO Rent a Car Cluj închiriază mașini verificate, cu tarife clare
-              și kilometraj nelimitat. Predare în Gilău, Cluj-Napoca sau direct
-              la Aeroportul Internațional Cluj.
+              DCO Rent a Car închiriază autoturisme în stare perfectă de
+              funcționare, cu AC, ITP, rovinietă și asigurare. Contract și
+              factură, predare personală în Gilău. Prețuri negociabile în
+              funcție de mașină și de durata contractului.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <a href="#contact" className="btn-base btn-signal">
@@ -315,10 +321,10 @@ function Index() {
             </div>
             <dl className="mt-14 grid max-w-2xl grid-cols-2 gap-6 border-t border-ink-foreground/15 pt-8 md:grid-cols-4">
               {[
-                ["22 €", "tarif de la / zi"],
-                ["0 km", "limită de rulaj"],
-                ["24/7", "predare la aeroport"],
-                ["10 min", "confirmare rezervare"],
+                ["70 lei", "tarif de la / zi"],
+                ["0 lei", "garanție"],
+                ["12", "mașini în flotă"],
+                ["Gilău", "predare personală"],
               ].map(([big, small]) => (
                 <div key={small}>
                   <dt className="font-display text-2xl font-bold text-ink-foreground">
@@ -335,8 +341,9 @@ function Index() {
         <section id="flota" className="mx-auto max-w-6xl px-5 py-20 md:py-28">
           <p className="eyebrow">Flota</p>
           <h2 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">
-            Trei clase care acoperă orice drum din Transilvania
+            12 mașini disponibile, manuale și automate
           </h2>
+
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {fleet.map((c) => (
               <article key={c.name} className="card-eco overflow-hidden">
@@ -377,11 +384,40 @@ function Index() {
               </article>
             ))}
           </div>
-          <p className="mt-6 text-sm text-muted-foreground">
-            Modelele sunt orientative, în funcție de disponibilitatea din flotă
-            la data rezervării.
-          </p>
+          <div className="mt-12 card-eco p-6 md:p-8">
+            <h3 className="text-lg font-semibold">Mașini disponibile pentru închiriere</h3>
+            <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {cars.map((c) => (
+                <li
+                  key={`${c.model}-${c.year}`}
+                  className="flex items-center justify-between gap-3 border-b border-border pb-3 text-sm"
+                >
+                  <span className="font-semibold">
+                    {c.model} <span className="text-muted-foreground">{c.year}</span>
+                  </span>
+                  <span className="flex shrink-0 items-center gap-3 text-xs text-muted-foreground">
+                    <span className="flex items-center gap-1">
+                      <Fuel className="h-3.5 w-3.5 text-primary" />
+                      {c.fuel}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Settings2 className="h-3.5 w-3.5 text-primary" />
+                      {c.gear}
+                    </span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-5 text-sm text-muted-foreground">
+              Disponibilitatea variază în funcție de perioadă. Sunați la{" "}
+              <a href="tel:+40742925934" className="font-semibold text-primary">
+                (0742) 925 934
+              </a>{" "}
+              pentru mașina și prețul exact.
+            </p>
+          </div>
         </section>
+
 
         {/* Avantaje */}
         <section id="avantaje" className="bg-surface py-20 md:py-28">
@@ -506,7 +542,7 @@ function Index() {
                       Punct de predare
                     </span>
                     <span className="font-semibold">
-                      Gilău, Cluj · Aeroport Cluj
+                      Gilău, județul Cluj (predare personală)
                     </span>
                   </span>
                 </div>
@@ -568,7 +604,7 @@ function Index() {
                   <textarea
                     rows={3}
                     className="mt-1.5 w-full resize-none rounded-lg border border-input bg-background px-3.5 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-ring/25"
-                    placeholder="Ex: minivan 7 locuri, preluare de la Aeroport Cluj la 21:30"
+                    placeholder="Ex: VW Passat automat, preluare din Gilău la 18:00, 5 zile"
                   />
                 </label>
               </div>
@@ -586,7 +622,7 @@ function Index() {
       <footer className="border-t border-border bg-background">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-5 py-8 text-sm text-muted-foreground md:flex-row md:items-center md:justify-between">
           <p className="font-semibold text-foreground">DCO RENT A CAR CLUJ</p>
-          <p>Gilău · Cluj-Napoca · Aeroport Internațional Cluj</p>
+          <p>Gilău · Cluj-Napoca · Florești</p>
           <p>© {new Date().getFullYear()} Toate drepturile rezervate.</p>
         </div>
       </footer>
