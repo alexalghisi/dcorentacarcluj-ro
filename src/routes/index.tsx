@@ -240,8 +240,8 @@ const perks = [
 const steps = [
   { n: "01", title: "Alegeți mașina", text: "Ne spuneți perioada și modelul dorit din flotă." },
   { n: "02", title: "Primiți prețul", text: "Tarif final, negociat în funcție de durată." },
-  { n: "03", title: "Contract în Gilău", text: "Predare personală, contract și factură." },
-  { n: "04", title: "Returnați simplu", text: "Verificare rapidă, fără garanție de eliberat." },
+  { n: "03", title: "Predare în Gilău", text: "Ne întâlnim personal și predăm mașina verificată." },
+  { n: "04", title: "Returnați simplu", text: "Verificare rapidă la finalul perioadei." },
 ];
 
 const conditions = [
