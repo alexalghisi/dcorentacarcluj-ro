@@ -160,25 +160,32 @@ export const Route = createFileRoute("/")({
 
 const fleet = [
   {
-    img: carSedan,
-    name: "Automate & confort",
-    example: "Citroën C5 2010 · VW Passat 2008 · Smart 800 cm³",
+    img: carC5,
+    name: "Citroën C5 2010",
+    example: "Berlină automată, confortabilă pentru drumuri lungi",
     price: "de la 70 lei/zi",
     specs: ["5 locuri", "Automată", "Diesel"],
   },
   {
-    img: carVan,
-    name: "Familie & break",
-    example: "VW Passat 2013 · Ford Focus 2011 / 2009 / 2007 · Volvo S40 2010",
+    img: carPassat,
+    name: "VW Passat Break 2013",
+    example: "Portbagaj mare, ideal pentru familie sau bagaje",
     price: "de la 70 lei/zi",
     specs: ["5 locuri", "Manuală", "Diesel"],
   },
   {
-    img: carEconomy,
-    name: "Economic & oraș",
-    example: "Opel Astra H 2007 · VW Bora 2002 · Renault Mégane 2004 · Smart ForFour 2006",
+    img: carFocus,
+    name: "Ford Focus Break",
+    example: "Modele 2011 / 2009 / 2007, economice și fiabile",
     price: "de la 70 lei/zi",
-    specs: ["4-5 locuri", "Manuală", "Diesel / Benzină"],
+    specs: ["5 locuri", "Manuală", "Diesel"],
+  },
+  {
+    img: carFabia,
+    name: "Škoda Fabia",
+    example: "Compactă, perfectă pentru oraș și parcare ușoară",
+    price: "de la 70 lei/zi",
+    specs: ["5 locuri", "Manuală", "Benzină"],
   },
 ];
 
