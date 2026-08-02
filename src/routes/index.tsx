@@ -442,7 +442,7 @@ function Index() {
                 Trimite cererea
               </button>
               <p className="mt-3 text-xs text-muted-foreground">
-                Sau apelați direct: 0700 000 000
+                Sau apelați direct: <a href="tel:+40742925934" className="underline">(0742) 925 934</a>
               </p>
             </form>
           </div>
