@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Car, Phone, Clock, ArrowLeft, ArrowRight } from "lucide-react";
 
 import { getPost, posts, formatDateRo } from "@/lib/blog";
+import type { BlogPost, BlogSection } from "@/lib/blog";
 
 const SITE = "https://dcorentacarcluj.ro";
 
@@ -73,7 +74,7 @@ export const Route = createFileRoute("/blog/$slug")({
 });
 
 function BlogPostPage() {
-  const { post } = Route.useLoaderData();
+  const { post } = Route.useLoaderData() as { post: BlogPost };
   const others = posts.filter((p) => p.slug !== post.slug).slice(0, 3);
 
   return (
@@ -126,17 +127,17 @@ function BlogPostPage() {
         <p className="mt-7 text-lg text-muted-foreground">{post.excerpt}</p>
 
         <div className="mt-10 space-y-10">
-          {post.sections.map((section) => (
+          {post.sections.map((section: BlogSection) => (
             <section key={section.heading}>
               <h2 className="font-display text-xl font-bold tracking-tight">{section.heading}</h2>
-              {section.paragraphs.map((p) => (
+              {section.paragraphs.map((p: string) => (
                 <p key={p} className="mt-3 leading-relaxed text-muted-foreground">
                   {p}
                 </p>
               ))}
               {section.bullets ? (
                 <ul className="mt-4 space-y-2">
-                  {section.bullets.map((b) => (
+                  {section.bullets.map((b: string) => (
                     <li key={b} className="flex gap-2.5 text-sm text-muted-foreground">
                       <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
                       {b}
