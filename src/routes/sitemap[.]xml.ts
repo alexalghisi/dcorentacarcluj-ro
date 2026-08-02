@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { posts } from "@/lib/blog";
+import { locations } from "@/lib/locations";
 
 const BASE_URL = "https://dcorentacarcluj.ro";
 
@@ -16,6 +17,11 @@ export const Route = createFileRoute("/sitemap.xml")({
       GET: async () => {
         const entries: SitemapEntry[] = [
           { path: "/", changefreq: "weekly", priority: "1.0" },
+          ...locations.map((l) => ({
+            path: `/${l.slug}`,
+            changefreq: "monthly" as const,
+            priority: "0.9",
+          })),
           { path: "/blog", changefreq: "weekly", priority: "0.8" },
           ...posts.map((post) => ({
             path: `/blog/${post.slug}`,
