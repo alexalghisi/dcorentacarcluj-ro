@@ -132,26 +132,15 @@ export const Route = createFileRoute("/")({
           makesOffer: [
             {
               "@type": "Offer",
-              name: "Închiriere auto clasa Economy",
-              price: "22",
-              priceCurrency: "EUR",
-              eligibleDuration: { "@type": "QuantitativeValue", value: 1, unitCode: "DAY" },
-            },
-            {
-              "@type": "Offer",
-              name: "Închiriere auto clasa Business",
-              price: "39",
-              priceCurrency: "EUR",
-              eligibleDuration: { "@type": "QuantitativeValue", value: 1, unitCode: "DAY" },
-            },
-            {
-              "@type": "Offer",
-              name: "Închiriere minivan 7 locuri",
-              price: "55",
-              priceCurrency: "EUR",
+              name: "Închiriere auto Cluj / Gilău",
+              price: "70",
+              priceCurrency: "RON",
+              description:
+                "Tarif de la 70 lei/zi, fără garanție, negociabil în funcție de mașină și perioadă.",
               eligibleDuration: { "@type": "QuantitativeValue", value: 1, unitCode: "DAY" },
             },
           ],
+
         }),
       },
       {
