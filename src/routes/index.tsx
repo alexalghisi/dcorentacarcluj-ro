@@ -63,7 +63,7 @@ export const Route = createFileRoute("/")({
       {
         name: "keywords",
         content:
-          "rent a car cluj, inchirieri auto cluj, masini de inchiriat cluj, rent a car gilau, rent a car floresti, inchirieri auto ieftine cluj, masini de inchiriat fara garantie",
+          "rent a car cluj, inchirieri auto cluj, masini de inchiriat cluj, rent a car gilau, rent a car floresti, inchirieri auto ieftine cluj",
       },
 
       { name: "robots", content: "index, follow, max-image-preview:large" },
@@ -120,7 +120,7 @@ export const Route = createFileRoute("/")({
               price: "70",
               priceCurrency: "RON",
               description:
-                "Tarif de la 70 lei/zi, fără garanție, negociabil în funcție de mașină și perioadă.",
+                "Tarif de la 70 lei/zi, negociabil în funcție de mașină și perioadă.",
               eligibleDuration: { "@type": "QuantitativeValue", value: 1, unitCode: "DAY" },
             },
           ],
