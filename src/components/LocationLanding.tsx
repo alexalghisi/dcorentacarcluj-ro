@@ -152,13 +152,29 @@ export function LocationLanding({ page }: { page: LocationPage }) {
         </section>
       </main>
 
-      <footer className="border-t border-border bg-background">
+      <footer className="border-t border-border bg-background pb-20 md:pb-0">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-5 py-8 text-sm text-muted-foreground md:flex-row md:items-center md:justify-between">
           <p className="font-semibold text-foreground">DCO RENT A CAR CLUJ</p>
           <p>Gilău · Cluj-Napoca · Florești</p>
           <p>© {new Date().getFullYear()} Toate drepturile rezervate.</p>
         </div>
       </footer>
+
+      {/* Bară fixă mobil: sună + WhatsApp */}
+      <div className="fixed inset-x-0 bottom-0 z-50 grid grid-cols-2 gap-2 border-t border-border bg-background/95 p-3 backdrop-blur md:hidden">
+        <a href={PHONE_HREF} className="btn-base btn-primary w-full justify-center py-3">
+          <Phone className="h-4 w-4" /> Sună
+        </a>
+        <a
+          href={whatsapp}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-base btn-signal w-full justify-center py-3"
+        >
+          <MessageCircle className="h-4 w-4" /> WhatsApp
+        </a>
+      </div>
+
     </div>
   );
 }
