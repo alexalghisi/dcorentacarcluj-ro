@@ -66,13 +66,17 @@ export function LocationLanding({ page }: { page: LocationPage }) {
             </div>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <a href="tel:+40742925934" className="btn-base btn-signal">
+              <a href={PHONE_HREF} className="btn-base btn-primary">
                 <Phone className="h-4 w-4" /> Sună acum
+              </a>
+              <a href={whatsapp} target="_blank" rel="noopener noreferrer" className="btn-base btn-signal">
+                <MessageCircle className="h-4 w-4" /> WhatsApp
               </a>
               <Link to="/" hash="contact" className="btn-base btn-outline-ink">
                 Cere o ofertă <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
+
           </div>
         </section>
 
