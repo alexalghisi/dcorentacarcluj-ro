@@ -85,7 +85,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:site_name", content: "DCO Rent a Car Cluj" },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "ro_RO" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "theme-color", content: "#0f172a" },
+      { name: "format-detection", content: "telephone=yes" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "DCO Rent a Car Cluj",
+          url: "https://dcorentacarcluj.ro",
+          inLanguage: "ro-RO",
+        }),
+      },
     ],
     links: [
       {
