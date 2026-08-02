@@ -36,9 +36,9 @@ export const posts: BlogPost[] = [
           "Diferența majoră față de firmele mari din aeroport este garanția: la noi nu se blochează bani pe card, iar predarea se face personal în Gilău, la 12 km de centrul Clujului.",
         ],
         bullets: [
-          "Clasa economică (Škoda Fabia): de la 70 lei/zi",
-          "Break-uri spațioase (Ford Focus, VW Passat): de la 100 lei/zi",
-          "Automate (Citroën C5): de la 130 lei/zi",
+          "Clasa economică (Škoda Fabia, Renault Clio Symbol): de la 70 lei/zi",
+          "Break-uri și berline (Ford Focus, VW Passat, Volvo S40): tarif la cerere",
+          "Automate și 7 locuri (Citroën C5, Volvo XC90): tarif la cerere",
           "Reduceri pentru închirieri de peste 7 zile",
         ],
       },
