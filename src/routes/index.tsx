@@ -326,7 +326,7 @@ function Index() {
               {[
                 ["70 lei", "tarif de la / zi"],
                 ["0 lei", "garanție"],
-                ["13", "mașini în flotă"],
+                ["Contract", "și factură"],
                 ["Gilău", "predare personală"],
               ].map(([big, small]) => (
                 <div key={small}>
