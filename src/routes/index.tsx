@@ -1,26 +1,30 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
-  Recycle,
-  Truck,
-  Factory,
-  FileCheck2,
+  Car,
+  KeyRound,
+  ShieldCheck,
+  Plane,
+  CreditCard,
+  Clock,
   Phone,
   Mail,
   MapPin,
-  Clock,
   ArrowRight,
-  ShieldCheck,
-  Scale,
-  Leaf,
+  Fuel,
+  Users,
+  Settings2,
+  BadgeCheck,
 } from "lucide-react";
 
-import heroYard from "@/assets/hero-yard.jpg";
-import scrapMetal from "@/assets/scrap-metal.jpg";
-import collection from "@/assets/collection.jpg";
+import heroCar from "@/assets/hero-car.jpg";
+import carEconomy from "@/assets/car-economy.jpg";
+import carSedan from "@/assets/car-sedan.jpg";
+import carVan from "@/assets/car-van.jpg";
 
-const TITLE = "Danciu Eco Recycling — Colectare deșeuri reciclabile, Cluj";
+const SITE = "https://dcorentacarcluj-ro.lovable.app";
+const TITLE = "DCO Rent a Car Cluj — Închirieri auto Gilău & Aeroport Cluj";
 const DESCRIPTION =
-  "Danciu Eco Recycling SRL, Gilău – Cluj: colectare și valorificare deșeuri nepericuloase, fier vechi, metale, hârtie, carton și plastic. Ridicare rapidă, cântărire corectă, documente legale.";
+  "DCO Rent a Car Cluj: închirieri auto în Gilău, Cluj-Napoca și la Aeroportul Cluj. Flotă verificată, tarife clare, predare rapidă, fără garanții ascunse.";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -31,101 +35,104 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: SITE },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: SITE }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          name: "Danciu Eco Recycling SRL",
+          "@type": "AutoRental",
+          name: "DCO Rent a Car Cluj",
           description: DESCRIPTION,
+          url: SITE,
           address: {
             "@type": "PostalAddress",
-            streetAddress: "Strada Principală nr. 17",
             addressLocality: "Gilău",
             addressRegion: "Cluj",
-            postalCode: "407310",
             addressCountry: "RO",
           },
           areaServed: "Județul Cluj",
-          taxID: "RO43460142",
+          openingHours: "Mo-Su 08:00-20:00",
         }),
       },
     ],
   }),
 });
 
-const services = [
+const fleet = [
   {
-    icon: Recycle,
-    title: "Colectare deșeuri nepericuloase",
-    text: "Hârtie, carton, folie și plastic, lemn, deșeuri municipale reciclabile — colectate selectiv și pregătite pentru valorificare.",
+    img: carEconomy,
+    name: "Clasa Economy",
+    example: "VW Polo, Skoda Fabia sau similar",
+    price: "de la 22 €/zi",
+    specs: ["4 locuri", "Manuală", "Benzină 5.2 l"],
   },
   {
-    icon: Scale,
-    title: "Fier vechi și metale",
-    text: "Achiziție fier vechi, aluminiu, cupru, inox și baterii auto. Cântărire pe cântar verificat metrologic, plata pe loc.",
+    img: carSedan,
+    name: "Clasa Business",
+    example: "Skoda Octavia, VW Passat sau similar",
+    price: "de la 39 €/zi",
+    specs: ["5 locuri", "Automată", "Diesel 5.8 l"],
   },
   {
-    icon: Truck,
-    title: "Ridicare cu utilajul nostru",
-    text: "Punem la dispoziție containere și transport propriu. Încărcăm, cântărim și eliberăm documentele la fața locului.",
+    img: carVan,
+    name: "Minivan 7 locuri",
+    example: "VW Touran, Opel Zafira sau similar",
+    price: "de la 55 €/zi",
+    specs: ["7 locuri", "Manuală", "Diesel 6.4 l"],
+  },
+];
+
+const perks = [
+  {
+    icon: Plane,
+    title: "Predare la Aeroportul Cluj",
+    text: "Vă așteptăm cu mașina în parcarea aeroportului, la ora aterizării. Predare și retur fără costuri suplimentare.",
   },
   {
-    icon: Factory,
-    title: "Servicii pentru firme",
-    text: "Contracte de preluare periodică pentru hale, ateliere, șantiere și magazine, cu raportare pentru evidența deșeurilor.",
+    icon: CreditCard,
+    title: "Tarife clare, fără surprize",
+    text: "Prețul include asigurarea RCA, rovinieta și kilometraj nelimitat în România. Fără taxe ascunse la retur.",
   },
   {
-    icon: FileCheck2,
-    title: "Documente și conformitate",
-    text: "Formulare de încărcare-descărcare, avize și note de cântar — dosarul dumneavoastră de mediu rămâne în regulă.",
+    icon: ShieldCheck,
+    title: "Garanție mică sau zero",
+    text: "Alegeți pachetul full cover și plecați fără blocarea unei sume mari pe card.",
   },
   {
-    icon: Leaf,
-    title: "Dezmembrări și golire spații",
-    text: "Golim curți, poduri și hale de utilaje, țevi, tâmplărie metalică și echipamente scoase din uz.",
+    icon: BadgeCheck,
+    title: "Mașini verificate",
+    text: "Fiecare auto trece prin service și curățenie completă înainte de fiecare închiriere.",
+  },
+  {
+    icon: Clock,
+    title: "Rezervare în 10 minute",
+    text: "Un telefon sau un mesaj și confirmăm disponibilitatea pe loc, inclusiv în weekend.",
+  },
+  {
+    icon: KeyRound,
+    title: "Închirieri lungi",
+    text: "Tarife speciale pentru perioade de peste 7, 30 sau 90 de zile, pentru persoane fizice și firme.",
   },
 ];
 
 const steps = [
-  {
-    n: "01",
-    title: "Ne sunați",
-    text: "Ne spuneți ce material aveți, cantitatea estimată și locația.",
-  },
-  {
-    n: "02",
-    title: "Primiți prețul",
-    text: "Vă comunicăm prețul zilei pe kilogram sau pe tonă, fără costuri ascunse.",
-  },
-  {
-    n: "03",
-    title: "Ridicăm materialul",
-    text: "Venim cu mașina și utilajul potrivit, încărcăm și cântărim în prezența dumneavoastră.",
-  },
-  {
-    n: "04",
-    title: "Plată și documente",
-    text: "Plata se face imediat, iar firmele primesc toate documentele de trasabilitate.",
-  },
+  { n: "01", title: "Alegeți mașina", text: "Ne spuneți perioada și clasa dorită." },
+  { n: "02", title: "Confirmăm", text: "Primiți tariful final și confirmarea rezervării." },
+  { n: "03", title: "Preluați auto", text: "În Gilău, Cluj-Napoca sau la aeroport." },
+  { n: "04", title: "Returnați simplu", text: "Verificare rapidă și eliberarea garanției." },
 ];
 
-const materials = [
-  "Fier vechi",
-  "Aluminiu",
-  "Cupru și bronz",
-  "Inox",
-  "Baterii auto",
-  "Hârtie și carton",
-  "Folie și PET",
-  "Cabluri",
-  "Tâmplărie metalică",
-  "Utilaje scoase din uz",
+const conditions = [
+  "Vârstă minimă 21 de ani",
+  "Permis auto valabil de minimum 1 an",
+  "Carte de identitate sau pașaport",
+  "Kilometraj nelimitat în România",
+  "Ieșire din țară pe bază de acord scris",
+  "Plata cash sau card",
 ];
 
 function Index() {
@@ -135,33 +142,33 @@ function Index() {
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3.5">
           <a href="#top" className="flex items-center gap-2.5">
             <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-              <Recycle className="h-5 w-5" strokeWidth={2.4} />
+              <Car className="h-5 w-5" strokeWidth={2.4} />
             </span>
             <span className="leading-tight">
               <span className="block font-display text-sm font-bold tracking-tight">
-                DANCIU ECO RECYCLING
+                DCO RENT A CAR
               </span>
               <span className="block text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                Gilău · Cluj
+                Cluj · Gilău
               </span>
             </span>
           </a>
           <nav className="hidden items-center gap-7 text-sm font-medium text-muted-foreground md:flex">
-            <a className="transition-colors hover:text-foreground" href="#servicii">
-              Servicii
+            <a className="transition-colors hover:text-foreground" href="#flota">
+              Flota
             </a>
-            <a className="transition-colors hover:text-foreground" href="#materiale">
-              Materiale
+            <a className="transition-colors hover:text-foreground" href="#avantaje">
+              Avantaje
             </a>
             <a className="transition-colors hover:text-foreground" href="#proces">
-              Cum lucrăm
+              Cum funcționează
             </a>
             <a className="transition-colors hover:text-foreground" href="#contact">
               Contact
             </a>
           </nav>
           <a href="tel:+40700000000" className="btn-base btn-primary px-5 py-2.5 text-sm">
-            <Phone className="h-4 w-4" /> Sună acum
+            <Phone className="h-4 w-4" /> Rezervă
           </a>
         </div>
       </header>
@@ -170,38 +177,37 @@ function Index() {
         {/* Hero */}
         <section className="relative isolate overflow-hidden">
           <img
-            src={heroYard}
-            alt="Platformă de colectare și sortare a deșeurilor reciclabile din județul Cluj"
+            src={heroCar}
+            alt="Mașină de închiriat pe un drum din județul Cluj la apus"
             width={1600}
             height={1008}
             className="absolute inset-0 h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(100deg,oklch(0.19_0.03_150/0.94)_0%,oklch(0.22_0.04_150/0.82)_52%,oklch(0.22_0.04_150/0.35)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(100deg,oklch(0.17_0.03_262/0.95)_0%,oklch(0.2_0.05_262/0.85)_52%,oklch(0.2_0.05_262/0.3)_100%)]" />
           <div className="relative mx-auto max-w-6xl px-5 py-24 md:py-32">
-            <p className="eyebrow text-signal">Reciclare responsabilă din 2020</p>
+            <p className="eyebrow text-signal">Închirieri auto în județul Cluj</p>
             <h1 className="mt-4 max-w-3xl font-display text-4xl font-extrabold leading-[1.05] text-ink-foreground md:text-6xl">
-              Deșeurile dumneavoastră au valoare. Le ridicăm, le cântărim corect
-              și le trimitem la reciclare.
+              Mașina potrivită, pregătită de plecare când aterizați în Cluj.
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-foreground/80 md:text-lg">
-              Danciu Eco Recycling colectează fier vechi, metale, hârtie, carton
-              și plastic de la persoane fizice, firme și șantiere din Gilău,
-              Cluj-Napoca și restul județului Cluj.
+              DCO Rent a Car Cluj închiriază mașini verificate, cu tarife clare
+              și kilometraj nelimitat. Predare în Gilău, Cluj-Napoca sau direct
+              la Aeroportul Internațional Cluj.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <a href="#contact" className="btn-base btn-signal">
-                Cere prețul zilei <ArrowRight className="h-4 w-4" />
+                Cere o ofertă <ArrowRight className="h-4 w-4" />
               </a>
-              <a href="#servicii" className="btn-base btn-outline-ink">
-                Vezi serviciile
+              <a href="#flota" className="btn-base btn-outline-ink">
+                Vezi flota
               </a>
             </div>
             <dl className="mt-14 grid max-w-2xl grid-cols-2 gap-6 border-t border-ink-foreground/15 pt-8 md:grid-cols-4">
               {[
-                ["5+", "ani de activitate"],
-                ["CAEN 3811", "colectare deșeuri"],
-                ["Cluj", "județ acoperit"],
-                ["24-48h", "timp de ridicare"],
+                ["22 €", "tarif de la / zi"],
+                ["0 km", "limită de rulaj"],
+                ["24/7", "predare la aeroport"],
+                ["10 min", "confirmare rezervare"],
               ].map(([big, small]) => (
                 <div key={small}>
                   <dt className="font-display text-2xl font-bold text-ink-foreground">
@@ -214,84 +220,86 @@ function Index() {
           </div>
         </section>
 
-        {/* Servicii */}
-        <section id="servicii" className="mx-auto max-w-6xl px-5 py-20 md:py-28">
-          <p className="eyebrow">Servicii</p>
+        {/* Flota */}
+        <section id="flota" className="mx-auto max-w-6xl px-5 py-20 md:py-28">
+          <p className="eyebrow">Flota</p>
           <h2 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">
-            Un singur partener pentru tot ce poate fi reciclat
+            Trei clase care acoperă orice drum din Transilvania
           </h2>
-          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {services.map(({ icon: Icon, title, text }) => (
-              <article key={title} className="card-eco p-6">
-                <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-secondary text-secondary-foreground">
-                  <Icon className="h-5 w-5" strokeWidth={2.2} />
-                </span>
-                <h3 className="mt-5 text-lg font-semibold">{title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {text}
-                </p>
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {fleet.map((c) => (
+              <article key={c.name} className="card-eco overflow-hidden">
+                <img
+                  src={c.img}
+                  alt={`${c.name} disponibilă la închiriere în Cluj`}
+                  width={1200}
+                  height={900}
+                  loading="lazy"
+                  className="h-48 w-full bg-surface object-cover"
+                />
+                <div className="p-6">
+                  <div className="flex items-start justify-between gap-3">
+                    <h3 className="text-lg font-semibold">{c.name}</h3>
+                    <span className="whitespace-nowrap rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-secondary-foreground">
+                      {c.price}
+                    </span>
+                  </div>
+                  <p className="mt-1 text-sm text-muted-foreground">{c.example}</p>
+                  <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm text-muted-foreground">
+                    <li className="flex items-center gap-1.5">
+                      <Users className="h-4 w-4 text-primary" /> {c.specs[0]}
+                    </li>
+                    <li className="flex items-center gap-1.5">
+                      <Settings2 className="h-4 w-4 text-primary" /> {c.specs[1]}
+                    </li>
+                    <li className="flex items-center gap-1.5">
+                      <Fuel className="h-4 w-4 text-primary" /> {c.specs[2]}
+                    </li>
+                  </ul>
+                  <a
+                    href="#contact"
+                    className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary"
+                  >
+                    Verifică disponibilitatea <ArrowRight className="h-4 w-4" />
+                  </a>
+                </div>
               </article>
             ))}
           </div>
+          <p className="mt-6 text-sm text-muted-foreground">
+            Modelele sunt orientative, în funcție de disponibilitatea din flotă
+            la data rezervării.
+          </p>
         </section>
 
-        {/* Materiale */}
-        <section id="materiale" className="bg-surface py-20 md:py-28">
-          <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 lg:grid-cols-2">
-            <div>
-              <p className="eyebrow">Materiale acceptate</p>
-              <h2 className="mt-3 text-3xl font-bold md:text-4xl">
-                Ce preluăm de la dumneavoastră
-              </h2>
-              <p className="mt-4 text-muted-foreground">
-                Preluăm cantități mici de la persoane fizice și volume mari,
-                periodice, de la firme. Dacă materialul nu apare în listă,
-                întrebați-ne — cel mai probabil îl putem valorifica.
-              </p>
-              <ul className="mt-8 flex flex-wrap gap-2.5">
-                {materials.map((m) => (
-                  <li
-                    key={m}
-                    className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium"
-                  >
-                    {m}
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-8 flex items-start gap-3 rounded-xl border border-border bg-card p-4">
-                <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                <p className="text-sm text-muted-foreground">
-                  Nu colectăm deșeuri periculoase. Lucrăm exclusiv cu deșeuri
-                  nepericuloase, conform codului CAEN 3811.
-                </p>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <img
-                src={scrapMetal}
-                alt="Baluri de metal comprimat pregătite pentru reciclare"
-                width={1200}
-                height={900}
-                loading="lazy"
-                className="h-64 w-full rounded-2xl object-cover shadow-[var(--shadow-card)] md:h-80"
-              />
-              <img
-                src={collection}
-                alt="Operator care încarcă carton și plastic sortat în container"
-                width={1200}
-                height={900}
-                loading="lazy"
-                className="mt-8 h-64 w-full rounded-2xl object-cover shadow-[var(--shadow-card)] md:h-80"
-              />
+        {/* Avantaje */}
+        <section id="avantaje" className="bg-surface py-20 md:py-28">
+          <div className="mx-auto max-w-6xl px-5">
+            <p className="eyebrow">De ce DCO</p>
+            <h2 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">
+              Închiriere fără birocrație și fără costuri ascunse
+            </h2>
+            <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {perks.map(({ icon: Icon, title, text }) => (
+                <article key={title} className="card-eco p-6">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-secondary text-secondary-foreground">
+                    <Icon className="h-5 w-5" strokeWidth={2.2} />
+                  </span>
+                  <h3 className="mt-5 text-lg font-semibold">{title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    {text}
+                  </p>
+                </article>
+              ))}
             </div>
           </div>
         </section>
 
         {/* Proces */}
         <section id="proces" className="mx-auto max-w-6xl px-5 py-20 md:py-28">
-          <p className="eyebrow">Cum lucrăm</p>
+          <p className="eyebrow">Cum funcționează</p>
           <h2 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">
-            Patru pași, fără birocrație inutilă
+            Patru pași de la telefon la volan
           </h2>
           <ol className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {steps.map((s) => (
@@ -306,6 +314,17 @@ function Index() {
               </li>
             ))}
           </ol>
+          <div className="mt-12 card-eco p-6 md:p-8">
+            <h3 className="text-lg font-semibold">Condiții de închiriere</h3>
+            <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {conditions.map((c) => (
+                <li key={c} className="flex items-start gap-2 text-sm text-muted-foreground">
+                  <BadgeCheck className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                  {c}
+                </li>
+              ))}
+            </ul>
+          </div>
         </section>
 
         {/* Contact */}
@@ -314,11 +333,11 @@ function Index() {
             <div>
               <p className="eyebrow text-signal">Contact</p>
               <h2 className="mt-3 text-3xl font-bold md:text-4xl">
-                Spuneți-ne ce aveți de ridicat
+                Spuneți-ne perioada și vă trimitem tariful
               </h2>
               <p className="mt-4 max-w-lg text-ink-foreground/75">
-                Răspundem la telefon în timpul programului și programăm ridicarea
-                în 24-48 de ore în zona Gilău – Cluj-Napoca.
+                Răspundem rapid la telefon și WhatsApp, inclusiv pentru
+                rezervări de ultim moment sau curse de la aeroport.
               </p>
               <div className="mt-10 grid gap-5 sm:grid-cols-2">
                 <a
@@ -328,13 +347,13 @@ function Index() {
                   <Phone className="mt-0.5 h-5 w-5 text-signal" />
                   <span>
                     <span className="block text-xs uppercase tracking-widest text-ink-foreground/60">
-                      Telefon
+                      Telefon / WhatsApp
                     </span>
                     <span className="font-semibold">0700 000 000</span>
                   </span>
                 </a>
                 <a
-                  href="mailto:contact@danciuecorecycling.ro"
+                  href="mailto:contact@dcorentacarcluj.ro"
                   className="flex items-start gap-3 rounded-xl border border-ink-foreground/15 p-4 transition-colors hover:bg-ink-foreground/10"
                 >
                   <Mail className="mt-0.5 h-5 w-5 text-signal" />
@@ -342,19 +361,17 @@ function Index() {
                     <span className="block text-xs uppercase tracking-widest text-ink-foreground/60">
                       E-mail
                     </span>
-                    <span className="font-semibold">
-                      contact@danciuecorecycling.ro
-                    </span>
+                    <span className="font-semibold">contact@dcorentacarcluj.ro</span>
                   </span>
                 </a>
                 <div className="flex items-start gap-3 rounded-xl border border-ink-foreground/15 p-4">
                   <MapPin className="mt-0.5 h-5 w-5 text-signal" />
                   <span>
                     <span className="block text-xs uppercase tracking-widest text-ink-foreground/60">
-                      Punct de lucru
+                      Punct de predare
                     </span>
                     <span className="font-semibold">
-                      Str. Principală nr. 17, Gilău, Cluj
+                      Gilău, Cluj · Aeroport Cluj
                     </span>
                   </span>
                 </div>
@@ -364,7 +381,7 @@ function Index() {
                     <span className="block text-xs uppercase tracking-widest text-ink-foreground/60">
                       Program
                     </span>
-                    <span className="font-semibold">Luni – Sâmbătă, 08:00 – 18:00</span>
+                    <span className="font-semibold">Luni – Duminică, 08:00 – 20:00</span>
                   </span>
                 </div>
               </div>
@@ -374,9 +391,9 @@ function Index() {
               className="rounded-2xl bg-card p-6 text-card-foreground shadow-[var(--shadow-lift)]"
               onSubmit={(e) => e.preventDefault()}
             >
-              <h3 className="text-lg font-semibold">Cerere de ridicare</h3>
+              <h3 className="text-lg font-semibold">Cerere de rezervare</h3>
               <p className="mt-1 text-sm text-muted-foreground">
-                Completați datele și vă contactăm cu prețul zilei.
+                Completați datele și vă confirmăm disponibilitatea.
               </p>
               <div className="mt-5 space-y-4">
                 <label className="block">
@@ -395,12 +412,28 @@ function Index() {
                     className="mt-1.5 w-full rounded-lg border border-input bg-background px-3.5 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-ring/25"
                   />
                 </label>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <label className="block">
+                    <span className="text-sm font-medium">Preluare</span>
+                    <input
+                      type="date"
+                      className="mt-1.5 w-full rounded-lg border border-input bg-background px-3.5 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-ring/25"
+                    />
+                  </label>
+                  <label className="block">
+                    <span className="text-sm font-medium">Retur</span>
+                    <input
+                      type="date"
+                      className="mt-1.5 w-full rounded-lg border border-input bg-background px-3.5 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-ring/25"
+                    />
+                  </label>
+                </div>
                 <label className="block">
-                  <span className="text-sm font-medium">Material și cantitate</span>
+                  <span className="text-sm font-medium">Clasa dorită / detalii</span>
                   <textarea
-                    rows={4}
+                    rows={3}
                     className="mt-1.5 w-full resize-none rounded-lg border border-input bg-background px-3.5 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-ring/25"
-                    placeholder="Ex: aprox. 2 tone fier vechi, curte în Gilău"
+                    placeholder="Ex: minivan 7 locuri, preluare de la Aeroport Cluj la 21:30"
                   />
                 </label>
               </div>
@@ -417,8 +450,8 @@ function Index() {
 
       <footer className="border-t border-border bg-background">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-5 py-8 text-sm text-muted-foreground md:flex-row md:items-center md:justify-between">
-          <p className="font-semibold text-foreground">DANCIU ECO RECYCLING S.R.L.</p>
-          <p>CUI 43460142 · J12/4198/2020 · Gilău, județul Cluj</p>
+          <p className="font-semibold text-foreground">DCO RENT A CAR CLUJ</p>
+          <p>Gilău · Cluj-Napoca · Aeroport Internațional Cluj</p>
           <p>© {new Date().getFullYear()} Toate drepturile rezervate.</p>
         </div>
       </footer>

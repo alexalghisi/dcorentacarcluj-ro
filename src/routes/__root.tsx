@@ -77,13 +77,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Danciu Eco Recycling — Colectare deșeuri reciclabile, Cluj" },
+      { title: "DCO Rent a Car Cluj — Închirieri auto Gilău & Aeroport Cluj" },
       {
         name: "description",
         content:
-          "Colectare și valorificare deșeuri nepericuloase, fier vechi și metale în Gilău și județul Cluj.",
+          "Închirieri auto în Gilău, Cluj-Napoca și la Aeroportul Cluj: flotă verificată, tarife clare, kilometraj nelimitat.",
       },
-      { property: "og:site_name", content: "Danciu Eco Recycling" },
+      { property: "og:site_name", content: "DCO Rent a Car Cluj" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -110,7 +110,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="ro">
       <head>
         <HeadContent />
       </head>
