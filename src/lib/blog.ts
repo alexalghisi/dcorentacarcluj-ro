@@ -20,9 +20,10 @@ export const posts: BlogPost[] = [
   {
     slug: "inchirieri-auto-cluj-ghid-complet",
     title: "Închirieri auto în Cluj: ghidul complet pentru 2026",
-    metaTitle: "Închirieri auto Cluj 2026: ghid complet, tarife și acte | DCO Rent a Car",
+    metaTitle: "Închirieri auto Cluj 2026: tarife și acte | DCO",
     description:
-      "Ghid practic pentru închirieri auto în Cluj-Napoca și Gilău: tarife reale de la 70 lei/zi, actele necesare, kilometraj și sfaturi de rezervare.",
+      "Ghid pentru închirieri auto în Cluj și Gilău: tarife de la 70 lei/zi, actele necesare, kilometraj și sfaturi de rezervare.",
+
     date: "2026-07-12",
     readingMinutes: 6,
     category: "Ghid",
