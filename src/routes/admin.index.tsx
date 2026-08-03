@@ -29,9 +29,9 @@ import {
 } from "@/lib/admin.functions";
 import { VehicleDialog } from "@/components/admin/VehicleDialog";
 import {
-  VIEW_DISPLAY_MULTIPLIER,
   displayViews,
   vehicleImageSrc,
+
   type Vehicle,
 } from "@/lib/vehicles";
 import type { SearchConsoleStats } from "@/lib/search-console";
