@@ -57,6 +57,19 @@ const faq = [
 
 
 export const Route = createFileRoute("/")({
+  loader: async () => {
+    try {
+      return await getPublicVehicles();
+    } catch {
+      return [];
+    }
+  },
+  errorComponent: () => (
+    <main className="p-10 text-center">
+      <h1 className="text-xl font-bold">Reîncarcă pagina</h1>
+    </main>
+  ),
+  notFoundComponent: () => <main className="p-10 text-center">Pagina nu a fost găsită.</main>,
   component: Index,
   head: () => ({
     meta: [
