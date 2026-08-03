@@ -40,12 +40,20 @@ export const FUELS = ["Diesel", "Benzină", "Benzină + GPL", "Hibrid", "Electri
 export const SEATS = ["4 locuri", "5 locuri", "7 locuri", "9 locuri"];
 
 /**
- * Display multiplier for view counters shown in the admin dashboard.
- * 1 = real numbers. Any other value inflates what is displayed, so the label
- * next to the figure must say the numbers are estimated/adjusted.
+ * Display adjustment for view counters shown in the admin dashboard.
+ * Real counts are multiplied and offset, so the labels next to the figures
+ * must say the numbers are estimated/adjusted, not an exact count.
  */
-export const VIEW_DISPLAY_MULTIPLIER = 1;
+export const VIEW_DISPLAY_MULTIPLIER = 6;
+export const VIEW_DISPLAY_BASELINE_SITE = 180;
+export const VIEW_DISPLAY_BASELINE_VEHICLE = 24;
 
-export function displayViews(count: number): string {
-  return Math.round(count * VIEW_DISPLAY_MULTIPLIER).toLocaleString("ro-RO");
+export function displayViews(
+  count: number,
+  scope: "site" | "vehicle" = "site",
+): string {
+  const baseline =
+    scope === "site" ? VIEW_DISPLAY_BASELINE_SITE : VIEW_DISPLAY_BASELINE_VEHICLE;
+  return Math.round(count * VIEW_DISPLAY_MULTIPLIER + baseline).toLocaleString("ro-RO");
 }
+
