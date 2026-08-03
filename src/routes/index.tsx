@@ -15,6 +15,8 @@ import {
   BadgeCheck,
 } from "lucide-react";
 
+import { getPublicVehicles } from "@/lib/admin.functions";
+import { vehicleImageSrc, type Vehicle } from "@/lib/vehicles";
 import heroCar from "@/assets/hero-fleet.jpg";
 import carPassat from "@/assets/car-passat.jpg";
 import carC5 from "@/assets/car-c5.jpg";
@@ -55,6 +57,19 @@ const faq = [
 
 
 export const Route = createFileRoute("/")({
+  loader: async () => {
+    try {
+      return await getPublicVehicles();
+    } catch {
+      return [];
+    }
+  },
+  errorComponent: () => (
+    <main className="p-10 text-center">
+      <h1 className="text-xl font-bold">Reîncarcă pagina</h1>
+    </main>
+  ),
+  notFoundComponent: () => <main className="p-10 text-center">Pagina nu a fost găsită.</main>,
   component: Index,
   head: () => ({
     meta: [
@@ -255,7 +270,20 @@ const conditions = [
 
 
 function Index() {
+  const dbVehicles = Route.useLoaderData() as Vehicle[];
+  const fleetItems =
+    dbVehicles.length > 0
+      ? dbVehicles.map((v) => ({
+          img: vehicleImageSrc(v.image_url),
+          name: v.name,
+          example: v.tagline,
+          price: v.price_label,
+          specs: [v.seats, v.transmission, v.fuel],
+        }))
+      : fleet;
+
   return (
+
     <div className="min-h-screen bg-background">
       <header className="sticky top-0 z-40 border-b border-border/70 bg-background/85 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3.5">
@@ -362,7 +390,7 @@ function Index() {
           </h2>
 
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {fleet.map((c) => (
+            {fleetItems.map((c) => (
               <article key={c.name} className="card-eco overflow-hidden">
                 <img
                   src={c.img}
