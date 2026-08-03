@@ -14,6 +14,27 @@ export type Database = {
   }
   public: {
     Tables: {
+      site_metrics: {
+        Row: {
+          created_at: string
+          key: string
+          updated_at: string
+          value: number
+        }
+        Insert: {
+          created_at?: string
+          key: string
+          updated_at?: string
+          value?: number
+        }
+        Update: {
+          created_at?: string
+          key?: string
+          updated_at?: string
+          value?: number
+        }
+        Relationships: []
+      }
       vehicles: {
         Row: {
           created_at: string
@@ -29,6 +50,7 @@ export type Database = {
           tagline: string
           transmission: string
           updated_at: string
+          view_count: number
         }
         Insert: {
           created_at?: string
@@ -44,6 +66,7 @@ export type Database = {
           tagline?: string
           transmission?: string
           updated_at?: string
+          view_count?: number
         }
         Update: {
           created_at?: string
@@ -59,6 +82,7 @@ export type Database = {
           tagline?: string
           transmission?: string
           updated_at?: string
+          view_count?: number
         }
         Relationships: []
       }
@@ -67,7 +91,11 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      increment_site_metric: {
+        Args: { _delta?: number; _key: string }
+        Returns: number
+      }
+      increment_vehicle_view: { Args: { _id: string }; Returns: number }
     }
     Enums: {
       [_ in never]: never
