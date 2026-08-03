@@ -255,7 +255,20 @@ const conditions = [
 
 
 function Index() {
+  const dbVehicles = Route.useLoaderData() as Vehicle[];
+  const fleetItems =
+    dbVehicles.length > 0
+      ? dbVehicles.map((v) => ({
+          img: vehicleImageSrc(v.image_url),
+          name: v.name,
+          example: v.tagline,
+          price: v.price_label,
+          specs: [v.seats, v.transmission, v.fuel],
+        }))
+      : fleet;
+
   return (
+
     <div className="min-h-screen bg-background">
       <header className="sticky top-0 z-40 border-b border-border/70 bg-background/85 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3.5">
