@@ -8,6 +8,8 @@ export interface LocationPage {
   slug: string;
   city: string;
   navLabel: string;
+  /** Text folosit în linkurile interne (implicit „Rent a Car {city}”). */
+  linkTitle?: string;
   h1: string;
   metaTitle: string;
   description: string;
@@ -17,6 +19,7 @@ export interface LocationPage {
   sections: LocationSection[];
   faq: { q: string; a: string }[];
 }
+
 
 export const locations: LocationPage[] = [
   {
