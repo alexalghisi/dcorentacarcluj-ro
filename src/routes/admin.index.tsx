@@ -58,7 +58,7 @@ export const Route = createFileRoute("/admin/")({
 });
 
 function AdminDashboard() {
-  const vehicles = Route.useLoaderData();
+  const vehicles = Route.useLoaderData() as Vehicle[];
   const router = useRouter();
   const [dialog, setDialog] = useState<{ open: boolean; vehicle: Vehicle | null }>({
     open: false,
