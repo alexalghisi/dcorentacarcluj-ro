@@ -172,10 +172,11 @@ export const posts: BlogPost[] = [
   },
   {
     slug: "iarna-in-apuseni-cu-masina-inchiriata",
-    title: "Iarna în Apuseni cu mașina închiriată: pregătire și trasee sigure",
-    metaTitle: "Iarna în Apuseni cu mașina închiriată: cauciucuri, trasee, sfaturi | DCO",
+    title: "Iarna în Apuseni cu mașina închiriată: trasee sigure",
+    metaTitle: "Iarna în Apuseni cu mașina închiriată | DCO",
     description:
-      "Ce trebuie să știi înainte de a urca în Apuseni iarna cu o mașină închiriată din Cluj: anvelope, trasee recomandate, dotări obligatorii și reguli de siguranță.",
+      "Ce să știi înainte de a urca în Apuseni iarna cu o mașină închiriată din Cluj: anvelope, trasee și reguli de siguranță.",
+
     date: "2026-07-30",
     readingMinutes: 5,
     category: "Sezon",
