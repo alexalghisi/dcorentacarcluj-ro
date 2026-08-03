@@ -3,8 +3,9 @@ import { Car, Phone, Clock, ArrowLeft, ArrowRight } from "lucide-react";
 
 import { getPost, posts, formatDateRo } from "@/lib/blog";
 import type { BlogPost, BlogSection } from "@/lib/blog";
+import { SITE_URL, canonical, canonicalLinks } from "@/lib/seo";
 
-const SITE = "https://dcorentacarcluj.ro";
+const SITE = SITE_URL;
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {
