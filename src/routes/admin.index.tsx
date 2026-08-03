@@ -12,6 +12,8 @@ import {
   Plus,
   Trash2,
   ExternalLink,
+  BarChart3,
+  Eye as EyeIcon,
 } from "lucide-react";
 
 import {
@@ -19,14 +21,23 @@ import {
   adminListVehicles,
   adminLogout,
   adminReorderVehicles,
+  adminStats,
   adminToggleVehicle,
 } from "@/lib/admin.functions";
 import { VehicleDialog } from "@/components/admin/VehicleDialog";
-import { vehicleImageSrc, type Vehicle } from "@/lib/vehicles";
+import {
+  VIEW_DISPLAY_MULTIPLIER,
+  displayViews,
+  vehicleImageSrc,
+  type Vehicle,
+} from "@/lib/vehicles";
 
 export const Route = createFileRoute("/admin/")({
   ssr: false,
-  loader: () => adminListVehicles(),
+  loader: async () => {
+    const [vehicles, stats] = await Promise.all([adminListVehicles(), adminStats()]);
+    return { vehicles, stats };
+  },
   component: AdminDashboard,
   errorComponent: () => (
     <main className="flex min-h-screen items-center justify-center p-8 text-center">
@@ -58,7 +69,10 @@ export const Route = createFileRoute("/admin/")({
 });
 
 function AdminDashboard() {
-  const vehicles = Route.useLoaderData() as Vehicle[];
+  const { vehicles, stats } = Route.useLoaderData() as {
+    vehicles: Vehicle[];
+    stats: { siteViews: number; vehicleViews: number; vehicles: number };
+  };
   const router = useRouter();
   const [dialog, setDialog] = useState<{ open: boolean; vehicle: Vehicle | null }>({
     open: false,
@@ -149,6 +163,32 @@ function AdminDashboard() {
       </header>
 
       <main className="mx-auto max-w-6xl px-5 py-10">
+        <section aria-label="Statistici" className="mb-10">
+          <div className="flex items-center gap-2">
+            <BarChart3 className="h-4 w-4 text-primary" />
+            <h2 className="text-sm font-bold uppercase tracking-wide">Statistici</h2>
+          </div>
+          <dl className="mt-4 grid gap-4 sm:grid-cols-3">
+            {[
+              { label: "Vizualizări site", value: displayViews(stats.siteViews) },
+              { label: "Vizualizări mașini", value: displayViews(stats.vehicleViews) },
+              { label: "Vehicule în flotă", value: String(stats.vehicles) },
+            ].map((s) => (
+              <div key={s.label} className="rounded-2xl border border-border bg-background p-5">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                  {s.label}
+                </dt>
+                <dd className="mt-2 text-3xl font-bold">{s.value}</dd>
+              </div>
+            ))}
+          </dl>
+          <p className="mt-3 text-xs text-muted-foreground">
+            {VIEW_DISPLAY_MULTIPLIER === 1
+              ? "Numărătoare reală: fiecare deschidere a paginii, respectiv fiecare mașină văzută de un vizitator."
+              : "Cifre estimate (ajustate pentru afișare), nu numărătoare exactă."}
+          </p>
+        </section>
+
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <h1 className="text-2xl font-bold md:text-3xl">Vehicule</h1>
@@ -207,6 +247,10 @@ function AdminDashboard() {
                   <p className="mt-1 line-clamp-1 text-sm text-muted-foreground">{v.tagline}</p>
                   <p className="mt-1 text-xs text-muted-foreground">
                     {v.seats} · {v.transmission} · {v.fuel}
+                  </p>
+                  <p className="mt-1.5 inline-flex items-center gap-1.5 text-xs font-semibold text-primary">
+                    <EyeIcon className="h-3.5 w-3.5" />
+                    {displayViews(v.view_count ?? 0)} vizualizări
                   </p>
                 </div>
 
