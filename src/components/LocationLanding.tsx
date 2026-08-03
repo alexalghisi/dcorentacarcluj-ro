@@ -163,7 +163,7 @@ export function LocationLanding({ page }: { page: LocationPage }) {
                   params={{ slug: o.slug }}
                   className="group flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-primary"
                 >
-                  <span className="font-semibold">Rent a Car {o.city}</span>
+                  <span className="font-semibold">{o.linkTitle ?? `Rent a Car ${o.city}`}</span>
                   <ArrowRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-0.5" />
                 </Link>
               ))}

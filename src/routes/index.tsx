@@ -27,7 +27,9 @@ import carVolvoS40 from "@/assets/car-volvo-s40.jpg";
 import carVolvoS40Grey from "@/assets/car-volvo-s40-grey.jpg";
 import carXc90 from "@/assets/car-xc90.jpg";
 
+import { locations } from "@/lib/locations";
 import { SITE_URL, canonical, canonicalLinks } from "@/lib/seo";
+
 
 const SITE = SITE_URL;
 const TITLE = "Rent a Car Cluj & Gilău | Mașini de la 70 lei/zi";
@@ -80,7 +82,7 @@ export const Route = createFileRoute("/")({
       {
         name: "keywords",
         content:
-          "rent a car cluj, inchirieri auto cluj, masini de inchiriat cluj, rent a car gilau, rent a car floresti, inchirieri auto ieftine cluj",
+          "rent a car cluj, rent a car cluj napoca, inchirieri auto cluj, inchiriere masina cluj, masini de inchiriat cluj, inchirieri masini cluj, rent a car cluj aeroport, rent a car gilau, rent a car floresti, inchirieri auto ieftine cluj, masina automata de inchiriat cluj, masina 7 locuri de inchiriat cluj",
       },
 
       { name: "robots", content: "index, follow, max-image-preview:large" },
@@ -666,20 +668,22 @@ function Index() {
 
       <footer className="border-t border-border bg-background">
         <div className="mx-auto max-w-6xl px-5 py-8">
-          <nav aria-label="Zone deservite" className="flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium">
-            <Link className="text-muted-foreground transition-colors hover:text-foreground" to="/$slug" params={{ slug: "rent-a-car-cluj-napoca" }}>
-              Rent a Car Cluj-Napoca
-            </Link>
-            <Link className="text-muted-foreground transition-colors hover:text-foreground" to="/$slug" params={{ slug: "rent-a-car-gilau" }}>
-              Rent a Car Gilău
-            </Link>
-            <Link className="text-muted-foreground transition-colors hover:text-foreground" to="/$slug" params={{ slug: "rent-a-car-aeroport-cluj" }}>
-              Rent a Car Aeroport Cluj
-            </Link>
+          <nav aria-label="Zone și servicii" className="flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium">
+            {locations.map((l) => (
+              <Link
+                key={l.slug}
+                className="text-muted-foreground transition-colors hover:text-foreground"
+                to="/$slug"
+                params={{ slug: l.slug }}
+              >
+                {l.linkTitle ?? `Rent a Car ${l.city}`}
+              </Link>
+            ))}
             <Link className="text-muted-foreground transition-colors hover:text-foreground" to="/blog">
               Blog
             </Link>
           </nav>
+
           <div className="mt-6 flex flex-col gap-4 border-t border-border pt-6 text-sm text-muted-foreground md:flex-row md:items-center md:justify-between">
             <p className="font-semibold text-foreground">DCO RENT A CAR CLUJ</p>
             <p>Gilău · Cluj-Napoca · Florești</p>

@@ -52,6 +52,22 @@ export const Route = createFileRoute("/$slug")({
             email: "Ovidiu_danciu@yahoo.com",
             priceRange: "de la 70 RON/zi",
             areaServed: { "@type": "Place", name: page.city },
+            currenciesAccepted: "RON",
+            makesOffer: {
+              "@type": "Offer",
+              name: `Închiriere auto ${page.city}`,
+              priceSpecification: {
+                "@type": "UnitPriceSpecification",
+                price: 70,
+                priceCurrency: "RON",
+                minPrice: 70,
+                unitCode: "DAY",
+              },
+              availability: "https://schema.org/InStock",
+              itemOffered: { "@type": "Service", serviceType: "Închirieri auto" },
+            },
+
+
 
             address: {
               "@type": "PostalAddress",
