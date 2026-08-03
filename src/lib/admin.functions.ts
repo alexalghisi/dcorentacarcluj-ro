@@ -59,6 +59,15 @@ export const adminStats = createServerFn({ method: "GET" }).handler(async () => 
   return { siteViews, vehicleViews, vehicles: vehicles.length };
 });
 
+/** Admin only: real Google Search Console performance for the site. */
+export const adminSearchConsole = createServerFn({ method: "GET" }).handler(async () => {
+  await requireAdmin();
+  const { fetchSearchConsoleStats } = await import("@/lib/search-console.server");
+  return fetchSearchConsoleStats();
+});
+
+
+
 
 export const adminLogin = createServerFn({ method: "POST" })
   .inputValidator((data) =>
