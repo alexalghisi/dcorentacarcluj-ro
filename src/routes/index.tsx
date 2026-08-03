@@ -679,9 +679,11 @@ function BookingForm() {
         Completați datele și vă confirmăm disponibilitatea.
       </p>
       <div className="mt-5 space-y-4">
-        <label className="block">
+        <label className="block" htmlFor="rezervare-nume">
           <span className="text-sm font-medium">Nume / firmă</span>
           <input
+            id="rezervare-nume"
+            name="nume"
             type="text"
             required
             value={name}
@@ -689,9 +691,11 @@ function BookingForm() {
             className={FIELD_CLASS}
           />
         </label>
-        <label className="block">
+        <label className="block" htmlFor="rezervare-telefon">
           <span className="text-sm font-medium">Telefon</span>
           <input
+            id="rezervare-telefon"
+            name="telefon"
             type="tel"
             required
             value={phone}
@@ -700,18 +704,22 @@ function BookingForm() {
           />
         </label>
         <div className="grid gap-4 sm:grid-cols-2">
-          <label className="block">
+          <label className="block" htmlFor="rezervare-preluare">
             <span className="text-sm font-medium">Preluare</span>
             <input
+              id="rezervare-preluare"
+              name="preluare"
               type="date"
               value={pickup}
               onChange={(e) => setPickup(e.target.value)}
               className={FIELD_CLASS}
             />
           </label>
-          <label className="block">
+          <label className="block" htmlFor="rezervare-retur">
             <span className="text-sm font-medium">Retur</span>
             <input
+              id="rezervare-retur"
+              name="retur"
               type="date"
               value={ret}
               onChange={(e) => setRet(e.target.value)}
@@ -719,9 +727,11 @@ function BookingForm() {
             />
           </label>
         </div>
-        <label className="block">
+        <label className="block" htmlFor="rezervare-detalii">
           <span className="text-sm font-medium">Clasa dorită / detalii</span>
           <textarea
+            id="rezervare-detalii"
+            name="detalii"
             rows={3}
             value={details}
             onChange={(e) => setDetails(e.target.value)}
@@ -729,6 +739,7 @@ function BookingForm() {
             placeholder="Ex: VW Passat automat, preluare din Gilău la 18:00, 5 zile"
           />
         </label>
+
       </div>
       <button type="submit" className="btn-base btn-primary mt-6 w-full">
         Trimite cererea pe WhatsApp
