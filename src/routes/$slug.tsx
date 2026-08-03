@@ -20,7 +20,7 @@ export const Route = createFileRoute("/$slug")({
       };
     }
     const { page } = loaderData;
-    const url = `${SITE}/${page.slug}`;
+    const url = canonical(`/${page.slug}`);
     return {
       meta: [
         { title: page.metaTitle },
@@ -36,10 +36,7 @@ export const Route = createFileRoute("/$slug")({
         { name: "twitter:title", content: page.metaTitle },
         { name: "twitter:description", content: page.description },
       ],
-      links: [
-        { rel: "canonical", href: url },
-        { rel: "alternate", hrefLang: "ro-RO", href: url },
-      ],
+      links: canonicalLinks(`/${page.slug}`),
       scripts: [
         {
           type: "application/ld+json",
