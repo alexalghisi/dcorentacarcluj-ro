@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SlugRouteImport } from './routes/$slug'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
@@ -30,6 +31,11 @@ const SlugRoute = SlugRouteImport.update({
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/admin/',
+  path: '/admin/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminLoginRoute = AdminLoginRouteImport.update({
@@ -60,6 +66,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/login': typeof AdminLoginRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/admin/': typeof AdminIndexRoute
   '/blog/': typeof BlogIndexRoute
   '/api/public/vehicle-image/$': typeof ApiPublicVehicleImageSplatRoute
 }
@@ -69,6 +76,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/login': typeof AdminLoginRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/admin': typeof AdminIndexRoute
   '/blog': typeof BlogIndexRoute
   '/api/public/vehicle-image/$': typeof ApiPublicVehicleImageSplatRoute
 }
@@ -79,6 +87,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/login': typeof AdminLoginRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/admin/': typeof AdminIndexRoute
   '/blog/': typeof BlogIndexRoute
   '/api/public/vehicle-image/$': typeof ApiPublicVehicleImageSplatRoute
 }
@@ -90,6 +99,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/admin/login'
     | '/blog/$slug'
+    | '/admin/'
     | '/blog/'
     | '/api/public/vehicle-image/$'
   fileRoutesByTo: FileRoutesByTo
@@ -99,6 +109,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/admin/login'
     | '/blog/$slug'
+    | '/admin'
     | '/blog'
     | '/api/public/vehicle-image/$'
   id:
@@ -108,6 +119,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/admin/login'
     | '/blog/$slug'
+    | '/admin/'
     | '/blog/'
     | '/api/public/vehicle-image/$'
   fileRoutesById: FileRoutesById
@@ -118,6 +130,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   AdminLoginRoute: typeof AdminLoginRoute
   BlogSlugRoute: typeof BlogSlugRoute
+  AdminIndexRoute: typeof AdminIndexRoute
   BlogIndexRoute: typeof BlogIndexRoute
   ApiPublicVehicleImageSplatRoute: typeof ApiPublicVehicleImageSplatRoute
 }
@@ -143,6 +156,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/': {
+      id: '/admin/'
+      path: '/admin'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin/login': {
@@ -182,6 +202,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   AdminLoginRoute: AdminLoginRoute,
   BlogSlugRoute: BlogSlugRoute,
+  AdminIndexRoute: AdminIndexRoute,
   BlogIndexRoute: BlogIndexRoute,
   ApiPublicVehicleImageSplatRoute: ApiPublicVehicleImageSplatRoute,
 }
