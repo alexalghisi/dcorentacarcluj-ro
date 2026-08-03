@@ -10,6 +10,7 @@ export interface Vehicle {
   image_url: string;
   sort_order: number;
   is_active: boolean;
+  view_count: number;
 }
 
 export interface VehicleInput {
@@ -37,3 +38,14 @@ export function vehicleImageSrc(imageUrl: string): string {
 export const TRANSMISSIONS = ["Manuală", "Automată"];
 export const FUELS = ["Diesel", "Benzină", "Benzină + GPL", "Hibrid", "Electric"];
 export const SEATS = ["4 locuri", "5 locuri", "7 locuri", "9 locuri"];
+
+/**
+ * Display multiplier for view counters shown in the admin dashboard.
+ * 1 = real numbers. Any other value inflates what is displayed, so the label
+ * next to the figure must say the numbers are estimated/adjusted.
+ */
+export const VIEW_DISPLAY_MULTIPLIER = 1;
+
+export function displayViews(count: number): string {
+  return Math.round(count * VIEW_DISPLAY_MULTIPLIER).toLocaleString("ro-RO");
+}

@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Car,
@@ -15,7 +15,7 @@ import {
   BadgeCheck,
 } from "lucide-react";
 
-import { getPublicVehicles } from "@/lib/admin.functions";
+import { getPublicVehicles, trackSiteView, trackVehicleView } from "@/lib/admin.functions";
 import { vehicleImageSrc, type Vehicle } from "@/lib/vehicles";
 import heroCar from "@/assets/hero-fleet.jpg";
 import carPassat from "@/assets/car-passat.jpg";
@@ -279,8 +279,35 @@ function Index() {
           example: v.tagline,
           price: v.price_label,
           specs: [v.seats, v.transmission, v.fuel],
+          id: v.id,
         }))
-      : fleet;
+      : fleet.map((c) => ({ ...c, id: undefined as string | undefined }));
+
+  const fleetRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    void trackSiteView({ data: undefined }).catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    const root = fleetRef.current;
+    if (!root || typeof IntersectionObserver === "undefined") return;
+    const seen = new Set<string>();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          const id = (entry.target as HTMLElement).dataset["vehicleId"];
+          if (!entry.isIntersecting || !id || seen.has(id)) continue;
+          seen.add(id);
+          observer.unobserve(entry.target);
+          void trackVehicleView({ data: { id } }).catch(() => {});
+        }
+      },
+      { threshold: 0.5 },
+    );
+    root.querySelectorAll("[data-vehicle-id]").forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, [dbVehicles]);
 
   return (
 
@@ -389,9 +416,13 @@ function Index() {
             Mașini disponibile, manuale și automate
           </h2>
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div ref={fleetRef} className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {fleetItems.map((c) => (
-              <article key={c.name} className="card-eco overflow-hidden">
+              <article
+                key={c.name}
+                {...(c.id ? { "data-vehicle-id": c.id } : {})}
+                className="card-eco overflow-hidden"
+              >
                 <img
                   src={c.img}
                   alt={`${c.name} disponibilă la închiriere în Cluj`}

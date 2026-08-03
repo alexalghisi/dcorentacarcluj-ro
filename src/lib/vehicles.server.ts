@@ -3,7 +3,7 @@ import type { Database } from "@/integrations/supabase/types";
 import type { Vehicle, VehicleInput } from "@/lib/vehicles";
 
 const COLUMNS =
-  "id, name, tagline, description, price_label, seats, transmission, fuel, image_url, sort_order, is_active";
+  "id, name, tagline, description, price_label, seats, transmission, fuel, image_url, sort_order, is_active, view_count";
 
 function publicClient() {
   const key =
