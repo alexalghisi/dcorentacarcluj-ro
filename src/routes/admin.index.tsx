@@ -21,6 +21,7 @@ import {
   adminListVehicles,
   adminLogout,
   adminReorderVehicles,
+  adminSearchConsole,
   adminStats,
   adminToggleVehicle,
 } from "@/lib/admin.functions";
@@ -31,13 +32,19 @@ import {
   vehicleImageSrc,
   type Vehicle,
 } from "@/lib/vehicles";
+import type { SearchConsoleStats } from "@/lib/search-console.server";
 
 export const Route = createFileRoute("/admin/")({
   ssr: false,
   loader: async () => {
-    const [vehicles, stats] = await Promise.all([adminListVehicles(), adminStats()]);
-    return { vehicles, stats };
+    const [vehicles, stats, search] = await Promise.all([
+      adminListVehicles(),
+      adminStats(),
+      adminSearchConsole(),
+    ]);
+    return { vehicles, stats, search };
   },
+
   component: AdminDashboard,
   errorComponent: () => (
     <main className="flex min-h-screen items-center justify-center p-8 text-center">
