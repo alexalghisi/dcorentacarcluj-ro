@@ -15,6 +15,8 @@ import {
   BadgeCheck,
 } from "lucide-react";
 
+import { getPublicVehicles } from "@/lib/admin.functions";
+import { vehicleImageSrc, type Vehicle } from "@/lib/vehicles";
 import heroCar from "@/assets/hero-fleet.jpg";
 import carPassat from "@/assets/car-passat.jpg";
 import carC5 from "@/assets/car-c5.jpg";
@@ -375,7 +377,7 @@ function Index() {
           </h2>
 
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {fleet.map((c) => (
+            {fleetItems.map((c) => (
               <article key={c.name} className="card-eco overflow-hidden">
                 <img
                   src={c.img}
