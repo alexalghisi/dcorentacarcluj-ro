@@ -2,8 +2,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Car, ArrowRight, Phone, Clock } from "lucide-react";
 
 import { posts, formatDateRo } from "@/lib/blog";
+import { SITE_URL, canonical, canonicalLinks } from "@/lib/seo";
 
-const SITE = "https://dcorentacarcluj.ro";
+const SITE = SITE_URL;
 const TITLE = "Blog închirieri auto Cluj | DCO Rent a Car";
 const DESCRIPTION =
   "Ghiduri despre închirieri auto în Cluj și Gilău: tarife reale, acte necesare, rute de o zi în Apuseni, Turda și Rimetea.";
@@ -23,16 +24,13 @@ export const Route = createFileRoute("/blog/")({
       { property: "og:type", content: "website" },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
-      { property: "og:url", content: `${SITE}/blog` },
+      { property: "og:url", content: canonical("/blog") },
       { property: "og:locale", content: "ro_RO" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESCRIPTION },
     ],
-    links: [
-      { rel: "canonical", href: `${SITE}/blog` },
-      { rel: "alternate", hrefLang: "ro-RO", href: `${SITE}/blog` },
-    ],
+    links: canonicalLinks("/blog"),
     scripts: [
       {
         type: "application/ld+json",

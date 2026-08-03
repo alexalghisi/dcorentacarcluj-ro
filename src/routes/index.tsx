@@ -27,7 +27,9 @@ import carVolvoS40 from "@/assets/car-volvo-s40.jpg";
 import carVolvoS40Grey from "@/assets/car-volvo-s40-grey.jpg";
 import carXc90 from "@/assets/car-xc90.jpg";
 
-const SITE = "https://dcorentacarcluj.ro";
+import { SITE_URL, canonical, canonicalLinks } from "@/lib/seo";
+
+const SITE = SITE_URL;
 const TITLE = "Rent a Car Cluj & Gilău | Mașini de la 70 lei/zi";
 const DESCRIPTION =
   "Închiriez mașini în Cluj, Gilău și Florești de la 70 lei/zi. Predare personală în Gilău, mașini verificate cu ITP, RCA, rovinietă și AC incluse.";
@@ -88,17 +90,13 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: SITE },
+      { property: "og:url", content: canonical("/") },
       { property: "og:locale", content: "ro_RO" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESCRIPTION },
     ],
-    links: [
-      { rel: "canonical", href: SITE },
-      { rel: "alternate", hrefLang: "ro-RO", href: SITE },
-      { rel: "alternate", hrefLang: "x-default", href: SITE },
-    ],
+    links: canonicalLinks("/", true),
     scripts: [
       {
         type: "application/ld+json",

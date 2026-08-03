@@ -3,8 +3,9 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import { LocationLanding } from "@/components/LocationLanding";
 import { getLocation } from "@/lib/locations";
 import type { LocationPage } from "@/lib/locations";
+import { SITE_URL, canonical, canonicalLinks } from "@/lib/seo";
 
-const SITE = "https://dcorentacarcluj.ro";
+const SITE = SITE_URL;
 
 export const Route = createFileRoute("/$slug")({
   loader: ({ params }) => {
@@ -19,7 +20,7 @@ export const Route = createFileRoute("/$slug")({
       };
     }
     const { page } = loaderData;
-    const url = `${SITE}/${page.slug}`;
+    const url = canonical(`/${page.slug}`);
     return {
       meta: [
         { title: page.metaTitle },
@@ -35,10 +36,7 @@ export const Route = createFileRoute("/$slug")({
         { name: "twitter:title", content: page.metaTitle },
         { name: "twitter:description", content: page.description },
       ],
-      links: [
-        { rel: "canonical", href: url },
-        { rel: "alternate", hrefLang: "ro-RO", href: url },
-      ],
+      links: canonicalLinks(`/${page.slug}`),
       scripts: [
         {
           type: "application/ld+json",

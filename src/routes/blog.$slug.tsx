@@ -3,8 +3,9 @@ import { Car, Phone, Clock, ArrowLeft, ArrowRight } from "lucide-react";
 
 import { getPost, posts, formatDateRo } from "@/lib/blog";
 import type { BlogPost, BlogSection } from "@/lib/blog";
+import { SITE_URL, canonical, canonicalLinks } from "@/lib/seo";
 
-const SITE = "https://dcorentacarcluj.ro";
+const SITE = SITE_URL;
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {
@@ -19,7 +20,7 @@ export const Route = createFileRoute("/blog/$slug")({
       };
     }
     const { post } = loaderData;
-    const url = `${SITE}/blog/${post.slug}`;
+    const url = canonical(`/blog/${post.slug}`);
     return {
       meta: [
         { title: post.metaTitle },
@@ -35,10 +36,7 @@ export const Route = createFileRoute("/blog/$slug")({
         { name: "twitter:title", content: post.metaTitle },
         { name: "twitter:description", content: post.description },
       ],
-      links: [
-        { rel: "canonical", href: url },
-        { rel: "alternate", hrefLang: "ro-RO", href: url },
-      ],
+      links: canonicalLinks(`/blog/${post.slug}`),
       scripts: [
         {
           type: "application/ld+json",
