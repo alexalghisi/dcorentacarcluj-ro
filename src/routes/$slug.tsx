@@ -44,7 +44,9 @@ export const Route = createFileRoute("/$slug")({
           type: "application/ld+json",
           children: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "AutoRental",
+            "@type": ["LocalBusiness", "AutoRental"],
+            "@id": `${url}#business`,
+            parentOrganization: { "@id": `${SITE}#organization` },
             name: `DCO Rent a Car — ${page.city}`,
             description: page.description,
             url,
@@ -52,6 +54,7 @@ export const Route = createFileRoute("/$slug")({
             email: "Ovidiu_danciu@yahoo.com",
             priceRange: "de la 70 RON/zi",
             areaServed: { "@type": "Place", name: page.city },
+
             address: {
               "@type": "PostalAddress",
               addressLocality: "Gilău",
