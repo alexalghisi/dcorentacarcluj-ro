@@ -72,9 +72,10 @@ export const posts: BlogPost[] = [
   {
     slug: "rute-de-o-zi-plecand-din-cluj",
     title: "7 rute de o zi cu mașina, plecând din Cluj",
-    metaTitle: "7 rute de o zi cu mașina din Cluj: Apuseni, Turda, Rimetea | DCO Rent a Car",
+    metaTitle: "7 rute de o zi cu mașina din Cluj | DCO Rent a Car",
     description:
-      "Cele mai frumoase excursii de o zi cu mașina din Cluj-Napoca: Salina Turda, Cheile Turzii, Rimetea, Apuseni, Beliș, Tarnița și Alba Iulia, cu distanțe și timpi reali.",
+      "Excursii de o zi cu mașina din Cluj: Salina Turda, Cheile Turzii, Rimetea, Beliș, Tarnița și Alba Iulia, cu distanțe reale.",
+
     date: "2026-07-20",
     readingMinutes: 7,
     category: "Rute locale",
