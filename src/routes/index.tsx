@@ -82,7 +82,7 @@ export const Route = createFileRoute("/")({
       {
         name: "keywords",
         content:
-          "rent a car cluj, inchirieri auto cluj, masini de inchiriat cluj, rent a car gilau, rent a car floresti, inchirieri auto ieftine cluj",
+          "rent a car cluj, rent a car cluj napoca, inchirieri auto cluj, inchiriere masina cluj, masini de inchiriat cluj, inchirieri masini cluj, rent a car cluj aeroport, rent a car gilau, rent a car floresti, inchirieri auto ieftine cluj, masina automata de inchiriat cluj, masina 7 locuri de inchiriat cluj",
       },
 
       { name: "robots", content: "index, follow, max-image-preview:large" },
