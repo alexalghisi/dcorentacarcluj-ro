@@ -24,7 +24,7 @@ export const locations: LocationPage[] = [
     city: "Cluj-Napoca",
     navLabel: "Cluj-Napoca",
     h1: "Rent a Car Cluj-Napoca — mașini de închiriat de la 70 lei/zi",
-    metaTitle: "Rent a Car Cluj-Napoca | Mașini de închiriat de la 70 lei/zi",
+    metaTitle: "Rent a Car Cluj-Napoca | Mașini de la 70 lei/zi",
     description:
       "Închirieri auto în Cluj-Napoca de la 70 lei/zi, predare personală. Sună (0742) 925 934.",
     keywords:
@@ -90,7 +90,7 @@ export const locations: LocationPage[] = [
     city: "Gilău",
     navLabel: "Gilău",
     h1: "Rent a Car Gilău — închirieri auto local, predare pe loc",
-    metaTitle: "Rent a Car Gilău | Închirieri auto de la 70 lei/zi, predare în Gilău",
+    metaTitle: "Rent a Car Gilău | Închirieri auto de la 70 lei/zi",
     description:
       "Închirieri auto în Gilău: bază locală, predare personală pe loc, tarife de la 70 lei/zi. Deservim și Florești, Luna de Sus și Someșu Rece.",
     keywords:
@@ -156,7 +156,7 @@ export const locations: LocationPage[] = [
     city: "Aeroport Cluj",
     navLabel: "Aeroport Cluj",
     h1: "Rent a Car Aeroport Cluj — mașină pregătită la aterizare",
-    metaTitle: "Rent a Car Aeroport Cluj | Mașini de închiriat de la 70 lei/zi",
+    metaTitle: "Rent a Car Aeroport Cluj | De la 70 lei/zi",
     description:
       "Închirieri auto pentru pasagerii Aeroportului Cluj: mașină pregătită la aterizare, de la 70 lei/zi. Aeroport – Gilău în ~35 de minute.",
     keywords:

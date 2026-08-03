@@ -20,9 +20,10 @@ export const posts: BlogPost[] = [
   {
     slug: "inchirieri-auto-cluj-ghid-complet",
     title: "Închirieri auto în Cluj: ghidul complet pentru 2026",
-    metaTitle: "Închirieri auto Cluj 2026: ghid complet, tarife și acte | DCO Rent a Car",
+    metaTitle: "Închirieri auto Cluj 2026: tarife și acte | DCO",
     description:
-      "Ghid practic pentru închirieri auto în Cluj-Napoca și Gilău: tarife reale de la 70 lei/zi, actele necesare, kilometraj și sfaturi de rezervare.",
+      "Ghid pentru închirieri auto în Cluj și Gilău: tarife de la 70 lei/zi, actele necesare, kilometraj și sfaturi de rezervare.",
+
     date: "2026-07-12",
     readingMinutes: 6,
     category: "Ghid",
@@ -71,9 +72,10 @@ export const posts: BlogPost[] = [
   {
     slug: "rute-de-o-zi-plecand-din-cluj",
     title: "7 rute de o zi cu mașina, plecând din Cluj",
-    metaTitle: "7 rute de o zi cu mașina din Cluj: Apuseni, Turda, Rimetea | DCO Rent a Car",
+    metaTitle: "7 rute de o zi cu mașina din Cluj | DCO Rent a Car",
     description:
-      "Cele mai frumoase excursii de o zi cu mașina din Cluj-Napoca: Salina Turda, Cheile Turzii, Rimetea, Apuseni, Beliș, Tarnița și Alba Iulia, cu distanțe și timpi reali.",
+      "Excursii de o zi cu mașina din Cluj: Salina Turda, Cheile Turzii, Rimetea, Beliș, Tarnița și Alba Iulia, cu distanțe reale.",
+
     date: "2026-07-20",
     readingMinutes: 7,
     category: "Rute locale",
@@ -133,9 +135,10 @@ export const posts: BlogPost[] = [
   {
     slug: "de-la-aeroportul-cluj-la-gilau",
     title: "De la Aeroportul Cluj la Gilău: cum ajungi și de ce merită",
-    metaTitle: "De la Aeroportul Cluj la Gilău: transfer, timpi și închiriere auto | DCO",
+    metaTitle: "Aeroportul Cluj → Gilău: cum ajungi | DCO",
     description:
-      "Cum ajungi de la Aeroportul Internațional Cluj la Gilău, cât durează, ce opțiuni ai și de ce închirierea din Gilău costă mai puțin decât în aeroport.",
+      "Cum ajungi de la Aeroportul Cluj la Gilău, cât durează și de ce închirierea din Gilău costă mai puțin decât în aeroport.",
+
     date: "2026-07-26",
     readingMinutes: 4,
     category: "Logistică",
@@ -169,10 +172,11 @@ export const posts: BlogPost[] = [
   },
   {
     slug: "iarna-in-apuseni-cu-masina-inchiriata",
-    title: "Iarna în Apuseni cu mașina închiriată: pregătire și trasee sigure",
-    metaTitle: "Iarna în Apuseni cu mașina închiriată: cauciucuri, trasee, sfaturi | DCO",
+    title: "Iarna în Apuseni cu mașina închiriată: trasee sigure",
+    metaTitle: "Iarna în Apuseni cu mașina închiriată | DCO",
     description:
-      "Ce trebuie să știi înainte de a urca în Apuseni iarna cu o mașină închiriată din Cluj: anvelope, trasee recomandate, dotări obligatorii și reguli de siguranță.",
+      "Ce să știi înainte de a urca în Apuseni iarna cu o mașină închiriată din Cluj: anvelope, trasee și reguli de siguranță.",
+
     date: "2026-07-30",
     readingMinutes: 5,
     category: "Sezon",
