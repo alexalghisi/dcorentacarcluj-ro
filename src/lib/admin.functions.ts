@@ -35,6 +35,31 @@ export const getPublicVehicles = createServerFn({ method: "GET" }).handler(async
   fetchPublicVehicles(),
 );
 
+/** Public: counts one homepage visit. */
+export const trackSiteView = createServerFn({ method: "POST" }).handler(async () => {
+  const { recordSiteView } = await import("@/lib/analytics.server");
+  await recordSiteView();
+  return { ok: true as const };
+});
+
+/** Public: counts one view of a single vehicle card. */
+export const trackVehicleView = createServerFn({ method: "POST" })
+  .inputValidator((data) => z.object({ id: z.string().uuid() }).parse(data))
+  .handler(async ({ data }) => {
+    const { recordVehicleView } = await import("@/lib/analytics.server");
+    await recordVehicleView(data.id);
+    return { ok: true as const };
+  });
+
+export const adminStats = createServerFn({ method: "GET" }).handler(async () => {
+  await requireAdmin();
+  const { fetchSiteViews } = await import("@/lib/analytics.server");
+  const [siteViews, vehicles] = await Promise.all([fetchSiteViews(), fetchAllVehicles()]);
+  const vehicleViews = vehicles.reduce((sum, v) => sum + (v.view_count ?? 0), 0);
+  return { siteViews, vehicleViews, vehicles: vehicles.length };
+});
+
+
 export const adminLogin = createServerFn({ method: "POST" })
   .inputValidator((data) =>
     z
