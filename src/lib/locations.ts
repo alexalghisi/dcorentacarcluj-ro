@@ -90,7 +90,7 @@ export const locations: LocationPage[] = [
     city: "Gilău",
     navLabel: "Gilău",
     h1: "Rent a Car Gilău — închirieri auto local, predare pe loc",
-    metaTitle: "Rent a Car Gilău | Închirieri auto de la 70 lei/zi, predare în Gilău",
+    metaTitle: "Rent a Car Gilău | Închirieri auto de la 70 lei/zi",
     description:
       "Închirieri auto în Gilău: bază locală, predare personală pe loc, tarife de la 70 lei/zi. Deservim și Florești, Luna de Sus și Someșu Rece.",
     keywords:
