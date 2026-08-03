@@ -27,7 +27,9 @@ import carVolvoS40 from "@/assets/car-volvo-s40.jpg";
 import carVolvoS40Grey from "@/assets/car-volvo-s40-grey.jpg";
 import carXc90 from "@/assets/car-xc90.jpg";
 
+import { locations } from "@/lib/locations";
 import { SITE_URL, canonical, canonicalLinks } from "@/lib/seo";
+
 
 const SITE = SITE_URL;
 const TITLE = "Rent a Car Cluj & Gilău | Mașini de la 70 lei/zi";
