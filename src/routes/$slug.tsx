@@ -3,8 +3,9 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import { LocationLanding } from "@/components/LocationLanding";
 import { getLocation } from "@/lib/locations";
 import type { LocationPage } from "@/lib/locations";
+import { SITE_URL, canonical, canonicalLinks } from "@/lib/seo";
 
-const SITE = "https://dcorentacarcluj.ro";
+const SITE = SITE_URL;
 
 export const Route = createFileRoute("/$slug")({
   loader: ({ params }) => {
