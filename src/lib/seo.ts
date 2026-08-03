@@ -7,7 +7,7 @@ export const SITE_URL = "https://dcorentacarcluj.ro";
  * - every other path has no trailing slash and no query/hash
  */
 export function canonical(path = "/"): string {
-  const clean = `/${path}`.replace(/\/+/g, "/").split("?")[0].split("#")[0];
+  const clean = `/${path}`.replace(/\/+/g, "/").replace(/[?#].*$/, "");
   if (clean === "/") return `${SITE_URL}/`;
   return `${SITE_URL}${clean.replace(/\/+$/, "")}`;
 }
