@@ -181,8 +181,8 @@ function AdminDashboard() {
           </div>
           <dl className="mt-4 grid gap-4 sm:grid-cols-3">
             {[
-              { label: "Vizualizări site", value: displayViews(stats.siteViews) },
-              { label: "Vizualizări mașini", value: displayViews(stats.vehicleViews) },
+              { label: "Vizualizări site", value: displayViews(stats.siteViews, "site") },
+              { label: "Vizualizări mașini", value: displayViews(stats.vehicleViews, "vehicle") },
               { label: "Vehicule în flotă", value: String(stats.vehicles) },
             ].map((s) => (
               <div key={s.label} className="rounded-2xl border border-border bg-background p-5">
@@ -194,10 +194,9 @@ function AdminDashboard() {
             ))}
           </dl>
           <p className="mt-3 text-xs text-muted-foreground">
-            {VIEW_DISPLAY_MULTIPLIER === 1
-              ? "Numărătoare reală: fiecare deschidere a paginii, respectiv fiecare mașină văzută de un vizitator."
-              : "Cifre estimate (ajustate pentru afișare), nu numărătoare exactă."}
+            Cifre estimate (ajustate pentru afișare), nu numărătoare exactă.
           </p>
+
         </section>
 
         <section aria-label="Google Search Console" className="mb-10">
