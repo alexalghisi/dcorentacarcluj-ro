@@ -360,7 +360,7 @@ function AdminDashboard() {
                   </p>
                   <p className="mt-1.5 inline-flex items-center gap-1.5 text-xs font-semibold text-primary">
                     <EyeIcon className="h-3.5 w-3.5" />
-                    {displayViews(v.view_count ?? 0)} vizualizări
+                    {displayViews(v.view_count ?? 0, "vehicle")} vizualizări
                   </p>
                 </div>
 
