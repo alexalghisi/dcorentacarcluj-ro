@@ -13,7 +13,8 @@ export interface Vehicle {
 }
 
 export interface VehicleInput {
-  id?: string;
+  id?: string | undefined;
+
   name: string;
   tagline: string;
   description: string;
