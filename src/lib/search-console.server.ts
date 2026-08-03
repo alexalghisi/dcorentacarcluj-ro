@@ -1,24 +1,8 @@
+import type { SearchConsoleRow, SearchConsoleStats } from "@/lib/search-console";
+
 const GATEWAY = "https://connector-gateway.lovable.dev/google_search_console";
 const TARGET_URL = "https://dcorentacarcluj.ro/";
 
-export interface SearchConsoleRow {
-  key: string;
-  clicks: number;
-  impressions: number;
-  ctr: number;
-  position: number;
-}
-
-export interface SearchConsoleStats {
-  available: boolean;
-  message?: string;
-  property?: string;
-  startDate?: string;
-  endDate?: string;
-  totals?: { clicks: number; impressions: number; ctr: number; position: number };
-  queries?: SearchConsoleRow[];
-  pages?: SearchConsoleRow[];
-}
 
 function headers() {
   const lovableApiKey = process.env["LOVABLE_API_KEY"];
