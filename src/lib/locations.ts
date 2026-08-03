@@ -24,7 +24,7 @@ export const locations: LocationPage[] = [
     city: "Cluj-Napoca",
     navLabel: "Cluj-Napoca",
     h1: "Rent a Car Cluj-Napoca — mașini de închiriat de la 70 lei/zi",
-    metaTitle: "Rent a Car Cluj-Napoca | Mașini de închiriat de la 70 lei/zi",
+    metaTitle: "Rent a Car Cluj-Napoca | Mașini de la 70 lei/zi",
     description:
       "Închirieri auto în Cluj-Napoca de la 70 lei/zi, predare personală. Sună (0742) 925 934.",
     keywords:
