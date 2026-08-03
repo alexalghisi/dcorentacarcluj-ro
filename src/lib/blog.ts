@@ -135,9 +135,10 @@ export const posts: BlogPost[] = [
   {
     slug: "de-la-aeroportul-cluj-la-gilau",
     title: "De la Aeroportul Cluj la Gilău: cum ajungi și de ce merită",
-    metaTitle: "De la Aeroportul Cluj la Gilău: transfer, timpi și închiriere auto | DCO",
+    metaTitle: "Aeroportul Cluj → Gilău: cum ajungi | DCO",
     description:
-      "Cum ajungi de la Aeroportul Internațional Cluj la Gilău, cât durează, ce opțiuni ai și de ce închirierea din Gilău costă mai puțin decât în aeroport.",
+      "Cum ajungi de la Aeroportul Cluj la Gilău, cât durează și de ce închirierea din Gilău costă mai puțin decât în aeroport.",
+
     date: "2026-07-26",
     readingMinutes: 4,
     category: "Logistică",
