@@ -156,7 +156,7 @@ export const locations: LocationPage[] = [
     city: "Aeroport Cluj",
     navLabel: "Aeroport Cluj",
     h1: "Rent a Car Aeroport Cluj — mașină pregătită la aterizare",
-    metaTitle: "Rent a Car Aeroport Cluj | Mașini de închiriat de la 70 lei/zi",
+    metaTitle: "Rent a Car Aeroport Cluj | De la 70 lei/zi",
     description:
       "Închirieri auto pentru pasagerii Aeroportului Cluj: mașină pregătită la aterizare, de la 70 lei/zi. Aeroport – Gilău în ~35 de minute.",
     keywords:
