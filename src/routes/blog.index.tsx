@@ -2,8 +2,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Car, ArrowRight, Phone, Clock } from "lucide-react";
 
 import { posts, formatDateRo } from "@/lib/blog";
+import { SITE_URL, canonical, canonicalLinks } from "@/lib/seo";
 
-const SITE = "https://dcorentacarcluj.ro";
+const SITE = SITE_URL;
 const TITLE = "Blog închirieri auto Cluj | DCO Rent a Car";
 const DESCRIPTION =
   "Ghiduri despre închirieri auto în Cluj și Gilău: tarife reale, acte necesare, rute de o zi în Apuseni, Turda și Rimetea.";
