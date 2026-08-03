@@ -4,9 +4,10 @@ import { Car, ArrowRight, Phone, Clock } from "lucide-react";
 import { posts, formatDateRo } from "@/lib/blog";
 
 const SITE = "https://dcorentacarcluj.ro";
-const TITLE = "Blog închirieri auto Cluj: ghiduri, tarife și rute locale | DCO Rent a Car";
+const TITLE = "Blog închirieri auto Cluj | DCO Rent a Car";
 const DESCRIPTION =
-  "Articole practice despre închirieri auto în Cluj și Gilău: tarife reale, acte necesare, rute de o zi în Apuseni, Turda și Rimetea, sfaturi pentru sezonul rece.";
+  "Ghiduri despre închirieri auto în Cluj și Gilău: tarife reale, acte necesare, rute de o zi în Apuseni, Turda și Rimetea.";
+
 
 export const Route = createFileRoute("/blog/")({
   head: () => ({
