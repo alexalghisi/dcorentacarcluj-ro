@@ -32,7 +32,7 @@ import {
   vehicleImageSrc,
   type Vehicle,
 } from "@/lib/vehicles";
-import type { SearchConsoleStats } from "@/lib/search-console.server";
+import type { SearchConsoleStats } from "@/lib/search-console";
 
 export const Route = createFileRoute("/admin/")({
   ssr: false,
