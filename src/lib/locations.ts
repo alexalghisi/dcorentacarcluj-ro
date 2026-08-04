@@ -10,6 +10,8 @@ export interface LocationPage {
   navLabel: string;
   /** Text folosit în linkurile interne (implicit „Rent a Car {city}”). */
   linkTitle?: string;
+  /** Limba conținutului paginii (implicit „ro”). */
+  lang?: "ro" | "en";
   h1: string;
   metaTitle: string;
   description: string;
@@ -411,6 +413,141 @@ export const locations: LocationPage[] = [
       {
         q: "Pot închiria o mașină pentru navetă spre Cluj-Napoca?",
         a: "Da, închirierile pe termen mediu și lunar au tarif special, potrivit pentru navetă.",
+      },
+    ],
+  },
+  {
+    slug: "car-rental-cluj",
+    city: "Cluj (English)",
+    navLabel: "Car rental Cluj (EN)",
+    linkTitle: "Car Rental Cluj (English)",
+    lang: "en",
+    h1: "Car Rental Cluj — rent a car from 70 RON/day (≈14 €)",
+    metaTitle: "Car Rental Cluj | Rent a Car from 14 €/day",
+    description:
+      "Car rental in Cluj-Napoca and Gilău from 70 RON (≈14 €) per day. Personal handover, no airport fees, road tax and A/C included.",
+    keywords:
+      "car rental cluj, rent a car cluj, car hire cluj napoca, rent a car cluj airport, cheap car rental cluj romania",
+    intro:
+      "Rent a car in Cluj directly from the owner — no terminal desk, no booking commission. Cars are checked before every handover and the pickup time is agreed with you by phone or WhatsApp.",
+    highlights: [
+      { label: "From", value: "70 RON / day" },
+      { label: "Pickup", value: "Gilău / Cluj" },
+      { label: "Airport", value: "~35 min" },
+      { label: "Road tax", value: "Included" },
+    ],
+    sections: [
+      {
+        heading: "Why rent a car in Cluj from us",
+        paragraphs: [
+          "International desks at Cluj Avram Iancu Airport add terminal fees, second-driver charges and out-of-hours surcharges. We are a small local operator based in Gilău, 25 km from the airport, so the daily rate stays low and the handover is personal.",
+          "Every car comes with valid technical inspection, insurance (RCA), the Romanian road tax (rovinietă) and air conditioning. Seasonal tyres are fitted, so winter driving in Transylvania is covered.",
+        ],
+        bullets: [
+          "Rates from 70 RON (≈14 €) per day",
+          "No airport, office or booking fees",
+          "Road tax, insurance and A/C included",
+          "English spoken on WhatsApp and by phone",
+        ],
+      },
+      {
+        heading: "Fleet available for rent in Cluj",
+        paragraphs: [
+          "Economy cars (Škoda Fabia, Renault Clio Symbol) for city driving, estates (VW Passat, Ford Focus) for luggage, a Volvo S40 sedan, an automatic Citroën C5 and a 7-seat Volvo XC90 for families or groups.",
+        ],
+        bullets: [
+          "Automatic transmission available (Citroën C5)",
+          "7-seater available (Volvo XC90)",
+          "Estate cars for luggage and long trips",
+          "Weekly and monthly rates on request",
+        ],
+      },
+      {
+        heading: "What you need to rent",
+        paragraphs: [
+          "A passport or ID card and a driving licence held for at least one year. Non-EU drivers should also carry an international driving permit if the national licence is not in Latin script. Send us your dates on WhatsApp and we confirm availability quickly.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "How much does car rental in Cluj cost?",
+        a: "From 70 RON (about 14 €) per day for an economy car. Weekly and monthly rentals get a lower daily rate.",
+      },
+      {
+        q: "Do you deliver to Cluj Airport?",
+        a: "Handover is in Gilău, about 25 km (30–40 minutes) from the airport. Avoiding terminal fees is what keeps the price low.",
+      },
+      {
+        q: "Is the Romanian road tax included?",
+        a: "Yes. The rovinietă, insurance, technical inspection and air conditioning are all included in the daily rate.",
+      },
+    ],
+  },
+  {
+    slug: "inchirieri-auto-lunare-cluj",
+    city: "Cluj (termen lung)",
+    navLabel: "Închirieri lunare",
+    linkTitle: "Închirieri auto lunare Cluj",
+    h1: "Închirieri auto lunare în Cluj — mașină pe termen lung",
+    metaTitle: "Închirieri Auto Lunare Cluj | Tarif pe termen lung",
+    description:
+      "Închiriere mașină pe lună în Cluj: tarif degresiv, factură pe firmă, mașini verificate cu rovinietă inclusă. Sună (0742) 925 934.",
+    keywords:
+      "inchirieri auto lunare cluj, inchiriere masina pe luna cluj, rent a car termen lung cluj, masina de inchiriat pe luna cluj",
+    intro:
+      "Ai nevoie de o mașină pentru o lună sau mai mult în Cluj? Tariful pe zi scade semnificativ, iar factura se poate emite pe firmă.",
+    highlights: [
+      { label: "Perioadă", value: "1 lună+" },
+      { label: "Tarif", value: "Degresiv" },
+      { label: "Factură", value: "Pe firmă" },
+      { label: "Rovinietă", value: "Inclusă" },
+    ],
+    sections: [
+      {
+        heading: "Cui se potrivește închirierea lunară",
+        paragraphs: [
+          "Firmele care au un proiect în Cluj și au nevoie de un autoturism suplimentar, persoanele relocate temporar în oraș și șoferii care rămân fără mașină pe perioada unei reparații lungi sau a unei daune plătesc mult mai puțin pe zi decât la o închiriere de 2–3 zile.",
+          "Pentru perioade lungi stabilim împreună un tarif fix pe lună, fără surprize: rovinieta, RCA, ITP și aerul condiționat sunt deja incluse.",
+        ],
+        bullets: [
+          "Tarif fix pe lună, agreat în avans",
+          "Factură pe firmă la cerere",
+          "Mașină de înlocuire pe perioada daunei",
+          "Kilometraj generos pentru navetă",
+        ],
+      },
+      {
+        heading: "Ce mașini recomandăm pe termen lung",
+        paragraphs: [
+          "Pentru navetă și consum mic: Škoda Fabia sau Renault Clio Symbol. Pentru firme și drumuri lungi: VW Passat break, Ford Focus break sau Volvo S40. Pentru șoferii care conduc doar automat: Citroën C5.",
+        ],
+        bullets: [
+          "Economic pentru navetă zilnică",
+          "Break pentru marfă și bagaje",
+          "Automat disponibil la cerere",
+          "Volvo XC90 cu 7 locuri pentru echipe",
+        ],
+      },
+      {
+        heading: "Cum stabilim tariful lunar",
+        paragraphs: [
+          "Ne suni sau scrii pe WhatsApp cu perioada, clasa de mașină și kilometrajul estimat. Îți dăm un tarif clar pe lună și rezervăm mașina pentru toată perioada.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Cât costă o mașină închiriată pe o lună în Cluj?",
+        a: "Tariful se stabilește în funcție de clasa mașinii și de kilometraj, iar prețul pe zi este mult mai mic decât la închirierile scurte. Sună pentru o ofertă.",
+      },
+      {
+        q: "Se poate emite factură pe firmă?",
+        a: "Da, pentru închirierile lunare emitem factură pe firmă la cerere.",
+      },
+      {
+        q: "Pot prelungi închirierea după prima lună?",
+        a: "Da, prelungirea se face simplu, telefonic, dacă mașina nu este deja rezervată.",
       },
     ],
   },

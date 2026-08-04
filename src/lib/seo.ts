@@ -13,11 +13,11 @@ export function canonical(path = "/"): string {
 }
 
 /** canonical + self-referencing hreflang links for a path. */
-export function canonicalLinks(path = "/", withDefault = false) {
+export function canonicalLinks(path = "/", withDefault = false, hrefLang = "ro-RO") {
   const href = canonical(path);
   return [
     { rel: "canonical", href },
-    { rel: "alternate", hrefLang: "ro-RO", href },
+    { rel: "alternate", hrefLang, href },
     ...(withDefault ? [{ rel: "alternate", hrefLang: "x-default", href }] : []),
   ];
 }

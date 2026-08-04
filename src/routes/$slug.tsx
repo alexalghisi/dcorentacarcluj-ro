@@ -21,6 +21,7 @@ export const Route = createFileRoute("/$slug")({
     }
     const { page } = loaderData;
     const url = canonical(`/${page.slug}`);
+    const isEn = page.lang === "en";
     return {
       meta: [
         { title: page.metaTitle },
@@ -31,12 +32,12 @@ export const Route = createFileRoute("/$slug")({
         { property: "og:title", content: page.metaTitle },
         { property: "og:description", content: page.description },
         { property: "og:url", content: url },
-        { property: "og:locale", content: "ro_RO" },
+        { property: "og:locale", content: isEn ? "en_GB" : "ro_RO" },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: page.metaTitle },
         { name: "twitter:description", content: page.description },
       ],
-      links: canonicalLinks(`/${page.slug}`),
+      links: canonicalLinks(`/${page.slug}`, isEn, isEn ? "en" : "ro-RO"),
       scripts: [
         {
           type: "application/ld+json",
