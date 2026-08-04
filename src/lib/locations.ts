@@ -10,6 +10,8 @@ export interface LocationPage {
   navLabel: string;
   /** Text folosit în linkurile interne (implicit „Rent a Car {city}”). */
   linkTitle?: string;
+  /** Limba conținutului paginii (implicit „ro”). */
+  lang?: "ro" | "en";
   h1: string;
   metaTitle: string;
   description: string;
