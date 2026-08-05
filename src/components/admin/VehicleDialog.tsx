@@ -36,29 +36,53 @@ export function VehicleDialog({ vehicle, nextSortOrder, onClose, onSaved }: Vehi
   const [transmission, setTransmission] = useState(vehicle?.transmission ?? "Manuală");
   const [fuel, setFuel] = useState(vehicle?.fuel ?? "Diesel");
   const [imageUrl, setImageUrl] = useState(vehicle?.image_url ?? "");
+  const [gallery, setGallery] = useState<string[]>(vehicle?.gallery ?? []);
   const [isActive, setIsActive] = useState(vehicle?.is_active ?? true);
   const [uploading, setUploading] = useState(false);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  async function handleFile(file: File) {
-    if (file.size > 8 * 1024 * 1024) {
-      setError("Imaginea depășește 8 MB. Alege o poză mai mică.");
-      return;
-    }
+  async function handleFiles(files: File[]) {
     setUploading(true);
     setError(null);
     try {
-      const base64 = await fileToBase64(file);
-      const res = await adminUploadImage({
-        data: { fileName: file.name, contentType: file.type || "image/jpeg", base64 },
-      });
-      setImageUrl(res.path);
+      for (const file of files) {
+        if (file.size > 8 * 1024 * 1024) {
+          setError(`„${file.name}” depășește 8 MB și a fost ignorată.`);
+          continue;
+        }
+        const base64 = await fileToBase64(file);
+        const res = await adminUploadImage({
+          data: { fileName: file.name, contentType: file.type || "image/jpeg", base64 },
+        });
+        const path = res.path;
+        setImageUrl((current) => {
+          if (!current) return path;
+          setGallery((list) => (list.includes(path) ? list : [...list, path]));
+          return current;
+        });
+      }
     } catch {
       setError("Încărcarea imaginii a eșuat. Încearcă din nou.");
     } finally {
       setUploading(false);
     }
+  }
+
+  function removePhoto(path: string) {
+    if (path === imageUrl) {
+      const [next, ...rest] = gallery;
+      setImageUrl(next ?? "");
+      setGallery(rest);
+      return;
+    }
+    setGallery((list) => list.filter((p) => p !== path));
+  }
+
+  function makeCover(path: string) {
+    const rest = [imageUrl, ...gallery].filter((p) => p && p !== path) as string[];
+    setImageUrl(path);
+    setGallery(rest);
   }
 
   async function onSubmit(e: FormEvent) {
@@ -77,6 +101,7 @@ export function VehicleDialog({ vehicle, nextSortOrder, onClose, onSaved }: Vehi
           transmission,
           fuel,
           image_url: imageUrl,
+          gallery,
           sort_order: vehicle?.sort_order ?? nextSortOrder,
           is_active: isActive,
         },
@@ -223,57 +248,76 @@ export function VehicleDialog({ vehicle, nextSortOrder, onClose, onSaved }: Vehi
           </div>
 
           <div className="rounded-xl border border-dashed border-border p-4">
-            <p className="text-sm font-medium">Fotografie</p>
-            <div className="mt-3 flex flex-wrap items-center gap-4">
-              {imageUrl ? (
-                <img
-                  src={vehicleImageSrc(imageUrl)}
-                  alt={name || "Vehicul"}
-                  className="h-24 w-36 rounded-lg bg-surface object-cover"
-                />
-              ) : (
-                <div className="flex h-24 w-36 items-center justify-center rounded-lg bg-surface text-xs text-muted-foreground">
-                  Fără poză
-                </div>
-              )}
-              <div className="flex flex-wrap gap-2">
-                <input
-                  ref={fileRef}
-                  type="file"
-                  accept="image/*"
-                  className="hidden"
-                  onChange={(e) => {
-                    const file = e.target.files?.[0];
-                    if (file) void handleFile(file);
-                    e.target.value = "";
-                  }}
-                />
-                <button
-                  type="button"
-                  onClick={() => fileRef.current?.click()}
-                  disabled={uploading}
-                  className="inline-flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-semibold hover:bg-surface disabled:opacity-60"
-                >
-                  {uploading ? (
-                    <Loader2 className="h-4 w-4 animate-spin" />
+            <p className="text-sm font-medium">Fotografii</p>
+            <p className="mt-1 text-xs text-muted-foreground">
+              Poți încărca mai multe poze. Prima este poza principală afișată pe site.
+            </p>
+            <div className="mt-3 flex flex-wrap gap-3">
+              {[imageUrl, ...gallery].filter(Boolean).map((path, i) => (
+                <div key={path} className="relative">
+                  <img
+                    src={vehicleImageSrc(path)}
+                    alt={`${name || "Vehicul"} – poza ${i + 1}`}
+                    className="h-24 w-36 rounded-lg bg-surface object-cover"
+                  />
+                  {i === 0 ? (
+                    <span className="absolute left-1.5 top-1.5 rounded-full bg-primary px-2 py-0.5 text-[0.65rem] font-bold text-primary-foreground">
+                      Principală
+                    </span>
                   ) : (
-                    <Upload className="h-4 w-4" />
+                    <button
+                      type="button"
+                      onClick={() => makeCover(path)}
+                      className="absolute left-1.5 top-1.5 rounded-full bg-background/90 px-2 py-0.5 text-[0.65rem] font-semibold hover:bg-background"
+                    >
+                      Fă principală
+                    </button>
                   )}
-                  {imageUrl ? "Schimbă poza" : "Încarcă poza"}
-                </button>
-                {imageUrl && (
                   <button
                     type="button"
-                    onClick={() => setImageUrl("")}
-                    className="rounded-lg border border-border px-3 py-2 text-sm text-muted-foreground hover:bg-surface"
+                    onClick={() => removePhoto(path)}
+                    aria-label="Șterge poza"
+                    className="absolute right-1.5 top-1.5 rounded-full bg-background/90 p-1 text-muted-foreground hover:text-destructive"
                   >
-                    Șterge poza
+                    <X className="h-3.5 w-3.5" />
                   </button>
+                </div>
+              ))}
+              {!imageUrl && gallery.length === 0 && (
+                <div className="flex h-24 w-36 items-center justify-center rounded-lg bg-surface text-xs text-muted-foreground">
+                  Fără poze
+                </div>
+              )}
+            </div>
+            <div className="mt-3 flex flex-wrap gap-2">
+              <input
+                ref={fileRef}
+                type="file"
+                accept="image/*"
+                multiple
+                className="hidden"
+                onChange={(e) => {
+                  const files = Array.from(e.target.files ?? []);
+                  if (files.length > 0) void handleFiles(files);
+                  e.target.value = "";
+                }}
+              />
+              <button
+                type="button"
+                onClick={() => fileRef.current?.click()}
+                disabled={uploading}
+                className="inline-flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-semibold hover:bg-surface disabled:opacity-60"
+              >
+                {uploading ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  <Upload className="h-4 w-4" />
                 )}
-              </div>
+                Adaugă poze
+              </button>
             </div>
             <p className="mt-3 text-xs text-muted-foreground">
-              JPG sau PNG, maximum 8 MB. Recomandat orizontal (ex. 1200×900 px).
+              JPG sau PNG, maximum 8 MB fiecare. Recomandat orizontal (ex. 1200×900 px).
             </p>
           </div>
 

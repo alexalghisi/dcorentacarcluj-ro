@@ -32,6 +32,7 @@ import { BookingsPanel } from "@/components/admin/BookingsPanel";
 import type { Booking } from "@/lib/bookings";
 import { VehicleDialog } from "@/components/admin/VehicleDialog";
 import {
+  displaySearchCount,
   displayViews,
   vehicleImageSrc,
 
@@ -231,11 +232,11 @@ function AdminDashboard() {
                 {[
                   {
                     label: "Clicuri din Google",
-                    value: (search.totals?.clicks ?? 0).toLocaleString("ro-RO"),
+                    value: displaySearchCount(search.totals?.clicks ?? 0, "clicks"),
                   },
                   {
                     label: "Afișări în Google",
-                    value: (search.totals?.impressions ?? 0).toLocaleString("ro-RO"),
+                    value: displaySearchCount(search.totals?.impressions ?? 0, "impressions"),
                   },
                   {
                     label: "Rată de clic",

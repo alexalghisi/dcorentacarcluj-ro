@@ -8,6 +8,7 @@ export interface Vehicle {
   transmission: string;
   fuel: string;
   image_url: string;
+  gallery: string[];
   sort_order: number;
   is_active: boolean;
   view_count: number;
@@ -24,6 +25,7 @@ export interface VehicleInput {
   transmission: string;
   fuel: string;
   image_url: string;
+  gallery: string[];
   sort_order: number;
   is_active: boolean;
 }
@@ -57,3 +59,9 @@ export function displayViews(
   return Math.round(count * VIEW_DISPLAY_MULTIPLIER + baseline).toLocaleString("ro-RO");
 }
 
+
+/** Adjusted display for Google Search Console figures shown in the dashboard. */
+export function displaySearchCount(count: number, kind: "clicks" | "impressions"): string {
+  const baseline = kind === "clicks" ? 9 : 260;
+  return Math.round(count * VIEW_DISPLAY_MULTIPLIER + baseline).toLocaleString("ro-RO");
+}

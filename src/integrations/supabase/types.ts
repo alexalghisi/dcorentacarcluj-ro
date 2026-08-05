@@ -87,6 +87,7 @@ export type Database = {
           created_at: string
           description: string
           fuel: string
+          gallery: string[]
           id: string
           image_url: string
           is_active: boolean
@@ -103,6 +104,7 @@ export type Database = {
           created_at?: string
           description?: string
           fuel?: string
+          gallery?: string[]
           id?: string
           image_url?: string
           is_active?: boolean
@@ -119,6 +121,7 @@ export type Database = {
           created_at?: string
           description?: string
           fuel?: string
+          gallery?: string[]
           id?: string
           image_url?: string
           is_active?: boolean

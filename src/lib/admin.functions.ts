@@ -27,6 +27,7 @@ const vehicleSchema = z.object({
   transmission: z.string().trim().min(1).max(30),
   fuel: z.string().trim().min(1).max(30),
   image_url: z.string().trim().max(500).default(""),
+  gallery: z.array(z.string().trim().max(500)).max(20).default([]),
   sort_order: z.number().int().min(0).max(100000).default(0),
   is_active: z.boolean().default(true),
 });
