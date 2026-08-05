@@ -3,7 +3,7 @@ import type { Database } from "@/integrations/supabase/types";
 import type { Vehicle, VehicleInput } from "@/lib/vehicles";
 
 const COLUMNS =
-  "id, name, tagline, description, price_label, seats, transmission, fuel, image_url, sort_order, is_active, view_count";
+  "id, name, tagline, description, price_label, seats, transmission, fuel, image_url, gallery, sort_order, is_active, view_count";
 
 function publicClient() {
   const key =
@@ -57,6 +57,7 @@ export async function upsertVehicle(input: VehicleInput): Promise<Vehicle> {
     transmission: input.transmission.trim(),
     fuel: input.fuel.trim(),
     image_url: input.image_url.trim(),
+    gallery: (input.gallery ?? []).map((g) => g.trim()).filter(Boolean),
     sort_order: input.sort_order,
     is_active: input.is_active,
   };
