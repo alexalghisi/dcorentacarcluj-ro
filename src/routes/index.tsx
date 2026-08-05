@@ -405,8 +405,16 @@ const conditions = [
 
 
 function Index() {
-  const dbVehicles = Route.useLoaderData() as Vehicle[];
-  const fleetItems =
+  const { vehicles: dbVehicles, busy } = Route.useLoaderData() as {
+    vehicles: Vehicle[];
+    busy: BookingRange[];
+  };
+
+  const [from, setFrom] = useState(todayISO());
+  const [to, setTo] = useState(todayISO());
+  const rangeTo = to < from ? from : to;
+
+  const fleetItems = (
     dbVehicles.length > 0
       ? dbVehicles.map((v) => ({
           img: vehicleImageSrc(v.image_url),
@@ -414,11 +422,27 @@ function Index() {
           example: v.tagline,
           price: v.price_label,
           specs: [v.seats, v.transmission, v.fuel],
-          id: v.id,
+          id: v.id as string | undefined,
         }))
-      : fleet.map((c) => ({ ...c, id: undefined as string | undefined }));
+      : fleet.map((c) => ({ ...c, id: undefined as string | undefined }))
+  ).map((c) => {
+    const conflicts = conflictsFor(busy, c.id, from, rangeTo);
+    const freeFrom = freeAgainFrom(conflicts);
+    return {
+      ...c,
+      busy: conflicts.length > 0,
+      busyLabel:
+        conflicts.length > 0
+          ? `Rezervată ${conflicts.map((r) => formatRangeRo(r.start_date, r.end_date)).join(", ")}`
+          : "",
+      freeFrom,
+    };
+  });
+
+  const availableCount = fleetItems.filter((c) => !c.busy).length;
 
   const fleetRef = useRef<HTMLDivElement>(null);
+
 
   useEffect(() => {
     void trackSiteView({ data: undefined }).catch(() => {});
