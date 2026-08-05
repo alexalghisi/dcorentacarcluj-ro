@@ -633,6 +633,182 @@ export const locations: LocationPage[] = [
       },
     ],
   },
+  {
+    slug: "rent-a-car-cluj-fara-garantie",
+    city: "Cluj (fără garanție)",
+    navLabel: "Fără garanție",
+    linkTitle: "Rent a Car Cluj fără garanție",
+    h1: "Rent a Car Cluj fără garanție și fără card de credit",
+    metaTitle: "Rent a Car Cluj Fără Garanție | Fără Card de Credit",
+    description:
+      "Rent a car în Cluj fără garanție și fără card de credit, de la 70 lei/zi. Doar buletin și permis de minimum 1 an. Sună (0742) 925 934.",
+    keywords:
+      "rent a car cluj fara garantie, inchirieri auto cluj fara garantie, rent a car fara card de credit cluj, masina de inchiriat cluj fara garantie",
+    intro:
+      "La firmele mari blocarea garanției pe card poate ajunge la câteva mii de lei. La noi nu există garanție blocată și nu ai nevoie de card de credit: plătești doar tariful închirierii.",
+    highlights: [
+      { label: "Garanție", value: "0 lei" },
+      { label: "Card de credit", value: "Nu e necesar" },
+      { label: "Tarif de la", value: "70 lei/zi" },
+      { label: "Acte", value: "Buletin + permis" },
+    ],
+    sections: [
+      {
+        heading: "Ce înseamnă închiriere fără garanție",
+        paragraphs: [
+          "Nu blocăm nicio sumă pe card și nu cerem depozit în numerar. Închirierea se face direct între tine și proprietarul mașinii, cu date de identificare verificate la predare.",
+          "Este soluția potrivită dacă ai doar card de debit, dacă nu vrei sume blocate câteva săptămâni sau dacă ai nevoie de o mașină rapid, fără proceduri lungi de birou.",
+        ],
+        bullets: [
+          "Fără garanție blocată pe card",
+          "Fără card de credit — și cardul de debit sau numerarul sunt acceptate",
+          "Fără taxe ascunse la predare",
+          "ITP, RCA, rovinietă și aer condiționat incluse",
+        ],
+      },
+      {
+        heading: "Ce mașini poți lua fără garanție",
+        paragraphs: [
+          "Toate mașinile din flotă se închiriază în aceleași condiții: Škoda Fabia și Renault Clio Symbol pentru oraș, Ford Focus break și VW Passat break pentru bagaje, Volvo S40, Citroën C5 automat și Volvo XC90 cu 7 locuri pentru familii sau grupuri.",
+        ],
+      },
+      {
+        heading: "Cum rezervi",
+        paragraphs: [
+          "Ne suni la (0742) 925 934 sau scrii pe WhatsApp cu perioada dorită. Confirmăm disponibilitatea, stabilim ora și locul predării în Cluj-Napoca, Florești sau Gilău și semnăm la fața locului.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Chiar nu se blochează nicio garanție pe card?",
+        a: "Nu. Nu blocăm sume pe card și nu cerem depozit în numerar; plătești doar tariful de închiriere.",
+      },
+      {
+        q: "Pot închiria fără card de credit în Cluj?",
+        a: "Da. Ai nevoie doar de buletin sau pașaport și de permis valabil de minimum un an.",
+      },
+      {
+        q: "Ce se întâmplă în caz de daună?",
+        a: "Discutăm situația direct, pe baza actelor mașinii, care are RCA valabil. Detaliile le stabilim telefonic înainte de predare.",
+      },
+    ],
+  },
+  {
+    slug: "inchirieri-masini-cluj",
+    city: "Cluj (mașini)",
+    navLabel: "Închirieri mașini",
+    linkTitle: "Închirieri mașini Cluj",
+    h1: "Închirieri mașini Cluj — flotă disponibilă de la 70 lei/zi",
+    metaTitle: "Închirieri Mașini Cluj | Flotă Disponibilă, 70 lei/zi",
+    description:
+      "Închirieri mașini în Cluj de la 70 lei/zi: economice, break-uri, automat și SUV 7 locuri. Predare personală, fără garanție. Sună (0742) 925 934.",
+    keywords:
+      "inchirieri masini cluj, închirieri mașini cluj, inchiriere masina cluj, masini de inchiriat cluj napoca, inchirieri masini cluj napoca",
+    intro:
+      "Închirieri mașini în Cluj cu predare personală și tarife negociabile după durată. Alegi clasa potrivită, noi confirmăm disponibilitatea pe perioada dorită.",
+    highlights: [
+      { label: "Clase", value: "4 tipuri" },
+      { label: "Tarif de la", value: "70 lei/zi" },
+      { label: "Automat", value: "Disponibil" },
+      { label: "7 locuri", value: "Disponibil" },
+    ],
+    sections: [
+      {
+        heading: "Ce mașini poți închiria în Cluj",
+        paragraphs: [
+          "Flota acoperă nevoile obișnuite din Cluj: oraș, drumuri lungi, bagaje și grupuri. Toate mașinile au ITP, RCA, rovinietă și aer condiționat, iar anvelopele sunt de sezon.",
+        ],
+        bullets: [
+          "Economic: Škoda Fabia, Renault Clio Symbol — consum mic, parcare ușoară",
+          "Break: Ford Focus, VW Passat — spațiu pentru bagaje",
+          "Berlină: Volvo S40 și Citroën C5 cu cutie automată",
+          "SUV 7 locuri: Volvo XC90 pentru familii sau grupuri",
+        ],
+      },
+      {
+        heading: "Cât costă închirierea unei mașini în Cluj",
+        paragraphs: [
+          "Tariful pornește de la 70 lei/zi la clasa economică și crește la break, berlină automată și SUV. Pentru perioade de peste 7 zile tariful zilnic scade, iar pentru firme emitem factură.",
+        ],
+      },
+      {
+        heading: "Zone de predare",
+        paragraphs: [
+          "Baza este în Gilău, la 12 km de Cluj-Napoca. Predăm mașina în Cluj-Napoca, Florești, Gilău sau în zona aeroportului, la ora stabilită împreună.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Aveți mașini cu cutie automată de închiriat în Cluj?",
+        a: "Da, Citroën C5 este cu cutie automată. Disponibilitatea o confirmăm telefonic pentru perioada dorită.",
+      },
+      {
+        q: "Se poate închiria o mașină cu 7 locuri în Cluj?",
+        a: "Da, avem un Volvo XC90 cu 7 locuri, potrivit pentru familii și grupuri.",
+      },
+      {
+        q: "Cât durează rezervarea?",
+        a: "Confirmăm disponibilitatea în câteva minute la telefon sau pe WhatsApp, inclusiv în weekend.",
+      },
+    ],
+  },
+  {
+    slug: "inchiriere-masina-cluj-aeroport",
+    city: "Aeroport Cluj (predare)",
+    navLabel: "Predare aeroport",
+    linkTitle: "Închiriere mașină Cluj aeroport",
+    h1: "Închiriere mașină Cluj aeroport — predare la aterizare",
+    metaTitle: "Închiriere Mașină Cluj Aeroport | Predare la Aterizare",
+    description:
+      "Închiriere mașină la aeroportul Cluj de la 70 lei/zi, predare stabilită la ora aterizării, fără garanție. Sună (0742) 925 934.",
+    keywords:
+      "inchiriere masina cluj aeroport, rent a car aeroport cluj, inchirieri auto aeroport cluj napoca, masina de inchiriat aeroport cluj",
+    intro:
+      "Zbori spre Cluj și ai nevoie de mașină de la aterizare? Stabilim predarea în funcție de ora zborului, fără cozi la ghișeu și fără garanție blocată pe card.",
+    highlights: [
+      { label: "Predare", value: "La aterizare" },
+      { label: "Tarif de la", value: "70 lei/zi" },
+      { label: "Garanție", value: "0 lei" },
+      { label: "Zbor întârziat", value: "Reprogramăm" },
+    ],
+    sections: [
+      {
+        heading: "Cum funcționează predarea la aeroportul Cluj",
+        paragraphs: [
+          "Ne trimiți numărul zborului și ora aterizării, iar noi ne sincronizăm cu programul tău. Dacă zborul întârzie, ajustăm ora predării fără costuri suplimentare.",
+          "Aeroportul Internațional Avram Iancu se află la circa 20 de minute de Gilău, unde este baza noastră, așa că ajungem rapid la un punct de întâlnire convenabil.",
+        ],
+        bullets: [
+          "Fără cozi la ghișeu și fără taxe de terminal",
+          "Predare sincronizată cu ora zborului",
+          "Documentele mașinii complete: ITP, RCA, rovinietă",
+          "Retur la aeroport la finalul închirierii",
+        ],
+      },
+      {
+        heading: "Ce mașină să alegi pentru un zbor",
+        paragraphs: [
+          "Pentru bagaj de cală recomandăm un break — Ford Focus sau VW Passat. Pentru un city break în Cluj este suficientă o Škoda Fabia sau un Renault Clio Symbol, iar pentru familii avem Volvo XC90 cu 7 locuri.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Se poate ridica mașina direct de la aeroportul Cluj?",
+        a: "Da, stabilim un punct de întâlnire în zona aeroportului la ora aterizării.",
+      },
+      {
+        q: "Ce se întâmplă dacă zborul întârzie?",
+        a: "Ne anunți și mutăm ora predării, fără costuri suplimentare.",
+      },
+      {
+        q: "Pot returna mașina la aeroport?",
+        a: "Da, returul se poate face în zona aeroportului, la ora stabilită înainte de plecare.",
+      },
+    ],
+  },
 ];
 
 
