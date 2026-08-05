@@ -551,7 +551,90 @@ export const locations: LocationPage[] = [
       },
     ],
   },
+  {
+    slug: "rent-a-car",
+    city: "Rent a Car",
+    navLabel: "Rent a Car",
+    linkTitle: "Rent a Car (ghid complet)",
+    h1: "Rent a Car — cum închiriezi corect o mașină în România",
+    metaTitle: "Rent a Car | Ghid complet de închirieri auto în Cluj",
+    description:
+      "Ghid rent a car: ce înseamnă, ce acte îți trebuie, cum se calculează tariful și cum închiriezi o mașină în Cluj de la 70 lei/zi.",
+    keywords:
+      "rent a car, rent a car romania, rent a car cluj, rent a car cluj napoca, inchirieri auto, masini de inchiriat, car rental",
+    intro:
+      "„Rent a car” înseamnă închirierea unei mașini pe o perioadă stabilită, fără să o cumperi. Mai jos explicăm pe scurt cum funcționează serviciul, ce acte sunt necesare și cum obții cel mai bun tarif — iar dacă ești în Cluj-Napoca, Gilău sau Florești, îți predăm mașina personal, de la 70 lei/zi.",
+    highlights: [
+      { label: "Tarif de la", value: "70 lei/zi" },
+      { label: "Acte", value: "CI + permis" },
+      { label: "Predare", value: "Personală" },
+      { label: "Zonă", value: "Județul Cluj" },
+    ],
+    sections: [
+      {
+        heading: "Ce înseamnă rent a car și cum funcționează",
+        paragraphs: [
+          "Un serviciu de rent a car îți pune la dispoziție un autoturism pentru o zi, o săptămână sau o lună întreagă. Tu plătești un tarif zilnic, iar mașina vine cu ITP, RCA și rovinietă valabile. La final o returnezi în starea în care ai primit-o, cu același nivel de combustibil.",
+          "La firmele mari închirierea trece prin birou și prin proceduri lungi. La DCO Rent a Car procesul este direct: alegi mașina, stabilim tariful și ora predării, apoi ne întâlnim personal în Gilău sau într-un punct convenabil din Cluj-Napoca.",
+        ],
+        bullets: [
+          "Tarif zilnic clar, negociabil pentru perioade lungi",
+          "Mașini verificate înainte de fiecare predare",
+          "ITP, RCA și rovinietă incluse",
+          "Fără taxe ascunse pentru al doilea șofer",
+        ],
+      },
+      {
+        heading: "Ce acte sunt necesare pentru un rent a car",
+        paragraphs: [
+          "Ai nevoie de un permis de conducere valabil de minimum un an și de carte de identitate sau pașaport. Pentru persoane juridice putem emite factură pe firmă.",
+        ],
+        bullets: [
+          "Permis de conducere valabil de minimum 1 an",
+          "Carte de identitate sau pașaport",
+          "Factură pe firmă la cerere",
+        ],
+      },
+      {
+        heading: "Cum se calculează tariful de închiriere",
+        paragraphs: [
+          "Prețul depinde de clasa mașinii și de durata închirierii. O mașină economică precum Škoda Fabia sau Renault Clio Symbol pornește de la 70 lei/zi, în timp ce un break, o berlină automată sau un SUV cu 7 locuri au tarif mai mare. Cu cât perioada este mai lungă, cu atât tariful zilnic scade.",
+        ],
+        bullets: [
+          "Clasa economică: de la 70 lei/zi",
+          "Break-uri și berline: tarif în funcție de model",
+          "SUV 7 locuri: la cerere",
+          "Reducere pentru închirieri săptămânale și lunare",
+        ],
+      },
+      {
+        heading: "Rent a car în Cluj-Napoca, Gilău și Florești",
+        paragraphs: [
+          "Acoperim tot județul Cluj: oraș, Florești, Gilău și zona aeroportului. Dacă vrei detalii pentru localitatea ta, folosește linkurile din josul paginii — fiecare zonă are propria pagină cu tarife și mod de predare.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Ce înseamnă rent a car?",
+        a: "Rent a car înseamnă închirierea unei mașini pentru o perioadă determinată, contra unui tarif zilnic, fără să devii proprietarul autoturismului.",
+      },
+      {
+        q: "Cât costă un rent a car în Cluj?",
+        a: "Tarifele pornesc de la 70 lei pe zi pentru clasa economică și sunt negociabile în funcție de model și de durata închirierii.",
+      },
+      {
+        q: "Am nevoie de card de credit pentru închiriere?",
+        a: "Nu. Închirierea se poate face fără card de credit, doar cu buletin sau pașaport și permis valabil de minimum un an.",
+      },
+      {
+        q: "Care este vârsta minimă pentru a închiria o mașină?",
+        a: "Este necesar un permis de conducere valabil de cel puțin un an; restul detaliilor le stabilim telefonic.",
+      },
+    ],
+  },
 ];
+
 
 
 export function getLocation(slug: string): LocationPage | undefined {
