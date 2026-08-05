@@ -23,10 +23,13 @@ import {
   adminListVehicles,
   adminLogout,
   adminReorderVehicles,
+  adminListBookings,
   adminSearchConsole,
   adminStats,
   adminToggleVehicle,
 } from "@/lib/admin.functions";
+import { BookingsPanel } from "@/components/admin/BookingsPanel";
+import type { Booking } from "@/lib/bookings";
 import { VehicleDialog } from "@/components/admin/VehicleDialog";
 import {
   displayViews,
@@ -39,12 +42,13 @@ import type { SearchConsoleStats } from "@/lib/search-console";
 export const Route = createFileRoute("/admin/")({
   ssr: false,
   loader: async () => {
-    const [vehicles, stats, search] = await Promise.all([
+    const [vehicles, stats, search, bookings] = await Promise.all([
       adminListVehicles(),
       adminStats(),
       adminSearchConsole(),
+      adminListBookings(),
     ]);
-    return { vehicles, stats, search };
+    return { vehicles, stats, search, bookings };
   },
 
   component: AdminDashboard,
@@ -78,10 +82,11 @@ export const Route = createFileRoute("/admin/")({
 });
 
 function AdminDashboard() {
-  const { vehicles, stats, search } = Route.useLoaderData() as {
+  const { vehicles, stats, search, bookings } = Route.useLoaderData() as {
     vehicles: Vehicle[];
     stats: { siteViews: number; vehicleViews: number; vehicles: number };
     search: SearchConsoleStats;
+    bookings: Booking[];
   };
 
   const router = useRouter();
@@ -198,6 +203,8 @@ function AdminDashboard() {
           </p>
 
         </section>
+
+        <BookingsPanel vehicles={vehicles} bookings={bookings} onChange={refresh} />
 
         <section aria-label="Google Search Console" className="mb-10">
           <div className="flex flex-wrap items-center justify-between gap-3">

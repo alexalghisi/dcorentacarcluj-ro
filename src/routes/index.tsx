@@ -13,10 +13,26 @@ import {
   Users,
   Settings2,
   BadgeCheck,
+  CalendarDays,
+  CalendarX2,
+
 } from "lucide-react";
 
-import { getPublicVehicles, trackSiteView, trackVehicleView } from "@/lib/admin.functions";
+import {
+  getBusyRanges,
+  getPublicVehicles,
+  trackSiteView,
+  trackVehicleView,
+} from "@/lib/admin.functions";
 import { vehicleImageSrc, type Vehicle } from "@/lib/vehicles";
+import {
+  conflictsFor,
+  formatRangeRo,
+  freeAgainFrom,
+  todayISO,
+  type BookingRange,
+} from "@/lib/bookings";
+
 import heroCar from "@/assets/hero-fleet.jpg";
 import carPassat from "@/assets/car-passat.jpg";
 import carC5 from "@/assets/car-c5.jpg";
@@ -76,12 +92,13 @@ const faq = [
 
 export const Route = createFileRoute("/")({
   loader: async () => {
-    try {
-      return await getPublicVehicles();
-    } catch {
-      return [];
-    }
+    const [vehicles, busy] = await Promise.all([
+      getPublicVehicles().catch(() => []),
+      getBusyRanges().catch(() => []),
+    ]);
+    return { vehicles, busy };
   },
+
   errorComponent: () => (
     <main className="p-10 text-center">
       <h1 className="text-xl font-bold">Reîncarcă pagina</h1>
@@ -391,8 +408,16 @@ const conditions = [
 
 
 function Index() {
-  const dbVehicles = Route.useLoaderData() as Vehicle[];
-  const fleetItems =
+  const { vehicles: dbVehicles, busy } = Route.useLoaderData() as {
+    vehicles: Vehicle[];
+    busy: BookingRange[];
+  };
+
+  const [from, setFrom] = useState(todayISO());
+  const [to, setTo] = useState(todayISO());
+  const rangeTo = to < from ? from : to;
+
+  const fleetItems = (
     dbVehicles.length > 0
       ? dbVehicles.map((v) => ({
           img: vehicleImageSrc(v.image_url),
@@ -400,11 +425,27 @@ function Index() {
           example: v.tagline,
           price: v.price_label,
           specs: [v.seats, v.transmission, v.fuel],
-          id: v.id,
+          id: v.id as string | undefined,
         }))
-      : fleet.map((c) => ({ ...c, id: undefined as string | undefined }));
+      : fleet.map((c) => ({ ...c, id: undefined as string | undefined }))
+  ).map((c) => {
+    const conflicts = conflictsFor(busy, c.id, from, rangeTo);
+    const freeFrom = freeAgainFrom(conflicts);
+    return {
+      ...c,
+      busy: conflicts.length > 0,
+      busyLabel:
+        conflicts.length > 0
+          ? `Rezervată ${conflicts.map((r) => formatRangeRo(r.start_date, r.end_date)).join(", ")}`
+          : "",
+      freeFrom,
+    };
+  });
+
+  const availableCount = fleetItems.filter((c) => !c.busy).length;
 
   const fleetRef = useRef<HTMLDivElement>(null);
+
 
   useEffect(() => {
     void trackSiteView({ data: undefined }).catch(() => {});
@@ -537,21 +578,105 @@ function Index() {
             Mașini disponibile, manuale și automate
           </h2>
 
-          <div ref={fleetRef} className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {/* Verificator de disponibilitate pe interval */}
+          <div className="mt-8 card-eco p-5 md:p-6">
+            <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+              <div className="grid flex-1 gap-4 sm:grid-cols-2">
+                <div>
+                  <label
+                    htmlFor="avail-from"
+                    className="block text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground"
+                  >
+                    Preluare
+                  </label>
+                  <input
+                    id="avail-from"
+                    type="date"
+                    value={from}
+                    min={todayISO()}
+                    onChange={(e) => {
+                      setFrom(e.target.value || todayISO());
+                      if (to < e.target.value) setTo(e.target.value);
+                    }}
+                    className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="avail-to"
+                    className="block text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground"
+                  >
+                    Returnare
+                  </label>
+                  <input
+                    id="avail-to"
+                    type="date"
+                    value={rangeTo}
+                    min={from}
+                    onChange={(e) => setTo(e.target.value || from)}
+                    className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm"
+                  />
+                </div>
+              </div>
+              <p
+                aria-live="polite"
+                className="flex items-center gap-2 text-sm font-semibold text-muted-foreground"
+              >
+                <CalendarDays className="h-4 w-4 text-primary" />
+                {availableCount} din {fleetItems.length} disponibile ·{" "}
+                {formatRangeRo(from, rangeTo)}
+              </p>
+            </div>
+          </div>
+
+          <div ref={fleetRef} className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {fleetItems.map((c) => (
               <article
                 key={c.name}
                 {...(c.id ? { "data-vehicle-id": c.id } : {})}
-                className="card-eco overflow-hidden"
+                tabIndex={0}
+                aria-disabled={c.busy}
+                title={
+                  c.busy
+                    ? `Indisponibilă în perioada ${formatRangeRo(from, rangeTo)} — ${c.busyLabel}`
+                    : undefined
+                }
+                className={`card-eco group relative overflow-hidden transition ${
+                  c.busy ? "opacity-70 ring-1 ring-destructive/30" : ""
+                }`}
               >
-                <img
-                  src={c.img}
-                  alt={`${c.name} disponibilă la închiriere în Cluj`}
-                  width={1200}
-                  height={900}
-                  loading="lazy"
-                  className="h-48 w-full bg-surface object-cover"
-                />
+                <div className="relative">
+                  <img
+                    src={c.img}
+                    alt={`${c.name} ${c.busy ? "rezervată" : "disponibilă"} la închiriere în Cluj`}
+                    width={1200}
+                    height={900}
+                    loading="lazy"
+                    className={`h-48 w-full bg-surface object-cover transition ${
+                      c.busy ? "grayscale" : ""
+                    }`}
+                  />
+                  {c.busy ? (
+                    <>
+                      <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-destructive px-3 py-1 text-xs font-bold text-destructive-foreground shadow">
+                        <CalendarX2 className="h-3.5 w-3.5" /> Rezervată
+                      </span>
+                      {/* Detaliile apar la hover pe desktop și sunt oricum listate mai jos pe mobil */}
+                      <div className="pointer-events-none absolute inset-0 hidden items-end bg-foreground/75 p-4 text-center opacity-0 transition-opacity group-hover:opacity-100 group-focus-within:opacity-100 sm:flex">
+                        <p className="w-full text-xs font-semibold leading-relaxed text-background">
+                          Indisponibilă {formatRangeRo(from, rangeTo)}
+                          <br />
+                          {c.busyLabel}
+                          {c.freeFrom ? ` · liberă din ${formatRangeRo(c.freeFrom, c.freeFrom)}` : ""}
+                        </p>
+                      </div>
+                    </>
+                  ) : (
+                    <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground shadow">
+                      <BadgeCheck className="h-3.5 w-3.5" /> Disponibilă
+                    </span>
+                  )}
+                </div>
                 <div className="p-6">
                   <div className="flex items-start justify-between gap-3">
                     <h3 className="text-lg font-semibold">{c.name}</h3>
@@ -571,17 +696,25 @@ function Index() {
                       <Fuel className="h-4 w-4 text-primary" /> {c.specs[2]}
                     </li>
                   </ul>
-                  <a
-                    href="#contact"
-                    className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary"
-                  >
-                    Verifică disponibilitatea <ArrowRight className="h-4 w-4" />
-                  </a>
+                  {c.busy ? (
+                    <p className="mt-5 rounded-lg bg-destructive/10 px-3 py-2 text-xs font-semibold leading-relaxed text-destructive">
+                      Indisponibilă {formatRangeRo(from, rangeTo)} · {c.busyLabel}
+                      {c.freeFrom ? ` · liberă din ${formatRangeRo(c.freeFrom, c.freeFrom)}` : ""}
+                    </p>
+                  ) : (
+                    <a
+                      href="#contact"
+                      className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary"
+                    >
+                      Rezervă această mașină <ArrowRight className="h-4 w-4" />
+                    </a>
+                  )}
                 </div>
               </article>
             ))}
           </div>
           <div className="mt-12 card-eco p-6 md:p-8">
+
             <p className="text-sm text-muted-foreground">
               Disponibilitatea variază în funcție de perioadă. Sunați la{" "}
               <a href="tel:+40742925934" className="font-semibold text-primary">

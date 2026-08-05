@@ -147,3 +147,57 @@ export const adminUploadImage = createServerFn({ method: "POST" })
     const path = await uploadVehicleImage(data.fileName, data.base64, data.contentType);
     return { path };
   });
+
+const bookingSchema = z.object({
+  id: z.string().uuid().optional(),
+  vehicle_id: z.string().uuid(),
+  start_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  end_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  customer_name: z.string().trim().max(120).default(""),
+  customer_phone: z.string().trim().max(40).default(""),
+  note: z.string().trim().max(600).default(""),
+  status: z.enum(["confirmed", "option", "blocked"]).default("confirmed"),
+});
+
+/** Public: occupied periods per vehicle (no customer data). */
+export const getBusyRanges = createServerFn({ method: "GET" }).handler(async () => {
+  const { fetchBusyRanges } = await import("@/lib/bookings.server");
+  return fetchBusyRanges();
+});
+
+export const adminListBookings = createServerFn({ method: "GET" }).handler(async () => {
+  await requireAdmin();
+  const { fetchAllBookings } = await import("@/lib/bookings.server");
+  return fetchAllBookings();
+});
+
+export const adminSaveBooking = createServerFn({ method: "POST" })
+  .inputValidator((data) => bookingSchema.parse(data))
+  .handler(async ({ data }) => {
+    await requireAdmin();
+    if (data.end_date < data.start_date) {
+      return { ok: false as const, error: "Data de final este înaintea datei de start." };
+    }
+    const { upsertBooking } = await import("@/lib/bookings.server");
+    try {
+      const booking = await upsertBooking(data);
+      return { ok: true as const, booking };
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Eroare necunoscută";
+      return {
+        ok: false as const,
+        error: message.includes("suprapune")
+          ? "Perioada se suprapune cu o rezervare existentă pentru această mașină."
+          : message,
+      };
+    }
+  });
+
+export const adminDeleteBooking = createServerFn({ method: "POST" })
+  .inputValidator((data) => z.object({ id: z.string().uuid() }).parse(data))
+  .handler(async ({ data }) => {
+    await requireAdmin();
+    const { removeBooking } = await import("@/lib/bookings.server");
+    await removeBooking(data.id);
+    return { ok: true as const };
+  });
