@@ -32,9 +32,10 @@ import { SITE_URL, canonical, canonicalLinks } from "@/lib/seo";
 
 
 const SITE = SITE_URL;
-const TITLE = "Rent a Car Cluj & Gilău | Mașini de la 70 lei/zi";
+const TITLE = "Rent a Car Cluj-Napoca | Mașini de la 70 lei/zi";
 const DESCRIPTION =
-  "Închiriez mașini în Cluj, Gilău și Florești de la 70 lei/zi. Predare personală în Gilău, mașini verificate cu ITP, RCA, rovinietă și AC incluse.";
+  "Rent a Car Cluj-Napoca, Gilău și Florești de la 70 lei/zi. Mașini de închiriat cu ITP, RCA, rovinietă și AC incluse, predare personală. Sună (0742) 925 934.";
+
 
 const faq = [
   {
@@ -57,7 +58,20 @@ const faq = [
     q: "Cum rezerv o mașină?",
     a: "Sunați la (0742) 925 934, scrieți pe WhatsApp sau completați formularul de pe site. Confirmăm disponibilitatea rapid, inclusiv în weekend.",
   },
+  {
+    q: "Faceți rent a car în Cluj-Napoca fără garanție și fără card de credit?",
+    a: "Da. Închirierea se face fără garanție și fără card de credit: aveți nevoie doar de permis valabil de minimum 1 an și de carte de identitate sau pașaport.",
+  },
+  {
+    q: "Se poate închiria mașina pe termen lung, lunar?",
+    a: "Da, oferim închirieri auto lunare în Cluj la tarif redus. Pentru perioade de peste 7 zile tariful zilnic scade, iar pentru firme emitem factură.",
+  },
+  {
+    q: "Livrați mașina în Cluj-Napoca, Florești sau la aeroport?",
+    a: "Baza este în Gilău, la 12 km de Cluj-Napoca. Stabilim împreună un punct convenabil de întâlnire în Cluj-Napoca, Florești sau în zona aeroportului.",
+  },
 ];
+
 
 
 export const Route = createFileRoute("/")({
@@ -212,6 +226,55 @@ export const Route = createFileRoute("/")({
           })),
         }),
       },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Flota DCO Rent a Car Cluj",
+          itemListElement: [
+            "Škoda Fabia",
+            "Renault Clio Symbol",
+            "Ford Focus Break",
+            "VW Passat Break",
+            "Volvo S40 2.0D",
+            "Citroën C5 automat",
+            "Volvo XC90 D5 7 locuri",
+          ].map((name, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            item: {
+              "@type": "Car",
+              name,
+              brand: { "@type": "Brand", name: name.split(" ")[0] },
+              offers: {
+                "@type": "Offer",
+                price: "70",
+                priceCurrency: "RON",
+                availability: "https://schema.org/InStock",
+                priceSpecification: {
+                  "@type": "UnitPriceSpecification",
+                  price: 70,
+                  priceCurrency: "RON",
+                  unitCode: "DAY",
+                },
+                seller: { "@id": `${SITE}#organization` },
+              },
+            },
+          })),
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Rent a Car Cluj", item: canonical("/") },
+          ],
+        }),
+      },
+
     ],
   }),
 });
@@ -433,7 +496,7 @@ function Index() {
           <div className="relative mx-auto max-w-6xl px-5 py-24 md:py-32">
             <p className="eyebrow text-signal">Cluj · Gilău · Florești</p>
             <h1 className="mt-4 max-w-3xl font-display text-4xl font-extrabold leading-[1.05] text-ink-foreground md:text-6xl">
-              Mașini de închiriat în Cluj de la 70 lei/zi.
+              Rent a Car Cluj-Napoca — mașini de închiriat de la 70 lei/zi.
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-foreground/80 md:text-lg">
               DCO Rent a Car închiriază autoturisme în stare perfectă de
@@ -608,7 +671,35 @@ function Index() {
 
 
 
+        {/* Zone deservite — linkuri interne SEO */}
+        <section id="zone" className="py-20 md:py-24">
+          <div className="mx-auto max-w-6xl px-5">
+            <p className="eyebrow">Zone deservite</p>
+            <h2 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">
+              Rent a Car Cluj-Napoca, Gilău, Florești și Aeroport Cluj
+            </h2>
+            <p className="mt-4 max-w-2xl text-muted-foreground">
+              Fiecare zonă are pagina proprie, cu tarife, mod de predare și întrebări
+              frecvente. Alegeți localitatea sau tipul de închiriere care vă interesează.
+            </p>
+            <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {locations.map((l) => (
+                <Link
+                  key={l.slug}
+                  to="/$slug"
+                  params={{ slug: l.slug }}
+                  className="group flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3.5 transition-colors hover:border-primary"
+                >
+                  <span className="font-semibold">{l.linkTitle ?? `Rent a Car ${l.city}`}</span>
+                  <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Contact */}
+
         <section id="contact" className="surface-ink">
           <div className="mx-auto grid max-w-6xl gap-12 px-5 py-20 md:py-28 lg:grid-cols-[1.1fr_1fr]">
             <div>
