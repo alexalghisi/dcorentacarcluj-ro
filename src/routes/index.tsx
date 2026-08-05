@@ -58,7 +58,20 @@ const faq = [
     q: "Cum rezerv o mașină?",
     a: "Sunați la (0742) 925 934, scrieți pe WhatsApp sau completați formularul de pe site. Confirmăm disponibilitatea rapid, inclusiv în weekend.",
   },
+  {
+    q: "Faceți rent a car în Cluj-Napoca fără garanție și fără card de credit?",
+    a: "Da. Închirierea se face fără garanție și fără card de credit: aveți nevoie doar de permis valabil de minimum 1 an și de carte de identitate sau pașaport.",
+  },
+  {
+    q: "Se poate închiria mașina pe termen lung, lunar?",
+    a: "Da, oferim închirieri auto lunare în Cluj la tarif redus. Pentru perioade de peste 7 zile tariful zilnic scade, iar pentru firme emitem factură.",
+  },
+  {
+    q: "Livrați mașina în Cluj-Napoca, Florești sau la aeroport?",
+    a: "Baza este în Gilău, la 12 km de Cluj-Napoca. Stabilim împreună un punct convenabil de întâlnire în Cluj-Napoca, Florești sau în zona aeroportului.",
+  },
 ];
+
 
 
 export const Route = createFileRoute("/")({
