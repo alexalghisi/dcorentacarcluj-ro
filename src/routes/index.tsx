@@ -226,6 +226,55 @@ export const Route = createFileRoute("/")({
           })),
         }),
       },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Flota DCO Rent a Car Cluj",
+          itemListElement: [
+            "Škoda Fabia",
+            "Renault Clio Symbol",
+            "Ford Focus Break",
+            "VW Passat Break",
+            "Volvo S40 2.0D",
+            "Citroën C5 automat",
+            "Volvo XC90 D5 7 locuri",
+          ].map((name, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            item: {
+              "@type": "Car",
+              name,
+              brand: { "@type": "Brand", name: name.split(" ")[0] },
+              offers: {
+                "@type": "Offer",
+                price: "70",
+                priceCurrency: "RON",
+                availability: "https://schema.org/InStock",
+                priceSpecification: {
+                  "@type": "UnitPriceSpecification",
+                  price: 70,
+                  priceCurrency: "RON",
+                  unitCode: "DAY",
+                },
+                seller: { "@id": `${SITE}#organization` },
+              },
+            },
+          })),
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Rent a Car Cluj", item: canonical("/") },
+          ],
+        }),
+      },
+
     ],
   }),
 });
