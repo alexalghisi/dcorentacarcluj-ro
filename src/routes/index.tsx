@@ -15,8 +15,21 @@ import {
   BadgeCheck,
 } from "lucide-react";
 
-import { getPublicVehicles, trackSiteView, trackVehicleView } from "@/lib/admin.functions";
+import {
+  getBusyRanges,
+  getPublicVehicles,
+  trackSiteView,
+  trackVehicleView,
+} from "@/lib/admin.functions";
 import { vehicleImageSrc, type Vehicle } from "@/lib/vehicles";
+import {
+  conflictsFor,
+  formatRangeRo,
+  freeAgainFrom,
+  todayISO,
+  type BookingRange,
+} from "@/lib/bookings";
+
 import heroCar from "@/assets/hero-fleet.jpg";
 import carPassat from "@/assets/car-passat.jpg";
 import carC5 from "@/assets/car-c5.jpg";
