@@ -26,8 +26,8 @@ function publicClient() {
 /** Public availability: only the occupied periods, never customer details. */
 export async function fetchBusyRanges(): Promise<BookingRange[]> {
   const today = new Date().toISOString().slice(0, 10);
-  const { data, error } = await publicClient()
-    .from("vehicle_bookings")
+  const { data, error } = await (publicClient() as any)
+    .from("vehicle_availability")
     .select("vehicle_id, start_date, end_date")
     .gte("end_date", today)
     .order("start_date", { ascending: true });
