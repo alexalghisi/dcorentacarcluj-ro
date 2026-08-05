@@ -76,12 +76,13 @@ const faq = [
 
 export const Route = createFileRoute("/")({
   loader: async () => {
-    try {
-      return await getPublicVehicles();
-    } catch {
-      return [];
-    }
+    const [vehicles, busy] = await Promise.all([
+      getPublicVehicles().catch(() => []),
+      getBusyRanges().catch(() => []),
+    ]);
+    return { vehicles, busy };
   },
+
   errorComponent: () => (
     <main className="p-10 text-center">
       <h1 className="text-xl font-bold">Reîncarcă pagina</h1>
