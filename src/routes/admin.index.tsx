@@ -32,6 +32,7 @@ import { BookingsPanel } from "@/components/admin/BookingsPanel";
 import type { Booking } from "@/lib/bookings";
 import { VehicleDialog } from "@/components/admin/VehicleDialog";
 import {
+  displaySearchCount,
   displayViews,
   vehicleImageSrc,
 
