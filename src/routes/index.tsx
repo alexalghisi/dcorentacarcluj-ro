@@ -24,6 +24,7 @@ import {
   trackSiteView,
   trackVehicleView,
 } from "@/lib/admin.functions";
+import { VehicleGallery } from "@/components/VehicleGallery";
 import { vehicleImageSrc, type Vehicle } from "@/lib/vehicles";
 import {
   conflictsFor,
@@ -421,13 +422,14 @@ function Index() {
     dbVehicles.length > 0
       ? dbVehicles.map((v) => ({
           img: vehicleImageSrc(v.image_url),
+          images: [v.image_url, ...(v.gallery ?? [])].filter(Boolean).map(vehicleImageSrc),
           name: v.name,
           example: v.tagline,
           price: v.price_label,
           specs: [v.seats, v.transmission, v.fuel],
           id: v.id as string | undefined,
         }))
-      : fleet.map((c) => ({ ...c, id: undefined as string | undefined }))
+      : fleet.map((c) => ({ ...c, images: [c.img], id: undefined as string | undefined }))
   ).map((c) => {
     const conflicts = conflictsFor(busy, c.id, from, rangeTo);
     const freeFrom = freeAgainFrom(conflicts);
@@ -645,38 +647,16 @@ function Index() {
                   c.busy ? "opacity-70 ring-1 ring-destructive/30" : ""
                 }`}
               >
-                <div className="relative">
-                  <img
-                    src={c.img}
-                    alt={`${c.name} ${c.busy ? "rezervată" : "disponibilă"} la închiriere în Cluj`}
-                    width={1200}
-                    height={900}
-                    loading="lazy"
-                    className={`h-48 w-full bg-surface object-cover transition ${
-                      c.busy ? "grayscale" : ""
-                    }`}
-                  />
-                  {c.busy ? (
-                    <>
-                      <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-destructive px-3 py-1 text-xs font-bold text-destructive-foreground shadow">
-                        <CalendarX2 className="h-3.5 w-3.5" /> Rezervată
-                      </span>
-                      {/* Detaliile apar la hover pe desktop și sunt oricum listate mai jos pe mobil */}
-                      <div className="pointer-events-none absolute inset-0 hidden items-end bg-foreground/75 p-4 text-center opacity-0 transition-opacity group-hover:opacity-100 group-focus-within:opacity-100 sm:flex">
-                        <p className="w-full text-xs font-semibold leading-relaxed text-background">
-                          Indisponibilă {formatRangeRo(from, rangeTo)}
-                          <br />
-                          {c.busyLabel}
-                          {c.freeFrom ? ` · liberă din ${formatRangeRo(c.freeFrom, c.freeFrom)}` : ""}
-                        </p>
-                      </div>
-                    </>
-                  ) : (
-                    <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground shadow">
-                      <BadgeCheck className="h-3.5 w-3.5" /> Disponibilă
-                    </span>
-                  )}
-                </div>
+                <VehicleGallery
+                  images={c.images.length > 0 ? c.images : [c.img]}
+                  name={c.name}
+                  busy={c.busy}
+                  busyLabel={c.busyLabel}
+                  rangeLabel={formatRangeRo(from, rangeTo)}
+                  freeFromLabel={
+                    c.freeFrom ? ` · liberă din ${formatRangeRo(c.freeFrom, c.freeFrom)}` : ""
+                  }
+                />
                 <div className="p-6">
                   <div className="flex items-start justify-between gap-3">
                     <h3 className="text-lg font-semibold">{c.name}</h3>
