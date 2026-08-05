@@ -671,7 +671,35 @@ function Index() {
 
 
 
+        {/* Zone deservite — linkuri interne SEO */}
+        <section id="zone" className="py-20 md:py-24">
+          <div className="mx-auto max-w-6xl px-5">
+            <p className="eyebrow">Zone deservite</p>
+            <h2 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">
+              Rent a Car Cluj-Napoca, Gilău, Florești și Aeroport Cluj
+            </h2>
+            <p className="mt-4 max-w-2xl text-muted-foreground">
+              Fiecare zonă are pagina proprie, cu tarife, mod de predare și întrebări
+              frecvente. Alegeți localitatea sau tipul de închiriere care vă interesează.
+            </p>
+            <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {locations.map((l) => (
+                <Link
+                  key={l.slug}
+                  to="/$slug"
+                  params={{ slug: l.slug }}
+                  className="group flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3.5 transition-colors hover:border-primary"
+                >
+                  <span className="font-semibold">{l.linkTitle ?? `Rent a Car ${l.city}`}</span>
+                  <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Contact */}
+
         <section id="contact" className="surface-ink">
           <div className="mx-auto grid max-w-6xl gap-12 px-5 py-20 md:py-28 lg:grid-cols-[1.1fr_1fr]">
             <div>
