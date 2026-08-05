@@ -35,6 +35,53 @@ export type Database = {
         }
         Relationships: []
       }
+      vehicle_bookings: {
+        Row: {
+          created_at: string
+          customer_name: string
+          customer_phone: string
+          end_date: string
+          id: string
+          note: string
+          start_date: string
+          status: string
+          updated_at: string
+          vehicle_id: string
+        }
+        Insert: {
+          created_at?: string
+          customer_name?: string
+          customer_phone?: string
+          end_date: string
+          id?: string
+          note?: string
+          start_date: string
+          status?: string
+          updated_at?: string
+          vehicle_id: string
+        }
+        Update: {
+          created_at?: string
+          customer_name?: string
+          customer_phone?: string
+          end_date?: string
+          id?: string
+          note?: string
+          start_date?: string
+          status?: string
+          updated_at?: string
+          vehicle_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "vehicle_bookings_vehicle_id_fkey"
+            columns: ["vehicle_id"]
+            isOneToOne: false
+            referencedRelation: "vehicles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       vehicles: {
         Row: {
           created_at: string
