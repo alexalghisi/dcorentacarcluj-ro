@@ -194,6 +194,7 @@ export const Route = createFileRoute("/")({
                 addressCountry: "RO",
               },
               geo: { "@type": "GeoCoordinates", latitude: 46.7469, longitude: 23.3736 },
+              hasMap: MAPS_URL,
               areaServed: [
                 { "@type": "City", name: "Cluj-Napoca" },
                 { "@type": "City", name: "Gilău" },
