@@ -99,7 +99,7 @@ export function parseSourceVehicles(
     const m = text.match(line);
     if (!m) continue;
 
-    const rawName = m[1]!.replace(/\s+/g, " ").trim();
+    const rawName = m[1]!.replace(/\s*\.\s*/g, " ").replace(/\s+/g, " ").trim();
     const year = m[2]!;
     const fuelKey = m[3]!
       .toLowerCase()
