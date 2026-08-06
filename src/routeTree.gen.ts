@@ -16,6 +16,7 @@ import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as ApiPublicHooksSyncFleetRouteImport } from './routes/api/public/hooks/sync-fleet'
 import { Route as ApiPublicVehicleImageSplatRouteImport } from './routes/api/public/vehicle-image.$'
 
 const IndexRoute = IndexRouteImport.update({
@@ -53,6 +54,11 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicHooksSyncFleetRoute = ApiPublicHooksSyncFleetRouteImport.update({
+  id: '/api/public/hooks/sync-fleet',
+  path: '/api/public/hooks/sync-fleet',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicVehicleImageSplatRoute =
   ApiPublicVehicleImageSplatRouteImport.update({
     id: '/api/public/vehicle-image/$',
@@ -68,6 +74,7 @@ export interface FileRoutesByFullPath {
   '/blog/$slug': typeof BlogSlugRoute
   '/admin/': typeof AdminIndexRoute
   '/blog/': typeof BlogIndexRoute
+  '/api/public/hooks/sync-fleet': typeof ApiPublicHooksSyncFleetRoute
   '/api/public/vehicle-image/$': typeof ApiPublicVehicleImageSplatRoute
 }
 export interface FileRoutesByTo {
@@ -78,6 +85,7 @@ export interface FileRoutesByTo {
   '/blog/$slug': typeof BlogSlugRoute
   '/admin': typeof AdminIndexRoute
   '/blog': typeof BlogIndexRoute
+  '/api/public/hooks/sync-fleet': typeof ApiPublicHooksSyncFleetRoute
   '/api/public/vehicle-image/$': typeof ApiPublicVehicleImageSplatRoute
 }
 export interface FileRoutesById {
@@ -89,6 +97,7 @@ export interface FileRoutesById {
   '/blog/$slug': typeof BlogSlugRoute
   '/admin/': typeof AdminIndexRoute
   '/blog/': typeof BlogIndexRoute
+  '/api/public/hooks/sync-fleet': typeof ApiPublicHooksSyncFleetRoute
   '/api/public/vehicle-image/$': typeof ApiPublicVehicleImageSplatRoute
 }
 export interface FileRouteTypes {
@@ -101,6 +110,7 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/admin/'
     | '/blog/'
+    | '/api/public/hooks/sync-fleet'
     | '/api/public/vehicle-image/$'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -111,6 +121,7 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/admin'
     | '/blog'
+    | '/api/public/hooks/sync-fleet'
     | '/api/public/vehicle-image/$'
   id:
     | '__root__'
@@ -121,6 +132,7 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/admin/'
     | '/blog/'
+    | '/api/public/hooks/sync-fleet'
     | '/api/public/vehicle-image/$'
   fileRoutesById: FileRoutesById
 }
@@ -132,6 +144,7 @@ export interface RootRouteChildren {
   BlogSlugRoute: typeof BlogSlugRoute
   AdminIndexRoute: typeof AdminIndexRoute
   BlogIndexRoute: typeof BlogIndexRoute
+  ApiPublicHooksSyncFleetRoute: typeof ApiPublicHooksSyncFleetRoute
   ApiPublicVehicleImageSplatRoute: typeof ApiPublicVehicleImageSplatRoute
 }
 
@@ -186,6 +199,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/hooks/sync-fleet': {
+      id: '/api/public/hooks/sync-fleet'
+      path: '/api/public/hooks/sync-fleet'
+      fullPath: '/api/public/hooks/sync-fleet'
+      preLoaderRoute: typeof ApiPublicHooksSyncFleetRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/vehicle-image/$': {
       id: '/api/public/vehicle-image/$'
       path: '/api/public/vehicle-image/$'
@@ -204,18 +224,9 @@ const rootRouteChildren: RootRouteChildren = {
   BlogSlugRoute: BlogSlugRoute,
   AdminIndexRoute: AdminIndexRoute,
   BlogIndexRoute: BlogIndexRoute,
+  ApiPublicHooksSyncFleetRoute: ApiPublicHooksSyncFleetRoute,
   ApiPublicVehicleImageSplatRoute: ApiPublicVehicleImageSplatRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
