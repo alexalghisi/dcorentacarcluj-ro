@@ -14,6 +14,45 @@ export type Database = {
   }
   public: {
     Tables: {
+      fleet_sync_runs: {
+        Row: {
+          created: number
+          created_at: string
+          found: number
+          id: string
+          message: string
+          ran_at: string
+          skipped: number
+          status: string
+          updated: number
+          updated_at: string
+        }
+        Insert: {
+          created?: number
+          created_at?: string
+          found?: number
+          id?: string
+          message?: string
+          ran_at?: string
+          skipped?: number
+          status?: string
+          updated?: number
+          updated_at?: string
+        }
+        Update: {
+          created?: number
+          created_at?: string
+          found?: number
+          id?: string
+          message?: string
+          ran_at?: string
+          skipped?: number
+          status?: string
+          updated?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
       site_metrics: {
         Row: {
           created_at: string
@@ -91,10 +130,13 @@ export type Database = {
           id: string
           image_url: string
           is_active: boolean
+          manual_lock: boolean
           name: string
           price_label: string
           seats: string
           sort_order: number
+          source_key: string
+          synced_at: string | null
           tagline: string
           transmission: string
           updated_at: string
@@ -108,10 +150,13 @@ export type Database = {
           id?: string
           image_url?: string
           is_active?: boolean
+          manual_lock?: boolean
           name: string
           price_label?: string
           seats?: string
           sort_order?: number
+          source_key?: string
+          synced_at?: string | null
           tagline?: string
           transmission?: string
           updated_at?: string
@@ -125,10 +170,13 @@ export type Database = {
           id?: string
           image_url?: string
           is_active?: boolean
+          manual_lock?: boolean
           name?: string
           price_label?: string
           seats?: string
           sort_order?: number
+          source_key?: string
+          synced_at?: string | null
           tagline?: string
           transmission?: string
           updated_at?: string
