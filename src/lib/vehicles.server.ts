@@ -4,8 +4,6 @@ import type { Vehicle, VehicleInput } from "@/lib/vehicles";
 
 const COLUMNS =
   "id, name, tagline, description, price_label, seats, transmission, fuel, image_url, gallery, sort_order, is_active, view_count";
-const ADMIN_COLUMNS = `${COLUMNS}, manual_lock, synced_at`;
-
 
 function publicClient() {
   const key =
@@ -41,13 +39,12 @@ export async function fetchAllVehicles(): Promise<Vehicle[]> {
   const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
   const { data, error } = await supabaseAdmin
     .from("vehicles")
-    .select(ADMIN_COLUMNS)
+    .select(COLUMNS)
     .order("sort_order", { ascending: true })
     .order("created_at", { ascending: true });
   if (error) throw new Error(error.message);
   return (data ?? []) as Vehicle[];
 }
-
 
 export async function upsertVehicle(input: VehicleInput): Promise<Vehicle> {
   const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
@@ -63,8 +60,6 @@ export async function upsertVehicle(input: VehicleInput): Promise<Vehicle> {
     gallery: (input.gallery ?? []).map((g) => g.trim()).filter(Boolean),
     sort_order: input.sort_order,
     is_active: input.is_active,
-    // Manual edits win over the daily OLX sync.
-    manual_lock: true,
   };
 
   if (input.id) {
@@ -72,7 +67,7 @@ export async function upsertVehicle(input: VehicleInput): Promise<Vehicle> {
       .from("vehicles")
       .update(payload)
       .eq("id", input.id)
-      .select(ADMIN_COLUMNS)
+      .select(COLUMNS)
       .single();
     if (error) throw new Error(error.message);
     return data as Vehicle;
@@ -81,9 +76,8 @@ export async function upsertVehicle(input: VehicleInput): Promise<Vehicle> {
   const { data, error } = await supabaseAdmin
     .from("vehicles")
     .insert(payload)
-    .select(ADMIN_COLUMNS)
+    .select(COLUMNS)
     .single();
-
   if (error) throw new Error(error.message);
   return data as Vehicle;
 }

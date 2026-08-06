@@ -12,11 +12,7 @@ export interface Vehicle {
   sort_order: number;
   is_active: boolean;
   view_count: number;
-  /** True when the owner edited this car in the admin panel; the daily sync skips it. */
-  manual_lock?: boolean;
-  synced_at?: string | null;
 }
-
 
 export interface VehicleInput {
   id?: string | undefined;
