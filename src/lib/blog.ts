@@ -14,6 +14,9 @@ export interface BlogPost {
   category: string;
   excerpt: string;
   sections: BlogSection[];
+  /** Întrebări frecvente afișate la finalul articolului (intră și în schema FAQPage). */
+  faq?: { q: string; a: string }[];
+
 }
 
 export const posts: BlogPost[] = [
