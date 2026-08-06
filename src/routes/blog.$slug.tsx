@@ -3,7 +3,7 @@ import { Car, Phone, Clock, ArrowLeft, ArrowRight } from "lucide-react";
 
 import { getPost, posts, formatDateRo } from "@/lib/blog";
 import type { BlogPost, BlogSection } from "@/lib/blog";
-import { SITE_URL, canonical, canonicalLinks, socialImageMeta } from "@/lib/seo";
+import { OG_IMAGE, SITE_URL, canonical, canonicalLinks, socialImageMeta } from "@/lib/seo";
 
 const SITE = SITE_URL;
 
@@ -49,6 +49,13 @@ export const Route = createFileRoute("/blog/$slug")({
             datePublished: post.date,
             dateModified: post.date,
             inLanguage: "ro-RO",
+            wordCount: post.sections.reduce(
+              (n, s) => n + s.paragraphs.join(" ").split(/\s+/).length,
+              0,
+            ),
+            image: OG_IMAGE,
+            articleSection: post.category,
+            timeRequired: `PT${post.readingMinutes}M`,
             mainEntityOfPage: { "@type": "WebPage", "@id": url },
             author: { "@type": "Organization", name: "DCO Rent a Car Cluj", url: SITE },
             publisher: { "@type": "Organization", name: "DCO Rent a Car Cluj", url: SITE },
@@ -66,6 +73,22 @@ export const Route = createFileRoute("/blog/$slug")({
             ],
           }),
         },
+        ...(post.faq && post.faq.length > 0
+          ? [
+              {
+                type: "application/ld+json",
+                children: JSON.stringify({
+                  "@context": "https://schema.org",
+                  "@type": "FAQPage",
+                  mainEntity: post.faq.map((f) => ({
+                    "@type": "Question",
+                    name: f.q,
+                    acceptedAnswer: { "@type": "Answer", text: f.a },
+                  })),
+                }),
+              },
+            ]
+          : []),
       ],
     };
   },
