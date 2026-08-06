@@ -102,7 +102,23 @@ async function logRun(outcome: SyncOutcome) {
   return data as { id: string; ran_at: string };
 }
 
+/** Avoids daily duplicate alerts for a failure that is already known. */
+async function alreadyAlerted(message: string, currentRunId: string) {
+  const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+  const since = new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString();
+  const { data } = await supabaseAdmin
+    .from("fleet_sync_runs")
+    .select("id, message")
+    .eq("status", "error")
+    .gte("ran_at", since)
+    .neq("id", currentRunId)
+    .order("ran_at", { ascending: false })
+    .limit(5);
+  return (data ?? []).some((row) => row.message === message.slice(0, 500));
+}
+
 async function notifyFailure(outcome: SyncOutcome, run: { id: string; ran_at: string }) {
+  if (await alreadyAlerted(outcome.message, run.id)) return false;
   const { sendTemplateEmail } = await import("@/lib/email-templates/send-email");
   try {
     await sendTemplateEmail("sync-alert", "", {
