@@ -49,6 +49,8 @@ import { SITE_URL, canonical, canonicalLinks } from "@/lib/seo";
 
 
 const SITE = SITE_URL;
+const MAPS_URL =
+  "https://www.google.com/maps/search/?api=1&query=DCO+Rent+a+Car+Cluj+Gil%C4%83u";
 const TITLE = "Rent a Car Cluj-Napoca | Mașini de la 70 lei/zi";
 const DESCRIPTION =
   "Rent a Car Cluj-Napoca, Gilău și Florești de la 70 lei/zi. Mașini de închiriat cu ITP, RCA, rovinietă și AC incluse, predare personală. Sună (0742) 925 934.";
@@ -192,6 +194,7 @@ export const Route = createFileRoute("/")({
                 addressCountry: "RO",
               },
               geo: { "@type": "GeoCoordinates", latitude: 46.7469, longitude: 23.3736 },
+              hasMap: MAPS_URL,
               areaServed: [
                 { "@type": "City", name: "Cluj-Napoca" },
                 { "@type": "City", name: "Gilău" },
@@ -504,6 +507,9 @@ function Index() {
             <a className="transition-colors hover:text-foreground" href="#intrebari">
               Întrebări
             </a>
+            <a className="transition-colors hover:text-foreground" href="#locatie">
+              Locație
+            </a>
             <Link className="transition-colors hover:text-foreground" to="/$slug" params={{ slug: "rent-a-car-cluj-napoca" }}>
               Cluj-Napoca
             </Link>
@@ -810,6 +816,79 @@ function Index() {
             </div>
           </div>
         </section>
+
+        {/* Local SEO / Google Maps — datele identice cu profilul Google Business */}
+
+        <section id="locatie" className="bg-surface py-20 md:py-24">
+          <div className="mx-auto grid max-w-6xl gap-10 px-5 lg:grid-cols-[1fr_1.1fr]">
+            <div>
+              <p className="eyebrow">Locație</p>
+              <h2 className="mt-3 text-3xl font-bold md:text-4xl">
+                Ne găsiți în Gilău, la 12 km de centrul Cluj-Napoca
+              </h2>
+              <p className="mt-4 text-muted-foreground">
+                Predare și returnare în Gilău, Florești, Cluj-Napoca sau la Aeroportul
+                Internațional Avram Iancu Cluj, la ora stabilită telefonic.
+              </p>
+              <dl className="mt-8 space-y-4 text-sm">
+                <div>
+                  <dt className="font-semibold">Denumire</dt>
+                  <dd className="text-muted-foreground">DCO Rent a Car Cluj</dd>
+                </div>
+                <div>
+                  <dt className="font-semibold">Adresă</dt>
+                  <dd className="text-muted-foreground">Gilău, județul Cluj, România</dd>
+                </div>
+                <div>
+                  <dt className="font-semibold">Telefon</dt>
+                  <dd>
+                    <a className="text-signal hover:underline" href="tel:+40742925934">
+                      0742 925 934
+                    </a>{" "}
+                    <span className="text-muted-foreground">— Ovidiu Danciu</span>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="font-semibold">E-mail</dt>
+                  <dd>
+                    <a
+                      className="text-signal hover:underline"
+                      href="mailto:Ovidiu_danciu@yahoo.com"
+                    >
+                      Ovidiu_danciu@yahoo.com
+                    </a>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="font-semibold">Zone deservite</dt>
+                  <dd className="text-muted-foreground">
+                    Cluj-Napoca, Gilău, Florești, Aeroport Cluj, județul Cluj
+                  </dd>
+                </div>
+              </dl>
+              <a
+                className="btn-primary mt-8 inline-flex"
+                href={MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Deschide în Google Maps
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
+            <div className="overflow-hidden rounded-2xl border border-border bg-card">
+              <iframe
+                title="Harta locației DCO Rent a Car Cluj — Gilău, județul Cluj"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=23.31%2C46.72%2C23.44%2C46.78&layer=mapnik&marker=46.7469%2C23.3736"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="h-[340px] w-full border-0 md:h-full md:min-h-[420px]"
+              />
+            </div>
+          </div>
+        </section>
+
+
 
         {/* Contact */}
 
