@@ -26,11 +26,15 @@ import {
   adminListBookings,
   adminSearchConsole,
   adminStats,
+  adminSyncRuns,
   adminToggleVehicle,
 } from "@/lib/admin.functions";
 import { BookingsPanel } from "@/components/admin/BookingsPanel";
+import { FleetSyncPanel } from "@/components/admin/FleetSyncPanel";
+import type { FleetSyncRun } from "@/lib/fleet-sync";
 import type { Booking } from "@/lib/bookings";
 import { VehicleDialog } from "@/components/admin/VehicleDialog";
+
 import {
   displaySearchCount,
   displayViews,
@@ -43,16 +47,18 @@ import type { SearchConsoleStats } from "@/lib/search-console";
 export const Route = createFileRoute("/admin/")({
   ssr: false,
   loader: async () => {
-    const [vehicles, stats, search, bookings] = await Promise.all([
+    const [vehicles, stats, search, bookings, syncRuns] = await Promise.all([
       adminListVehicles(),
       adminStats(),
       adminSearchConsole(),
       adminListBookings(),
+      adminSyncRuns(),
     ]);
-    return { vehicles, stats, search, bookings };
+    return { vehicles, stats, search, bookings, syncRuns };
   },
 
   component: AdminDashboard,
+
   errorComponent: () => (
     <main className="flex min-h-screen items-center justify-center p-8 text-center">
       <div>
@@ -83,12 +89,14 @@ export const Route = createFileRoute("/admin/")({
 });
 
 function AdminDashboard() {
-  const { vehicles, stats, search, bookings } = Route.useLoaderData() as {
+  const { vehicles, stats, search, bookings, syncRuns } = Route.useLoaderData() as {
     vehicles: Vehicle[];
     stats: { siteViews: number; vehicleViews: number; vehicles: number };
     search: SearchConsoleStats;
     bookings: Booking[];
+    syncRuns: FleetSyncRun[];
   };
+
 
   const router = useRouter();
   const [dialog, setDialog] = useState<{ open: boolean; vehicle: Vehicle | null }>({
@@ -205,7 +213,10 @@ function AdminDashboard() {
 
         </section>
 
+        <FleetSyncPanel runs={syncRuns} onChange={refresh} />
+
         <BookingsPanel vehicles={vehicles} bookings={bookings} onChange={refresh} />
+
 
         <section aria-label="Google Search Console" className="mb-10">
           <div className="flex flex-wrap items-center justify-between gap-3">
