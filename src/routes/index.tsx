@@ -49,6 +49,8 @@ import { SITE_URL, canonical, canonicalLinks } from "@/lib/seo";
 
 
 const SITE = SITE_URL;
+const MAPS_URL =
+  "https://www.google.com/maps/search/?api=1&query=DCO+Rent+a+Car+Cluj+Gil%C4%83u";
 const TITLE = "Rent a Car Cluj-Napoca | Mașini de la 70 lei/zi";
 const DESCRIPTION =
   "Rent a Car Cluj-Napoca, Gilău și Florești de la 70 lei/zi. Mașini de închiriat cu ITP, RCA, rovinietă și AC incluse, predare personală. Sună (0742) 925 934.";
