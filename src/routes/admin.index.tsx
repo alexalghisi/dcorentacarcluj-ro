@@ -47,16 +47,18 @@ import type { SearchConsoleStats } from "@/lib/search-console";
 export const Route = createFileRoute("/admin/")({
   ssr: false,
   loader: async () => {
-    const [vehicles, stats, search, bookings] = await Promise.all([
+    const [vehicles, stats, search, bookings, syncRuns] = await Promise.all([
       adminListVehicles(),
       adminStats(),
       adminSearchConsole(),
       adminListBookings(),
+      adminSyncRuns(),
     ]);
-    return { vehicles, stats, search, bookings };
+    return { vehicles, stats, search, bookings, syncRuns };
   },
 
   component: AdminDashboard,
+
   errorComponent: () => (
     <main className="flex min-h-screen items-center justify-center p-8 text-center">
       <div>
