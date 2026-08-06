@@ -49,6 +49,12 @@ function normalizeName(value: string): string {
     .replace(/[^a-z0-9]/g, "");
 }
 
+/** Model name without the year, used to match cars added before the sync existed. */
+function modelKey(value: string): string {
+  return normalizeName(value).replace(/(19|20)\d{2}/g, "");
+}
+
+
 /** Reads the OLX listing and mirrors it into the fleet, keeping manual edits intact. */
 export async function runFleetSync(): Promise<FleetSyncResult> {
   const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
