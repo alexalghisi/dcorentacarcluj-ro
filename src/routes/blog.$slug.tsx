@@ -171,7 +171,22 @@ function BlogPostPage() {
           ))}
         </div>
 
+        {post.faq && post.faq.length > 0 ? (
+          <section className="mt-14">
+            <h2 className="font-display text-xl font-bold tracking-tight">Întrebări frecvente</h2>
+            <div className="mt-5 space-y-4">
+              {post.faq.map((f) => (
+                <div key={f.q} className="rounded-xl border border-border bg-card p-5">
+                  <h3 className="text-sm font-semibold text-foreground">{f.q}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
         <aside className="mt-14 rounded-2xl border border-border bg-card p-7">
+
           <h2 className="font-display text-lg font-bold">Ai nevoie de o mașină în Cluj?</h2>
           <p className="mt-2 text-sm text-muted-foreground">
             Tarife de la 70 lei/zi, predare personală în Gilău, mașini verificate pentru drumurile din Cluj.
