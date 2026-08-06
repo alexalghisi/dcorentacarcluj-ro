@@ -96,6 +96,11 @@ export async function runFleetSync(): Promise<FleetSyncResult> {
 
     const byKey = new Map(existing.filter((v) => v.source_key).map((v) => [v.source_key, v]));
     const byName = new Map(existing.map((v) => [normalizeName(v.name), v]));
+    const byModel = new Map<string, typeof existing>();
+    for (const v of existing) {
+      const key = modelKey(v.name);
+      byModel.set(key, [...(byModel.get(key) ?? []), v]);
+    }
     const usedImages = new Set(
       existing.flatMap((v) => [v.image_url, ...(v.gallery ?? [])]).filter(Boolean),
     );
@@ -107,8 +112,17 @@ export async function runFleetSync(): Promise<FleetSyncResult> {
     let updated = 0;
     let skipped = 0;
 
+    function findLooseMatch(name: string) {
+      const pool = byModel.get(modelKey(name)) ?? [];
+      return pool.find((v) => !matchedIds.has(v.id) && !/(19|20)\d{2}/.test(v.name));
+    }
+
     for (const item of parsed) {
-      const match = byKey.get(item.source_key) ?? byName.get(normalizeName(item.name));
+      const match =
+        byKey.get(item.source_key) ??
+        byName.get(normalizeName(item.name)) ??
+        findLooseMatch(item.name);
+
 
       if (!match) {
         const cover = freeImages.shift() ?? "";
