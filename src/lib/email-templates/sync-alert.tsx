@@ -68,7 +68,6 @@ export const template = {
     found: 0,
     sourceUrl: "https://www.olx.ro/",
   },
-  to: "Ovidiu_danciu@yahoo.com",
 } satisfies TemplateEntry;
 
 const main = { backgroundColor: "#ffffff", fontFamily: "Arial, Helvetica, sans-serif" };

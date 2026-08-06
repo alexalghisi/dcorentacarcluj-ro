@@ -11,6 +11,8 @@ import { createFileRoute } from "@tanstack/react-router";
 const SOURCE_URL =
   "https://www.olx.ro/d/oferta/inchiriez-masini-masini-de-inchiriat-rent-a-car-cluj-gilau-floresti-IDgPPvn.html";
 
+const ALERT_EMAIL = process.env["SYNC_ALERT_EMAIL"] ?? "Ovidiu_danciu@yahoo.com";
+
 type SyncOutcome = {
   status: "ok" | "error";
   found: number;
@@ -121,7 +123,7 @@ async function notifyFailure(outcome: SyncOutcome, run: { id: string; ran_at: st
   if (await alreadyAlerted(outcome.message, run.id)) return false;
   const { sendTemplateEmail } = await import("@/lib/email-templates/send-email");
   try {
-    await sendTemplateEmail("sync-alert", "", {
+    await sendTemplateEmail("sync-alert", ALERT_EMAIL, {
       templateData: {
         reason: outcome.message,
         ranAt: new Date(run.ran_at).toLocaleString("ro-RO", {
