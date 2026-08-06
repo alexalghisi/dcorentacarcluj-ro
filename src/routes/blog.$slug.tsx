@@ -3,7 +3,7 @@ import { Car, Phone, Clock, ArrowLeft, ArrowRight } from "lucide-react";
 
 import { getPost, posts, formatDateRo } from "@/lib/blog";
 import type { BlogPost, BlogSection } from "@/lib/blog";
-import { SITE_URL, canonical, canonicalLinks } from "@/lib/seo";
+import { OG_IMAGE, SITE_URL, canonical, canonicalLinks, socialImageMeta } from "@/lib/seo";
 
 const SITE = SITE_URL;
 
@@ -35,6 +35,7 @@ export const Route = createFileRoute("/blog/$slug")({
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: post.metaTitle },
         { name: "twitter:description", content: post.description },
+        ...socialImageMeta(`${post.title} — DCO Rent a Car Cluj`),
       ],
       links: canonicalLinks(`/blog/${post.slug}`),
       scripts: [
@@ -48,6 +49,13 @@ export const Route = createFileRoute("/blog/$slug")({
             datePublished: post.date,
             dateModified: post.date,
             inLanguage: "ro-RO",
+            wordCount: post.sections.reduce(
+              (n, s) => n + s.paragraphs.join(" ").split(/\s+/).length,
+              0,
+            ),
+            image: OG_IMAGE,
+            articleSection: post.category,
+            timeRequired: `PT${post.readingMinutes}M`,
             mainEntityOfPage: { "@type": "WebPage", "@id": url },
             author: { "@type": "Organization", name: "DCO Rent a Car Cluj", url: SITE },
             publisher: { "@type": "Organization", name: "DCO Rent a Car Cluj", url: SITE },
@@ -65,6 +73,22 @@ export const Route = createFileRoute("/blog/$slug")({
             ],
           }),
         },
+        ...(post.faq && post.faq.length > 0
+          ? [
+              {
+                type: "application/ld+json",
+                children: JSON.stringify({
+                  "@context": "https://schema.org",
+                  "@type": "FAQPage",
+                  mainEntity: post.faq.map((f) => ({
+                    "@type": "Question",
+                    name: f.q,
+                    acceptedAnswer: { "@type": "Answer", text: f.a },
+                  })),
+                }),
+              },
+            ]
+          : []),
       ],
     };
   },
@@ -147,7 +171,22 @@ function BlogPostPage() {
           ))}
         </div>
 
+        {post.faq && post.faq.length > 0 ? (
+          <section className="mt-14">
+            <h2 className="font-display text-xl font-bold tracking-tight">Întrebări frecvente</h2>
+            <div className="mt-5 space-y-4">
+              {post.faq.map((f) => (
+                <div key={f.q} className="rounded-xl border border-border bg-card p-5">
+                  <h3 className="text-sm font-semibold text-foreground">{f.q}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
         <aside className="mt-14 rounded-2xl border border-border bg-card p-7">
+
           <h2 className="font-display text-lg font-bold">Ai nevoie de o mașină în Cluj?</h2>
           <p className="mt-2 text-sm text-muted-foreground">
             Tarife de la 70 lei/zi, predare personală în Gilău, mașini verificate pentru drumurile din Cluj.

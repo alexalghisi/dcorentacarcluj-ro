@@ -1,5 +1,20 @@
 export const SITE_URL = "https://dcorentacarcluj.ro";
 
+/** Absolute social preview image used by every indexable route. */
+export const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
+
+/** og:image + twitter:image meta entries (absolute URLs, as crawlers require). */
+export function socialImageMeta(alt = "DCO Rent a Car Cluj — mașini de închiriat în Cluj și Gilău") {
+  return [
+    { property: "og:image", content: OG_IMAGE },
+    { property: "og:image:width", content: "1200" },
+    { property: "og:image:height", content: "630" },
+    { property: "og:image:alt", content: alt },
+    { name: "twitter:image", content: OG_IMAGE },
+  ];
+}
+
+
 /**
  * Builds the single canonical absolute URL for a path.
  * - always https + non-www host (the host every other variant redirects to)

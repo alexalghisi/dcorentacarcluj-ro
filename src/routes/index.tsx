@@ -45,13 +45,13 @@ import carVolvoS40Grey from "@/assets/car-volvo-s40-grey.jpg";
 import carXc90 from "@/assets/car-xc90.jpg";
 
 import { locations } from "@/lib/locations";
-import { SITE_URL, canonical, canonicalLinks } from "@/lib/seo";
+import { SITE_URL, canonical, canonicalLinks, socialImageMeta } from "@/lib/seo";
 
 
 const SITE = SITE_URL;
 const MAPS_URL =
   "https://www.google.com/maps/search/?api=1&query=DCO+Rent+a+Car+Cluj+Gil%C4%83u";
-const TITLE = "Rent a Car Cluj-Napoca | Mașini de la 70 lei/zi";
+const TITLE = "DCO Rent a Car Cluj | Mașini de închiriat, 70 lei/zi";
 const DESCRIPTION =
   "Rent a Car Cluj-Napoca, Gilău și Florești de la 70 lei/zi. Mașini de închiriat cu ITP, RCA, rovinietă și AC incluse, predare personală. Sună (0742) 925 934.";
 
@@ -131,8 +131,12 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESCRIPTION },
+      ...socialImageMeta(),
     ],
-    links: canonicalLinks("/", true),
+    links: [
+      ...canonicalLinks("/", true),
+      { rel: "preload", as: "image", href: heroCar, fetchPriority: "high" },
+    ],
     scripts: [
       {
         type: "application/ld+json",

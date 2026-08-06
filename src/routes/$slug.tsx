@@ -3,7 +3,7 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import { LocationLanding } from "@/components/LocationLanding";
 import { getLocation } from "@/lib/locations";
 import type { LocationPage } from "@/lib/locations";
-import { SITE_URL, canonical, canonicalLinks } from "@/lib/seo";
+import { SITE_URL, canonical, canonicalLinks, socialImageMeta } from "@/lib/seo";
 
 const SITE = SITE_URL;
 
@@ -36,6 +36,7 @@ export const Route = createFileRoute("/$slug")({
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: page.metaTitle },
         { name: "twitter:description", content: page.description },
+        ...socialImageMeta(`${page.h1} — DCO Rent a Car`),
       ],
       links: canonicalLinks(`/${page.slug}`, isEn, isEn ? "en" : "ro-RO"),
       scripts: [
