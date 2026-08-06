@@ -507,6 +507,9 @@ function Index() {
             <a className="transition-colors hover:text-foreground" href="#intrebari">
               Întrebări
             </a>
+            <a className="transition-colors hover:text-foreground" href="#locatie">
+              Locație
+            </a>
             <Link className="transition-colors hover:text-foreground" to="/$slug" params={{ slug: "rent-a-car-cluj-napoca" }}>
               Cluj-Napoca
             </Link>
