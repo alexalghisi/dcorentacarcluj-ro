@@ -4,6 +4,8 @@ import type { Vehicle, VehicleInput } from "@/lib/vehicles";
 
 const COLUMNS =
   "id, name, tagline, description, price_label, seats, transmission, fuel, image_url, gallery, sort_order, is_active, view_count";
+const ADMIN_COLUMNS = `${COLUMNS}, manual_lock, synced_at`;
+
 
 function publicClient() {
   const key =
