@@ -6,7 +6,8 @@ import {
   type FleetSyncRun,
 } from "@/lib/fleet-sync";
 
-const FIRECRAWL_SCRAPE = "https://api.firecrawl.dev/v2/scrape";
+const FIRECRAWL_DIRECT = "https://api.firecrawl.dev/v2/scrape";
+const FIRECRAWL_GATEWAY = "https://connector-gateway.lovable.dev/firecrawl/v2/scrape";
 
 export interface FleetSyncResult {
   ok: boolean;
@@ -23,9 +24,18 @@ async function scrapeListing(): Promise<string> {
   const apiKey = process.env["FIRECRAWL_API_KEY"];
   if (!apiKey) throw new Error("FIRECRAWL_API_KEY lipsește");
 
-  const response = await fetch(FIRECRAWL_SCRAPE, {
+  const viaGateway = apiKey.startsWith("lovc_");
+  const headers: Record<string, string> = { "Content-Type": "application/json" };
+  if (viaGateway) {
+    headers["Authorization"] = `Bearer ${process.env["LOVABLE_API_KEY"]}`;
+    headers["X-Connection-Api-Key"] = apiKey;
+  } else {
+    headers["Authorization"] = `Bearer ${apiKey}`;
+  }
+
+  const response = await fetch(viaGateway ? FIRECRAWL_GATEWAY : FIRECRAWL_DIRECT, {
     method: "POST",
-    headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
+    headers,
     body: JSON.stringify({ url: FLEET_SOURCE_URL, formats: ["markdown"], onlyMainContent: false }),
   });
 
@@ -40,6 +50,7 @@ async function scrapeListing(): Promise<string> {
   if (!markdown) throw new Error("Anunțul a fost citit, dar fără conținut");
   return markdown;
 }
+
 
 function normalizeName(value: string): string {
   return value
