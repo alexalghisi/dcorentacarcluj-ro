@@ -208,7 +208,107 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "cluj-in-3-zile-cu-masina-inchiriata",
+    title: "Cluj-Napoca în 3 zile cu mașina închiriată: itinerariu complet",
+    metaTitle: "Cluj în 3 zile cu mașina închiriată | itinerariu",
+    description:
+      "Itinerariu de 3 zile în Cluj și împrejurimi cu mașina închiriată: centrul orașului, Salina Turda, Cheile Turzii și Apuseni.",
+    date: "2026-08-04",
+    readingMinutes: 7,
+    category: "Ghid de călătorie",
+    excerpt:
+      "Ce vizitezi în Cluj și în jurul orașului în trei zile, cu distanțe, timpi de mers și unde parchezi.",
+    sections: [
+      {
+        heading: "Ziua 1 — centrul Clujului și parcarea",
+        paragraphs: [
+          "Prima zi merită petrecută pe jos: Piața Unirii, Catedrala Sfântul Mihail, Muzeul de Artă, strada Potaissa și Cetățuia pentru priveliște. Lasă mașina într-o parcare supraterană din centru sau în zona Iulius Mall și mergi pe jos — centrul are zone cu taxare pe oră.",
+        ],
+        bullets: [
+          "Piața Unirii și Catedrala Sfântul Mihail",
+          "Grădina Botanică Alexandru Borza",
+          "Cetățuia, pentru panorama orașului la apus",
+          "Parcare recomandată: centre comerciale sau parcări supraterane",
+        ],
+      },
+      {
+        heading: "Ziua 2 — Salina Turda și Cheile Turzii",
+        paragraphs: [
+          "Turda este la aproximativ 35 km de Cluj-Napoca, circa 40 de minute pe DN1. Salina Turda se vizitează în 2–3 ore, iar după-amiaza poți continua spre Cheile Turzii pentru o drumeție ușoară. Ambele obiective sunt mult mai comode cu mașină proprie decât cu transportul public.",
+        ],
+        bullets: [
+          "Cluj — Turda: ~35 km, ~40 min",
+          "Salina Turda: 2–3 ore de vizită",
+          "Cheile Turzii: traseu ușor, încălțăminte de drumeție",
+          "Opțional: Băile Sărate Turda pentru relaxare",
+        ],
+      },
+      {
+        heading: "Ziua 3 — Apuseni și lacul Tarnița",
+        paragraphs: [
+          "A treia zi te scoate din oraș spre Gilău, Someșul Cald, lacul Tarnița și mai departe spre Mărișel sau Belis. Drumurile sunt asfaltate, dar au multe curbe — o mașină cu consum mic sau un SUV pentru zăpadă sunt cele mai potrivite, în funcție de sezon.",
+        ],
+        bullets: [
+          "Cluj — Tarnița: ~35 km, drum de curbe",
+          "Gilău, punctul nostru de predare, este pe traseu",
+          "Belis-Fântânele pentru priveliști și cazare de weekend",
+          "Iarna: verifică starea drumului înainte de plecare",
+        ],
+      },
+      {
+        heading: "De ce mașina închiriată schimbă itinerariul",
+        paragraphs: [
+          "Cu transport public, majoritatea obiectivelor din jurul Clujului îți consumă o zi întreagă fiecare. Cu o mașină închiriată de la 70 lei pe zi, poți combina două sau trei obiective într-o singură zi și te întorci în oraș la ora care îți convine.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "transfer-aeroport-cluj-optiuni",
+    title: "Transfer de la Aeroportul Cluj: taxi, ride-sharing sau mașină închiriată?",
+    metaTitle: "Transfer Aeroport Cluj: ce variantă costă mai puțin",
+    description:
+      "Comparație între taxi, ride-sharing și mașină închiriată pentru transferul de la Aeroportul Cluj spre oraș, Florești sau Gilău.",
+    date: "2026-08-05",
+    readingMinutes: 5,
+    category: "Ghid",
+    excerpt:
+      "Cât costă și cât durează fiecare variantă de transfer de la Aeroportul Internațional Cluj, și când e mai ieftin să închiriezi.",
+    sections: [
+      {
+        heading: "Distanțe reale de la aeroport",
+        paragraphs: [
+          "Aeroportul Internațional Avram Iancu este la aproximativ 9 km de centrul Clujului, la circa 20 km de Florești și 25 km de Gilău. Traficul de pe strada Traian Vuia poate dubla timpul de deplasare la orele de vârf.",
+        ],
+        bullets: [
+          "Aeroport — centru Cluj: ~9 km, 15–30 min",
+          "Aeroport — Florești: ~20 km",
+          "Aeroport — Gilău: ~25 km",
+        ],
+      },
+      {
+        heading: "Când e mai ieftină mașina închiriată",
+        paragraphs: [
+          "Dacă stai o singură noapte și nu ieși din oraș, un taxi sau ride-sharing este suficient. Din momentul în care ai două sau mai multe deplasări pe zi, sau vrei să vezi Turda, Apusenii ori satele din jur, costul cumulat al transferurilor depășește rapid tariful zilnic de închiriere.",
+        ],
+        bullets: [
+          "1 zi în oraș, fără ieșiri: taxi/ride-sharing",
+          "2+ zile sau ieșiri din oraș: mașină închiriată",
+          "Grup de 5–7 persoane: SUV de 7 locuri, cost pe persoană mult mai mic",
+          "Bagaje multe: break, nu autoturism mic",
+        ],
+      },
+      {
+        heading: "Cum funcționează predarea la aeroport",
+        paragraphs: [
+          "Confirmăm telefonic ora aterizării și stabilim punctul de întâlnire în zona aeroportului. Nu există birou de terminal și nu plătești taxe de aeroport suplimentare — predarea se face personal, direct de la proprietar.",
+        ],
+      },
+    ],
+  },
 ];
+
 
 export function getPost(slug: string): BlogPost | undefined {
   return posts.find((p) => p.slug === slug);

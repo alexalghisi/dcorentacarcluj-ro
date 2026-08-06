@@ -809,7 +809,283 @@ export const locations: LocationPage[] = [
       },
     ],
   },
+  {
+    slug: "inchiriere-suv-7-locuri-cluj",
+    city: "Cluj (SUV & 7 locuri)",
+    navLabel: "SUV & 7 locuri",
+    linkTitle: "Închiriere SUV și mașini de 7 locuri Cluj",
+    h1: "Închiriere SUV și mașină de 7 locuri în Cluj",
+    metaTitle: "Închiriere SUV & 7 locuri Cluj | DCO Rent a Car",
+    description:
+      "Închiriere SUV și mașină de 7 locuri în Cluj: Volvo XC90 pentru familii, bagaje și drumuri de munte. Sună (0742) 925 934.",
+    keywords:
+      "inchiriere suv cluj, masina 7 locuri de inchiriat cluj, inchiriere volvo xc90 cluj, rent a car suv cluj",
+    intro:
+      "Ai nevoie de spațiu pentru toată familia sau pentru bagaje multe? Volvo XC90 cu 7 locuri este mașina potrivită pentru drumurile din Apuseni, transferurile de la aeroport cu grup mare și vacanțele lungi.",
+    highlights: [
+      { label: "Locuri", value: "7" },
+      { label: "Tracțiune", value: "Integrală" },
+      { label: "Portbagaj", value: "Foarte mare" },
+      { label: "Predare", value: "Personală" },
+    ],
+    sections: [
+      {
+        heading: "Când merită să închiriezi un SUV în Cluj",
+        paragraphs: [
+          "Pentru grupuri de 5–7 persoane, pentru drumurile de munte din Apuseni sau Mărișel și pentru perioadele cu zăpadă, un SUV cu tracțiune integrală este alegerea sigură. Volvo XC90 oferă spațiu real pentru bagaje chiar și cu rândul trei ridicat.",
+        ],
+        bullets: [
+          "7 locuri pentru familii și grupuri",
+          "Tracțiune integrală pentru drum de munte și iarnă",
+          "Portbagaj generos pentru bagaje de vacanță",
+          "Rovinietă inclusă, anvelope de sezon",
+        ],
+      },
+      {
+        heading: "Alte variante spațioase din flotă",
+        paragraphs: [
+          "Dacă nu ai nevoie de 7 locuri, dar vrei portbagaj mare, break-urile Ford Focus și VW Passat sunt mai economice la consum și mai ușor de parcat în Cluj-Napoca.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Cât costă închirierea unui SUV de 7 locuri în Cluj?",
+        a: "Tariful pentru Volvo XC90 se stabilește în funcție de perioadă; sună la (0742) 925 934 pentru un preț exact pe zilele dorite.",
+      },
+      {
+        q: "SUV-ul are scaune pentru copii?",
+        a: "Putem monta scaun pentru copil la cerere, dacă anunți la rezervare.",
+      },
+      {
+        q: "Pot ieși din țară cu SUV-ul?",
+        a: "Da, cu acordul nostru dinainte și documentele necesare pregătite.",
+      },
+    ],
+  },
+  {
+    slug: "inchiriere-masina-automata-cluj",
+    city: "Cluj (cutie automată)",
+    navLabel: "Cutie automată",
+    linkTitle: "Închiriere mașină automată Cluj",
+    h1: "Închiriere mașină cu cutie automată în Cluj",
+    metaTitle: "Închiriere mașină automată Cluj | de la 70 lei/zi",
+    description:
+      "Mașini cu cutie automată de închiriat în Cluj: Citroën C5 automat, confort în trafic urban. Predare personală, fără birou de terminal.",
+    keywords:
+      "inchiriere masina automata cluj, rent a car cutie automata cluj, masini automate de inchiriat cluj",
+    intro:
+      "În traficul din Cluj-Napoca, o cutie automată face diferența. Citroën C5 automat este mașina cerută cel mai des de clienții care conduc zilnic în oraș sau care vin din străinătate.",
+    highlights: [
+      { label: "Transmisie", value: "Automată" },
+      { label: "Confort", value: "Berlină" },
+      { label: "Tarif de la", value: "70 lei/zi" },
+      { label: "Predare", value: "Personală" },
+    ],
+    sections: [
+      {
+        heading: "De ce o mașină automată în Cluj-Napoca",
+        paragraphs: [
+          "Traficul de pe Calea Turzii, Mănăștur și centura orașului înseamnă porniri și opriri constante. Cutia automată reduce oboseala la volan și e ideală pentru șoferii obișnuiți cu mașini automate din alte țări.",
+        ],
+        bullets: [
+          "Ideală pentru trafic urban și deplasări zilnice",
+          "Potrivită pentru șoferi veniți din afara țării",
+          "Confort de berlină pentru drumuri lungi",
+          "Număr limitat de mașini automate — rezervă din timp",
+        ],
+      },
+      {
+        heading: "Rezervă din timp",
+        paragraphs: [
+          "Mașinile automate sunt cele mai căutate în sezon. Recomandăm confirmarea perioadei cu 3–7 zile înainte, mai ales vara și în perioada sărbătorilor.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Aveți mașini automate disponibile în Cluj?",
+        a: "Da, Citroën C5 cu cutie automată. Disponibilitatea se confirmă telefonic la (0742) 925 934.",
+      },
+      {
+        q: "Ce permis îmi trebuie pentru o mașină automată?",
+        a: "Permis categoria B valabil de minimum un an.",
+      },
+    ],
+  },
+  {
+    slug: "inchiriere-masina-economica-cluj",
+    city: "Cluj (clasa economică)",
+    navLabel: "Clasa economică",
+    linkTitle: "Închiriere mașină economică Cluj",
+    h1: "Închiriere mașină economică în Cluj — de la 70 lei/zi",
+    metaTitle: "Mașină economică de închiriat Cluj | 70 lei/zi",
+    description:
+      "Mașini economice de închiriat în Cluj de la 70 lei/zi: Škoda Fabia, Renault Clio Symbol. Consum mic, ușor de parcat în oraș.",
+    keywords:
+      "inchiriere masina economica cluj, masini ieftine de inchiriat cluj, inchiriere auto ieftin cluj",
+    intro:
+      "Cea mai accesibilă variantă din flotă: mașini mici, cu consum redus, ușor de parcat în centrul Clujului și perfecte pentru deplasări zilnice sau ca înlocuitor cât timp mașina ta este în service.",
+    highlights: [
+      { label: "Tarif", value: "de la 70 lei/zi" },
+      { label: "Consum", value: "Redus" },
+      { label: "Parcare", value: "Ușoară în oraș" },
+      { label: "Predare", value: "Personală" },
+    ],
+    sections: [
+      {
+        heading: "Pentru cine este clasa economică",
+        paragraphs: [
+          "Škoda Fabia și Renault Clio Symbol acoperă cele mai frecvente nevoi: navetă între Cluj și Florești sau Gilău, drumuri în oraș, deplasări scurte în județ. Consumul mic înseamnă cost total mai mic, nu doar tarif mic pe zi.",
+        ],
+        bullets: [
+          "Cel mai bun raport preț/consum din flotă",
+          "Ușor de parcat în centrul Clujului",
+          "Ideală ca mașină de înlocuire în perioada de service",
+          "Reduceri pentru închirieri de peste 7 zile",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Care este cea mai ieftină mașină de închiriat în Cluj?",
+        a: "Clasa economică pornește de la 70 lei pe zi, cu reduceri pentru perioade mai lungi.",
+      },
+      {
+        q: "Kilometrajul este limitat?",
+        a: "Discutăm limita de kilometri la rezervare, în funcție de durata închirierii.",
+      },
+    ],
+  },
+  {
+    slug: "inchiriere-break-transport-auto-cluj",
+    city: "Cluj (break & transport)",
+    navLabel: "Break & transport",
+    linkTitle: "Închiriere break pentru transport auto Cluj",
+    h1: "Închiriere break în Cluj pentru transport și bagaje",
+    metaTitle: "Închiriere break Cluj | transport auto & bagaje",
+    description:
+      "Break-uri de închiriat în Cluj pentru transport auto ușor, mutări mici și bagaje: Ford Focus break, VW Passat break.",
+    keywords:
+      "inchiriere break cluj, transport auto cluj, masina de inchiriat pentru transport cluj, inchiriere auto marfa usoara cluj",
+    intro:
+      "Când ai de transportat bagaje, marfă ușoară sau lucruri de mutat prin Cluj, un break costă mult mai puțin decât o firmă de transport și îl conduci tu, în ritmul tău.",
+    highlights: [
+      { label: "Portbagaj", value: "Peste 500 l" },
+      { label: "Modele", value: "Focus & Passat" },
+      { label: "Predare", value: "Personală" },
+      { label: "Rovinietă", value: "Inclusă" },
+    ],
+    sections: [
+      {
+        heading: "Transport auto ușor cu un break închiriat",
+        paragraphs: [
+          "Ford Focus break și VW Passat break au portbagaj generos și banchetă rabatabilă, suficient pentru mutări mici între apartamente din Cluj, transport de echipamente sau bagaje de vacanță.",
+        ],
+        bullets: [
+          "Alternativă ieftină la o firmă de transport",
+          "Banchetă rabatabilă pentru obiecte lungi",
+          "Consum rezonabil pe drum lung",
+          "Închiriere pe zile sau pe lună",
+        ],
+      },
+      {
+        heading: "Ce nu transportăm",
+        paragraphs: [
+          "Mașinile sunt autoturisme, nu utilitare: nu pot fi folosite pentru marfă murdară, materiale de construcții în vrac sau transport comercial de bunuri.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Pot închiria un break pentru o mutare în Cluj?",
+        a: "Da, pentru mutări mici și obiecte curate. Sună la (0742) 925 934 pentru disponibilitate.",
+      },
+      {
+        q: "Se poate închiria doar pentru o zi?",
+        a: "Da, închirierea minimă este de o zi.",
+      },
+    ],
+  },
+  {
+    slug: "tarife-inchirieri-auto-cluj",
+    city: "Cluj (tarife & politici)",
+    navLabel: "Tarife & politici",
+    linkTitle: "Tarife și politici de închiriere Cluj",
+    h1: "Tarife și politici de închiriere auto în Cluj",
+    metaTitle: "Tarife închirieri auto Cluj 2026 | politici clare",
+    description:
+      "Tarife închirieri auto Cluj de la 70 lei/zi, ce include prețul, acte necesare, combustibil și reduceri pentru perioade lungi.",
+    keywords:
+      "tarife inchirieri auto cluj, preturi rent a car cluj, politica de inchiriere auto cluj, inchiriere auto cluj pret",
+    intro:
+      "Transparență totală înainte de rezervare: de la ce pornesc tarifele, ce este inclus, ce acte îți trebuie și cum funcționează predarea și returul.",
+    highlights: [
+      { label: "Tarif de la", value: "70 lei/zi" },
+      { label: "Reduceri", value: "peste 7 zile" },
+      { label: "Acte", value: "CI + permis" },
+      { label: "Factură", value: "La cerere" },
+    ],
+    sections: [
+      {
+        heading: "Tarife orientative pe clase",
+        paragraphs: [
+          "Tariful final depinde de model, de perioadă și de sezon. Cu cât închirierea este mai lungă, cu atât prețul pe zi scade.",
+        ],
+        bullets: [
+          "Clasa economică (Škoda Fabia, Renault Clio Symbol): de la 70 lei/zi",
+          "Berline și break-uri (Ford Focus, VW Passat, Volvo S40): tarif la cerere",
+          "Cutie automată (Citroën C5): tarif la cerere",
+          "SUV 7 locuri (Volvo XC90): tarif la cerere",
+          "Închirieri lunare: tarif redus, stabilit individual",
+        ],
+      },
+      {
+        heading: "Ce include tariful",
+        paragraphs: [
+          "Prețul pe zi include mașina pregătită, rovinieta valabilă și anvelopele potrivite sezonului. Combustibilul este pe cheltuiala clientului, cu politica plin la plin.",
+        ],
+        bullets: [
+          "Rovinietă valabilă pentru drumurile naționale",
+          "Anvelope de sezon montate",
+          "Mașină verificată tehnic înainte de predare",
+          "Predare personală, la ora stabilită împreună",
+        ],
+      },
+      {
+        heading: "Acte și condiții",
+        paragraphs: [
+          "Ai nevoie de carte de identitate sau pașaport și de permis de conducere valabil de minimum un an. La cerere emitem factură pe firmă.",
+        ],
+      },
+      {
+        heading: "Predare, retur și anulare",
+        paragraphs: [
+          "Locul și ora predării se stabilesc de comun acord — în Gilău, în Cluj-Napoca, în Florești sau în zona aeroportului. Dacă planurile se schimbă, anunță-ne cât mai repede telefonic ca să eliberăm perioada.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Cât costă închirierea unei mașini în Cluj pe zi?",
+        a: "De la 70 lei pe zi pentru clasa economică. Pentru celelalte clase tariful se comunică telefonic, în funcție de perioadă.",
+      },
+      {
+        q: "Ce politică de combustibil aveți?",
+        a: "Plin la plin: primești mașina cu un nivel de combustibil și o returnezi la același nivel.",
+      },
+      {
+        q: "Pot primi factură pe firmă?",
+        a: "Da, emitem factură la cerere pentru persoane juridice.",
+      },
+      {
+        q: "Se aplică reduceri pentru perioade lungi?",
+        a: "Da, pentru închirieri de peste 7 zile și pentru închirieri lunare tariful pe zi scade.",
+      },
+    ],
+  },
 ];
+
 
 
 
