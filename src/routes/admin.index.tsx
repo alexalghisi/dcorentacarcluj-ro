@@ -26,11 +26,15 @@ import {
   adminListBookings,
   adminSearchConsole,
   adminStats,
+  adminSyncRuns,
   adminToggleVehicle,
 } from "@/lib/admin.functions";
 import { BookingsPanel } from "@/components/admin/BookingsPanel";
+import { FleetSyncPanel } from "@/components/admin/FleetSyncPanel";
+import type { FleetSyncRun } from "@/lib/fleet-sync";
 import type { Booking } from "@/lib/bookings";
 import { VehicleDialog } from "@/components/admin/VehicleDialog";
+
 import {
   displaySearchCount,
   displayViews,
