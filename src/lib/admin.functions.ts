@@ -67,6 +67,21 @@ export const adminSearchConsole = createServerFn({ method: "GET" }).handler(asyn
   return fetchSearchConsoleStats();
 });
 
+/** Admin only: history of the daily fleet sync. */
+export const adminSyncRuns = createServerFn({ method: "GET" }).handler(async () => {
+  await requireAdmin();
+  const { fetchFleetSyncRuns } = await import("@/lib/fleet-sync.server");
+  return fetchFleetSyncRuns();
+});
+
+/** Admin only: run the fleet sync from the OLX listing right now. */
+export const adminSyncFleet = createServerFn({ method: "POST" }).handler(async () => {
+  await requireAdmin();
+  const { runFleetSync } = await import("@/lib/fleet-sync.server");
+  return runFleetSync();
+});
+
+
 
 
 
