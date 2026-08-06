@@ -25,6 +25,8 @@ import {
   trackVehicleView,
 } from "@/lib/admin.functions";
 import { VehicleGallery } from "@/components/VehicleGallery";
+import { ReviewsSection } from "@/components/ReviewsSection";
+import { reviewsSchema } from "@/lib/reviews";
 import { vehicleImageSrc, type Vehicle } from "@/lib/vehicles";
 import {
   conflictsFor,
@@ -199,6 +201,7 @@ export const Route = createFileRoute("/")({
               },
               geo: { "@type": "GeoCoordinates", latitude: 46.7469, longitude: 23.3736 },
               hasMap: MAPS_URL,
+              ...(reviewsSchema() ?? {}),
               areaServed: [
                 { "@type": "City", name: "Cluj-Napoca" },
                 { "@type": "City", name: "Gilău" },
@@ -510,6 +513,9 @@ function Index() {
             </a>
             <a className="transition-colors hover:text-foreground" href="#intrebari">
               Întrebări
+            </a>
+            <a className="transition-colors hover:text-foreground" href="#recenzii">
+              Recenzii
             </a>
             <a className="transition-colors hover:text-foreground" href="#locatie">
               Locație
@@ -823,7 +829,9 @@ function Index() {
 
         {/* Local SEO / Google Maps — datele identice cu profilul Google Business */}
 
-        <section id="locatie" className="bg-surface py-20 md:py-24">
+        <ReviewsSection />
+
+        <section id="locatie" className="bg-background py-20 md:py-24">
           <div className="mx-auto grid max-w-6xl gap-10 px-5 lg:grid-cols-[1fr_1.1fr]">
             <div>
               <p className="eyebrow">Locație</p>
