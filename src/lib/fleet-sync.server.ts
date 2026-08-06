@@ -19,8 +19,18 @@ export interface FleetSyncResult {
   message: string;
 }
 
-/** Fetches the OLX listing as markdown (OLX blocks plain requests). */
-async function scrapeListing(): Promise<string> {
+/** Free reader proxy; OLX blocks plain requests. */
+async function scrapeViaReader(): Promise<string> {
+  const response = await fetch(`https://r.jina.ai/${FLEET_SOURCE_URL}`, {
+    headers: { Accept: "text/plain" },
+  });
+  if (!response.ok) throw new Error(`Cititorul a răspuns ${response.status}`);
+  const text = await response.text();
+  if (!text.trim()) throw new Error("Anunțul a fost citit, dar fără conținut");
+  return text;
+}
+
+async function scrapeViaFirecrawl(): Promise<string> {
   const apiKey = process.env["FIRECRAWL_API_KEY"];
   if (!apiKey) throw new Error("FIRECRAWL_API_KEY lipsește");
 
@@ -50,6 +60,23 @@ async function scrapeListing(): Promise<string> {
   if (!markdown) throw new Error("Anunțul a fost citit, dar fără conținut");
   return markdown;
 }
+
+/** Fetches the OLX listing as text: free reader first, Firecrawl as fallback. */
+async function scrapeListing(): Promise<string> {
+  try {
+    return await scrapeViaReader();
+  } catch (readerError) {
+    try {
+      return await scrapeViaFirecrawl();
+    } catch (firecrawlError) {
+      const first = readerError instanceof Error ? readerError.message : String(readerError);
+      const second =
+        firecrawlError instanceof Error ? firecrawlError.message : String(firecrawlError);
+      throw new Error(`${first} · Firecrawl: ${second}`);
+    }
+  }
+}
+
 
 
 function normalizeName(value: string): string {
