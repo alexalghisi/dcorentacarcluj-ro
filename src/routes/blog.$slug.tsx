@@ -3,7 +3,7 @@ import { Car, Phone, Clock, ArrowLeft, ArrowRight } from "lucide-react";
 
 import { getPost, posts, formatDateRo } from "@/lib/blog";
 import type { BlogPost, BlogSection } from "@/lib/blog";
-import { SITE_URL, canonical, canonicalLinks } from "@/lib/seo";
+import { SITE_URL, canonical, canonicalLinks, socialImageMeta } from "@/lib/seo";
 
 const SITE = SITE_URL;
 
@@ -35,6 +35,7 @@ export const Route = createFileRoute("/blog/$slug")({
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: post.metaTitle },
         { name: "twitter:description", content: post.description },
+        ...socialImageMeta(`${post.title} — DCO Rent a Car Cluj`),
       ],
       links: canonicalLinks(`/blog/${post.slug}`),
       scripts: [

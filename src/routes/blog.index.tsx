@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Car, ArrowRight, Phone, Clock } from "lucide-react";
 
 import { posts, formatDateRo } from "@/lib/blog";
-import { SITE_URL, canonical, canonicalLinks } from "@/lib/seo";
+import { SITE_URL, canonical, canonicalLinks, socialImageMeta } from "@/lib/seo";
 
 const SITE = SITE_URL;
 const TITLE = "Blog închirieri auto Cluj | DCO Rent a Car";
@@ -29,6 +29,7 @@ export const Route = createFileRoute("/blog/")({
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESCRIPTION },
+      ...socialImageMeta(),
     ],
     links: canonicalLinks("/blog"),
     scripts: [
