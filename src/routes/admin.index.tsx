@@ -213,7 +213,10 @@ function AdminDashboard() {
 
         </section>
 
+        <FleetSyncPanel runs={syncRuns} onChange={refresh} />
+
         <BookingsPanel vehicles={vehicles} bookings={bookings} onChange={refresh} />
+
 
         <section aria-label="Google Search Console" className="mb-10">
           <div className="flex flex-wrap items-center justify-between gap-3">
