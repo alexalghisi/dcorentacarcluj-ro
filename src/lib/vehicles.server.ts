@@ -63,6 +63,8 @@ export async function upsertVehicle(input: VehicleInput): Promise<Vehicle> {
     gallery: (input.gallery ?? []).map((g) => g.trim()).filter(Boolean),
     sort_order: input.sort_order,
     is_active: input.is_active,
+    // Manual edits win over the daily OLX sync.
+    manual_lock: true,
   };
 
   if (input.id) {
@@ -70,7 +72,7 @@ export async function upsertVehicle(input: VehicleInput): Promise<Vehicle> {
       .from("vehicles")
       .update(payload)
       .eq("id", input.id)
-      .select(COLUMNS)
+      .select(ADMIN_COLUMNS)
       .single();
     if (error) throw new Error(error.message);
     return data as Vehicle;
@@ -79,8 +81,9 @@ export async function upsertVehicle(input: VehicleInput): Promise<Vehicle> {
   const { data, error } = await supabaseAdmin
     .from("vehicles")
     .insert(payload)
-    .select(COLUMNS)
+    .select(ADMIN_COLUMNS)
     .single();
+
   if (error) throw new Error(error.message);
   return data as Vehicle;
 }
