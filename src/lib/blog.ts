@@ -265,7 +265,7 @@ export const posts: BlogPost[] = [
     ],
   },
   {
-    slug: "transfer-aeroport-cluj-opțiuni",
+    slug: "transfer-aeroport-cluj-optiuni",
     title: "Transfer de la Aeroportul Cluj: taxi, ride-sharing sau mașină închiriată?",
     metaTitle: "Transfer Aeroport Cluj: ce variantă costă mai puțin",
     description:
