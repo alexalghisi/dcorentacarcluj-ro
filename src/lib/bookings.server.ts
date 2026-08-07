@@ -1,39 +1,21 @@
-import { createClient } from "@supabase/supabase-js";
-import type { Database } from "@/integrations/supabase/types";
 import type { Booking, BookingInput, BookingRange } from "@/lib/bookings";
 
 const ADMIN_COLUMNS =
   "id, vehicle_id, start_date, end_date, customer_name, customer_phone, note, status";
 
-function publicClient() {
-  const key =
-    process.env["SUPABASE_PUBLISHABLE_KEY"] ?? process.env["SUPABASE_ANON_KEY"] ?? "";
-  return createClient<Database>(process.env["SUPABASE_URL"]!, key, {
-    auth: { storage: undefined, persistSession: false, autoRefreshToken: false },
-    global: {
-      fetch: (input, init) => {
-        const headers = new Headers(init?.headers);
-        if (key.startsWith("sb_") && headers.get("Authorization") === `Bearer ${key}`) {
-          headers.delete("Authorization");
-        }
-        headers.set("apikey", key);
-        return fetch(input, { ...init, headers });
-      },
-    },
-  });
-}
-
 /** Public availability: only the occupied periods, never customer details. */
 export async function fetchBusyRanges(): Promise<BookingRange[]> {
+  const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
   const today = new Date().toISOString().slice(0, 10);
-  const { data, error } = await (publicClient() as any)
-    .from("vehicle_availability")
+  const { data, error } = await supabaseAdmin
+    .from("vehicle_bookings")
     .select("vehicle_id, start_date, end_date")
     .gte("end_date", today)
     .order("start_date", { ascending: true });
   if (error) throw new Error(error.message);
   return (data ?? []) as BookingRange[];
 }
+
 
 export async function fetchAllBookings(): Promise<Booking[]> {
   const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
