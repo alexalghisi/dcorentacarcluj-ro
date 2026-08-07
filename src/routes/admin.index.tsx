@@ -292,9 +292,12 @@ function AdminDashboard() {
                               {r.key.replace("https://dcorentacarcluj.ro", "") || "/"}
                             </span>
                             <span className="whitespace-nowrap text-xs text-muted-foreground">
-                              {r.clicks.toLocaleString("ro-RO")} clicuri ·{" "}
-                              {r.impressions.toLocaleString("ro-RO")} afișări · poz.{" "}
-                              {r.position.toFixed(1)}
+                              {searchDisplayValue(r.clicks, "clicks").toLocaleString("ro-RO")}{" "}
+                              clicuri ·{" "}
+                              {searchDisplayValue(r.impressions, "impressions").toLocaleString(
+                                "ro-RO",
+                              )}{" "}
+                              afișări · poz. {displaySearchPosition(r.position)}
                             </span>
                           </li>
                         ))}
