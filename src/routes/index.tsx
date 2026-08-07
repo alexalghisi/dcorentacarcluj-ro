@@ -586,7 +586,7 @@ function Index() {
             <h1 className="mt-4 max-w-3xl font-display text-4xl font-extrabold leading-[1.05] text-ink-foreground md:text-6xl">
               Rent a Car Cluj-Napoca — mașini de închiriat de la 70 lei/zi.
             </h1>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-foreground/80 md:text-lg">
+            <p className="seo-speakable mt-6 max-w-xl text-base leading-relaxed text-ink-foreground/80 md:text-lg">
               DCO Rent a Car închiriază autoturisme în stare perfectă de
               funcționare, cu AC, ITP, rovinietă și asigurare. Predare personală
               în Gilău, mașini verificate înainte de predare. Prețuri negociabile
