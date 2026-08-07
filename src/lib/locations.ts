@@ -762,7 +762,7 @@ export const locations: LocationPage[] = [
     h1: "Închiriere mașină Cluj aeroport — predare la aterizare",
     metaTitle: "Închiriere Mașină Cluj Aeroport | Predare la Aterizare",
     description:
-      "Închiriere mașină la aeroportul Cluj de la 70 lei/zi, predare stabilită la ora aterizării, fără garanție. Sună (0742) 925 934.",
+      "Rent a car Aeroport Cluj-Napoca: închiriere mașină la aterizare de la 70 lei/zi, fără garanție. Predare personală. Sună (0742) 925 934.",
     keywords:
       "inchiriere masina cluj aeroport, rent a car aeroport cluj, inchirieri auto aeroport cluj napoca, masina de inchiriat aeroport cluj",
     intro:
@@ -817,7 +817,7 @@ export const locations: LocationPage[] = [
     h1: "Închiriere SUV și mașină de 7 locuri în Cluj",
     metaTitle: "Închiriere SUV & 7 locuri Cluj | DCO Rent a Car",
     description:
-      "Închiriere SUV și mașină de 7 locuri în Cluj: Volvo XC90 pentru familii, bagaje și drumuri de munte. Sună (0742) 925 934.",
+      "Închiriere SUV și mașină de 7 locuri în Cluj: Volvo XC90 pentru familie, bagaje și drumuri de munte. Rent a car Cluj cu predare personală. Sună (0742) 925 934.",
     keywords:
       "inchiriere suv cluj, masina 7 locuri de inchiriat cluj, inchiriere volvo xc90 cluj, rent a car suv cluj",
     intro:
@@ -871,7 +871,7 @@ export const locations: LocationPage[] = [
     h1: "Închiriere mașină cu cutie automată în Cluj",
     metaTitle: "Închiriere mașină automată Cluj | de la 70 lei/zi",
     description:
-      "Mașini cu cutie automată de închiriat în Cluj: Citroën C5 automat, confort în trafic urban. Predare personală, fără birou de terminal.",
+      "Mașini cu cutie automată de închiriat în Cluj: Citroën C5 automat, confort în trafic urban. Rent a car Cluj fără garanție. Sună (0742) 925 934.",
     keywords:
       "inchiriere masina automata cluj, rent a car cutie automata cluj, masini automate de inchiriat cluj",
     intro:
@@ -921,7 +921,7 @@ export const locations: LocationPage[] = [
     h1: "Închiriere mașină economică în Cluj — de la 70 lei/zi",
     metaTitle: "Mașină economică de închiriat Cluj | 70 lei/zi",
     description:
-      "Mașini economice de închiriat în Cluj de la 70 lei/zi: Škoda Fabia, Renault Clio Symbol. Consum mic, ușor de parcat în oraș.",
+      "Mașini economice de închiriat în Cluj de la 70 lei/zi: Škoda Fabia, Renault Clio Symbol. Rent a car Cluj ieftin, fără garanție. Sună (0742) 925 934.",
     keywords:
       "inchiriere masina economica cluj, masini ieftine de inchiriat cluj, inchiriere auto ieftin cluj",
     intro:
