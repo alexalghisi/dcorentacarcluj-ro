@@ -161,7 +161,7 @@ export const locations: LocationPage[] = [
     city: "Aeroport Cluj",
     navLabel: "Aeroport Cluj",
     h1: "Rent a Car Aeroport Cluj — mașină pregătită la aterizare",
-    metaTitle: "Rent a Car Aeroport Cluj | De la 70 lei/zi",
+    metaTitle: "Rent a Car Aeroport Cluj | Mașini de la 70 lei/zi",
     description:
       "Rent a car Aeroport Cluj-Napoca: mașini de închiriat de la 70 lei/zi, fără garanție, predare personală la aterizare. Sună (0742) 925 934.",
     keywords:
@@ -221,8 +221,8 @@ export const locations: LocationPage[] = [
     city: "Cluj",
     navLabel: "Închirieri auto Cluj",
     linkTitle: "Închirieri auto Cluj",
-    h1: "Închirieri auto Cluj — mașini pe zi, săptămână sau lună",
-    metaTitle: "Închirieri Auto Cluj | De la 70 lei/zi, fără birou",
+    h1: "Închirieri auto Cluj (rent a car Cluj) — pe zi, săptămână sau lună",
+    metaTitle: "Închirieri auto Cluj | Rent a Car Cluj de la 70 lei/zi",
     description:
       "Închirieri auto Cluj ieftine: mașini de închiriat de la 70 lei/zi pe zi, săptămână sau lună, fără garanție. Predare personală. Sună (0742) 925 934.",
     keywords:
@@ -289,8 +289,8 @@ export const locations: LocationPage[] = [
     city: "Cluj (flotă)",
     navLabel: "Mașini de închiriat",
     linkTitle: "Mașini de închiriat Cluj",
-    h1: "Mașini de închiriat în Cluj — flota disponibilă",
-    metaTitle: "Mașini de Închiriat Cluj | Flotă verificată, 70 lei/zi",
+    h1: "Mașini de închiriat în Cluj — flota rent a car Cluj disponibilă",
+    metaTitle: "Mașini de închiriat Cluj | Rent a Car Cluj, 70 lei/zi",
     description:
       "Mașini de închiriat în Cluj: economice, break, berline, cutie automată și 7 locuri. Toate cu ITP, RCA și rovinietă. De la 70 lei/zi.",
     keywords:
@@ -489,8 +489,8 @@ export const locations: LocationPage[] = [
     city: "Cluj (termen lung)",
     navLabel: "Închirieri lunare",
     linkTitle: "Închirieri auto lunare Cluj",
-    h1: "Închirieri auto lunare în Cluj — mașină pe termen lung",
-    metaTitle: "Închirieri Auto Lunare Cluj | Tarif pe termen lung",
+    h1: "Închirieri auto lunare în Cluj — rent a car Cluj pe termen lung",
+    metaTitle: "Închirieri auto lunare Cluj | Rent a Car Cluj lunar",
     description:
       "Închirieri auto lunare Cluj: mașină pe termen lung la tarif degresiv, factură pe firmă, fără garanție. Sună (0742) 925 934.",
     keywords:
@@ -814,8 +814,8 @@ export const locations: LocationPage[] = [
     city: "Cluj (SUV & 7 locuri)",
     navLabel: "SUV & 7 locuri",
     linkTitle: "Închiriere SUV și mașini de 7 locuri Cluj",
-    h1: "Închiriere SUV și mașină de 7 locuri în Cluj",
-    metaTitle: "Închiriere SUV & 7 locuri Cluj | DCO Rent a Car",
+    h1: "Închiriere SUV și mașină de 7 locuri — rent a car Cluj",
+    metaTitle: "Închiriere SUV 7 locuri Cluj | Rent a Car Cluj",
     description:
       "Închiriere SUV și mașină de 7 locuri în Cluj: Volvo XC90 pentru familie, bagaje și drumuri de munte. Rent a car Cluj cu predare personală. Sună (0742) 925 934.",
     keywords:
@@ -868,8 +868,8 @@ export const locations: LocationPage[] = [
     city: "Cluj (cutie automată)",
     navLabel: "Cutie automată",
     linkTitle: "Închiriere mașină automată Cluj",
-    h1: "Închiriere mașină cu cutie automată în Cluj",
-    metaTitle: "Închiriere mașină automată Cluj | de la 70 lei/zi",
+    h1: "Închiriere mașină cu cutie automată — rent a car Cluj",
+    metaTitle: "Mașină automată de închiriat Cluj | Rent a Car Cluj",
     description:
       "Mașini cu cutie automată de închiriat în Cluj: Citroën C5 automat, confort în trafic urban. Rent a car Cluj fără garanție. Sună (0742) 925 934.",
     keywords:
@@ -918,8 +918,8 @@ export const locations: LocationPage[] = [
     city: "Cluj (clasa economică)",
     navLabel: "Clasa economică",
     linkTitle: "Închiriere mașină economică Cluj",
-    h1: "Închiriere mașină economică în Cluj — de la 70 lei/zi",
-    metaTitle: "Mașină economică de închiriat Cluj | 70 lei/zi",
+    h1: "Mașină economică de închiriat — rent a car Cluj de la 70 lei/zi",
+    metaTitle: "Mașină economică Cluj | Rent a Car Cluj, 70 lei/zi",
     description:
       "Mașini economice de închiriat în Cluj de la 70 lei/zi: Škoda Fabia, Renault Clio Symbol. Rent a car Cluj ieftin, fără garanție. Sună (0742) 925 934.",
     keywords:
@@ -962,8 +962,8 @@ export const locations: LocationPage[] = [
     city: "Cluj (break & transport)",
     navLabel: "Break & transport",
     linkTitle: "Închiriere break pentru transport auto Cluj",
-    h1: "Închiriere break în Cluj pentru transport și bagaje",
-    metaTitle: "Închiriere break Cluj | transport auto & bagaje",
+    h1: "Închiriere break — rent a car Cluj pentru transport și bagaje",
+    metaTitle: "Închiriere break Cluj | Rent a Car Cluj pentru bagaje",
     description:
       "Break-uri de închiriat în Cluj pentru transport auto ușor, mutări mici și bagaje: Ford Focus break, VW Passat break.",
     keywords:
@@ -1012,8 +1012,8 @@ export const locations: LocationPage[] = [
     city: "Cluj (tarife & politici)",
     navLabel: "Tarife & politici",
     linkTitle: "Tarife și politici de închiriere Cluj",
-    h1: "Tarife și politici de închiriere auto în Cluj",
-    metaTitle: "Tarife închirieri auto Cluj 2026 | politici clare",
+    h1: "Tarife rent a car Cluj — prețuri și politici de închiriere auto",
+    metaTitle: "Tarife rent a car Cluj 2026 | Prețuri închirieri auto",
     description:
       "Tarife închirieri auto Cluj de la 70 lei/zi, ce include prețul, acte necesare, combustibil și reduceri pentru perioade lungi.",
     keywords:
@@ -1150,8 +1150,8 @@ export const locations: LocationPage[] = [
     city: "România (Cluj)",
     navLabel: "Închirieri mașini",
     linkTitle: "Închirieri mașini",
-    h1: "Închirieri mașini — flotă proprie în Cluj, de la 70 lei/zi",
-    metaTitle: "Închirieri Mașini | Flotă Proprie în Cluj, de la 70 lei/zi",
+    h1: "Închirieri mașini — rent a car Cluj cu flotă proprie, 70 lei/zi",
+    metaTitle: "Închirieri mașini | Rent a Car Cluj de la 70 lei/zi",
     description:
       "Închirieri mașini direct de la proprietar: de la 70 lei/zi, fără garanție, predare personală în zona Cluj. Sună la (0742) 925 934.",
     keywords:
@@ -1210,8 +1210,8 @@ export const locations: LocationPage[] = [
     city: "Cluj (mașini de închiriat)",
     navLabel: "Mașini de închiriat",
     linkTitle: "Mașini de închiriat",
-    h1: "Mașini de închiriat — 8 modele disponibile în Cluj",
-    metaTitle: "Mașini de Închiriat | 8 Modele în Cluj, de la 70 lei/zi",
+    h1: "Mașini de închiriat — 8 modele rent a car Cluj disponibile",
+    metaTitle: "Mașini de închiriat | Rent a Car Cluj, 8 modele",
     description:
       "Mașini de închiriat în zona Cluj: economic, break, automat și 7 locuri, de la 70 lei/zi, fără garanție. Verifică disponibilitatea la (0742) 925 934.",
     keywords:
@@ -1271,8 +1271,8 @@ export const locations: LocationPage[] = [
     city: "Închiriere mașină",
     navLabel: "Închiriere auto",
     linkTitle: "Închiriere mașină",
-    h1: "Închiriere mașină — direct de la proprietar, fără garanție",
-    metaTitle: "Închiriere Mașină | Direct de la Proprietar, Fără Garanție",
+    h1: "Închiriere mașină — rent a car Cluj direct de la proprietar",
+    metaTitle: "Închiriere mașină | Rent a Car Cluj, fără garanție",
     description:
       "Închiriere mașină de la 70 lei/zi, fără garanție și fără card de credit, cu predare personală în zona Cluj. Sună la (0742) 925 934.",
     keywords:
