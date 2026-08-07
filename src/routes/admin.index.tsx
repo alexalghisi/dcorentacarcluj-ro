@@ -35,7 +35,6 @@ import {
   displaySearchCount,
   displaySearchCtr,
   displaySearchPosition,
-  searchDisplayValue,
   searchRowValue,
   displayViews,
   vehicleImageSrc,
