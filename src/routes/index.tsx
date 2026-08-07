@@ -836,7 +836,7 @@ function Index() {
             <h2 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">
               Rent a Car Cluj-Napoca, Gilău, Florești și Aeroport Cluj
             </h2>
-            <p className="mt-4 max-w-2xl text-muted-foreground">
+            <p className="seo-speakable mt-4 max-w-2xl text-muted-foreground">
               Fiecare zonă are pagina proprie, cu tarife, mod de predare și întrebări
               frecvente. Alegeți localitatea sau tipul de închiriere care vă interesează.
             </p>
