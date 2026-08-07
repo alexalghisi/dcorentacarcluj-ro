@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { ServiceSuspended } from "../components/ServiceSuspended";
 
 function NotFoundComponent() {
   return (
@@ -162,13 +163,17 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+// Site suspendat: nicio pagină publică nu se mai randează.
+// Pentru reactivare, setează SITE_SUSPENDED = false.
+const SITE_SUSPENDED = true;
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      {SITE_SUSPENDED ? <ServiceSuspended /> : <Outlet />}
     </QueryClientProvider>
   );
 }
