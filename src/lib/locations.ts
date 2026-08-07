@@ -492,7 +492,7 @@ export const locations: LocationPage[] = [
     h1: "Închirieri auto lunare în Cluj — mașină pe termen lung",
     metaTitle: "Închirieri Auto Lunare Cluj | Tarif pe termen lung",
     description:
-      "Închiriere mașină pe lună în Cluj: tarif degresiv, factură pe firmă, mașini verificate cu rovinietă inclusă. Sună (0742) 925 934.",
+      "Închirieri auto lunare Cluj: mașină pe termen lung la tarif degresiv, factură pe firmă, fără garanție. Sună (0742) 925 934.",
     keywords:
       "inchirieri auto lunare cluj, inchiriere masina pe luna cluj, rent a car termen lung cluj, masina de inchiriat pe luna cluj",
     intro:
@@ -559,7 +559,7 @@ export const locations: LocationPage[] = [
     h1: "Rent a Car — cum închiriezi corect o mașină în România",
     metaTitle: "Rent a Car | Ghid complet de închirieri auto în Cluj",
     description:
-      "Ghid rent a car: ce înseamnă, ce acte îți trebuie, cum se calculează tariful și cum închiriezi o mașină în Cluj de la 70 lei/zi.",
+      "Rent a car Cluj: ghid complet cu acte necesare, tarife de la 70 lei/zi, fără garanție și fără card de credit. Sună (0742) 925 934.",
     keywords:
       "rent a car, rent a car romania, rent a car cluj, rent a car cluj napoca, inchirieri auto, masini de inchiriat, car rental",
     intro:
@@ -641,7 +641,7 @@ export const locations: LocationPage[] = [
     h1: "Rent a Car Cluj fără garanție și fără card de credit",
     metaTitle: "Rent a Car Cluj Fără Garanție | Fără Card de Credit",
     description:
-      "Rent a car în Cluj fără garanție și fără card de credit, de la 70 lei/zi. Doar buletin și permis de minimum 1 an. Sună (0742) 925 934.",
+      "Rent a car Cluj fără garanție și fără card de credit, de la 70 lei/zi. Doar buletin și permis. Mașini de închiriat cu predare personală. Sună (0742) 925 934.",
     keywords:
       "rent a car cluj fara garantie, inchirieri auto cluj fara garantie, rent a car fara card de credit cluj, masina de inchiriat cluj fara garantie",
     intro:
