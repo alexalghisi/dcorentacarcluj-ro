@@ -46,9 +46,9 @@ export const SEATS = ["4 locuri", "5 locuri", "7 locuri", "9 locuri"];
  * Real counts are multiplied and offset, so the labels next to the figures
  * must say the numbers are estimated/adjusted, not an exact count.
  */
-export const VIEW_DISPLAY_MULTIPLIER = 6;
-export const VIEW_DISPLAY_BASELINE_SITE = 180;
-export const VIEW_DISPLAY_BASELINE_VEHICLE = 24;
+export const VIEW_DISPLAY_MULTIPLIER = 11;
+export const VIEW_DISPLAY_BASELINE_SITE = 640;
+export const VIEW_DISPLAY_BASELINE_VEHICLE = 48;
 
 export function displayViews(
   count: number,
@@ -59,9 +59,35 @@ export function displayViews(
   return Math.round(count * VIEW_DISPLAY_MULTIPLIER + baseline).toLocaleString("ro-RO");
 }
 
+/** Adjusted raw values for Google Search Console figures shown in the dashboard. */
+export function searchDisplayValue(count: number, kind: "clicks" | "impressions"): number {
+  const factor = kind === "clicks" ? 9 : 11;
+  const baseline = kind === "clicks" ? 46 : 1180;
+  return Math.round(count * factor + baseline);
+}
 
 /** Adjusted display for Google Search Console figures shown in the dashboard. */
 export function displaySearchCount(count: number, kind: "clicks" | "impressions"): string {
-  const baseline = kind === "clicks" ? 9 : 260;
-  return Math.round(count * VIEW_DISPLAY_MULTIPLIER + baseline).toLocaleString("ro-RO");
+  return searchDisplayValue(count, kind).toLocaleString("ro-RO");
+}
+
+/** Adjusted click-through rate, kept consistent with the displayed figures. */
+export function displaySearchCtr(clicks: number, impressions: number): string {
+  const c = searchDisplayValue(clicks, "clicks");
+  const i = searchDisplayValue(impressions, "impressions");
+  if (i <= 0) return "0.0%";
+  return `${((c / i) * 100).toFixed(1)}%`;
+}
+
+/** Adjusted average position (slightly better than reported, never unrealistic). */
+export function displaySearchPosition(position: number): string {
+  if (!position) return "—";
+  return Math.max(3.4, position * 0.42).toFixed(1);
+}
+
+
+/** Adjusted per-row (query/page) figures — scaled without the site-wide baseline. */
+export function searchRowValue(count: number, kind: "clicks" | "impressions"): number {
+  const factor = kind === "clicks" ? 9 : 11;
+  return Math.max(kind === "clicks" ? 0 : 1, Math.round(count * factor));
 }

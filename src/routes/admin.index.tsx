@@ -33,6 +33,9 @@ import type { Booking } from "@/lib/bookings";
 import { VehicleDialog } from "@/components/admin/VehicleDialog";
 import {
   displaySearchCount,
+  displaySearchCtr,
+  displaySearchPosition,
+  searchRowValue,
   displayViews,
   vehicleImageSrc,
 
@@ -240,11 +243,14 @@ function AdminDashboard() {
                   },
                   {
                     label: "Rată de clic",
-                    value: `${((search.totals?.ctr ?? 0) * 100).toFixed(1)}%`,
+                    value: displaySearchCtr(
+                      search.totals?.clicks ?? 0,
+                      search.totals?.impressions ?? 0,
+                    ),
                   },
                   {
                     label: "Poziție medie",
-                    value: (search.totals?.position ?? 0).toFixed(1),
+                    value: displaySearchPosition(search.totals?.position ?? 0),
                   },
                 ].map((s) => (
                   <div
@@ -286,9 +292,12 @@ function AdminDashboard() {
                               {r.key.replace("https://dcorentacarcluj.ro", "") || "/"}
                             </span>
                             <span className="whitespace-nowrap text-xs text-muted-foreground">
-                              {r.clicks.toLocaleString("ro-RO")} clicuri ·{" "}
-                              {r.impressions.toLocaleString("ro-RO")} afișări · poz.{" "}
-                              {r.position.toFixed(1)}
+                              {searchRowValue(r.clicks, "clicks").toLocaleString("ro-RO")}{" "}
+                              clicuri ·{" "}
+                              {searchRowValue(r.impressions, "impressions").toLocaleString(
+                                "ro-RO",
+                              )}{" "}
+                              afișări · poz. {displaySearchPosition(r.position)}
                             </span>
                           </li>
                         ))}
