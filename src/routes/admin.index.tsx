@@ -13,7 +13,6 @@ import {
   Trash2,
   ExternalLink,
   BarChart3,
-  Search,
 
   Eye as EyeIcon,
 } from "lucide-react";
@@ -24,7 +23,6 @@ import {
   adminLogout,
   adminReorderVehicles,
   adminListBookings,
-  adminSearchConsole,
   adminStats,
   adminToggleVehicle,
 } from "@/lib/admin.functions";
@@ -32,27 +30,21 @@ import { BookingsPanel } from "@/components/admin/BookingsPanel";
 import type { Booking } from "@/lib/bookings";
 import { VehicleDialog } from "@/components/admin/VehicleDialog";
 import {
-  displaySearchCount,
-  displaySearchCtr,
-  displaySearchPosition,
-  searchRowValue,
   displayViews,
   vehicleImageSrc,
 
   type Vehicle,
 } from "@/lib/vehicles";
-import type { SearchConsoleStats } from "@/lib/search-console";
 
 export const Route = createFileRoute("/admin/")({
   ssr: false,
   loader: async () => {
-    const [vehicles, stats, search, bookings] = await Promise.all([
+    const [vehicles, stats, bookings] = await Promise.all([
       adminListVehicles(),
       adminStats(),
-      adminSearchConsole(),
       adminListBookings(),
     ]);
-    return { vehicles, stats, search, bookings };
+    return { vehicles, stats, bookings };
   },
 
   component: AdminDashboard,
@@ -86,10 +78,9 @@ export const Route = createFileRoute("/admin/")({
 });
 
 function AdminDashboard() {
-  const { vehicles, stats, search, bookings } = Route.useLoaderData() as {
+  const { vehicles, stats, bookings } = Route.useLoaderData() as {
     vehicles: Vehicle[];
     stats: { siteViews: number; vehicleViews: number; vehicles: number };
-    search: SearchConsoleStats;
     bookings: Booking[];
   };
 
@@ -209,112 +200,6 @@ function AdminDashboard() {
         </section>
 
         <BookingsPanel vehicles={vehicles} bookings={bookings} onChange={refresh} />
-
-        <section aria-label="Google Search Console" className="mb-10">
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <div className="flex items-center gap-2">
-              <Search className="h-4 w-4 text-primary" />
-              <h2 className="text-sm font-bold uppercase tracking-wide">
-                Google Search Console
-              </h2>
-            </div>
-            {search.available && (
-              <p className="text-xs text-muted-foreground">
-                {search.startDate} → {search.endDate} · {search.property}
-              </p>
-            )}
-          </div>
-
-          {!search.available ? (
-            <p className="mt-4 rounded-2xl border border-dashed border-border bg-background p-5 text-sm text-muted-foreground">
-              {search.message ?? "Datele nu sunt disponibile."}
-            </p>
-          ) : (
-            <>
-              <dl className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                {[
-                  {
-                    label: "Clicuri din Google",
-                    value: displaySearchCount(search.totals?.clicks ?? 0, "clicks"),
-                  },
-                  {
-                    label: "Afișări în Google",
-                    value: displaySearchCount(search.totals?.impressions ?? 0, "impressions"),
-                  },
-                  {
-                    label: "Rată de clic",
-                    value: displaySearchCtr(
-                      search.totals?.clicks ?? 0,
-                      search.totals?.impressions ?? 0,
-                    ),
-                  },
-                  {
-                    label: "Poziție medie",
-                    value: displaySearchPosition(search.totals?.position ?? 0),
-                  },
-                ].map((s) => (
-                  <div
-                    key={s.label}
-                    className="rounded-2xl border border-border bg-background p-5"
-                  >
-                    <dt className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                      {s.label}
-                    </dt>
-                    <dd className="mt-2 text-3xl font-bold">{s.value}</dd>
-                  </div>
-                ))}
-              </dl>
-
-              <div className="mt-4 grid gap-4 lg:grid-cols-2">
-                {[
-                  { title: "Căutări care aduc vizitatori", rows: search.queries ?? [] },
-                  { title: "Pagini cele mai căutate", rows: search.pages ?? [] },
-                ].map((block) => (
-                  <div
-                    key={block.title}
-                    className="overflow-hidden rounded-2xl border border-border bg-background"
-                  >
-                    <p className="border-b border-border px-5 py-3 text-sm font-semibold">
-                      {block.title}
-                    </p>
-                    {block.rows.length === 0 ? (
-                      <p className="px-5 py-4 text-sm text-muted-foreground">
-                        Google nu a raportat încă date pentru această perioadă.
-                      </p>
-                    ) : (
-                      <ul className="divide-y divide-border">
-                        {block.rows.map((r) => (
-                          <li
-                            key={r.key}
-                            className="flex items-center justify-between gap-4 px-5 py-2.5 text-sm"
-                          >
-                            <span className="min-w-0 flex-1 truncate" title={r.key}>
-                              {r.key.replace("https://dcorentacarcluj.ro", "") || "/"}
-                            </span>
-                            <span className="whitespace-nowrap text-xs text-muted-foreground">
-                              {searchRowValue(r.clicks, "clicks").toLocaleString("ro-RO")}{" "}
-                              clicuri ·{" "}
-                              {searchRowValue(r.impressions, "impressions").toLocaleString(
-                                "ro-RO",
-                              )}{" "}
-                              afișări · poz. {displaySearchPosition(r.position)}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
-                ))}
-              </div>
-
-              <p className="mt-3 text-xs text-muted-foreground">
-                Date reale raportate de Google Search Console (ultimele 30 de zile). Google
-                raportează cu 1–2 zile întârziere.
-              </p>
-            </>
-          )}
-        </section>
-
 
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
