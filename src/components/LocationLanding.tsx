@@ -6,6 +6,29 @@ import { locations } from "@/lib/locations";
 
 const PHONE_HREF = "tel:+40742925934";
 
+const MAPS_URL =
+  "https://www.google.com/maps/search/?api=1&query=DCO+Rent+a+Car+Cluj+Gil%C4%83u";
+
+const SERVED_AREAS: string[] = [
+  "Cluj-Napoca",
+  "Gilău",
+  "Florești",
+  "Apahida",
+  "Baciu",
+  "Turda",
+  "Huedin",
+  "Aeroport Cluj",
+];
+
+const LANDMARKS: string[] = [
+  "Aeroportul Internațional Avram Iancu Cluj (Terminal Plecări)",
+  "Gara CFR Cluj-Napoca și Autogara Beta",
+  "Piața Unirii și centrul Cluj-Napoca",
+  "Iulius Mall / VIVO! Cluj",
+  "Campusul UBV / Universitatea Babeș-Bolyai",
+  "Lacul Tarnița și barajul Gilău (weekend)",
+];
+
 function waLink(city: string) {
   const text = `Bună ziua! Vreau să închiriez o mașină (${city}). Perioada dorită: `;
   return `https://wa.me/40742925934?text=${encodeURIComponent(text)}`;
