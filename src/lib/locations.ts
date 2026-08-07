@@ -25,6 +25,147 @@ export interface LocationPage {
 
 export const locations: LocationPage[] = [
   {
+    slug: "rent-a-car-cluj",
+    city: "Cluj",
+    navLabel: "Rent a Car Cluj",
+    linkTitle: "Rent a Car Cluj",
+    h1: "Rent a Car Cluj — mașini de închiriat de la 70 lei/zi, fără garanție",
+    metaTitle: "Rent a Car Cluj | Mașini de închiriat de la 70 lei/zi",
+    description:
+      "Rent a car Cluj direct de la proprietar: mașini de închiriat de la 70 lei/zi, fără garanție, rovinietă și AC incluse, predare personală în Gilău. Sună (0742) 925 934.",
+    keywords:
+      "rent a car cluj, rent a car cluj napoca, cluj rent a car, inchirieri auto cluj, masini de inchiriat cluj, rent a car cluj ieftin, rent a car cluj fara garantie",
+    intro:
+      "DCO Rent a Car este un serviciu local de rent a car în Cluj: închiriezi mașina direct de la proprietar, fără birou de terminal, fără comision de rezervare și fără garanție blocată pe card. Tarifele pornesc de la 70 lei/zi, iar ora de predare o stabilim împreună pe telefon sau WhatsApp.",
+    highlights: [
+      { label: "Tarif de la", value: "70 lei/zi" },
+      { label: "Garanție", value: "Fără" },
+      { label: "Predare", value: "Personală" },
+      { label: "Acoperire", value: "Cluj · Gilău · Florești" },
+    ],
+    sections: [
+      {
+        heading: "Ce include un rent a car în Cluj la noi",
+        paragraphs: [
+          "Tariful afișat este tariful final: include asigurarea RCA, ITP valabil, rovinieta, aerul condiționat și anvelopele de sezon. Nu percepem taxe de aeroport, taxe de birou, taxe pentru al doilea șofer sau suprataxe pentru predare în afara orelor obișnuite — exact costurile care umflă factura la firmele mari de rent a car din Cluj-Napoca.",
+          "Pentru închirieri de mai multe zile, o săptămână sau o lună, tariful pe zi scade. Prețul final se negociază în funcție de mașina aleasă și de durata închirierii, iar disponibilitatea o confirmăm rapid.",
+        ],
+        bullets: [
+          "Tarife de la 70 lei/zi, negociabile pentru perioade lungi",
+          "Fără garanție și fără card de credit obligatoriu",
+          "Rovinietă, RCA, ITP și AC incluse în preț",
+          "Predare personală în Gilău, Florești sau Cluj-Napoca",
+        ],
+      },
+      {
+        heading: "Flota de rent a car disponibilă în Cluj",
+        paragraphs: [
+          "Flota este proprie și verificată înainte de fiecare predare. Pentru oraș și parcări strâmte în centrul Clujului recomandăm Škoda Fabia sau Renault Clio Symbol, cu consum mic. Pentru bagaje, mutări sau drumuri lungi avem break-uri VW Passat și Ford Focus. Pentru confort există Volvo S40 și Citroën C5 cu cutie automată, iar pentru familii sau grupuri, Volvo XC90 cu 7 locuri.",
+        ],
+        bullets: [
+          "Clasă economică pentru oraș și navetă",
+          "Break-uri pentru bagaje și transport",
+          "Cutie automată disponibilă (Citroën C5)",
+          "7 locuri disponibile (Volvo XC90)",
+        ],
+      },
+      {
+        heading: "Cum închiriezi mașina în 3 pași",
+        paragraphs: [
+          "Trimiți perioada dorită și clasa de mașină pe WhatsApp sau suni la (0742) 925 934. Primești confirmarea disponibilității și tariful exact. La predare ai nevoie de buletin și permis de conducere valabil de minimum un an — atât.",
+          "Predarea se face personal în Gilău (25 km de Aeroportul Avram Iancu), în Florești sau în Cluj-Napoca, la ora stabilită de comun acord. Tocmai pentru că nu avem birou în terminal, tariful zilnic rămâne mic.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Cât costă un rent a car în Cluj?",
+        a: "De la 70 lei/zi pentru clasa economică. Pentru închirieri de o săptămână sau o lună, tariful pe zi este mai mic și se negociază în funcție de mașină.",
+      },
+      {
+        q: "Este nevoie de garanție sau de card de credit?",
+        a: "Nu. Nu blocăm garanție pe card și nu cerem card de credit. Ai nevoie doar de buletin și permis valabil de cel puțin un an.",
+      },
+      {
+        q: "Unde se face predarea mașinii în Cluj?",
+        a: "Predarea este personală, în Gilău, Florești sau Cluj-Napoca, la ora stabilită împreună. Nu există birou în terminalul aeroportului.",
+      },
+      {
+        q: "Aveți mașini cu cutie automată sau de 7 locuri?",
+        a: "Da. Citroën C5 are cutie automată, iar Volvo XC90 are 7 locuri. Confirmă disponibilitatea la (0742) 925 934.",
+      },
+    ],
+  },
+  {
+    slug: "car-rental-cluj-napoca",
+    city: "Cluj-Napoca (English)",
+    navLabel: "Car rental Cluj-Napoca (EN)",
+    linkTitle: "Car Rental Cluj-Napoca (English)",
+    lang: "en",
+    h1: "Car Rental Cluj-Napoca — rent a car in Cluj from 70 RON/day",
+    metaTitle: "Car Rental Cluj-Napoca | Rent a Car Cluj from 14 €/day",
+    description:
+      "Car rental in Cluj-Napoca from 70 RON/day (≈14 €). Rent a car Cluj with no deposit, no credit card, road tax, insurance and A/C included. Call +40 742 925 934.",
+    keywords:
+      "car rental cluj napoca, rent a car cluj, car hire cluj napoca, cheap car rental cluj, car rental cluj romania, rent a car cluj no deposit",
+    intro:
+      "Car rental in Cluj-Napoca directly from the owner: no terminal desk, no booking commission and no deposit blocked on your card. Daily rates start at 70 RON (about 14 €) and the pickup time is agreed with you by phone or WhatsApp.",
+    highlights: [
+      { label: "From", value: "70 RON / day" },
+      { label: "Deposit", value: "None" },
+      { label: "Pickup", value: "Gilău / Cluj-Napoca" },
+      { label: "Included", value: "Road tax + A/C" },
+    ],
+    sections: [
+      {
+        heading: "What car rental in Cluj-Napoca includes",
+        paragraphs: [
+          "The advertised rate is the final rate: RCA insurance, valid technical inspection, the Romanian road tax (rovinietă), air conditioning and seasonal tyres are all included. We charge no airport fee, no office fee, no second-driver fee and no out-of-hours surcharge — the extras that usually double the bill at international car hire desks in Cluj-Napoca.",
+          "Rates go down for weekly and monthly rentals. Because we are a small local operator based in Gilău rather than a terminal desk, the daily price stays low all year.",
+        ],
+        bullets: [
+          "From 70 RON (≈14 €) per day, lower for long rentals",
+          "No deposit and no credit card required",
+          "Road tax, insurance and A/C included",
+          "English spoken on WhatsApp and by phone",
+        ],
+      },
+      {
+        heading: "Cars available to rent in Cluj",
+        paragraphs: [
+          "Economy cars (Škoda Fabia, Renault Clio Symbol) are ideal for the narrow streets and paid parking of central Cluj-Napoca. Estates (VW Passat, Ford Focus) take luggage for Transylvania road trips, a Volvo S40 and an automatic Citroën C5 cover comfort, and a 7-seat Volvo XC90 works for families or groups.",
+        ],
+        bullets: [
+          "Automatic transmission available (Citroën C5)",
+          "7-seater available (Volvo XC90)",
+          "Estates for luggage and long trips",
+          "All cars checked before every handover",
+        ],
+      },
+      {
+        heading: "How to book and what you need",
+        paragraphs: [
+          "Send your dates and preferred car class on WhatsApp or call +40 742 925 934. You get availability and the exact price back, usually within minutes. At pickup you need a passport or ID card and a driving licence held for at least one year; non-EU drivers should carry an international driving permit if their licence is not in Latin script.",
+          "Handover happens in Gilău (25 km from Cluj Avram Iancu Airport), in Florești or in Cluj-Napoca, at a time we agree together.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "How much is car rental in Cluj-Napoca?",
+        a: "From 70 RON (about 14 €) per day for an economy car. Weekly and monthly rentals get a lower daily rate.",
+      },
+      {
+        q: "Do I need a deposit or a credit card?",
+        a: "No. We do not block a deposit and we do not require a credit card — only an ID or passport and a driving licence held for at least one year.",
+      },
+      {
+        q: "Can I pick the car up at Cluj Airport?",
+        a: "Handover is in Gilău, roughly 25 km (30–40 minutes) from the terminal. Skipping airport fees is what keeps the daily rate low.",
+      },
+    ],
+  },
+  {
     slug: "rent-a-car-cluj-napoca",
     city: "Cluj-Napoca",
     navLabel: "Cluj-Napoca",
