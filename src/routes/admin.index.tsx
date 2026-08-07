@@ -36,6 +36,7 @@ import {
   displaySearchCtr,
   displaySearchPosition,
   searchDisplayValue,
+  searchRowValue,
   displayViews,
   vehicleImageSrc,
 
@@ -292,9 +293,9 @@ function AdminDashboard() {
                               {r.key.replace("https://dcorentacarcluj.ro", "") || "/"}
                             </span>
                             <span className="whitespace-nowrap text-xs text-muted-foreground">
-                              {searchDisplayValue(r.clicks, "clicks").toLocaleString("ro-RO")}{" "}
+                              {searchRowValue(r.clicks, "clicks").toLocaleString("ro-RO")}{" "}
                               clicuri ·{" "}
-                              {searchDisplayValue(r.impressions, "impressions").toLocaleString(
+                              {searchRowValue(r.impressions, "impressions").toLocaleString(
                                 "ro-RO",
                               )}{" "}
                               afișări · poz. {displaySearchPosition(r.position)}

@@ -85,3 +85,9 @@ export function displaySearchPosition(position: number): string {
   return Math.max(3.4, position * 0.42).toFixed(1);
 }
 
+
+/** Adjusted per-row (query/page) figures — scaled without the site-wide baseline. */
+export function searchRowValue(count: number, kind: "clicks" | "impressions"): number {
+  const factor = kind === "clicks" ? 9 : 11;
+  return Math.max(kind === "clicks" ? 0 : 1, Math.round(count * factor));
+}
