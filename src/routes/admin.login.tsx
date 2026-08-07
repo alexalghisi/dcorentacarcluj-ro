@@ -49,13 +49,31 @@ function AdminLogin() {
   return (
     <main className="flex min-h-screen items-center justify-center bg-surface px-5 py-16">
       <div className="w-full max-w-md rounded-2xl border border-border bg-background p-8 shadow-lg">
-        <div className="flex items-center gap-3">
+        <a
+          href="/"
+          className="mb-6 flex flex-col items-center justify-center gap-3 text-center"
+          aria-label="DCO Rent a Car Cluj - mergi la pagina principală"
+        >
+          <img
+            src="/favicon.png"
+            alt="DCO Rent a Car Cluj"
+            className="h-16 w-16 rounded-2xl object-contain"
+            width="64"
+            height="64"
+          />
+          <div>
+            <p className="text-lg font-extrabold tracking-tight">DCO Rent a Car Cluj</p>
+            <p className="text-xs text-muted-foreground">Mașini de închiriat în Cluj, Gilău & Florești</p>
+          </div>
+        </a>
+
+        <div className="flex items-center gap-3 border-t border-border pt-6">
           <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
             <Lock className="h-5 w-5" />
           </span>
           <div>
             <h1 className="text-xl font-bold">Panou administrare</h1>
-            <p className="text-sm text-muted-foreground">DCO Rent a Car Cluj</p>
+            <p className="text-sm text-muted-foreground">Autentificare securizată</p>
           </div>
         </div>
 
