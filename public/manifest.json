@@ -1,0 +1,32 @@
+{
+  "name": "DCO Rent a Car Cluj",
+  "short_name": "DCO Rent a Car",
+  "description": "Mașini de închiriat în Cluj, Gilău și Florești de la 70 lei/zi. Predare personală, mașini verificate.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "ro",
+  "icons": [
+    {
+      "src": "/favicon.png?v=2",
+      "sizes": "64x64",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.png?v=2",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.png?v=2",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
