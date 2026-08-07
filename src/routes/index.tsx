@@ -945,7 +945,46 @@ function Index() {
           </div>
         </section>
 
-
+        {/* Ghid rapid — conținut SEO dens pentru rent a car Cluj */}
+        <section id="ghid" className="bg-surface py-20 md:py-28">
+          <div className="mx-auto max-w-4xl px-5">
+            <p className="eyebrow">Ghid rapid</p>
+            <h2 className="mt-3 text-3xl font-bold md:text-4xl">
+              Tot ce trebuie să știi când cauți rent a car în Cluj-Napoca
+            </h2>
+            <div className="seo-speakable mt-6 space-y-4 text-muted-foreground">
+              <p>
+                Piața de <strong>rent a car Cluj</strong> este variată: de la firme internaționale
+                din aeroport până la firme locale, precum DCO Rent a Car, cu predare personală în
+                Gilău, la 12 km de centrul Clujului. Alegerea depinde de buget, flexibilitate și de
+                cât de repede ai nevoie de mașină.
+              </p>
+              <p>
+                Dacă vrei <strong>Cluj rent a car</strong> ieftin și rapid, o mașină din clasa
+                economică (Škoda Fabia, Renault Clio) pornește de la 70 lei/zi. Pentru drumuri
+                lungi sau familie, break-urile și SUV-urile cu 7 locuri oferă mai mult confort.
+                Toate mașinile noastre au ITP, RCA, rovinietă și aer condiționat incluse.
+              </p>
+              <p>
+                Pentru <strong>rent a car Cluj-Napoca aeroport</strong>, putem stabili un punct de
+                întâlnire convenabil în zona terminalului, fără cozi la ghișee. Rezervarea se face
+                prin telefon sau WhatsApp, iar predarea durează doar câteva minute.
+              </p>
+            </div>
+            <div className="mt-8 grid gap-4 sm:grid-cols-3">
+              {[
+                ["Tarif transparent", "70 lei/zi, negociabil în funcție de perioadă"],
+                ["Fără garanție", "Doar permis și carte de identitate"],
+                ["Predare flexibilă", "Gilău, Cluj-Napoca, Florești, Aeroport"],
+              ].map(([title, desc]) => (
+                <div key={title} className="card-eco p-5">
+                  <h3 className="font-semibold">{title}</h3>
+                  <p className="mt-1 text-sm text-muted-foreground">{desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* Contact */}
 
