@@ -305,7 +305,29 @@ export const Route = createFileRoute("/")({
           ],
         }),
       },
-
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "HowTo",
+          name: "Cum închiriezi o mașină în Cluj de la DCO Rent a Car",
+          description:
+            "Patru pași simpli pentru închirierea unei mașini în Cluj-Napoca, Gilău sau Florești: alegi mașina, primești prețul, ne întâlnim în Gilău pentru predare și returnezi simplu la final.",
+          totalTime: "PT15M",
+          estimatedCost: {
+            "@type": "MonetaryAmount",
+            currency: "RON",
+            value: "70",
+          },
+          step: steps.map((s, i) => ({
+            "@type": "HowToStep",
+            position: i + 1,
+            name: s.title,
+            text: s.text,
+            url: `${SITE}#proces`,
+          })),
+        }),
+      },
     ],
   }),
 });
