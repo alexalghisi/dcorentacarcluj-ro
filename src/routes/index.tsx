@@ -55,7 +55,7 @@ const MAPS_URL =
   "https://www.google.com/maps/search/?api=1&query=DCO+Rent+a+Car+Cluj+Gil%C4%83u";
 const TITLE = "DCO Rent a Car Cluj | Mașini de închiriat, 70 lei/zi";
 const DESCRIPTION =
-  "Rent a Car Cluj-Napoca, Gilău și Florești de la 70 lei/zi. Mașini de închiriat cu ITP, RCA, rovinietă și AC incluse, predare personală. Sună (0742) 925 934.";
+  "Rent a car Cluj: închirieri auto Cluj-Napoca, Gilău și Florești de la 70 lei/zi. Mașini de închiriat fără garanție, cu predare personală. Sună (0742) 925 934.";
 
 
 const faq = [
