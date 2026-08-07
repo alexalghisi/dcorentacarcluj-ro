@@ -154,6 +154,65 @@ export function LocationLanding({ page }: { page: LocationPage }) {
           </div>
 
           <div className="mt-12">
+            <h2 className="font-display text-2xl font-bold tracking-tight">
+              Zone deservite în județul Cluj — {page.city}
+            </h2>
+            <p className="mt-3 leading-relaxed text-muted-foreground">
+              Bază în Gilău, la 12 km de centrul Cluj-Napoca. Predăm și preluăm mașina în
+              localitățile de mai jos și la punctele de reper cele mai cerute, la ora stabilită
+              telefonic.
+            </p>
+
+            <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_1.1fr]">
+              <div>
+                <h3 className="text-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                  Localități
+                </h3>
+                <ul className="mt-3 grid grid-cols-2 gap-2 text-sm">
+                  {SERVED_AREAS.map((a) => (
+                    <li key={a} className="flex items-start gap-2">
+                      <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" strokeWidth={2.4} />
+                      <span>{a}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <h3 className="mt-6 text-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                  Puncte de reper pentru predare
+                </h3>
+                <ul className="mt-3 space-y-2 text-sm">
+                  {LANDMARKS.map((l) => (
+                    <li key={l} className="flex items-start gap-2">
+                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" strokeWidth={2.6} />
+                      <span>{l}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <a
+                  href={MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-base btn-outline-ink mt-6"
+                >
+                  Deschide în Google Maps <ArrowRight className="h-4 w-4" />
+                </a>
+              </div>
+
+              <div className="overflow-hidden rounded-2xl border border-border bg-card">
+                <iframe
+                  title={`Harta zonelor deservite de DCO Rent a Car — ${page.city}, județul Cluj`}
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=23.20%2C46.66%2C23.75%2C46.85&layer=mapnik&marker=46.7469%2C23.3736"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="h-[300px] w-full border-0 md:h-full md:min-h-[420px]"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-12">
+
             <h2 className="font-display text-lg font-bold tracking-tight">Alte zone deservite</h2>
             <div className="mt-4 grid gap-3 sm:grid-cols-2">
               {others.map((o) => (
