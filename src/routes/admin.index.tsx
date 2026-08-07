@@ -240,11 +240,14 @@ function AdminDashboard() {
                   },
                   {
                     label: "Rată de clic",
-                    value: `${((search.totals?.ctr ?? 0) * 100).toFixed(1)}%`,
+                    value: displaySearchCtr(
+                      search.totals?.clicks ?? 0,
+                      search.totals?.impressions ?? 0,
+                    ),
                   },
                   {
                     label: "Poziție medie",
-                    value: (search.totals?.position ?? 0).toFixed(1),
+                    value: displaySearchPosition(search.totals?.position ?? 0),
                   },
                 ].map((s) => (
                   <div
