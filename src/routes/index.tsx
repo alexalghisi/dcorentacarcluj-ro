@@ -240,6 +240,10 @@ export const Route = createFileRoute("/")({
               inLanguage: "ro-RO",
               isPartOf: { "@id": `${SITE}#website` },
               about: { "@id": `${SITE}#business` },
+              speakable: {
+                "@type": "SpeakableSpecification",
+                cssSelector: ["h1", ".seo-speakable"],
+              },
             },
           ],
         }),
@@ -305,7 +309,29 @@ export const Route = createFileRoute("/")({
           ],
         }),
       },
-
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "HowTo",
+          name: "Cum închiriezi o mașină în Cluj de la DCO Rent a Car",
+          description:
+            "Patru pași simpli pentru închirierea unei mașini în Cluj-Napoca, Gilău sau Florești: alegi mașina, primești prețul, ne întâlnim în Gilău pentru predare și returnezi simplu la final.",
+          totalTime: "PT15M",
+          estimatedCost: {
+            "@type": "MonetaryAmount",
+            currency: "RON",
+            value: "70",
+          },
+          step: steps.map((s, i) => ({
+            "@type": "HowToStep",
+            position: i + 1,
+            name: s.title,
+            text: s.text,
+            url: `${SITE}#proces`,
+          })),
+        }),
+      },
     ],
   }),
 });
@@ -560,7 +586,7 @@ function Index() {
             <h1 className="mt-4 max-w-3xl font-display text-4xl font-extrabold leading-[1.05] text-ink-foreground md:text-6xl">
               Rent a Car Cluj-Napoca — mașini de închiriat de la 70 lei/zi.
             </h1>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-foreground/80 md:text-lg">
+            <p className="seo-speakable mt-6 max-w-xl text-base leading-relaxed text-ink-foreground/80 md:text-lg">
               DCO Rent a Car închiriază autoturisme în stare perfectă de
               funcționare, cu AC, ITP, rovinietă și asigurare. Predare personală
               în Gilău, mașini verificate înainte de predare. Prețuri negociabile
@@ -810,7 +836,7 @@ function Index() {
             <h2 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">
               Rent a Car Cluj-Napoca, Gilău, Florești și Aeroport Cluj
             </h2>
-            <p className="mt-4 max-w-2xl text-muted-foreground">
+            <p className="seo-speakable mt-4 max-w-2xl text-muted-foreground">
               Fiecare zonă are pagina proprie, cu tarife, mod de predare și întrebări
               frecvente. Alegeți localitatea sau tipul de închiriere care vă interesează.
             </p>
