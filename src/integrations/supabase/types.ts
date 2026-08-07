@@ -186,32 +186,7 @@ export type Database = {
       }
     }
     Views: {
-      vehicle_availability: {
-        Row: {
-          end_date: string | null
-          start_date: string | null
-          vehicle_id: string | null
-        }
-        Insert: {
-          end_date?: string | null
-          start_date?: string | null
-          vehicle_id?: string | null
-        }
-        Update: {
-          end_date?: string | null
-          start_date?: string | null
-          vehicle_id?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "vehicle_bookings_vehicle_id_fkey"
-            columns: ["vehicle_id"]
-            isOneToOne: false
-            referencedRelation: "vehicles"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
+      [_ in never]: never
     }
     Functions: {
       increment_site_metric: {
