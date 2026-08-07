@@ -224,7 +224,7 @@ export const locations: LocationPage[] = [
     h1: "Închirieri auto Cluj — mașini pe zi, săptămână sau lună",
     metaTitle: "Închirieri Auto Cluj | De la 70 lei/zi, fără birou",
     description:
-      "Închirieri auto Cluj de la 70 lei/zi: pe zi, pe săptămână sau pe lună, predare personală și mașini verificate. Sună (0742) 925 934.",
+      "Închirieri auto Cluj ieftine: mașini de închiriat de la 70 lei/zi pe zi, săptămână sau lună, fără garanție. Predare personală. Sună (0742) 925 934.",
     keywords:
       "inchirieri auto cluj, inchiriere masina cluj, inchirieri masini cluj, inchirieri auto cluj pret, inchirieri auto ieftine cluj",
     intro:
@@ -292,7 +292,7 @@ export const locations: LocationPage[] = [
     h1: "Mașini de închiriat în Cluj — flota disponibilă",
     metaTitle: "Mașini de Închiriat Cluj | Flotă verificată, 70 lei/zi",
     description:
-      "Mașini de închiriat în Cluj: economice, break, berline, automat și 7 locuri. Toate cu ITP, RCA și rovinietă. De la 70 lei/zi.",
+      "Mașini de închiriat în Cluj: economice, break, berline, cutie automată și 7 locuri. Toate cu ITP, RCA și rovinietă. De la 70 lei/zi.",
     keywords:
       "masini de inchiriat cluj, inchirieri masini cluj, masina de inchiriat cluj napoca, masini de inchiriat automat cluj, masina 7 locuri de inchiriat cluj",
     intro:
@@ -357,7 +357,7 @@ export const locations: LocationPage[] = [
     h1: "Rent a Car Florești (Cluj) — închirieri auto la 5 km",
     metaTitle: "Rent a Car Florești Cluj | Închirieri de la 70 lei/zi",
     description:
-      "Închirieri auto pentru Florești, Cluj: predare personală, fără taxă de livrare, tarife de la 70 lei/zi. Sună (0742) 925 934.",
+      "Rent a car Florești Cluj: închirieri auto cu predare personală, fără taxă de livrare, tarife de la 70 lei/zi. Sună (0742) 925 934.",
     keywords:
       "rent a car floresti, inchirieri auto floresti cluj, inchiriere masina floresti, masini de inchiriat floresti cluj",
     intro:
@@ -425,7 +425,7 @@ export const locations: LocationPage[] = [
     h1: "Car Rental Cluj — rent a car from 70 RON/day (≈14 €)",
     metaTitle: "Car Rental Cluj | Rent a Car from 14 €/day",
     description:
-      "Car rental in Cluj-Napoca and Gilău from 70 RON (≈14 €) per day. Personal handover, no airport fees, road tax and A/C included.",
+      "Car rental Cluj-Napoca and Gilău from 70 RON/day. Cheap rent a car Cluj with personal handover, no deposit, road tax and A/C included. Call +40742925934.",
     keywords:
       "car rental cluj, rent a car cluj, car hire cluj napoca, rent a car cluj airport, cheap car rental cluj romania",
     intro:
