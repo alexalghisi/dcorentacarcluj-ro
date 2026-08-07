@@ -91,6 +91,22 @@ const faq = [
     q: "Livrați mașina în Cluj-Napoca, Florești sau la aeroport?",
     a: "Baza este în Gilău, la 12 km de Cluj-Napoca. Stabilim împreună un punct convenabil de întâlnire în Cluj-Napoca, Florești sau în zona aeroportului.",
   },
+  {
+    q: "Care este cea mai ieftină mașină de închiriat în Cluj?",
+    a: "Cele mai accesibile mașini din flota DCO Rent a Car sunt Škoda Fabia și Renault Clio Symbol, cu tarife de la 70 lei/zi. Prețul final depinde de durată și sezon.",
+  },
+  {
+    q: "Se poate închiria mașină automată în Cluj de la DCO Rent a Car?",
+    a: "Da, avem în flotă Citroën C5 cu cutie automată, ideal pentru drumuri lungi și confort maxim. Disponibilitatea se confirmă telefonic la (0742) 925 934.",
+  },
+  {
+    q: "Pot închiria o mașină cu 7 locuri în Cluj pentru familie?",
+    a: "Da, Volvo XC90 D5 cu 7 locuri este disponibil la cerere, perfect pentru familie sau grupuri mai mari. Recomandăm rezervare din timp.",
+  },
+  {
+    q: "Cum aleg o firmă de rent a car în Cluj-Napoca?",
+    a: "Verifică flota reală, recenziile clienților, ce include tariful (RCA, ITP, rovinietă, kilometraj) și dacă predarea este flexibilă. La DCO Rent a Car plătești doar zilele închiriate, fără garanție și fără card de credit obligatoriu.",
+  },
 ];
 
 
