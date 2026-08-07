@@ -7,7 +7,7 @@ import { SITE_URL, canonical, canonicalLinks, socialImageMeta } from "@/lib/seo"
 const SITE = SITE_URL;
 const TITLE = "Blog închirieri auto Cluj | DCO Rent a Car";
 const DESCRIPTION =
-  "Ghiduri despre închirieri auto în Cluj și Gilău: tarife reale, acte necesare, rute de o zi în Apuseni, Turda și Rimetea.";
+  "Ghiduri rent a car Cluj: închirieri auto ieftine în Cluj-Napoca și Gilău, tarife, acte necesare și rute cu mașina în Transilvania.";
 
 
 export const Route = createFileRoute("/blog/")({
