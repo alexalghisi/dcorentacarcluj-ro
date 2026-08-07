@@ -78,7 +78,7 @@ export const Route = createFileRoute("/admin/")({
 });
 
 function AdminDashboard() {
-  const { vehicles, stats, search, bookings } = Route.useLoaderData() as {
+  const { vehicles, stats, bookings } = Route.useLoaderData() as {
     vehicles: Vehicle[];
     stats: { siteViews: number; vehicleViews: number; vehicles: number };
     bookings: Booking[];
