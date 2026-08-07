@@ -240,6 +240,10 @@ export const Route = createFileRoute("/")({
               inLanguage: "ro-RO",
               isPartOf: { "@id": `${SITE}#website` },
               about: { "@id": `${SITE}#business` },
+              speakable: {
+                "@type": "SpeakableSpecification",
+                cssSelector: ["h1", ".seo-speakable"],
+              },
             },
           ],
         }),
