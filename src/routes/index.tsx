@@ -53,7 +53,7 @@ import { SITE_URL, canonical, canonicalLinks, socialImageMeta } from "@/lib/seo"
 const SITE = SITE_URL;
 const MAPS_URL =
   "https://www.google.com/maps/search/?api=1&query=DCO+Rent+a+Car+Cluj+Gil%C4%83u";
-const TITLE = "DCO Rent a Car Cluj | Mașini de închiriat, 70 lei/zi";
+const TITLE = "Rent a Car Cluj | Mașini de închiriat de la 70 lei/zi";
 const DESCRIPTION =
   "Rent a car Cluj: închirieri auto Cluj-Napoca, Gilău și Florești de la 70 lei/zi. Mașini de închiriat fără garanție, cu predare personală. Sună (0742) 925 934.";
 
@@ -600,7 +600,7 @@ function Index() {
           <div className="relative mx-auto max-w-6xl px-5 py-24 md:py-32">
             <p className="eyebrow text-signal">Cluj · Gilău · Florești</p>
             <h1 className="mt-4 max-w-3xl font-display text-4xl font-extrabold leading-[1.05] text-ink-foreground md:text-6xl">
-              Rent a Car Cluj-Napoca — mașini de închiriat de la 70 lei/zi.
+              Rent a car Cluj — mașini de închiriat în Cluj-Napoca, Gilău și Florești de la 70 lei/zi.
             </h1>
             <p className="seo-speakable mt-6 max-w-xl text-base leading-relaxed text-ink-foreground/80 md:text-lg">
               DCO Rent a Car închiriază autoturisme în stare perfectă de
@@ -1183,7 +1183,10 @@ function BookingForm() {
       <button type="submit" className="btn-base btn-primary mt-6 w-full">
         Trimite cererea pe WhatsApp
       </button>
-      <a href={mailto} className="btn-base btn-outline-ink mt-3 w-full justify-center">
+      <a
+        href={mailto}
+        className="btn-base mt-3 w-full justify-center border-2 border-primary bg-primary/10 font-semibold text-foreground transition-colors hover:bg-primary/20"
+      >
         <Mail className="h-4 w-4" /> Trimite pe e-mail
       </a>
       {sent ? (
