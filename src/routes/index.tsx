@@ -634,6 +634,46 @@ function Index() {
           </div>
         </section>
 
+        {/* Bandă de încredere */}
+        <section aria-label="De ce ne aleg clienții" className="border-b border-border bg-surface">
+          <div className="mx-auto grid max-w-6xl gap-6 px-5 py-10 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                icon: BadgeCheck,
+                title: "Mașini verificate",
+                text: "ITP, RCA și rovinietă la zi, service făcut înainte de fiecare predare.",
+              },
+              {
+                icon: CreditCard,
+                title: "Fără garanție",
+                text: "Plătești doar închirierea, tarife negociabile pentru perioade lungi.",
+              },
+              {
+                icon: Clock,
+                title: "Răspuns rapid",
+                text: "Confirmare pe telefon sau WhatsApp, inclusiv în weekend.",
+              },
+              {
+                icon: MapPin,
+                title: "Predare personală",
+                text: "Gilău, Florești, Cluj-Napoca și Aeroportul Cluj, la ora stabilită.",
+              },
+            ].map(({ icon: Icon, title, text }) => (
+              <div key={title} className="flex gap-3">
+                <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                  <Icon aria-hidden="true" className="h-5 w-5" />
+                </span>
+                <div>
+                  <p className="font-semibold">{title}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+
+
         {/* Flota */}
         <section id="flota" className="mx-auto max-w-6xl px-5 py-20 md:py-28">
           <p className="eyebrow">Flota</p>
