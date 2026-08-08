@@ -163,9 +163,8 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
-// Site suspendat: nicio pagină publică nu se mai randează.
-// Pentru reactivare, setează SITE_SUSPENDED = false.
-const SITE_SUSPENDED = true;
+// Site activ. Pentru suspendare temporară, setează SITE_SUSPENDED = true.
+const SITE_SUSPENDED = false;
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
