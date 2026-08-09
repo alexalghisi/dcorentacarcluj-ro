@@ -166,15 +166,22 @@ export function LocationLanding({ page }: { page: LocationPage }) {
 
           <div className="mt-12">
             <h2 className="font-display text-2xl font-bold tracking-tight">Întrebări frecvente — {page.city}</h2>
-            <div className="mt-5 divide-y divide-border rounded-2xl border border-border bg-card">
-              {page.faq.map((f) => (
-                <div key={f.q} className="p-5">
-                  <h3 className="font-display text-base font-bold">{f.q}</h3>
+            <div className="mt-5 divide-y divide-border overflow-hidden rounded-2xl border border-border bg-card">
+              {page.faq.map((f, i) => (
+                <details key={f.q} open={i === 0} className="group p-5">
+                  <summary className="flex cursor-pointer list-none items-start justify-between gap-3">
+                    <h3 className="font-display text-base font-bold">{f.q}</h3>
+                    <ArrowRight
+                      aria-hidden="true"
+                      className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground transition-transform group-open:rotate-90"
+                    />
+                  </summary>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
-                </div>
+                </details>
               ))}
             </div>
           </div>
+
 
           <div className="mt-12">
             <h2 className="font-display text-2xl font-bold tracking-tight">
