@@ -53,6 +53,17 @@ export const Route = createFileRoute("/blog/")({
           })),
         }),
       },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Acasă", item: SITE },
+            { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE}/blog` },
+          ],
+        }),
+      },
     ],
   }),
   component: BlogIndex,

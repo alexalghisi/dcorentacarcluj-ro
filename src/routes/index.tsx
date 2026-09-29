@@ -319,16 +319,6 @@ export const Route = createFileRoute("/")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Rent a Car Cluj", item: canonical("/") },
-          ],
-        }),
-      },
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
           "@type": "HowTo",
           name: "Cum închiriezi o mașină în Cluj de la DCO Rent a Car",
           description:
