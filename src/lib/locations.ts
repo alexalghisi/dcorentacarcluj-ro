@@ -495,12 +495,12 @@ export const locations: LocationPage[] = [
     slug: "rent-a-car-floresti-cluj",
     city: "Florești",
     navLabel: "Florești",
-    h1: "Rent a Car Florești (Cluj) — închirieri auto la 5 km",
-    metaTitle: "Rent a Car Florești Cluj | Închirieri de la 70 lei/zi",
+    h1: "Închirieri auto Florești (Cluj) — mașini de închiriat de la 70 lei/zi",
+    metaTitle: "Închirieri auto Florești | Mașini de închiriat de la 70 lei/zi",
     description:
-      "Rent a car Florești Cluj: închirieri auto cu predare personală, fără taxă de livrare, tarife de la 70 lei/zi. Sună (0742) 925 934.",
+      "Închirieri auto Florești Cluj: mașini de închiriat cu predare personală, fără taxă de livrare și fără garanție, tarife de la 70 lei/zi. Sună (0742) 925 934.",
     keywords:
-      "rent a car floresti, inchirieri auto floresti cluj, inchiriere masina floresti, masini de inchiriat floresti cluj",
+      "inchirieri auto floresti, inchirieri masini floresti, rent a car floresti, inchiriere masina floresti, masini de inchiriat floresti cluj, inchiriere auto de weekend floresti",
     intro:
       "Florești este la 5 km de baza noastră din Gilău, așa că predarea mașinii se face rapid, fără taxă de livrare și fără drum până în centrul Clujului.",
     highlights: [
@@ -554,6 +554,14 @@ export const locations: LocationPage[] = [
       {
         q: "Pot închiria o mașină pentru navetă spre Cluj-Napoca?",
         a: "Da, închirierile pe termen mediu și lunar au tarif special, potrivit pentru navetă.",
+      },
+      {
+        q: "Pot închiria o mașină doar de weekend?",
+        a: "Da, poți închiria mașina doar pentru weekend — o ridici vineri și o returnezi luni, cu tarif de la 70 lei/zi. Ideal pentru excursii la Tarnița, Beliș sau Salina Turda.",
+      },
+      {
+        q: "Se plătește garanție la închirierile din Florești?",
+        a: "Nu. La noi nu se percepe garanție și nu blocăm bani pe card — plătești doar tariful de închiriere.",
       },
     ],
   },
