@@ -1761,6 +1761,19 @@ export const locations: LocationPage[] = [
           "Buletin sau pașaport și permis valabil de cel puțin un an. Plata se face la predare, în numerar sau prin transfer bancar; pentru firme emitem factură.",
         ],
       },
+      {
+        heading: "De ce să alegi închirieri auto în Turda de la noi",
+        paragraphs: [
+          "Suntem o firmă locală, nu un lanț internațional cu proceduri rigide. Discuți direct cu proprietarul, stabilim totul pe un singur apel telefonic, iar mașina ajunge la tine fără taxe ascunse. Pentru cei care caută mașini de închiriat în Turda fără garanție, suntem una dintre puținele variante reale din zonă.",
+          "Flota include autoturisme economice pentru oraș și drumuri zilnice, dar și mașini mai spațioase pentru drumuri lungi spre Alba Iulia, Sibiu sau Cluj-Napoca. Toate sunt verificate tehnic, cu ITP și RCA valabile, rovinietă inclusă și anvelope de sezon.",
+        ],
+        bullets: [
+          "Tarife de la 70 lei/zi, cu reducere la perioade lungi",
+          "Fără garanție și fără card de credit obligatoriu",
+          "Predare în Turda, Câmpia Turzii și împrejurimi",
+          "Factură pentru firme și contracte pe termen lung",
+        ],
+      },
     ],
     faq: [
       {
@@ -1768,12 +1781,20 @@ export const locations: LocationPage[] = [
         a: "Da, predăm și preluăm autoturismul în Turda și Câmpia Turzii, la adresa și ora stabilite telefonic.",
       },
       {
-        q: "Cât costă închirierea pentru o zi?",
+        q: "Cât costă închirierea unei mașini în Turda pentru o zi?",
         a: "De la 70 lei/zi pentru clasa economică. Pentru perioade mai lungi tariful pe zi scade.",
+      },
+      {
+        q: "Pot închiria o mașină în Turda fără garanție?",
+        a: "Da, nu blocăm garanție pe card și nu cerem card de credit. Plata se face la predare, în numerar sau prin transfer.",
       },
       {
         q: "Pot lua mașina din Turda și o returna la aeroportul Cluj?",
         a: "Da, stabilim locul de returnare la rezervare, inclusiv în zona Aeroportului Avram Iancu Cluj.",
+      },
+      {
+        q: "Ce documente îmi trebuie pentru închiriere?",
+        a: "Buletin sau pașaport și permis de conducere valabil de cel puțin un an. Pentru firme, datele de facturare.",
       },
     ],
   },
