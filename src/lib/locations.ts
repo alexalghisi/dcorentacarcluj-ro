@@ -1722,14 +1722,14 @@ export const locations: LocationPage[] = [
     city: "Turda",
     navLabel: "Rent a Car Turda",
     linkTitle: "Rent a Car Turda",
-    h1: "Rent a Car Turda — mașini de închiriat de la 70 lei/zi, predare la tine",
-    metaTitle: "Rent a Car Turda | Mașini de închiriat de la 70 lei/zi",
+    h1: "Închirieri auto Turda — rent a car de la 70 lei/zi, predare la tine",
+    metaTitle: "Închirieri auto Turda | Rent a Car Turda de la 70 lei/zi",
     description:
-      "Rent a car Turda: mașini de închiriat de la 70 lei/zi, fără garanție, predare personală în Turda și Câmpia Turzii. Sună la (0742) 925 934.",
+      "Închirieri auto Turda: mașini de închiriat de la 70 lei/zi, fără garanție, predare personală în Turda și Câmpia Turzii. Sună la (0742) 925 934.",
     keywords:
-      "rent a car turda, inchirieri auto turda, masini de inchiriat turda, inchiriere masina campia turzii, rent a car cluj turda",
+      "inchirieri auto turda, rent a car turda, masini de inchiriat turda, inchiriere masina campia turzii, rent a car cluj turda",
     intro:
-      "Deservim Turda și Câmpia Turzii din baza noastră din Gilău. Aducem mașina la adresa stabilită, cu tarife de la 70 lei/zi și fără garanție blocată pe card.",
+      "Cauți închirieri auto în Turda? Deservim Turda și Câmpia Turzii din baza noastră din Gilău. Aducem mașina la adresa stabilită, cu tarife de la 70 lei/zi și fără garanție blocată pe card.",
     highlights: [
       { label: "Tarif de la", value: "70 lei/zi" },
       { label: "Predare", value: "În Turda" },
