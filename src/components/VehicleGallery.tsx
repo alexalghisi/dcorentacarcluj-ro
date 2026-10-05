@@ -110,34 +110,7 @@ export function VehicleGallery({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [list.join("|")]);
 
-  // Gentle demo turn the first time the card is visible.
-  useEffect(() => {
-    const el = boxRef.current;
-    if (!el || typeof IntersectionObserver === "undefined") return;
-    const timers: number[] = [];
-    const io = new IntersectionObserver(
-      (entries) => {
-        if (!entries[0]?.isIntersecting) return;
-        io.disconnect();
-        const seq = hasSimulation ? [1, 2, 1, 0] : multi ? [0.45, -0.3, 0] : [-30, 30, 0];
-        seq.forEach((v, i) =>
-          timers.push(
-            window.setTimeout(() => {
-              if (drag.current || userRef.current) return;
-              targetRef.current = v;
-              run();
-            }, 400 + i * 700),
-          ),
-        );
-      },
-      { threshold: 0.6 },
-    );
-    io.observe(el);
-    return () => {
-      io.disconnect();
-      timers.forEach(clearTimeout);
-    };
-  }, [multi, hasSimulation, run]);
+  // The car never turns on its own — only while the visitor drags it.
 
   function unitsPerPx() {
     const w = boxRef.current?.clientWidth || 320;
