@@ -27,6 +27,7 @@ import {
   adminToggleVehicle,
 } from "@/lib/admin.functions";
 import { BookingsPanel } from "@/components/admin/BookingsPanel";
+import { SeoPrioritiesPanel } from "@/components/admin/SeoPrioritiesPanel";
 import type { Booking } from "@/lib/bookings";
 import { VehicleDialog } from "@/components/admin/VehicleDialog";
 import {
@@ -198,6 +199,8 @@ function AdminDashboard() {
           </p>
 
         </section>
+
+        <SeoPrioritiesPanel />
 
         <BookingsPanel vehicles={vehicles} bookings={bookings} onChange={refresh} />
 
