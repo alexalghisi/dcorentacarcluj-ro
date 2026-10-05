@@ -29,7 +29,7 @@ import { VehicleGallery } from "@/components/VehicleGallery";
 import { ReviewsSection } from "@/components/ReviewsSection";
 import { reviewsSchema } from "@/lib/reviews";
 import { vehicleImageSrc, type Vehicle } from "@/lib/vehicles";
-import { vehicleTurntable } from "@/lib/vehicle-turntables";
+import { vehicleSpin } from "@/lib/vehicle-turntables";
 import {
   conflictsFor,
   formatRangeRo,
@@ -480,7 +480,7 @@ function Index() {
       ? dbVehicles.map((v) => ({
           img: vehicleImageSrc(v.image_url),
           images: [v.image_url, ...(v.gallery ?? [])].filter(Boolean).map(vehicleImageSrc),
-          turntable: vehicleTurntable(v.name, v.image_url),
+          turntable: vehicleSpin(v.name, v.image_url),
           name: v.name,
           example: v.tagline,
           price: v.price_label,
@@ -490,7 +490,7 @@ function Index() {
       : fleet.map((c) => ({
           ...c,
           images: [c.img],
-          turntable: vehicleTurntable(c.name),
+          turntable: vehicleSpin(c.name),
           id: undefined as string | undefined,
         }))
   ).map((c) => {
