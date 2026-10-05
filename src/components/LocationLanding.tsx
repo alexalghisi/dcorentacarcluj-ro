@@ -35,7 +35,14 @@ function waLink(city: string) {
 }
 
 export function LocationLanding({ page }: { page: LocationPage }) {
-  const others = locations.filter((l) => l.slug !== page.slug);
+  const nearby = page.nearby ?? [];
+  const others = locations
+    .filter((l) => l.slug !== page.slug)
+    .sort((a, b) => {
+      const ia = nearby.indexOf(a.slug);
+      const ib = nearby.indexOf(b.slug);
+      return (ia === -1 ? 999 : ia) - (ib === -1 ? 999 : ib);
+    });
   const whatsapp = waLink(page.city);
 
 

@@ -1,5 +1,5 @@
 # Roadmap
-- [ ] 10 pagini locale noi în județul Cluj (așteaptă aprobarea planului)
-- [ ] Monitorizare zilnică a pozițiilor + /admin/seo (așteaptă cheia SerpApi/DataForSEO)
-- [ ] Recenzii la mașini, doar de la clienții care au închiriat (în plan)
+- [x] 10 pagini locale noi în județul Cluj
+- [x] Recenzii la mașini, doar de la clienții care au închiriat (link unic + aprobare în admin)
 - [x] Butonul „Deschide în Google Maps” reparat
+- [ ] Monitorizare zilnică a pozițiilor + /admin/seo + e-mail săptămânal: așteaptă cheia SerpApi și domeniul de e-mail

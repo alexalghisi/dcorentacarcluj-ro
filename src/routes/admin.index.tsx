@@ -27,6 +27,7 @@ import {
   adminToggleVehicle,
 } from "@/lib/admin.functions";
 import { BookingsPanel } from "@/components/admin/BookingsPanel";
+import { ReviewsAdminPanel } from "@/components/admin/ReviewsAdminPanel";
 import { SeoPrioritiesPanel } from "@/components/admin/SeoPrioritiesPanel";
 import type { Booking } from "@/lib/bookings";
 import { VehicleDialog } from "@/components/admin/VehicleDialog";
@@ -203,6 +204,8 @@ function AdminDashboard() {
         <SeoPrioritiesPanel />
 
         <BookingsPanel vehicles={vehicles} bookings={bookings} onChange={refresh} />
+
+        <ReviewsAdminPanel vehicles={vehicles} bookings={bookings} />
 
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>

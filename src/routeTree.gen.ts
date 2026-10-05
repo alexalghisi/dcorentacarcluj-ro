@@ -16,6 +16,7 @@ import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as RecenzieTokenRouteImport } from './routes/recenzie.$token'
 import { Route as ApiPublicHooksSyncFleetRouteImport } from './routes/api/public/hooks/sync-fleet'
 import { Route as ApiPublicVehicleImageSplatRouteImport } from './routes/api/public/vehicle-image.$'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
@@ -55,6 +56,11 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RecenzieTokenRoute = RecenzieTokenRouteImport.update({
+  id: '/recenzie/$token',
+  path: '/recenzie/$token',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicHooksSyncFleetRoute = ApiPublicHooksSyncFleetRouteImport.update({
   id: '/api/public/hooks/sync-fleet',
   path: '/api/public/hooks/sync-fleet',
@@ -79,6 +85,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/login': typeof AdminLoginRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/recenzie/$token': typeof RecenzieTokenRoute
   '/admin/': typeof AdminIndexRoute
   '/blog/': typeof BlogIndexRoute
   '/api/public/hooks/sync-fleet': typeof ApiPublicHooksSyncFleetRoute
@@ -91,6 +98,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/login': typeof AdminLoginRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/recenzie/$token': typeof RecenzieTokenRoute
   '/admin': typeof AdminIndexRoute
   '/blog': typeof BlogIndexRoute
   '/api/public/hooks/sync-fleet': typeof ApiPublicHooksSyncFleetRoute
@@ -104,6 +112,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/login': typeof AdminLoginRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/recenzie/$token': typeof RecenzieTokenRoute
   '/admin/': typeof AdminIndexRoute
   '/blog/': typeof BlogIndexRoute
   '/api/public/hooks/sync-fleet': typeof ApiPublicHooksSyncFleetRoute
@@ -118,6 +127,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/admin/login'
     | '/blog/$slug'
+    | '/recenzie/$token'
     | '/admin/'
     | '/blog/'
     | '/api/public/hooks/sync-fleet'
@@ -130,6 +140,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/admin/login'
     | '/blog/$slug'
+    | '/recenzie/$token'
     | '/admin'
     | '/blog'
     | '/api/public/hooks/sync-fleet'
@@ -142,6 +153,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/admin/login'
     | '/blog/$slug'
+    | '/recenzie/$token'
     | '/admin/'
     | '/blog/'
     | '/api/public/hooks/sync-fleet'
@@ -155,6 +167,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   AdminLoginRoute: typeof AdminLoginRoute
   BlogSlugRoute: typeof BlogSlugRoute
+  RecenzieTokenRoute: typeof RecenzieTokenRoute
   AdminIndexRoute: typeof AdminIndexRoute
   BlogIndexRoute: typeof BlogIndexRoute
   ApiPublicHooksSyncFleetRoute: typeof ApiPublicHooksSyncFleetRoute
@@ -213,6 +226,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/recenzie/$token': {
+      id: '/recenzie/$token'
+      path: '/recenzie/$token'
+      fullPath: '/recenzie/$token'
+      preLoaderRoute: typeof RecenzieTokenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/hooks/sync-fleet': {
       id: '/api/public/hooks/sync-fleet'
       path: '/api/public/hooks/sync-fleet'
@@ -243,6 +263,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   AdminLoginRoute: AdminLoginRoute,
   BlogSlugRoute: BlogSlugRoute,
+  RecenzieTokenRoute: RecenzieTokenRoute,
   AdminIndexRoute: AdminIndexRoute,
   BlogIndexRoute: BlogIndexRoute,
   ApiPublicHooksSyncFleetRoute: ApiPublicHooksSyncFleetRoute,

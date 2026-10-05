@@ -1,3 +1,4 @@
+import { getApprovedReviews, type VehicleReview } from "@/lib/vehicle-reviews.functions";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
@@ -122,11 +123,12 @@ const faq = [
 
 export const Route = createFileRoute("/")({
   loader: async () => {
-    const [vehicles, busy] = await Promise.all([
+    const [vehicles, busy, reviews] = await Promise.all([
       getPublicVehicles().catch(() => []),
       getBusyRanges().catch(() => []),
+      getApprovedReviews().catch(() => []),
     ]);
-    return { vehicles, busy };
+    return { vehicles, busy, reviews };
   },
 
   errorComponent: () => (
@@ -463,9 +465,10 @@ const conditions = [
 
 
 function Index() {
-  const { vehicles: dbVehicles, busy } = Route.useLoaderData() as {
+  const { vehicles: dbVehicles, busy, reviews } = Route.useLoaderData() as {
     vehicles: Vehicle[];
     busy: BookingRange[];
+    reviews: VehicleReview[];
   };
 
   const [from, setFrom] = useState(todayISO());
@@ -772,6 +775,22 @@ function Index() {
                     </span>
                   </div>
                   <p className="mt-1 text-sm text-muted-foreground">{c.example}</p>
+                  {(() => {
+                    const rs = reviews.filter((r: VehicleReview) => r.vehicle_id === c.id);
+                    if (rs.length === 0) return null;
+                    const avg = rs.reduce((s: number, r: VehicleReview) => s + r.rating, 0) / rs.length;
+                    return (
+                      <div className="mt-3 rounded-xl bg-surface p-3 text-sm">
+                        <p className="font-semibold">
+                          <span className="text-accent">★</span> {avg.toFixed(1)} · {rs.length}{" "}
+                          {rs.length === 1 ? "recenzie" : "recenzii"} de la clienți
+                        </p>
+                        <p className="mt-1 line-clamp-2 text-muted-foreground">
+                          „{rs[0]?.comment}” — {rs[0]?.author}
+                        </p>
+                      </div>
+                    );
+                  })()}
                   <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm text-muted-foreground">
                     <li className="flex items-center gap-1.5">
                       <Users className="h-4 w-4 text-primary" /> {c.specs[0]}
