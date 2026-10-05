@@ -64,15 +64,9 @@ export function VehicleGallery({
       let v = velRef.current;
 
       if (!drag.current) {
-        if (Math.abs(v) > (multi ? 0.35 : 25)) {
-          // inertia
-          p += v * dt;
-          v *= Math.exp(-FRICTION * dt);
-          if (!multi && Math.abs(p) > SINGLE_MAX) {
-            p = Math.sign(p) * SINGLE_MAX;
-            v = 0;
-          }
-        } else {
+        // No inertia: the car turns only while the finger/mouse is moving.
+        // On release it just settles softly on the closest angle.
+        {
           v = 0;
           const target = targetRef.current ?? (multi ? Math.round(p) : 0);
           targetRef.current = target;
