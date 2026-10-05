@@ -28,6 +28,7 @@ import { VehicleGallery } from "@/components/VehicleGallery";
 import { ReviewsSection } from "@/components/ReviewsSection";
 import { reviewsSchema } from "@/lib/reviews";
 import { vehicleImageSrc, type Vehicle } from "@/lib/vehicles";
+import { vehicleTurntable } from "@/lib/vehicle-turntables";
 import {
   conflictsFor,
   formatRangeRo,
@@ -476,13 +477,19 @@ function Index() {
       ? dbVehicles.map((v) => ({
           img: vehicleImageSrc(v.image_url),
           images: [v.image_url, ...(v.gallery ?? [])].filter(Boolean).map(vehicleImageSrc),
+          turntable: vehicleTurntable(v.name, v.image_url),
           name: v.name,
           example: v.tagline,
           price: v.price_label,
           specs: [v.seats, v.transmission, v.fuel],
           id: v.id as string | undefined,
         }))
-      : fleet.map((c) => ({ ...c, images: [c.img], id: undefined as string | undefined }))
+      : fleet.map((c) => ({
+          ...c,
+          images: [c.img],
+          turntable: vehicleTurntable(c.name),
+          id: undefined as string | undefined,
+        }))
   ).map((c) => {
     const conflicts = conflictsFor(busy, c.id, from, rangeTo);
     const freeFrom = freeAgainFrom(conflicts);
@@ -748,6 +755,7 @@ function Index() {
               >
                 <VehicleGallery
                   images={c.images.length > 0 ? c.images : [c.img]}
+                  turntable={c.turntable}
                   name={c.name}
                   busy={c.busy}
                   busyLabel={c.busyLabel}

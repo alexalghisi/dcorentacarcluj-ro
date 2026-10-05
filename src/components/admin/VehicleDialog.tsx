@@ -3,6 +3,7 @@ import { Loader2, Upload, X } from "lucide-react";
 
 import { adminSaveVehicle, adminUploadImage } from "@/lib/admin.functions";
 import { FUELS, SEATS, TRANSMISSIONS, vehicleImageSrc, type Vehicle } from "@/lib/vehicles";
+import { vehicleTurntable } from "@/lib/vehicle-turntables";
 
 const inputClass =
   "mt-1.5 w-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary";
@@ -41,6 +42,7 @@ export function VehicleDialog({ vehicle, nextSortOrder, onClose, onSaved }: Vehi
   const [uploading, setUploading] = useState(false);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const simulationFrames = vehicleTurntable(name, imageUrl);
 
   async function handleFiles(files: File[]) {
     setUploading(true);
@@ -320,6 +322,32 @@ export function VehicleDialog({ vehicle, nextSortOrder, onClose, onSaved }: Vehi
               JPG sau PNG, maximum 8 MB fiecare. Recomandat orizontal (ex. 1200×900 px).
             </p>
           </div>
+
+          {simulationFrames.length > 0 && (
+            <div className="rounded-xl border border-border bg-surface/50 p-4">
+              <div className="flex items-center justify-between gap-3">
+                <div>
+                  <p className="text-sm font-medium">Simulare AI 360°</p>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    Cele șase unghiuri afișate în rotirea interactivă de pe site.
+                  </p>
+                </div>
+                <span className="rounded-full bg-primary px-2.5 py-1 text-xs font-bold text-primary-foreground">
+                  {simulationFrames.length} cadre
+                </span>
+              </div>
+              <div className="mt-3 grid grid-cols-3 gap-2 sm:grid-cols-6">
+                {simulationFrames.map((frame, i) => (
+                  <img
+                    key={frame}
+                    src={frame}
+                    alt={`${name || "Vehicul"} – unghi 360° ${i + 1}`}
+                    className="aspect-[4/3] w-full rounded-md border border-border object-cover"
+                  />
+                ))}
+              </div>
+            </div>
+          )}
 
           <label className="flex items-center gap-3 text-sm">
             <input

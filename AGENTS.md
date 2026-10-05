@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 
 - AI SEO priorities are generated server-side from live Search Console data and cached one row per day in `seo_priorities`; the admin panel reads the cache unless the admin regenerates — avoids repeat AI cost.
+- Fleet 360° views use six bundled AI-assisted angles mapped by vehicle identity, while uploaded photos remain the editable source gallery — keeps rotation stable without storing generated assets in vehicle records.

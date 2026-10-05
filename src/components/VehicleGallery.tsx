@@ -3,6 +3,7 @@ import { BadgeCheck, CalendarX2, ChevronLeft, ChevronRight, Rotate3d } from "luc
 
 export interface VehicleGalleryProps {
   images: string[];
+  turntable?: string[];
   name: string;
   busy: boolean;
   busyLabel: string;
@@ -28,13 +29,17 @@ const mod = (a: number, n: number) => ((a % n) + n) % n;
  */
 export function VehicleGallery({
   images,
+  turntable = [],
   name,
   busy,
   busyLabel,
   rangeLabel,
   freeFromLabel,
 }: VehicleGalleryProps) {
-  const list = images.filter(Boolean);
+  const sourcePhotos = images.filter(Boolean);
+  const rotationFrames = turntable.filter(Boolean);
+  const hasSimulation = rotationFrames.length > 1;
+  const list = hasSimulation ? rotationFrames : sourcePhotos;
   const n = list.length;
   const multi = n > 1;
 
@@ -260,7 +265,7 @@ export function VehicleGallery({
           onPointerCancel={onUp}
           onLostPointerCapture={onUp}
           className={`relative h-56 select-none ${dragging ? "cursor-grabbing" : "cursor-grab"}`}
-          style={{ perspective: "700px", touchAction: "pan-y", WebkitUserSelect: "none" }}
+          style={{ perspective: "900px", touchAction: "pan-y", WebkitUserSelect: "none" }}
         >
           {frames.map((fr) =>
             fr.opacity < 0.01 ? null : (
@@ -268,11 +273,11 @@ export function VehicleGallery({
                 key={fr.key}
                 src={fr.src}
                 alt={`${name} ${busy ? "rezervată" : "disponibilă"} la închiriere în Cluj`}
-                width={1200}
-                height={900}
+                width={1024}
+                height={768}
                 draggable={false}
                 decoding="async"
-                className={`pointer-events-none absolute inset-x-4 inset-y-3 h-[calc(100%-1.5rem)] w-[calc(100%-2rem)] rounded-lg object-cover shadow-xl ${busy ? "grayscale" : ""}`}
+                className={`pointer-events-none absolute inset-0 h-full w-full object-cover ${busy ? "grayscale" : ""}`}
                 style={{
                   opacity: fr.opacity,
                   transform: fr.transform,
@@ -340,11 +345,11 @@ export function VehicleGallery({
           }`}
         >
           <Rotate3d className={`h-3.5 w-3.5 ${touched ? "" : "animate-pulse"}`} />
-          360° · trage
+          {hasSimulation ? "360° AI · trage" : "360° · trage"}
         </span>
         {multi && (
           <span className="pointer-events-none absolute bottom-3 right-3 z-[4] rounded-full bg-foreground/70 px-2.5 py-1 text-[0.7rem] font-semibold text-background">
-            {active + 1}/{n} foto
+            {active + 1}/{n} {hasSimulation ? "unghiuri" : "foto"}
           </span>
         )}
       </div>
