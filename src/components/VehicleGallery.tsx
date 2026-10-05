@@ -178,7 +178,8 @@ export function VehicleGallery({
     const now = performance.now();
     const dtm = Math.max(now - d.lt, 1) / 1000;
     const inst = ((multi ? -1 : 1) * (e.clientX - d.lx) * k) / dtm;
-    velRef.current = velRef.current * 0.6 + inst * 0.4;
+    const vmax = hasSimulation ? 10 : multi ? 6 : 400;
+    velRef.current = Math.max(-vmax, Math.min(vmax, velRef.current * 0.6 + inst * 0.4));
     d.lx = e.clientX;
     d.lt = now;
     posRef.current = p;
