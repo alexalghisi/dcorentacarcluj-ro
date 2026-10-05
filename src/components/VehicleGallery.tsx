@@ -176,6 +176,11 @@ export function VehicleGallery({
       p = Math.max(-SINGLE_MAX, Math.min(SINGLE_MAX, p));
     }
     const now = performance.now();
+    if (e.clientX === d.lx) {
+      // finger resting: no spin on release
+      if (now - d.lt > 80) velRef.current = 0;
+      return;
+    }
     const dtm = Math.max(now - d.lt, 1) / 1000;
     const inst = ((multi ? -1 : 1) * (e.clientX - d.lx) * k) / dtm;
     const vmax = hasSimulation ? 10 : multi ? 6 : 400;
