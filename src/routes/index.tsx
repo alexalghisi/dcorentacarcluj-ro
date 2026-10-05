@@ -786,7 +786,7 @@ function Index() {
                           {rs.length === 1 ? "recenzie" : "recenzii"} de la clienți
                         </p>
                         <p className="mt-1 line-clamp-2 text-muted-foreground">
-                          „{rs[0].comment}” — {rs[0].author}
+                          „{rs[0]?.comment}” — {rs[0]?.author}
                         </p>
                       </div>
                     );
