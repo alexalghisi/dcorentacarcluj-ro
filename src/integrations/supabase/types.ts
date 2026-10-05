@@ -53,6 +53,24 @@ export type Database = {
         }
         Relationships: []
       }
+      seo_priorities: {
+        Row: {
+          content: string
+          created_at: string
+          day: string
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          day: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          day?: string
+        }
+        Relationships: []
+      }
       site_metrics: {
         Row: {
           created_at: string
