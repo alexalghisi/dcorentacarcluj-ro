@@ -223,9 +223,17 @@ export function VehicleGallery({
   const iA = multi ? mod(base, n) : 0;
   const iB = multi ? mod(base + 1, n) : 0;
   const active = multi ? mod(Math.round(pos), n) : 0;
-  const shadeTilt = multi ? (f < 0.5 ? -f : 1 - f) * TURN_DEG * 2 : pos;
+  const shadeTilt = hasSimulation ? 0 : multi ? (f < 0.5 ? -f : 1 - f) * TURN_DEG * 2 : pos;
+  // Turntable angles: crisp switch with a very short crossfade around the midpoint,
+  // no sliding/tilting — avoids the "double car" ghosting while turning.
+  const snapMix = Math.min(1, Math.max(0, (f - 0.42) / 0.16));
 
-  const frames = multi
+  const frames = hasSimulation
+    ? [
+        { src: list[iA], key: `a-${iA}`, opacity: 1, transform: "none", z: 1 },
+        { src: list[iB], key: `b-${iB}`, opacity: snapMix, transform: "none", z: 2 },
+      ]
+    : multi
     ? [
         {
           src: list[iA],
