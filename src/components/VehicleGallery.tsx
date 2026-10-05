@@ -146,6 +146,7 @@ export function VehicleGallery({
 
   function unitsPerPx() {
     const w = boxRef.current?.clientWidth || 320;
+    if (hasSimulation) return 4 / w; // one swipe across the photo ≈ half a turn
     return multi ? 1.6 / w : (SINGLE_MAX * 2.2) / w;
   }
 
@@ -226,7 +227,7 @@ export function VehicleGallery({
   const shadeTilt = hasSimulation ? 0 : multi ? (f < 0.5 ? -f : 1 - f) * TURN_DEG * 2 : pos;
   // Turntable angles: crisp switch with a very short crossfade around the midpoint,
   // no sliding/tilting — avoids the "double car" ghosting while turning.
-  const snapMix = Math.min(1, Math.max(0, (f - 0.42) / 0.16));
+  const snapMix = smooth(Math.min(1, Math.max(0, (f - 0.3) / 0.4)));
 
   const frames = hasSimulation
     ? [
