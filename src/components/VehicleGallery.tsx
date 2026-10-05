@@ -3,6 +3,7 @@ import { BadgeCheck, CalendarX2, ChevronLeft, ChevronRight, Rotate3d } from "luc
 
 export interface VehicleGalleryProps {
   images: string[];
+  turntable?: string[];
   name: string;
   busy: boolean;
   busyLabel: string;

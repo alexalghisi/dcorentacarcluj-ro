@@ -28,6 +28,7 @@ import { VehicleGallery } from "@/components/VehicleGallery";
 import { ReviewsSection } from "@/components/ReviewsSection";
 import { reviewsSchema } from "@/lib/reviews";
 import { vehicleImageSrc, type Vehicle } from "@/lib/vehicles";
+import { vehicleTurntable } from "@/lib/vehicle-turntables";
 import {
   conflictsFor,
   formatRangeRo,

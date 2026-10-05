@@ -3,6 +3,7 @@ import { Loader2, Upload, X } from "lucide-react";
 
 import { adminSaveVehicle, adminUploadImage } from "@/lib/admin.functions";
 import { FUELS, SEATS, TRANSMISSIONS, vehicleImageSrc, type Vehicle } from "@/lib/vehicles";
+import { vehicleTurntable } from "@/lib/vehicle-turntables";
 
 const inputClass =
   "mt-1.5 w-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary";
