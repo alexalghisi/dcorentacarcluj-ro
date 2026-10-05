@@ -227,7 +227,7 @@ export function VehicleGallery({
   const shadeTilt = hasSimulation ? 0 : multi ? (f < 0.5 ? -f : 1 - f) * TURN_DEG * 2 : pos;
   // Turntable angles: crisp switch with a very short crossfade around the midpoint,
   // no sliding/tilting — avoids the "double car" ghosting while turning.
-  const snapMix = smooth(Math.min(1, Math.max(0, (f - 0.3) / 0.4)));
+  const snapMix = smooth(Math.min(1, Math.max(0, (f - 0.45) / 0.1)));
 
   const frames = hasSimulation
     ? [
