@@ -20,6 +20,8 @@ export interface LocationPage {
   highlights: { label: string; value: string }[];
   sections: LocationSection[];
   faq: { q: string; a: string }[];
+  /** Sluguri ale localităților învecinate, afișate primele în linkurile interne. */
+  nearby?: string[];
 }
 
 
