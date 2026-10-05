@@ -42,6 +42,7 @@ export function VehicleDialog({ vehicle, nextSortOrder, onClose, onSaved }: Vehi
   const [uploading, setUploading] = useState(false);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const simulationFrames = vehicleTurntable(name, imageUrl);
 
   async function handleFiles(files: File[]) {
     setUploading(true);

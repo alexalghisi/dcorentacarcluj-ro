@@ -29,13 +29,17 @@ const mod = (a: number, n: number) => ((a % n) + n) % n;
  */
 export function VehicleGallery({
   images,
+  turntable = [],
   name,
   busy,
   busyLabel,
   rangeLabel,
   freeFromLabel,
 }: VehicleGalleryProps) {
-  const list = images.filter(Boolean);
+  const sourcePhotos = images.filter(Boolean);
+  const rotationFrames = turntable.filter(Boolean);
+  const hasSimulation = rotationFrames.length > 1;
+  const list = hasSimulation ? rotationFrames : sourcePhotos;
   const n = list.length;
   const multi = n > 1;
 
