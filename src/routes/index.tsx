@@ -755,6 +755,7 @@ function Index() {
               >
                 <VehicleGallery
                   images={c.images.length > 0 ? c.images : [c.img]}
+                  turntable={c.turntable}
                   name={c.name}
                   busy={c.busy}
                   busyLabel={c.busyLabel}

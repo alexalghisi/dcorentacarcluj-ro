@@ -323,6 +323,32 @@ export function VehicleDialog({ vehicle, nextSortOrder, onClose, onSaved }: Vehi
             </p>
           </div>
 
+          {simulationFrames.length > 0 && (
+            <div className="rounded-xl border border-border bg-surface/50 p-4">
+              <div className="flex items-center justify-between gap-3">
+                <div>
+                  <p className="text-sm font-medium">Simulare AI 360°</p>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    Cele șase unghiuri afișate în rotirea interactivă de pe site.
+                  </p>
+                </div>
+                <span className="rounded-full bg-primary px-2.5 py-1 text-xs font-bold text-primary-foreground">
+                  {simulationFrames.length} cadre
+                </span>
+              </div>
+              <div className="mt-3 grid grid-cols-3 gap-2 sm:grid-cols-6">
+                {simulationFrames.map((frame, i) => (
+                  <img
+                    key={frame}
+                    src={frame}
+                    alt={`${name || "Vehicul"} – unghi 360° ${i + 1}`}
+                    className="aspect-[4/3] w-full rounded-md border border-border object-cover"
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+
           <label className="flex items-center gap-3 text-sm">
             <input
               type="checkbox"
