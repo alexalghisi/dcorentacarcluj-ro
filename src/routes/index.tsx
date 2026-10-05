@@ -1,3 +1,4 @@
+import { getApprovedReviews, type VehicleReview } from "@/lib/vehicle-reviews.functions";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
@@ -122,11 +123,12 @@ const faq = [
 
 export const Route = createFileRoute("/")({
   loader: async () => {
-    const [vehicles, busy] = await Promise.all([
+    const [vehicles, busy, reviews] = await Promise.all([
       getPublicVehicles().catch(() => []),
       getBusyRanges().catch(() => []),
+      getApprovedReviews().catch(() => []),
     ]);
-    return { vehicles, busy };
+    return { vehicles, busy, reviews };
   },
 
   errorComponent: () => (
@@ -463,9 +465,10 @@ const conditions = [
 
 
 function Index() {
-  const { vehicles: dbVehicles, busy } = Route.useLoaderData() as {
+  const { vehicles: dbVehicles, busy, reviews } = Route.useLoaderData() as {
     vehicles: Vehicle[];
     busy: BookingRange[];
+    reviews: VehicleReview[];
   };
 
   const [from, setFrom] = useState(todayISO());
