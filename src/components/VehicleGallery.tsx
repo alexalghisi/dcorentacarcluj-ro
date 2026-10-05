@@ -16,7 +16,6 @@ const TURN_DEG = 38;
 /** Max tilt (deg) for a car with a single photo. */
 const SINGLE_MAX = 55;
 /** Inertia friction (per second) and spring stiffness for settling. */
-const FRICTION = 3.5;
 const SPRING = 9;
 
 const smooth = (t: number) => t * t * (3 - 2 * t);
