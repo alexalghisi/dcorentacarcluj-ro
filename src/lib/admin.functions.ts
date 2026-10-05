@@ -67,6 +67,21 @@ export const adminSearchConsole = createServerFn({ method: "GET" }).handler(asyn
   return fetchSearchConsoleStats();
 });
 
+/** Admin only: today's AI SEO priorities from real Search Console data (cached per day). */
+export const adminSeoPriorities = createServerFn({ method: "POST" })
+  .inputValidator((data) => z.object({ force: z.boolean().default(false) }).parse(data))
+  .handler(async ({ data }) => {
+    await requireAdmin();
+    const { getDailySeoPriorities } = await import("@/lib/seo-ai.server");
+    try {
+      return { ok: true as const, ...(await getDailySeoPriorities(data.force)) };
+    } catch (error) {
+      console.error("SEO priorities error", error);
+      const message = error instanceof Error ? error.message : "Eroare necunoscută";
+      return { ok: false as const, error: message };
+    }
+  });
+
 
 
 
