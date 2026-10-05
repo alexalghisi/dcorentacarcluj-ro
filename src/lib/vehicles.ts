@@ -33,6 +33,7 @@ export interface VehicleInput {
 /** Images live in a private bucket and are served through a cached public route. */
 export function vehicleImageSrc(imageUrl: string): string {
   if (!imageUrl) return "";
+  if (imageUrl.startsWith("/__l5e/assets-v1/")) return imageUrl;
   if (/^https?:\/\//.test(imageUrl)) return imageUrl;
   return `/api/public/vehicle-image/${imageUrl.split("/").map(encodeURIComponent).join("/")}`;
 }

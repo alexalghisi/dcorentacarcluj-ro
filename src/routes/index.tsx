@@ -67,7 +67,7 @@ const faq = [
   },
   {
     q: "Ce mașini sunt disponibile?",
-    a: "Flota include 9 mașini: Škoda Fabia, Renault Clio Symbol, două Ford Focus break, VW Passat break, două Volvo S40, Citroën C5 automat și Volvo XC90 cu 7 locuri. Toate au ITP, RCA, rovinietă și aer condiționat. Sunați pentru disponibilitatea exactă.",
+    a: "Flota include Škoda Fabia, Renault Clio Symbol, Renault Mégane Break, două Ford Focus break, VW Passat break, două Volvo S40, Citroën C5 automat și Volvo XC90 cu 7 locuri. Sunați pentru disponibilitatea, dotările și tariful exact al mașinii dorite.",
   },
   {
     q: "Ce înseamnă garanție (depozit) la închirierea unei mașini și trebuie să plătesc?",
@@ -627,7 +627,7 @@ function Index() {
             <dl className="mt-14 grid max-w-2xl grid-cols-2 gap-6 border-t border-ink-foreground/15 pt-8 md:grid-cols-4">
               {[
                 ["70 lei", "tarif de la / zi"],
-                ["9 mașini", "în flotă"],
+                [`${fleetItems.length} mașini`, "în flotă"],
                 ["ITP + RCA", "incluse"],
                 ["Gilău", "predare personală"],
               ].map(([big, small]) => (
