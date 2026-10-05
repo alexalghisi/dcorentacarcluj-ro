@@ -970,7 +970,7 @@ function Index() {
                 </div>
               </dl>
               <a
-                className="btn-primary mt-8 inline-flex"
+                className="btn-base btn-primary mt-8 w-full sm:w-auto"
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
