@@ -617,7 +617,7 @@ function Index() {
             <dl className="mt-14 grid max-w-2xl grid-cols-2 gap-6 border-t border-ink-foreground/15 pt-8 md:grid-cols-4">
               {[
                 ["70 lei", "tarif de la / zi"],
-                ["8 mașini", "în flotă"],
+                ["9 mașini", "în flotă"],
                 ["ITP + RCA", "incluse"],
                 ["Gilău", "predare personală"],
               ].map(([big, small]) => (
