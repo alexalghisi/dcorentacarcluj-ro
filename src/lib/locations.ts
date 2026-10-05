@@ -1,3 +1,5 @@
+import { countyLocations } from "./locations-county";
+
 export interface LocationSection {
   heading: string;
   paragraphs: string[];
@@ -1868,6 +1870,7 @@ export const locations: LocationPage[] = [
       },
     ],
   },
+  ...countyLocations,
 ];
 
 
