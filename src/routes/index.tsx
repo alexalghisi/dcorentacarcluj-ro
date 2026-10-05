@@ -773,9 +773,9 @@ function Index() {
                   </div>
                   <p className="mt-1 text-sm text-muted-foreground">{c.example}</p>
                   {(() => {
-                    const rs = reviews.filter((r) => r.vehicle_id === c.id);
+                    const rs = reviews.filter((r: VehicleReview) => r.vehicle_id === c.id);
                     if (rs.length === 0) return null;
-                    const avg = rs.reduce((s, r) => s + r.rating, 0) / rs.length;
+                    const avg = rs.reduce((s: number, r: VehicleReview) => s + r.rating, 0) / rs.length;
                     return (
                       <div className="mt-3 rounded-xl bg-surface p-3 text-sm">
                         <p className="font-semibold">
