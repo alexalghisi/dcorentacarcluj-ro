@@ -63,3 +63,18 @@ Distanțele le verific înainte să scriu textul. Pe fiecare pagină apar ca val
 - Funcția zilnică este un endpoint `/api/public/hooks/serp-check`, apelat de pg_cron și protejat cu o cheie secretă. Proiectul nu folosește Edge Functions, ci serverul aplicației. Un alt endpoint, programat săptămânal, trimite rezumatul.
 - Lungimea textului și prezența FAQ la concurenți se află citind pagina lor într-o operație ușoară, cu limită de câte pagini se citesc. Numărul de recenzii apare doar dacă SerpApi îl dă în rezultate.
 - Graficul se face cu recharts.
+
+## Recenzii la mașini (idee nouă)
+- Doar clienții care au închiriat mașina respectivă pot lăsa o recenzie.
+- Cum funcționează:
+  1. Când marchezi în admin o rezervare ca încheiată, primești un link unic pentru recenzie.
+  2. Îl trimiți clientului pe WhatsApp sau SMS.
+  3. Linkul poate fi folosit o singură dată și e legat de mașina închiriată.
+- Recenzia are note de la 1 la 5 stele și un comentariu.
+- Recenziile apar pe site doar după ce le aprobi tu în admin.
+- Pe cardul fiecărei mașini apar nota medie și recenziile aprobate. Google primește și el aceste note, ca date despre mașină.
+- Tehnic: un tabel `vehicle_reviews` legat de rezervare, cu cod unic de folosire și starea pending/approved.
+
+## Design pe telefon
+- Butoanele nu se mai lipesc de text: au spațiu în jur, colțuri rotunjite și pe telefon se întind pe toată lățimea.
+- Verific pe ecran de telefon toate secțiunile principale și repar ce iese strâmb.
