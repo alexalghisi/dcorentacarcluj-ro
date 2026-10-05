@@ -777,17 +777,36 @@ function Index() {
                   <p className="mt-1 text-sm text-muted-foreground">{c.example}</p>
                   {(() => {
                     const rs = reviews.filter((r: VehicleReview) => r.vehicle_id === c.id);
-                    if (rs.length === 0) return null;
-                    const avg = rs.reduce((s: number, r: VehicleReview) => s + r.rating, 0) / rs.length;
+                    const avg = rs.length
+                      ? rs.reduce((s: number, r: VehicleReview) => s + r.rating, 0) / rs.length
+                      : 0;
                     return (
-                      <div className="mt-3 rounded-xl bg-surface p-3 text-sm">
-                        <p className="font-semibold">
-                          <span className="text-accent">★</span> {avg.toFixed(1)} · {rs.length}{" "}
-                          {rs.length === 1 ? "recenzie" : "recenzii"} de la clienți
-                        </p>
-                        <p className="mt-1 line-clamp-2 text-muted-foreground">
-                          „{rs[0]?.comment}” — {rs[0]?.author}
-                        </p>
+                      <div className="mt-3 text-sm">
+                        <div
+                          className="flex items-center gap-2"
+                          aria-label={rs.length ? `Nota ${avg.toFixed(1)} din 5` : "Fără recenzii încă"}
+                        >
+                          {rs.length > 0 && <span className="font-bold">{avg.toFixed(1)}</span>}
+                          <span className="relative inline-block text-base leading-none tracking-wide">
+                            <span className="text-muted-foreground/30">★★★★★</span>
+                            <span
+                              className="absolute inset-0 overflow-hidden whitespace-nowrap text-accent"
+                              style={{ width: `${(avg / 5) * 100}%` }}
+                            >
+                              ★★★★★
+                            </span>
+                          </span>
+                          <span className="text-muted-foreground">
+                            {rs.length
+                              ? `(${rs.length} ${rs.length === 1 ? "recenzie" : "recenzii"})`
+                              : "Încă fără recenzii"}
+                          </span>
+                        </div>
+                        {rs[0] && (
+                          <p className="mt-1 line-clamp-2 text-muted-foreground">
+                            „{rs[0].comment}” — {rs[0].author}
+                          </p>
+                        )}
                       </div>
                     );
                   })()}
