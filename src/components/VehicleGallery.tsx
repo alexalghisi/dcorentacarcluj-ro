@@ -67,7 +67,7 @@ export function VehicleGallery({
         // On release it just settles softly on the closest angle.
         {
           v = 0;
-          const target = targetRef.current ?? (multi ? Math.round(p) : 0);
+          const target = targetRef.current ?? (hasSimulation ? p : multi ? Math.round(p) : 0);
           targetRef.current = target;
           p += (target - p) * (1 - Math.exp(-SPRING * dt));
           if (Math.abs(target - p) < (multi ? 0.002 : 0.1)) {
@@ -86,7 +86,7 @@ export function VehicleGallery({
       setPos(p);
       rafRef.current = requestAnimationFrame(tick);
     },
-    [multi],
+    [multi, hasSimulation],
   );
 
   const run = useCallback(() => {
@@ -113,7 +113,7 @@ export function VehicleGallery({
 
   function unitsPerPx() {
     const w = boxRef.current?.clientWidth || 320;
-    if (hasSimulation) return 4 / w; // one swipe across the photo ≈ half a turn
+    if (hasSimulation) return (n * 0.6) / w; // one swipe across the photo ≈ 216°, fully continuous
     return multi ? 1.6 / w : (SINGLE_MAX * 2.2) / w;
   }
 
@@ -170,7 +170,7 @@ export function VehicleGallery({
     setTouched(true);
     velRef.current = 0;
     if (multi) {
-      targetRef.current = Math.round(posRef.current) + dir;
+      targetRef.current = Math.round(posRef.current) + dir * (hasSimulation ? Math.round(n / 8) : 1);
       run();
     } else {
       targetRef.current = dir * 40;
@@ -201,14 +201,10 @@ export function VehicleGallery({
   const iB = multi ? mod(base + 1, n) : 0;
   const active = multi ? mod(Math.round(pos), n) : 0;
   const shadeTilt = hasSimulation ? 0 : multi ? (f < 0.5 ? -f : 1 - f) * TURN_DEG * 2 : pos;
-  // Turntable angles: crisp switch with a very short crossfade around the midpoint,
-  // no sliding/tilting — avoids the "double car" ghosting while turning.
-  const snapMix = smooth(Math.min(1, Math.max(0, (f - 0.45) / 0.1)));
 
   const frames = hasSimulation
     ? [
-        { src: list[iA], key: `a-${iA}`, opacity: 1, transform: "none", z: 1 },
-        { src: list[iB], key: `b-${iB}`, opacity: snapMix, transform: "none", z: 2 },
+        { src: list[active], key: "spin", opacity: 1, transform: "none", z: 1 },
       ]
     : multi
     ? [
@@ -334,12 +330,12 @@ export function VehicleGallery({
         </span>
         {multi && (
           <span className="pointer-events-none absolute bottom-3 right-3 z-[4] rounded-full bg-foreground/70 px-2.5 py-1 text-[0.7rem] font-semibold text-background">
-            {active + 1}/{n} {hasSimulation ? "unghiuri" : "foto"}
+            {hasSimulation ? `${Math.round((active * 360) / n)}°` : `${active + 1}/${n} foto`}
           </span>
         )}
       </div>
 
-      {multi && (
+      {multi && !hasSimulation && (
         <div className="flex gap-2 overflow-x-auto border-b border-border/60 bg-surface/60 px-3 py-2">
           {list.map((img, i) => (
             <button

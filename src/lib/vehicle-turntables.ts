@@ -44,3 +44,14 @@ export function vehicleTurntable(name: string, imageUrl = ""): string[] {
   const set = framesByKey[key] ?? {};
   return ORDER.map((a) => set[a]).filter((u): u is string => Boolean(u));
 }
+
+/** Number of positions in each smooth spin (one every 5°), served from /public/spin/<key>/00..71.jpg. */
+export const SPIN_FRAMES = 72;
+const SPIN_KEYS = new Set(["fabia", "clio", "passat", "c5", "xc90", "s40grey", "s40", "focusblack", "focus"]);
+
+/** Returns the 72 smooth-rotation positions for a known fleet vehicle (empty if none). */
+export function vehicleSpin(name: string, imageUrl = ""): string[] {
+  const key = keyForVehicle(name, imageUrl);
+  if (!key || !SPIN_KEYS.has(key)) return [];
+  return Array.from({ length: SPIN_FRAMES }, (_, i) => `/spin/${key}/${String(i).padStart(2, "0")}.jpg`);
+}
