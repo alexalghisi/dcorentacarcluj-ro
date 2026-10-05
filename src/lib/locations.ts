@@ -1368,7 +1368,7 @@ export const locations: LocationPage[] = [
     intro:
       "Vezi ce mașini de închiriat sunt disponibile, cu tarif și clasă, și verifică perioada dorită direct în calendarul de disponibilitate de pe prima pagină.",
     highlights: [
-      { label: "Modele", value: "8 mașini" },
+      { label: "Modele", value: "9 mașini" },
       { label: "Tarif de la", value: "70 lei/zi" },
       { label: "Cutie", value: "Manuală și automată" },
       { label: "Locuri", value: "5 sau 7" },
