@@ -345,11 +345,11 @@ export function VehicleGallery({
           }`}
         >
           <Rotate3d className={`h-3.5 w-3.5 ${touched ? "" : "animate-pulse"}`} />
-          360° · trage
+          {hasSimulation ? "360° AI · trage" : "360° · trage"}
         </span>
         {multi && (
           <span className="pointer-events-none absolute bottom-3 right-3 z-[4] rounded-full bg-foreground/70 px-2.5 py-1 text-[0.7rem] font-semibold text-background">
-            {active + 1}/{n} foto
+            {active + 1}/{n} {hasSimulation ? "unghiuri" : "foto"}
           </span>
         )}
       </div>
