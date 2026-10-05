@@ -16,7 +16,6 @@ const TURN_DEG = 38;
 /** Max tilt (deg) for a car with a single photo. */
 const SINGLE_MAX = 55;
 /** Inertia friction (per second) and spring stiffness for settling. */
-const FRICTION = 3.5;
 const SPRING = 9;
 
 const smooth = (t: number) => t * t * (3 - 2 * t);
@@ -64,15 +63,9 @@ export function VehicleGallery({
       let v = velRef.current;
 
       if (!drag.current) {
-        if (Math.abs(v) > (multi ? 0.35 : 25)) {
-          // inertia
-          p += v * dt;
-          v *= Math.exp(-FRICTION * dt);
-          if (!multi && Math.abs(p) > SINGLE_MAX) {
-            p = Math.sign(p) * SINGLE_MAX;
-            v = 0;
-          }
-        } else {
+        // No inertia: the car turns only while the finger/mouse is moving.
+        // On release it just settles softly on the closest angle.
+        {
           v = 0;
           const target = targetRef.current ?? (multi ? Math.round(p) : 0);
           targetRef.current = target;
@@ -116,34 +109,7 @@ export function VehicleGallery({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [list.join("|")]);
 
-  // Gentle demo turn the first time the card is visible.
-  useEffect(() => {
-    const el = boxRef.current;
-    if (!el || typeof IntersectionObserver === "undefined") return;
-    const timers: number[] = [];
-    const io = new IntersectionObserver(
-      (entries) => {
-        if (!entries[0]?.isIntersecting) return;
-        io.disconnect();
-        const seq = hasSimulation ? [1, 2, 1, 0] : multi ? [0.45, -0.3, 0] : [-30, 30, 0];
-        seq.forEach((v, i) =>
-          timers.push(
-            window.setTimeout(() => {
-              if (drag.current || userRef.current) return;
-              targetRef.current = v;
-              run();
-            }, 400 + i * 700),
-          ),
-        );
-      },
-      { threshold: 0.6 },
-    );
-    io.observe(el);
-    return () => {
-      io.disconnect();
-      timers.forEach(clearTimeout);
-    };
-  }, [multi, hasSimulation, run]);
+  // The car never turns on its own — only while the visitor drags it.
 
   function unitsPerPx() {
     const w = boxRef.current?.clientWidth || 320;
