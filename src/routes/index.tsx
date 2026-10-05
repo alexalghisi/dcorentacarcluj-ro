@@ -65,7 +65,15 @@ const faq = [
   },
   {
     q: "Ce mașini sunt disponibile?",
-    a: "Flota include Škoda Fabia, Renault Clio Symbol, Ford Focus break, VW Passat break, două Volvo S40, Citroën C5 automat și Volvo XC90 cu 7 locuri. Toate au ITP, RCA, rovinietă și aer condiționat. Sunați pentru disponibilitatea exactă.",
+    a: "Flota include 9 mașini: Škoda Fabia, Renault Clio Symbol, două Ford Focus break, VW Passat break, două Volvo S40, Citroën C5 automat și Volvo XC90 cu 7 locuri. Toate au ITP, RCA, rovinietă și aer condiționat. Sunați pentru disponibilitatea exactă.",
+  },
+  {
+    q: "Ce înseamnă garanție (depozit) la închirierea unei mașini și trebuie să plătesc?",
+    a: "Garanția sau depozitul este o sumă blocată de multe firme de închirieri până la returnarea mașinii. La DCO Rent a Car Cluj nu se cere garanție: plătești doar zilele de închiriere.",
+  },
+  {
+    q: "Ce taxe se plătesc la închirierea unei mașini în Cluj?",
+    a: "Plătești tariful de închiriere, de la 70 lei/zi, negociabil după durată. ITP-ul, asigurarea RCA și rovinieta sunt deja incluse, iar prețul final ți-l confirmăm la telefon înainte de rezervare.",
   },
   {
     q: "Ce documente sunt necesare pentru închiriere?",
