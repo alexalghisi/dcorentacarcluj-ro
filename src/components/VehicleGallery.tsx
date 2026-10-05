@@ -54,6 +54,7 @@ export function VehicleGallery({
   const boxRef = useRef<HTMLDivElement>(null);
   const [dragging, setDragging] = useState(false);
   const [touched, setTouched] = useState(false);
+  const userRef = useRef(false);
 
   const tick = useCallback(
     (t: number) => {
@@ -124,11 +125,11 @@ export function VehicleGallery({
       (entries) => {
         if (!entries[0]?.isIntersecting) return;
         io.disconnect();
-        const seq = multi ? [0.45, -0.3, 0] : [-30, 30, 0];
+        const seq = hasSimulation ? [1, 2, 1, 0] : multi ? [0.45, -0.3, 0] : [-30, 30, 0];
         seq.forEach((v, i) =>
           timers.push(
             window.setTimeout(() => {
-              if (drag.current) return;
+              if (drag.current || userRef.current) return;
               targetRef.current = v;
               run();
             }, 400 + i * 700),
@@ -142,7 +143,7 @@ export function VehicleGallery({
       io.disconnect();
       timers.forEach(clearTimeout);
     };
-  }, [multi, run]);
+  }, [multi, hasSimulation, run]);
 
   function unitsPerPx() {
     const w = boxRef.current?.clientWidth || 320;
@@ -161,6 +162,7 @@ export function VehicleGallery({
       /* ignore */
     }
     setDragging(true);
+    userRef.current = true;
     setTouched(true);
   }
   function onMove(e: React.PointerEvent<HTMLDivElement>) {
@@ -192,6 +194,7 @@ export function VehicleGallery({
     run();
   }
   function nudge(dir: 1 | -1) {
+    userRef.current = true;
     setTouched(true);
     velRef.current = 0;
     if (multi) {
@@ -207,6 +210,7 @@ export function VehicleGallery({
     }
   }
   function goTo(i: number) {
+    userRef.current = true;
     setTouched(true);
     velRef.current = 0;
     const base = Math.round(posRef.current);
