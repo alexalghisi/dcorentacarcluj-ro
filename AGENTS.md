@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- AI SEO priorities are generated server-side from live Search Console data and cached one row per day in `seo_priorities`; the admin panel reads the cache unless the admin regenerates — avoids repeat AI cost.
