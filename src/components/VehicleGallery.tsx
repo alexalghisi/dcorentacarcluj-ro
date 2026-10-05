@@ -54,6 +54,7 @@ export function VehicleGallery({
   const boxRef = useRef<HTMLDivElement>(null);
   const [dragging, setDragging] = useState(false);
   const [touched, setTouched] = useState(false);
+  const userRef = useRef(false);
 
   const tick = useCallback(
     (t: number) => {
@@ -124,11 +125,11 @@ export function VehicleGallery({
       (entries) => {
         if (!entries[0]?.isIntersecting) return;
         io.disconnect();
-        const seq = multi ? [0.45, -0.3, 0] : [-30, 30, 0];
+        const seq = hasSimulation ? [1, 2, 1, 0] : multi ? [0.45, -0.3, 0] : [-30, 30, 0];
         seq.forEach((v, i) =>
           timers.push(
             window.setTimeout(() => {
-              if (drag.current) return;
+              if (drag.current || userRef.current) return;
               targetRef.current = v;
               run();
             }, 400 + i * 700),
@@ -142,10 +143,11 @@ export function VehicleGallery({
       io.disconnect();
       timers.forEach(clearTimeout);
     };
-  }, [multi, run]);
+  }, [multi, hasSimulation, run]);
 
   function unitsPerPx() {
     const w = boxRef.current?.clientWidth || 320;
+    if (hasSimulation) return 4 / w; // one swipe across the photo ≈ half a turn
     return multi ? 1.6 / w : (SINGLE_MAX * 2.2) / w;
   }
 
@@ -160,6 +162,7 @@ export function VehicleGallery({
       /* ignore */
     }
     setDragging(true);
+    userRef.current = true;
     setTouched(true);
   }
   function onMove(e: React.PointerEvent<HTMLDivElement>) {
@@ -173,9 +176,15 @@ export function VehicleGallery({
       p = Math.max(-SINGLE_MAX, Math.min(SINGLE_MAX, p));
     }
     const now = performance.now();
+    if (e.clientX === d.lx) {
+      // finger resting: no spin on release
+      if (now - d.lt > 80) velRef.current = 0;
+      return;
+    }
     const dtm = Math.max(now - d.lt, 1) / 1000;
     const inst = ((multi ? -1 : 1) * (e.clientX - d.lx) * k) / dtm;
-    velRef.current = velRef.current * 0.6 + inst * 0.4;
+    const vmax = hasSimulation ? 10 : multi ? 6 : 400;
+    velRef.current = Math.max(-vmax, Math.min(vmax, velRef.current * 0.6 + inst * 0.4));
     d.lx = e.clientX;
     d.lt = now;
     posRef.current = p;
@@ -191,6 +200,7 @@ export function VehicleGallery({
     run();
   }
   function nudge(dir: 1 | -1) {
+    userRef.current = true;
     setTouched(true);
     velRef.current = 0;
     if (multi) {
@@ -206,6 +216,7 @@ export function VehicleGallery({
     }
   }
   function goTo(i: number) {
+    userRef.current = true;
     setTouched(true);
     velRef.current = 0;
     const base = Math.round(posRef.current);
@@ -226,7 +237,7 @@ export function VehicleGallery({
   const shadeTilt = hasSimulation ? 0 : multi ? (f < 0.5 ? -f : 1 - f) * TURN_DEG * 2 : pos;
   // Turntable angles: crisp switch with a very short crossfade around the midpoint,
   // no sliding/tilting — avoids the "double car" ghosting while turning.
-  const snapMix = Math.min(1, Math.max(0, (f - 0.42) / 0.16));
+  const snapMix = smooth(Math.min(1, Math.max(0, (f - 0.45) / 0.1)));
 
   const frames = hasSimulation
     ? [

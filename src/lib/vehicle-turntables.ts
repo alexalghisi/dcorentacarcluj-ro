@@ -4,16 +4,20 @@ const turntableFiles = import.meta.glob<string>("../assets/turntable/*.jpg", {
   import: "default",
 });
 
-const framesByKey = Object.entries(turntableFiles).reduce<Record<string, string[]>>(
+/**
+ * Turntable order (car turning one way, 45° per step):
+ * front, front-left 3/4, left side, rear-left 3/4, rear, rear-right 3/4, right side, front-right 3/4.
+ */
+const ORDER = ["0", "1", "L", "2", "3", "4", "R", "5"];
+
+const framesByKey = Object.entries(turntableFiles).reduce<Record<string, Record<string, string>>>(
   (sets, [path, url]) => {
-    const match = path.match(/\/([^/]+)-(\d+)\.jpg$/);
+    const match = path.match(/\/([^/]+)-([0-9LR])\.jpg$/);
     if (!match) return sets;
     const key = match[1];
-    const index = Number(match[2]);
-    if (!key || !Number.isInteger(index)) return sets;
-    const frames = sets[key] ?? [];
-    frames[index] = url;
-    sets[key] = frames;
+    const angle = match[2];
+    if (!key || !angle) return sets;
+    sets[key] = { ...(sets[key] ?? {}), [angle]: url };
     return sets;
   },
   {},
@@ -33,9 +37,10 @@ function keyForVehicle(name: string, imageUrl = ""): string | null {
   return null;
 }
 
-/** Returns the six AI-assisted angles belonging to a known fleet vehicle. */
+/** Returns the AI-assisted 360° angles belonging to a known fleet vehicle, in turning order. */
 export function vehicleTurntable(name: string, imageUrl = ""): string[] {
   const key = keyForVehicle(name, imageUrl);
   if (!key) return [];
-  return (framesByKey[key] ?? []).filter(Boolean);
+  const set = framesByKey[key] ?? {};
+  return ORDER.map((a) => set[a]).filter((u): u is string => Boolean(u));
 }
