@@ -237,9 +237,14 @@ export function VehicleGallery({
   const active = multi ? mod(Math.round(pos), n) : 0;
   const shadeTilt = hasSimulation ? 0 : multi ? (f < 0.5 ? -f : 1 - f) * TURN_DEG * 2 : pos;
 
+  useEffect(() => {
+    if (hasSimulation) drawFrame(active);
+  }, [active, hasSimulation, drawFrame]);
+
   const frames = hasSimulation
     ? [
-        { src: list[active], key: "spin", opacity: 1, transform: "none", z: 1 },
+        // first angle kept as a real image for Google; the canvas draws on top
+        { src: list[0], key: "spin", opacity: 1, transform: "none", z: 0 },
       ]
     : multi
     ? [
@@ -283,6 +288,13 @@ export function VehicleGallery({
           className={`relative h-56 select-none ${dragging ? "cursor-grabbing" : "cursor-grab"}`}
           style={{ perspective: "900px", touchAction: "pan-y", WebkitUserSelect: "none" }}
         >
+          {hasSimulation && (
+            <canvas
+              ref={canvasRef}
+              aria-hidden
+              className={`pointer-events-none absolute inset-0 z-[1] h-full w-full ${busy ? "grayscale" : ""}`}
+            />
+          )}
           {frames.map((fr) =>
             fr.opacity < 0.01 ? null : (
               <img
