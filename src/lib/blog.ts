@@ -722,6 +722,114 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "parcare-in-cluj-napoca-ghid-pentru-soferi",
+    title: "Parcare în Cluj-Napoca: ghid practic pentru șoferii cu mașină închiriată",
+    metaTitle: "Parcare în Cluj-Napoca: ghid pentru șoferi | DCO",
+    description:
+      "Cum parchezi în Cluj-Napoca cu o mașină închiriată: zone cu plată, parcări cu etaj, ce mașină alegi pentru centru și cum eviți amenzile.",
+    date: "2026-10-08",
+    readingMinutes: 5,
+    category: "Ghid",
+    excerpt:
+      "Sfaturi simple ca să parchezi fără stres în Cluj-Napoca: cum plătești, unde cauți loc și de ce o mașină mică te ajută în centru.",
+    sections: [
+      {
+        heading: "Parcarea în centru se plătește",
+        paragraphs: [
+          "În majoritatea zonelor centrale din Cluj-Napoca parcarea pe stradă se plătește. Plata se face de obicei prin SMS, aplicație sau la automat. Tarifele și orele de plată diferă de la o zonă la alta, așa că citește mereu indicatorul de pe stradă înainte să pleci de lângă mașină.",
+          "Dacă stai mai multe ore în centru, o parcare cu etaj sau subterană e adesea mai simplă decât să cauți loc pe stradă.",
+        ],
+        bullets: [
+          "Citește indicatorul zonei înainte de a parca",
+          "Păstrează confirmarea plății (SMS sau aplicație)",
+          "Pentru vizite lungi, caută o parcare cu etaj",
+        ],
+      },
+      {
+        heading: "Ce mașină închiriezi dacă stai mult prin oraș",
+        paragraphs: [
+          "Străzile din centrul vechi și din cartierele mai aglomerate sunt înguste, iar locurile de parcare sunt mici. O mașină economică precum Škoda Fabia sau Renault Clio Symbol se parchează mult mai ușor și consumă puțin în trafic. Un break sau un SUV e mai potrivit pentru drumuri lungi și bagaje.",
+        ],
+      },
+      {
+        heading: "Cum eviți amenzile și ridicarea mașinii",
+        paragraphs: [
+          "Nu parca pe trecerile de pietoni, în stații, pe pistele de biciclete sau pe locurile rezervate. Mașinile parcate neregulamentar pot fi ridicate. Amenzile primite pe perioada închirierii rămân în sarcina șoferului, așa că merită să fii atent.",
+        ],
+      },
+      {
+        heading: "Alternativa: lași mașina în afara centrului",
+        paragraphs: [
+          "Dacă stai în Gilău sau Florești, poți intra în oraș cu mașina până la o zonă cu parcare mai ușoară și continua cu transportul public. Așa folosești mașina închiriată pentru excursiile din afara Clujului, unde e cu adevărat utilă.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Cum plătesc parcarea în Cluj-Napoca?",
+        a: "În majoritatea zonelor prin SMS, aplicație sau la automat. Metoda și tariful sunt afișate pe indicatorul zonei.",
+      },
+      {
+        q: "Cine plătește amenda de parcare primită cu mașina închiriată?",
+        a: "Amenzile primite în perioada închirierii sunt în sarcina șoferului care a închiriat mașina.",
+      },
+    ],
+  },
+  {
+    slug: "ce-masina-sa-inchiriezi-in-cluj-oras-munte-familie",
+    title: "Ce mașină să închiriezi în Cluj: pentru oraș, munte sau familie",
+    metaTitle: "Ce mașină să închiriezi în Cluj: oraș, munte, familie",
+    description:
+      "Cum alegi mașina potrivită la un rent a car în Cluj: economică pentru oraș, break pentru bagaje, automată pentru confort sau 7 locuri pentru familie.",
+    date: "2026-10-08",
+    readingMinutes: 5,
+    category: "Sfaturi",
+    excerpt:
+      "Mașina potrivită îți scade costul și îți face drumul mai ușor. Iată cum alegi în funcție de drum, bagaje și numărul de persoane.",
+    sections: [
+      {
+        heading: "Pentru oraș și navetă: mașină economică",
+        paragraphs: [
+          "Dacă rulezi mai ales prin Cluj-Napoca, Florești sau Gilău, o mașină mică precum Škoda Fabia sau Renault Clio Symbol e alegerea cea mai ieftină: consum mic în trafic și parcare ușoară. Tarifele pornesc de la 70 lei/zi.",
+        ],
+      },
+      {
+        heading: "Pentru bagaje și drumuri lungi: break",
+        paragraphs: [
+          "Pentru vacanțe cu bagaje, mutări mici sau drumuri lungi pe A3 și DN1, un break oferă mult spațiu. În flotă avem VW Passat Break, Ford Focus Break și Renault Mégane Break.",
+        ],
+      },
+      {
+        heading: "Pentru confort: cutie automată",
+        paragraphs: [
+          "Dacă nu ești obișnuit cu schimbătorul manual sau stai mult în coloană, alege o mașină automată. Citroën C5 are cutie automată, iar disponibilitatea o confirmăm la telefon.",
+        ],
+      },
+      {
+        heading: "Pentru familie și grupuri: 7 locuri",
+        paragraphs: [
+          "Pentru 5–7 persoane sau drumuri spre Apuseni cu toată familia, Volvo XC90 cu 7 locuri e cea mai potrivită. Rezervă din timp în vacanțe și sărbători.",
+        ],
+        bullets: [
+          "Oraș: Škoda Fabia, Renault Clio Symbol",
+          "Bagaje: VW Passat, Ford Focus, Renault Mégane Break",
+          "Automată: Citroën C5",
+          "7 locuri: Volvo XC90",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Care e cea mai ieftină mașină de închiriat în Cluj?",
+        a: "Clasa economică (Škoda Fabia, Renault Clio Symbol), de la 70 lei/zi.",
+      },
+      {
+        q: "Aveți mașină de 7 locuri în Cluj?",
+        a: "Da, Volvo XC90. Sună la (0742) 925 934 pentru disponibilitate.",
+      },
+    ],
+  },
 ];
 
 

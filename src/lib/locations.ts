@@ -80,6 +80,25 @@ export const locations: LocationPage[] = [
           "Predarea se face personal în Gilău (25 km de Aeroportul Avram Iancu), în Florești sau în Cluj-Napoca, la ora stabilită de comun acord. Tocmai pentru că nu avem birou în terminal, tariful zilnic rămâne mic.",
         ],
       },
+      {
+        heading: "Rent a car Cluj-Napoca: sfaturi pentru condus și parcare în oraș",
+        paragraphs: [
+          "În centrul Clujului parcarea se plătește în majoritatea zonelor, de obicei prin SMS sau aplicație. Verifică întotdeauna indicatoarele din zonă. Pentru vizite în centru, o mașină mică e mult mai ușor de parcat decât un SUV sau un break.",
+          "Orele de vârf (dimineața și după-amiaza) aglomerează Calea Florești, Calea Turzii, Bulevardul Muncii și drumul spre aeroport. Dacă ai un zbor de prins, pleacă din timp.",
+        ],
+        bullets: [
+          "Mașină mică pentru centru și cartiere aglomerate",
+          "Plata parcării prin SMS sau aplicație, după indicatoare",
+          "Pleacă din timp spre aeroport în orele de vârf",
+        ],
+      },
+      {
+        heading: "Rent a car Cluj pentru turiști, firme și localnici",
+        paragraphs: [
+          "Turiștii închiriază de obicei pentru Salina Turda, Cheile Turzii, Lacul Tarnița, Munții Apuseni sau Transfăgărășan. Firmele cer mașini pentru angajați detașați sau proiecte de câteva săptămâni, cu factură. Localnicii ne sună cel mai des când mașina proprie e în service sau în daună.",
+          "Pentru fiecare situație îți recomandăm mașina potrivită: economică pentru oraș, break pentru bagaje, automată pentru confort sau 7 locuri pentru grupuri.",
+        ],
+      },
     ],
     faq: [
       {
@@ -97,6 +116,18 @@ export const locations: LocationPage[] = [
       {
         q: "Aveți mașini cu cutie automată sau de 7 locuri?",
         a: "Da. Citroën C5 are cutie automată, iar Volvo XC90 are 7 locuri. Confirmă disponibilitatea la (0742) 925 934.",
+      },
+      {
+        q: "Puteți preda mașina la Aeroportul Cluj?",
+        a: "Nu avem birou în aeroport. Predarea e personală, în Gilău sau la un punct stabilit telefonic, iar ora o adaptăm după zborul tău.",
+      },
+      {
+        q: "Pot închiria o mașină în Cluj pentru o lună?",
+        a: "Da. Pentru o lună sau mai mult, tariful pe zi scade și se stabilește în funcție de mașina aleasă. Sună la (0742) 925 934 pentru o ofertă.",
+      },
+      {
+        q: "Pot ieși din țară cu mașina închiriată din Cluj?",
+        a: "Întreabă înainte de rezervare, la (0742) 925 934. Condițiile pentru ieșirea din țară se stabilesc separat, pentru fiecare închiriere.",
       },
     ],
   },
@@ -285,6 +316,24 @@ export const locations: LocationPage[] = [
           "Flota include variantă automată (Citroën C5), break-uri spațioase (VW Passat, Ford Focus), berline Volvo S40, mașini mici și economice (Škoda Fabia, Renault Clio Symbol) și un Volvo XC90 cu 7 locuri. Sunați pentru disponibilitate în perioada dorită.",
         ],
       },
+      {
+        heading: "Gilău, poarta spre Apuseni și autostrada A3",
+        paragraphs: [
+          "Gilău e punctul de plecare ideal pentru drumuri spre vest și spre munte: DN1 spre Huedin și Oradea, drumul spre Lacul Tarnița și Mărișel, iar nodul A3 Gilău te duce rapid spre Turda și Câmpia Turzii fără să intri în traficul din Cluj-Napoca.",
+          "Când ridici mașina de la noi din Gilău, eviți complet aglomerația din oraș la plecare. Pentru turiștii care vin cu avionul, stabilim predarea la ora potrivită după aterizare.",
+        ],
+        bullets: [
+          "Acces rapid la nodul A3 Gilău",
+          "DN1 spre Huedin, Bologa și Oradea",
+          "Drum direct spre Tarnița, Mărișel și Beliș",
+        ],
+      },
+      {
+        heading: "Ce mașină alegi pentru drumurile din jurul Gilăului",
+        paragraphs: [
+          "Pentru drumuri de munte cu bagaje sau mai multe persoane recomandăm un break (VW Passat, Ford Focus, Renault Mégane Break) sau Volvo XC90 cu 7 locuri. Pentru navetă spre Cluj-Napoca sau Florești, o mașină economică precum Škoda Fabia sau Renault Clio Symbol consumă cel mai puțin. Iarna, toate mașinile au anvelope de sezon.",
+        ],
+      },
     ],
     faq: [
       {
@@ -298,6 +347,18 @@ export const locations: LocationPage[] = [
       {
         q: "Există tarif pentru o lună întreagă?",
         a: "Da, pentru închirieri lungi tariful pe zi scade semnificativ. Sunați pentru o ofertă.",
+      },
+      {
+        q: "Cât de departe e Gilău de Aeroportul Cluj?",
+        a: "Aproximativ 25 km. De la aeroport traversezi Cluj-Napoca spre vest, pe DN1. Ora de predare o stabilim după ora aterizării tale.",
+      },
+      {
+        q: "Pot ridica mașina în Gilău și pleca direct pe autostrada A3?",
+        a: "Da. Nodul A3 Gilău este foarte aproape, deci poți pleca rapid spre Turda sau Târgu Mureș fără să treci prin Cluj-Napoca.",
+      },
+      {
+        q: "Ce acte îmi trebuie pentru închiriere în Gilău?",
+        a: "Buletin sau pașaport și permis de conducere valabil de minimum un an. Nu cerem garanție și nici card de credit.",
       },
     ],
   },
@@ -545,6 +606,24 @@ export const locations: LocationPage[] = [
           "Ne suni la (0742) 925 934 sau scrii pe WhatsApp cu perioada și clasa dorită. Confirmăm rapid ce mașini sunt libere și stabilim locul predării în Florești sau la baza din Gilău.",
         ],
       },
+      {
+        heading: "Navetă Florești – Cluj-Napoca cu mașina închiriată",
+        paragraphs: [
+          "Drumul dintre Florești și Cluj-Napoca trece prin Calea Florești, unde în orele de vârf coloana poate fi lungă. Dacă închiriezi pentru navetă, o mașină mică și economică e cea mai practică: consum mic în coloană și se parchează ușor în oraș. Dacă preferi să nu schimbi vitezele în trafic, avem și o mașină cu cutie automată.",
+          "Pentru drumuri spre centru, zona Mănăștur, Iulius Mall sau spitalele din Cluj, plecarea mai devreme de ora de vârf economisește mult timp. Pentru drumuri spre Aeroportul Cluj, calculează traversarea întregului oraș.",
+        ],
+        bullets: [
+          "Mașină economică pentru coloana de pe Calea Florești",
+          "Cutie automată disponibilă (Citroën C5)",
+          "Tarif lunar pentru navetă pe termen lung",
+        ],
+      },
+      {
+        heading: "Excursii de weekend din Florești",
+        paragraphs: [
+          "Din Florești ești aproape de ieșirea spre vest: Gilău, Lacul Tarnița, Lacul Beliș-Fântânele și Munții Apuseni. Pentru drumuri de munte cu bagaje sau mai multe persoane, un break (VW Passat, Ford Focus, Renault Mégane) sau Volvo XC90 cu 7 locuri e mai potrivit decât o mașină mică.",
+        ],
+      },
     ],
     faq: [
       {
@@ -566,6 +645,14 @@ export const locations: LocationPage[] = [
       {
         q: "Se plătește garanție la închirierile din Florești?",
         a: "Nu. La noi nu se percepe garanție și nu blocăm bani pe card — plătești doar tariful de închiriere.",
+      },
+      {
+        q: "Pot închiria o mașină în Florești fără card de credit?",
+        a: "Da. Nu cerem card de credit și nu blocăm bani pe card. Ai nevoie doar de buletin și permis valabil de cel puțin un an.",
+      },
+      {
+        q: "Ce mașină recomandați pentru traficul Florești – Cluj-Napoca?",
+        a: "Pentru navetă zilnică pe Calea Florești recomandăm o mașină economică (Škoda Fabia sau Renault Clio Symbol). Dacă preferi să nu schimbi vitezele în coloană, întreabă de Citroën C5 cu cutie automată.",
       },
     ],
   },
