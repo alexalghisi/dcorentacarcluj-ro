@@ -100,11 +100,46 @@ export function VehicleGallery({
     if (rafRef.current != null) cancelAnimationFrame(rafRef.current);
   }, []);
 
-  // Preload every angle so turning never flashes or skips.
+  // Preload + decode every angle so turning never flashes or skips.
+  const imgsRef = useRef<HTMLImageElement[]>([]);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const lastDrawn = useRef(-1);
+  const drawFrame = useCallback((idx: number) => {
+    const c = canvasRef.current;
+    const imgs = imgsRef.current;
+    if (!c || !imgs.length) return;
+    // nearest already-decoded frame, so it never goes blank
+    let img: HTMLImageElement | undefined;
+    for (let d = 0; d < imgs.length; d++) {
+      const a = imgs[mod(idx + d, imgs.length)];
+      const b = imgs[mod(idx - d, imgs.length)];
+      if (a?.complete && a.naturalWidth) { img = a; break; }
+      if (b?.complete && b.naturalWidth) { img = b; break; }
+    }
+    if (!img) return;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const w = c.clientWidth * dpr;
+    const h = c.clientHeight * dpr;
+    if (c.width !== w || c.height !== h) { c.width = w; c.height = h; }
+    const ctx = c.getContext("2d");
+    if (!ctx) return;
+    const s = Math.max(w / img.naturalWidth, h / img.naturalHeight);
+    const dw = img.naturalWidth * s;
+    const dh = img.naturalHeight * s;
+    ctx.imageSmoothingQuality = "high";
+    ctx.drawImage(img, (w - dw) / 2, (h - dh) / 2, dw, dh);
+    lastDrawn.current = idx;
+  }, []);
+
   useEffect(() => {
-    list.forEach((s) => {
+    imgsRef.current = list.map((s, i) => {
       const img = new Image();
+      img.decoding = "async";
       img.src = s;
+      img.onload = () => {
+        if (hasSimulation && (i === 0 || lastDrawn.current < 0)) drawFrame(lastDrawn.current < 0 ? 0 : lastDrawn.current);
+      };
+      return img;
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [list.join("|")]);
@@ -202,9 +237,14 @@ export function VehicleGallery({
   const active = multi ? mod(Math.round(pos), n) : 0;
   const shadeTilt = hasSimulation ? 0 : multi ? (f < 0.5 ? -f : 1 - f) * TURN_DEG * 2 : pos;
 
+  useEffect(() => {
+    if (hasSimulation) drawFrame(active);
+  }, [active, hasSimulation, drawFrame]);
+
   const frames = hasSimulation
     ? [
-        { src: list[active], key: "spin", opacity: 1, transform: "none", z: 1 },
+        // first angle kept as a real image for Google; the canvas draws on top
+        { src: list[0], key: "spin", opacity: 1, transform: "none", z: 0 },
       ]
     : multi
     ? [
@@ -248,6 +288,13 @@ export function VehicleGallery({
           className={`relative h-56 select-none ${dragging ? "cursor-grabbing" : "cursor-grab"}`}
           style={{ perspective: "900px", touchAction: "pan-y", WebkitUserSelect: "none" }}
         >
+          {hasSimulation && (
+            <canvas
+              ref={canvasRef}
+              aria-hidden
+              className={`pointer-events-none absolute inset-0 z-[1] h-full w-full ${busy ? "grayscale" : ""}`}
+            />
+          )}
           {frames.map((fr) =>
             fr.opacity < 0.01 ? null : (
               <img
