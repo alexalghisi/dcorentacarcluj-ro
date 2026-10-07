@@ -100,11 +100,46 @@ export function VehicleGallery({
     if (rafRef.current != null) cancelAnimationFrame(rafRef.current);
   }, []);
 
-  // Preload every angle so turning never flashes or skips.
+  // Preload + decode every angle so turning never flashes or skips.
+  const imgsRef = useRef<HTMLImageElement[]>([]);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const lastDrawn = useRef(-1);
+  const drawFrame = useCallback((idx: number) => {
+    const c = canvasRef.current;
+    const imgs = imgsRef.current;
+    if (!c || !imgs.length) return;
+    // nearest already-decoded frame, so it never goes blank
+    let img: HTMLImageElement | undefined;
+    for (let d = 0; d < imgs.length; d++) {
+      const a = imgs[mod(idx + d, imgs.length)];
+      const b = imgs[mod(idx - d, imgs.length)];
+      if (a?.complete && a.naturalWidth) { img = a; break; }
+      if (b?.complete && b.naturalWidth) { img = b; break; }
+    }
+    if (!img) return;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const w = c.clientWidth * dpr;
+    const h = c.clientHeight * dpr;
+    if (c.width !== w || c.height !== h) { c.width = w; c.height = h; }
+    const ctx = c.getContext("2d");
+    if (!ctx) return;
+    const s = Math.max(w / img.naturalWidth, h / img.naturalHeight);
+    const dw = img.naturalWidth * s;
+    const dh = img.naturalHeight * s;
+    ctx.imageSmoothingQuality = "high";
+    ctx.drawImage(img, (w - dw) / 2, (h - dh) / 2, dw, dh);
+    lastDrawn.current = idx;
+  }, []);
+
   useEffect(() => {
-    list.forEach((s) => {
+    imgsRef.current = list.map((s, i) => {
       const img = new Image();
+      img.decoding = "async";
       img.src = s;
+      img.onload = () => {
+        if (hasSimulation && (i === 0 || lastDrawn.current < 0)) drawFrame(lastDrawn.current < 0 ? 0 : lastDrawn.current);
+      };
+      return img;
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [list.join("|")]);
