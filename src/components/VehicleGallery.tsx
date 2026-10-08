@@ -104,31 +104,45 @@ export function VehicleGallery({
   const imgsRef = useRef<HTMLImageElement[]>([]);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const lastDrawn = useRef(-1);
-  const drawFrame = useCallback((idx: number) => {
+  const drawFrame = useCallback((p: number) => {
     const c = canvasRef.current;
     const imgs = imgsRef.current;
     if (!c || !imgs.length) return;
-    // nearest already-decoded frame, so it never goes blank
-    let img: HTMLImageElement | undefined;
-    for (let d = 0; d < imgs.length; d++) {
-      const a = imgs[mod(idx + d, imgs.length)];
-      const b = imgs[mod(idx - d, imgs.length)];
-      if (a?.complete && a.naturalWidth) { img = a; break; }
-      if (b?.complete && b.naturalWidth) { img = b; break; }
-    }
-    if (!img) return;
+    const ready = (im?: HTMLImageElement) => Boolean(im?.complete && im.naturalWidth);
+    const nearest = (idx: number) => {
+      for (let d = 0; d < imgs.length; d++) {
+        const a = imgs[mod(idx + d, imgs.length)];
+        const b = imgs[mod(idx - d, imgs.length)];
+        if (ready(a)) return a;
+        if (ready(b)) return b;
+      }
+      return undefined;
+    };
+    const base = Math.floor(p);
+    const f = p - base;
+    const imgA = nearest(base);
+    if (!imgA) return;
+    const nb = imgs[mod(base + 1, imgs.length)];
+    const imgB = ready(nb) ? nb : undefined;
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     const w = c.clientWidth * dpr;
     const h = c.clientHeight * dpr;
     if (c.width !== w || c.height !== h) { c.width = w; c.height = h; }
     const ctx = c.getContext("2d");
     if (!ctx) return;
-    const s = Math.max(w / img.naturalWidth, h / img.naturalHeight);
-    const dw = img.naturalWidth * s;
-    const dh = img.naturalHeight * s;
+    const paint = (img: HTMLImageElement, alpha: number) => {
+      const s = Math.max(w / img.naturalWidth, h / img.naturalHeight);
+      const dw = img.naturalWidth * s;
+      const dh = img.naturalHeight * s;
+      ctx.globalAlpha = alpha;
+      ctx.drawImage(img, (w - dw) / 2, (h - dh) / 2, dw, dh);
+    };
     ctx.imageSmoothingQuality = "high";
-    ctx.drawImage(img, (w - dw) / 2, (h - dh) / 2, dw, dh);
-    lastDrawn.current = idx;
+    // blend the two neighbouring angles so the turn is continuous, not stepped
+    paint(imgA, 1);
+    if (imgB && f > 0.01) paint(imgB, f);
+    ctx.globalAlpha = 1;
+    lastDrawn.current = base;
   }, []);
 
   useEffect(() => {
@@ -238,8 +252,8 @@ export function VehicleGallery({
   const shadeTilt = hasSimulation ? 0 : multi ? (f < 0.5 ? -f : 1 - f) * TURN_DEG * 2 : pos;
 
   useEffect(() => {
-    if (hasSimulation) drawFrame(active);
-  }, [active, hasSimulation, drawFrame]);
+    if (hasSimulation) drawFrame(pos);
+  }, [pos, hasSimulation, drawFrame]);
 
   const frames = hasSimulation
     ? [
