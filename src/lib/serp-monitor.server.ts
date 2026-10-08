@@ -2,6 +2,8 @@ import { createOpenAI } from "@ai-sdk/openai";
 import { generateText } from "ai";
 import { z } from "zod";
 
+import type { Json } from "@/integrations/supabase/types";
+
 const OUR_DOMAIN = "dcorentacarcluj.ro";
 const GATEWAY_URL = "https://ai.gateway.lovable.dev/v1";
 const MODEL = "openai/gpt-6-astra";
@@ -173,10 +175,10 @@ export async function runSerpCheck(): Promise<{
       keyword_id: kw.id,
       our_position: serp.ourPosition,
       our_url: serp.ourUrl,
-      competitors: serp.competitors,
+      competitors: serp.competitors as unknown as Json,
     });
 
-    const changes: { change_type: string; details: Record<string, unknown> }[] = [];
+    const changes: { change_type: string; details: { [key: string]: Json | undefined } }[] = [];
     if (prev) {
       if (prev.our_position == null && serp.ourPosition != null) {
         changes.push({
