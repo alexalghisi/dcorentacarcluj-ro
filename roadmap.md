@@ -3,4 +3,5 @@
 - [x] 10 pagini locale noi în județul Cluj
 - [x] Recenzii la mașini, doar de la clienții care au închiriat (link unic + aprobare în admin)
 - [x] Butonul „Deschide în Google Maps” reparat
+- [x] Articole noi pe blog, 3 pe zi, publicate automat
 - [ ] Monitorizare zilnică a pozițiilor + /admin/seo + e-mail săptămânal: așteaptă cheia SerpApi și domeniul de e-mail
