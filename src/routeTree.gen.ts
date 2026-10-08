@@ -17,6 +17,7 @@ import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as RecenzieTokenRouteImport } from './routes/recenzie.$token'
+import { Route as ApiPublicHooksBlogDailyRouteImport } from './routes/api/public/hooks/blog-daily'
 import { Route as ApiPublicHooksSyncFleetRouteImport } from './routes/api/public/hooks/sync-fleet'
 import { Route as ApiPublicVehicleImageSplatRouteImport } from './routes/api/public/vehicle-image.$'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
@@ -61,6 +62,11 @@ const RecenzieTokenRoute = RecenzieTokenRouteImport.update({
   path: '/recenzie/$token',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicHooksBlogDailyRoute = ApiPublicHooksBlogDailyRouteImport.update({
+  id: '/api/public/hooks/blog-daily',
+  path: '/api/public/hooks/blog-daily',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicHooksSyncFleetRoute = ApiPublicHooksSyncFleetRouteImport.update({
   id: '/api/public/hooks/sync-fleet',
   path: '/api/public/hooks/sync-fleet',
@@ -88,6 +94,7 @@ export interface FileRoutesByFullPath {
   '/recenzie/$token': typeof RecenzieTokenRoute
   '/admin/': typeof AdminIndexRoute
   '/blog/': typeof BlogIndexRoute
+  '/api/public/hooks/blog-daily': typeof ApiPublicHooksBlogDailyRoute
   '/api/public/hooks/sync-fleet': typeof ApiPublicHooksSyncFleetRoute
   '/api/public/vehicle-image/$': typeof ApiPublicVehicleImageSplatRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -101,6 +108,7 @@ export interface FileRoutesByTo {
   '/recenzie/$token': typeof RecenzieTokenRoute
   '/admin': typeof AdminIndexRoute
   '/blog': typeof BlogIndexRoute
+  '/api/public/hooks/blog-daily': typeof ApiPublicHooksBlogDailyRoute
   '/api/public/hooks/sync-fleet': typeof ApiPublicHooksSyncFleetRoute
   '/api/public/vehicle-image/$': typeof ApiPublicVehicleImageSplatRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -115,6 +123,7 @@ export interface FileRoutesById {
   '/recenzie/$token': typeof RecenzieTokenRoute
   '/admin/': typeof AdminIndexRoute
   '/blog/': typeof BlogIndexRoute
+  '/api/public/hooks/blog-daily': typeof ApiPublicHooksBlogDailyRoute
   '/api/public/hooks/sync-fleet': typeof ApiPublicHooksSyncFleetRoute
   '/api/public/vehicle-image/$': typeof ApiPublicVehicleImageSplatRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -130,6 +139,7 @@ export interface FileRouteTypes {
     | '/recenzie/$token'
     | '/admin/'
     | '/blog/'
+    | '/api/public/hooks/blog-daily'
     | '/api/public/hooks/sync-fleet'
     | '/api/public/vehicle-image/$'
     | '/lovable/email/transactional/preview'
@@ -143,6 +153,7 @@ export interface FileRouteTypes {
     | '/recenzie/$token'
     | '/admin'
     | '/blog'
+    | '/api/public/hooks/blog-daily'
     | '/api/public/hooks/sync-fleet'
     | '/api/public/vehicle-image/$'
     | '/lovable/email/transactional/preview'
@@ -156,6 +167,7 @@ export interface FileRouteTypes {
     | '/recenzie/$token'
     | '/admin/'
     | '/blog/'
+    | '/api/public/hooks/blog-daily'
     | '/api/public/hooks/sync-fleet'
     | '/api/public/vehicle-image/$'
     | '/lovable/email/transactional/preview'
@@ -170,6 +182,7 @@ export interface RootRouteChildren {
   RecenzieTokenRoute: typeof RecenzieTokenRoute
   AdminIndexRoute: typeof AdminIndexRoute
   BlogIndexRoute: typeof BlogIndexRoute
+  ApiPublicHooksBlogDailyRoute: typeof ApiPublicHooksBlogDailyRoute
   ApiPublicHooksSyncFleetRoute: typeof ApiPublicHooksSyncFleetRoute
   ApiPublicVehicleImageSplatRoute: typeof ApiPublicVehicleImageSplatRoute
   LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
@@ -233,6 +246,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RecenzieTokenRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/hooks/blog-daily': {
+      id: '/api/public/hooks/blog-daily'
+      path: '/api/public/hooks/blog-daily'
+      fullPath: '/api/public/hooks/blog-daily'
+      preLoaderRoute: typeof ApiPublicHooksBlogDailyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/hooks/sync-fleet': {
       id: '/api/public/hooks/sync-fleet'
       path: '/api/public/hooks/sync-fleet'
@@ -266,6 +286,7 @@ const rootRouteChildren: RootRouteChildren = {
   RecenzieTokenRoute: RecenzieTokenRoute,
   AdminIndexRoute: AdminIndexRoute,
   BlogIndexRoute: BlogIndexRoute,
+  ApiPublicHooksBlogDailyRoute: ApiPublicHooksBlogDailyRoute,
   ApiPublicHooksSyncFleetRoute: ApiPublicHooksSyncFleetRoute,
   ApiPublicVehicleImageSplatRoute: ApiPublicVehicleImageSplatRoute,
   LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
