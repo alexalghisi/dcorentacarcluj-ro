@@ -14,6 +14,51 @@ export type Database = {
   }
   public: {
     Tables: {
+      blog_auto_posts: {
+        Row: {
+          category: string
+          created_at: string
+          description: string
+          excerpt: string
+          faq: Json
+          id: string
+          meta_title: string
+          published_on: string
+          reading_minutes: number
+          sections: Json
+          slug: string
+          title: string
+        }
+        Insert: {
+          category?: string
+          created_at?: string
+          description: string
+          excerpt: string
+          faq?: Json
+          id?: string
+          meta_title: string
+          published_on?: string
+          reading_minutes?: number
+          sections: Json
+          slug: string
+          title: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          description?: string
+          excerpt?: string
+          faq?: Json
+          id?: string
+          meta_title?: string
+          published_on?: string
+          reading_minutes?: number
+          sections?: Json
+          slug?: string
+          title?: string
+        }
+        Relationships: []
+      }
       fleet_sync_runs: {
         Row: {
           created: number
