@@ -18,6 +18,7 @@ import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as RecenzieTokenRouteImport } from './routes/recenzie.$token'
 import { Route as ApiPublicHooksBlogDailyRouteImport } from './routes/api/public/hooks/blog-daily'
+import { Route as ApiPublicHooksSerpCheckRouteImport } from './routes/api/public/hooks/serp-check'
 import { Route as ApiPublicHooksSyncFleetRouteImport } from './routes/api/public/hooks/sync-fleet'
 import { Route as ApiPublicVehicleImageSplatRouteImport } from './routes/api/public/vehicle-image.$'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
@@ -67,6 +68,11 @@ const ApiPublicHooksBlogDailyRoute = ApiPublicHooksBlogDailyRouteImport.update({
   path: '/api/public/hooks/blog-daily',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicHooksSerpCheckRoute = ApiPublicHooksSerpCheckRouteImport.update({
+  id: '/api/public/hooks/serp-check',
+  path: '/api/public/hooks/serp-check',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicHooksSyncFleetRoute = ApiPublicHooksSyncFleetRouteImport.update({
   id: '/api/public/hooks/sync-fleet',
   path: '/api/public/hooks/sync-fleet',
@@ -95,6 +101,7 @@ export interface FileRoutesByFullPath {
   '/admin/': typeof AdminIndexRoute
   '/blog/': typeof BlogIndexRoute
   '/api/public/hooks/blog-daily': typeof ApiPublicHooksBlogDailyRoute
+  '/api/public/hooks/serp-check': typeof ApiPublicHooksSerpCheckRoute
   '/api/public/hooks/sync-fleet': typeof ApiPublicHooksSyncFleetRoute
   '/api/public/vehicle-image/$': typeof ApiPublicVehicleImageSplatRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -109,6 +116,7 @@ export interface FileRoutesByTo {
   '/admin': typeof AdminIndexRoute
   '/blog': typeof BlogIndexRoute
   '/api/public/hooks/blog-daily': typeof ApiPublicHooksBlogDailyRoute
+  '/api/public/hooks/serp-check': typeof ApiPublicHooksSerpCheckRoute
   '/api/public/hooks/sync-fleet': typeof ApiPublicHooksSyncFleetRoute
   '/api/public/vehicle-image/$': typeof ApiPublicVehicleImageSplatRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -124,6 +132,7 @@ export interface FileRoutesById {
   '/admin/': typeof AdminIndexRoute
   '/blog/': typeof BlogIndexRoute
   '/api/public/hooks/blog-daily': typeof ApiPublicHooksBlogDailyRoute
+  '/api/public/hooks/serp-check': typeof ApiPublicHooksSerpCheckRoute
   '/api/public/hooks/sync-fleet': typeof ApiPublicHooksSyncFleetRoute
   '/api/public/vehicle-image/$': typeof ApiPublicVehicleImageSplatRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -140,6 +149,7 @@ export interface FileRouteTypes {
     | '/admin/'
     | '/blog/'
     | '/api/public/hooks/blog-daily'
+    | '/api/public/hooks/serp-check'
     | '/api/public/hooks/sync-fleet'
     | '/api/public/vehicle-image/$'
     | '/lovable/email/transactional/preview'
@@ -154,6 +164,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/blog'
     | '/api/public/hooks/blog-daily'
+    | '/api/public/hooks/serp-check'
     | '/api/public/hooks/sync-fleet'
     | '/api/public/vehicle-image/$'
     | '/lovable/email/transactional/preview'
@@ -168,6 +179,7 @@ export interface FileRouteTypes {
     | '/admin/'
     | '/blog/'
     | '/api/public/hooks/blog-daily'
+    | '/api/public/hooks/serp-check'
     | '/api/public/hooks/sync-fleet'
     | '/api/public/vehicle-image/$'
     | '/lovable/email/transactional/preview'
@@ -183,6 +195,7 @@ export interface RootRouteChildren {
   AdminIndexRoute: typeof AdminIndexRoute
   BlogIndexRoute: typeof BlogIndexRoute
   ApiPublicHooksBlogDailyRoute: typeof ApiPublicHooksBlogDailyRoute
+  ApiPublicHooksSerpCheckRoute: typeof ApiPublicHooksSerpCheckRoute
   ApiPublicHooksSyncFleetRoute: typeof ApiPublicHooksSyncFleetRoute
   ApiPublicVehicleImageSplatRoute: typeof ApiPublicVehicleImageSplatRoute
   LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
@@ -253,6 +266,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicHooksBlogDailyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/hooks/serp-check': {
+      id: '/api/public/hooks/serp-check'
+      path: '/api/public/hooks/serp-check'
+      fullPath: '/api/public/hooks/serp-check'
+      preLoaderRoute: typeof ApiPublicHooksSerpCheckRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/hooks/sync-fleet': {
       id: '/api/public/hooks/sync-fleet'
       path: '/api/public/hooks/sync-fleet'
@@ -287,6 +307,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdminIndexRoute: AdminIndexRoute,
   BlogIndexRoute: BlogIndexRoute,
   ApiPublicHooksBlogDailyRoute: ApiPublicHooksBlogDailyRoute,
+  ApiPublicHooksSerpCheckRoute: ApiPublicHooksSerpCheckRoute,
   ApiPublicHooksSyncFleetRoute: ApiPublicHooksSyncFleetRoute,
   ApiPublicVehicleImageSplatRoute: ApiPublicVehicleImageSplatRoute,
   LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,

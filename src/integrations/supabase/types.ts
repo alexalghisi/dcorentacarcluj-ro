@@ -98,6 +98,60 @@ export type Database = {
         }
         Relationships: []
       }
+      gsc_page_daily: {
+        Row: {
+          clicks: number
+          ctr: number
+          date: string
+          id: string
+          impressions: number
+          page: string
+          position: number
+        }
+        Insert: {
+          clicks?: number
+          ctr?: number
+          date: string
+          id?: string
+          impressions?: number
+          page: string
+          position?: number
+        }
+        Update: {
+          clicks?: number
+          ctr?: number
+          date?: string
+          id?: string
+          impressions?: number
+          page?: string
+          position?: number
+        }
+        Relationships: []
+      }
+      seo_keywords: {
+        Row: {
+          active: boolean
+          created_at: string
+          id: string
+          keyword: string
+          locality: string
+        }
+        Insert: {
+          active?: boolean
+          created_at?: string
+          id?: string
+          keyword: string
+          locality?: string
+        }
+        Update: {
+          active?: boolean
+          created_at?: string
+          id?: string
+          keyword?: string
+          locality?: string
+        }
+        Relationships: []
+      }
       seo_priorities: {
         Row: {
           content: string
@@ -115,6 +169,103 @@ export type Database = {
           day?: string
         }
         Relationships: []
+      }
+      seo_recommendations: {
+        Row: {
+          created_at: string
+          decided_at: string | null
+          id: string
+          keyword: string | null
+          page: string | null
+          recommendation: string
+          status: string
+        }
+        Insert: {
+          created_at?: string
+          decided_at?: string | null
+          id?: string
+          keyword?: string | null
+          page?: string | null
+          recommendation: string
+          status?: string
+        }
+        Update: {
+          created_at?: string
+          decided_at?: string | null
+          id?: string
+          keyword?: string | null
+          page?: string | null
+          recommendation?: string
+          status?: string
+        }
+        Relationships: []
+      }
+      serp_changes: {
+        Row: {
+          change_type: string
+          details: Json
+          detected_at: string
+          id: string
+          keyword_id: string
+        }
+        Insert: {
+          change_type: string
+          details?: Json
+          detected_at?: string
+          id?: string
+          keyword_id: string
+        }
+        Update: {
+          change_type?: string
+          details?: Json
+          detected_at?: string
+          id?: string
+          keyword_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "serp_changes_keyword_id_fkey"
+            columns: ["keyword_id"]
+            isOneToOne: false
+            referencedRelation: "seo_keywords"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      serp_snapshots: {
+        Row: {
+          checked_at: string
+          competitors: Json
+          id: string
+          keyword_id: string
+          our_position: number | null
+          our_url: string | null
+        }
+        Insert: {
+          checked_at?: string
+          competitors?: Json
+          id?: string
+          keyword_id: string
+          our_position?: number | null
+          our_url?: string | null
+        }
+        Update: {
+          checked_at?: string
+          competitors?: Json
+          id?: string
+          keyword_id?: string
+          our_position?: number | null
+          our_url?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "serp_snapshots_keyword_id_fkey"
+            columns: ["keyword_id"]
+            isOneToOne: false
+            referencedRelation: "seo_keywords"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       site_metrics: {
         Row: {
