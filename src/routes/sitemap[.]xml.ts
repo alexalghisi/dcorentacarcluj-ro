@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
-import { posts } from "@/lib/blog";
+import { posts as staticPosts } from "@/lib/blog";
+import { listAutoPosts } from "@/lib/blog-auto.functions";
 import { locations } from "@/lib/locations";
 
 import { canonical } from "@/lib/seo";
@@ -15,6 +16,7 @@ export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
+        const posts = [...(await listAutoPosts()), ...staticPosts];
         const entries: SitemapEntry[] = [
           { path: "/", changefreq: "weekly", priority: "1.0" },
           ...locations.map((l) => ({

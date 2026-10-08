@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Car, ArrowRight, Phone, Clock } from "lucide-react";
 
-import { posts, formatDateRo } from "@/lib/blog";
+import { posts as staticPosts, formatDateRo } from "@/lib/blog";
+import { listAutoPosts } from "@/lib/blog-auto.functions";
 import { SITE_URL, canonical, canonicalLinks, socialImageMeta } from "@/lib/seo";
 
 const SITE = SITE_URL;
@@ -11,7 +12,10 @@ const DESCRIPTION =
 
 
 export const Route = createFileRoute("/blog/")({
-  head: () => ({
+  loader: async () => ({ posts: [...(await listAutoPosts()), ...staticPosts] }),
+  head: ({ loaderData }) => {
+    const posts = loaderData?.posts ?? staticPosts;
+    return {
     meta: [
       { title: TITLE },
       { name: "description", content: DESCRIPTION },
@@ -65,11 +69,13 @@ export const Route = createFileRoute("/blog/")({
         }),
       },
     ],
-  }),
+    };
+  },
   component: BlogIndex,
 });
 
 function BlogIndex() {
+  const { posts } = Route.useLoaderData();
   return (
     <div className="min-h-screen bg-background">
       <header className="sticky top-0 z-40 border-b border-border/70 bg-background/85 backdrop-blur">

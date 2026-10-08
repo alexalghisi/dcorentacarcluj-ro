@@ -2,16 +2,18 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Car, Phone, Clock, ArrowLeft, ArrowRight } from "lucide-react";
 
 import { getPost, posts, formatDateRo } from "@/lib/blog";
+import { getAutoPost, listAutoPosts } from "@/lib/blog-auto.functions";
 import type { BlogPost, BlogSection } from "@/lib/blog";
 import { OG_IMAGE, SITE_URL, canonical, canonicalLinks, socialImageMeta } from "@/lib/seo";
 
 const SITE = SITE_URL;
 
 export const Route = createFileRoute("/blog/$slug")({
-  loader: ({ params }) => {
-    const post = getPost(params.slug);
+  loader: async ({ params }) => {
+    const post = getPost(params.slug) ?? (await getAutoPost({ data: { slug: params.slug } }));
     if (!post) throw notFound();
-    return { post };
+    const recent = (await listAutoPosts()).filter((p) => p.slug !== post.slug).slice(0, 2);
+    return { post, recent };
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
@@ -96,8 +98,8 @@ export const Route = createFileRoute("/blog/$slug")({
 });
 
 function BlogPostPage() {
-  const { post } = Route.useLoaderData() as { post: BlogPost };
-  const others = posts.filter((p) => p.slug !== post.slug).slice(0, 3);
+  const { post, recent } = Route.useLoaderData() as { post: BlogPost; recent: BlogPost[] };
+  const others = [...recent, ...posts.filter((p) => p.slug !== post.slug)].slice(0, 3);
 
   return (
     <div className="min-h-screen bg-background">
