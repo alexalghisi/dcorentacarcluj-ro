@@ -3,6 +3,7 @@ import { Car, Phone, Mail, MapPin, Check, ArrowRight, ArrowLeft, MessageCircle }
 
 import type { LocationPage } from "@/lib/locations";
 import { locations } from "@/lib/locations";
+import { AdBanner } from "@/components/AdBanner";
 
 const PHONE_HREF = "tel:+40742925934";
 
@@ -266,6 +267,16 @@ export function LocationLanding({ page }: { page: LocationPage }) {
             </div>
           </div>
         </section>
+
+        {/* Reclamă */}
+        <div className="bg-surface py-8">
+          <div className="hidden md:block">
+            <AdBanner format="leaderboard" />
+          </div>
+          <div className="md:hidden">
+            <AdBanner format="mobile" />
+          </div>
+        </div>
       </main>
 
       <footer className="border-t border-border bg-background pb-20 md:pb-0">
