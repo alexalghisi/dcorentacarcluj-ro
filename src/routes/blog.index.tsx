@@ -4,6 +4,7 @@ import { Car, ArrowRight, Phone, Clock } from "lucide-react";
 import { posts as staticPosts, formatDateRo } from "@/lib/blog";
 import { listAutoPosts } from "@/lib/blog-auto.functions";
 import { SITE_URL, canonical, canonicalLinks, socialImageMeta } from "@/lib/seo";
+import { AdBanner } from "@/components/AdBanner";
 
 const SITE = SITE_URL;
 const TITLE = "Blog închirieri auto Cluj | DCO Rent a Car";
@@ -146,6 +147,16 @@ function BlogIndex() {
               </Link>
             </article>
           ))}
+        </div>
+
+        {/* Reclamă */}
+        <div className="py-8">
+          <div className="hidden md:block">
+            <AdBanner format="leaderboard" />
+          </div>
+          <div className="md:hidden">
+            <AdBanner format="mobile" />
+          </div>
         </div>
       </main>
 
