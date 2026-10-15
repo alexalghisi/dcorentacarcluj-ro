@@ -36,7 +36,7 @@ export const locations: LocationPage[] = [
     h1: "Rent a Car Cluj — mașini de închiriat de la 70 lei/zi, fără garanție",
     metaTitle: "Rent a Car Cluj | Mașini de închiriat de la 70 lei/zi",
     description:
-      "Rent a car Cluj direct de la proprietar: mașini de închiriat de la 70 lei/zi, fără garanție, rovinietă și AC incluse, predare în Gilău. Sună (0742) 925 934.",
+      "Rent a car Cluj direct de la proprietar: mașini de închiriat de la 70 lei/zi, fără garanție, rovinietă, AC incluse, predare în Gilău. Sună (0742) 925 934.",
     keywords:
       "rent a car cluj, rent a car cluj napoca, cluj rent a car, inchirieri auto cluj, masini de inchiriat cluj, rent a car cluj ieftin, rent a car cluj fara garantie",
     intro:
