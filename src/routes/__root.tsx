@@ -173,6 +173,15 @@ const SITE_SUSPENDED = false;
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  useEffect(() => {
+    let cleanup: (() => void) | undefined;
+    import("../lib/conversions").then((m) => {
+      cleanup = m.initConversionTracking(
+        import.meta.env.VITE_LOVABLE_CONNECTOR_GOOGLE_ANALYTICS_API_KEY as string | undefined,
+      );
+    });
+    return () => cleanup?.();
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
