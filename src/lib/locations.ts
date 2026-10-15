@@ -36,7 +36,7 @@ export const locations: LocationPage[] = [
     h1: "Rent a Car Cluj — mașini de închiriat de la 70 lei/zi, fără garanție",
     metaTitle: "Rent a Car Cluj | Mașini de închiriat de la 70 lei/zi",
     description:
-      "Rent a car Cluj direct de la proprietar: mașini de închiriat de la 70 lei/zi, fără garanție, rovinietă și AC incluse, predare personală în Gilău. Sună (0742) 925 934.",
+      "Rent a car Cluj direct de la proprietar: mașini de închiriat de la 70 lei/zi, fără garanție, rovinietă și AC incluse, predare în Gilău. Sună (0742) 925 934.",
     keywords:
       "rent a car cluj, rent a car cluj napoca, cluj rent a car, inchirieri auto cluj, masini de inchiriat cluj, rent a car cluj ieftin, rent a car cluj fara garantie",
     intro:
@@ -140,7 +140,7 @@ export const locations: LocationPage[] = [
     h1: "Car Rental Cluj-Napoca — rent a car in Cluj from 70 RON/day",
     metaTitle: "Car Rental Cluj-Napoca | Rent a Car Cluj from 14 €/day",
     description:
-      "Car rental in Cluj-Napoca from 70 RON/day (≈14 €). Rent a car Cluj with no deposit, no credit card, road tax, insurance and A/C included. Call +40 742 925 934.",
+      "Car rental in Cluj-Napoca from 70 RON/day (≈14 €). No deposit, no credit card, road tax and A/C included. Call +40 742 925 934.",
     keywords:
       "car rental cluj napoca, rent a car cluj, car hire cluj napoca, cheap car rental cluj, car rental cluj romania, rent a car cluj no deposit",
     intro:
@@ -561,9 +561,9 @@ export const locations: LocationPage[] = [
     city: "Florești",
     navLabel: "Florești",
     h1: "Închirieri auto Florești (Cluj) — mașini de închiriat de la 70 lei/zi",
-    metaTitle: "Închirieri auto Florești | Mașini de închiriat de la 70 lei/zi",
+    metaTitle: "Închirieri auto Florești | Mașini de la 70 lei/zi",
     description:
-      "Închirieri auto Florești Cluj: mașini de închiriat cu predare personală, fără taxă de livrare și fără garanție, tarife de la 70 lei/zi. Sună (0742) 925 934.",
+      "Închirieri auto Florești Cluj: mașini cu predare personală, fără taxă de livrare și fără garanție, de la 70 lei/zi. Sună (0742) 925 934.",
     keywords:
       "inchirieri auto floresti, inchirieri masini floresti, rent a car floresti, inchiriere masina floresti, masini de inchiriat floresti cluj, inchiriere auto de weekend floresti",
     intro:
@@ -881,7 +881,7 @@ export const locations: LocationPage[] = [
     h1: "Rent a Car Cluj fără garanție și fără card de credit",
     metaTitle: "Rent a Car Cluj Fără Garanție | Fără Card de Credit",
     description:
-      "Rent a car Cluj fără garanție și fără card de credit, de la 70 lei/zi. Doar buletin și permis. Mașini de închiriat cu predare personală. Sună (0742) 925 934.",
+      "Rent a car Cluj fără garanție și fără card de credit, de la 70 lei/zi. Doar buletin și permis, predare personală. Sună (0742) 925 934.",
     keywords:
       "rent a car cluj fara garantie, inchirieri auto cluj fara garantie, rent a car fara card de credit cluj, masina de inchiriat cluj fara garantie",
     intro:
@@ -1057,7 +1057,7 @@ export const locations: LocationPage[] = [
     h1: "Închiriere SUV și mașină de 7 locuri — rent a car Cluj",
     metaTitle: "Închiriere SUV 7 locuri Cluj | Rent a Car Cluj",
     description:
-      "Închiriere SUV și mașină de 7 locuri în Cluj: Volvo XC90 pentru familie, bagaje și drumuri de munte. Rent a car Cluj cu predare personală. Sună (0742) 925 934.",
+      "Închiriere SUV și mașină de 7 locuri în Cluj: Volvo XC90 pentru familie, bagaje și drumuri de munte, predare personală. Sună (0742) 925 934.",
     keywords:
       "inchiriere suv cluj, masina 7 locuri de inchiriat cluj, inchiriere volvo xc90 cluj, rent a car suv cluj",
     intro:
