@@ -420,6 +420,25 @@ export const locations: LocationPage[] = [
         ],
       },
       {
+        heading: "Ce include prețul",
+        paragraphs: [
+          "Tarifele pornesc de la 70 lei pe zi, iar prețul exact pentru perioada ta îl confirmăm înainte de predare. Nu blocăm garanție pe card, rovinieta este inclusă și nu plătești taxe de aeroport sau de ghișeu.",
+          "Pentru că predarea e personală, poți pune întrebări direct celui care îți dă mașina: despre drum, despre parcare în Cluj-Napoca sau despre traseele pe care vrei să le faci.",
+        ],
+        bullets: [
+          "De la 70 lei/zi",
+          "Fără garanție blocată pe card",
+          "Rovinietă inclusă",
+          "Fără taxe de aeroport",
+        ],
+      },
+      {
+        heading: "Pași simpli de la aterizare până la volan",
+        paragraphs: [
+          "Mai întâi ne trimiți data, ora aterizării și mașina dorită, la telefon sau pe WhatsApp la (0742) 925 934. Confirmăm disponibilitatea și locul predării. După aterizare ne anunți că ai ajuns, iei un taxi sau un autobuz spre Gilău și ne întâlnim la ora stabilită. Verificăm mașina împreună, notăm kilometrajul și pleci la drum.",
+        ],
+      },
+      {
         heading: "Întoarcerea la aeroport",
         paragraphs: [
           "La final predai mașina în Gilău sau la un punct stabilit telefonic. Calculează circa 30–40 de minute până la terminal și un timp suplimentar pentru check-in. Dacă zborul tău e foarte devreme dimineața, stabilim ora predării înainte, ca să nu fii în criză de timp.",
@@ -1128,6 +1147,32 @@ export const locations: LocationPage[] = [
         ],
       },
       {
+        heading: "SUV sau break: cum alegi",
+        paragraphs: [
+          "Alege SUV-ul de 7 locuri dacă sunteți mai mult de cinci persoane, dacă mergi pe drumuri de munte sau iarna ori dacă vrei garda la sol mai mare. Pentru patru-cinci persoane cu bagaje, un break Ford Focus sau VW Passat oferă loc suficient la un consum mai mic.",
+          "Gândește-te și la parcare: în centrul Clujului și în cartierele aglomerate, o mașină mai mică se parchează mai ușor. Dacă ai dubii, sună-ne și îți spunem sincer ce variantă se potrivește drumului tău.",
+        ],
+      },
+      {
+        heading: "Ce include închirierea SUV-ului",
+        paragraphs: [
+          "Rovinieta și anvelopele de sezon sunt incluse, nu blocăm garanție pe card și predarea se face personal. Scaunul pentru copil se montează la cerere, dacă îl anunți la rezervare. Prețul exact pe zilele dorite îl confirmăm telefonic înainte de predare.",
+          "Pentru ieșirea din țară avem nevoie de acordul nostru dinainte, ca să pregătim documentele necesare.",
+        ],
+        bullets: [
+          "Rovinietă inclusă",
+          "Anvelope de sezon",
+          "Fără garanție blocată pe card",
+          "Scaun pentru copil la cerere",
+        ],
+      },
+      {
+        heading: "Documente necesare",
+        paragraphs: [
+          "Ai nevoie de carte de identitate sau pașaport și de permis de conducere valabil de minimum un an. Dacă mai mulți șoferi vor conduce pe drum lung, anunță-ne la rezervare.",
+        ],
+      },
+      {
         heading: "Cum rezervi SUV-ul",
         paragraphs: [
           "Avem un singur SUV de 7 locuri în flotă, așa că rezervarea din timp contează. Sună sau scrie pe WhatsApp la (0742) 925 934 cu perioada și numărul de pasageri. Predarea se face personal în Gilău sau la un punct stabilit telefonic.",
@@ -1206,6 +1251,38 @@ export const locations: LocationPage[] = [
           "Deplasări de serviciu prin oraș",
           "Excursii în Transilvania",
           "Șoferi cu experiență mai mică în trafic aglomerat",
+        ],
+      },
+      {
+        heading: "Cât costă o mașină automată și ce include prețul",
+        paragraphs: [
+          "Tarifele flotei pornesc de la 70 lei pe zi. Prețul exact pentru Citroën C5 automat depinde de perioadă și de numărul de zile, așa că îl confirmăm telefonic la (0742) 925 934 înainte de rezervare. Cu cât închiriezi mai multe zile, cu atât costul pe zi scade.",
+          "Nu blocăm garanție pe card, iar rovinieta este inclusă. Predarea se face personal, așa că nu plătești taxe de ghișeu sau de aeroport.",
+        ],
+        bullets: [
+          "Tarife de la 70 lei/zi în flotă",
+          "Fără garanție blocată pe card",
+          "Rovinietă inclusă",
+          "Preț confirmat înainte de predare",
+        ],
+      },
+      {
+        heading: "Sfaturi dacă nu ai mai condus o mașină automată",
+        paragraphs: [
+          "Folosești doar piciorul drept, pentru accelerație și frână. Pornești motorul cu piciorul pe frână, treci maneta în D pentru mers înainte și în R pentru marșarier, iar la oprire o treci în P și tragi frâna de mână.",
+          "În primele minute mașina tinde să se miște singură când ridici piciorul de pe frână, deci apasă ușor și progresiv. La predare îți arătăm aceste comenzi pe loc, ca să pleci liniștit.",
+        ],
+      },
+      {
+        heading: "Documente necesare",
+        paragraphs: [
+          "Ai nevoie de carte de identitate sau pașaport și de permis de conducere categoria B valabil de minimum un an. Pentru cetățenii din afara UE recomandăm și permisul internațional, dacă permisul național nu este în alfabet latin.",
+        ],
+      },
+      {
+        heading: "Dacă mașina automată nu e liberă",
+        paragraphs: [
+          "Avem un număr limitat de mașini automate, așa că uneori Citroën C5 este deja rezervat pe zilele tale. În acest caz îți spunem sincer la telefon și îți propunem fie altă perioadă, fie o mașină cu cutie manuală din flotă, de exemplu o mașină economică pentru oraș sau un break pentru bagaje.",
         ],
       },
       {
@@ -1822,6 +1899,20 @@ export const locations: LocationPage[] = [
           "Fără angajament pe ani de zile",
           "Fără grija reviziilor, ITP-ului și a anvelopelor",
           "Un singur cost lunar, ușor de bugetat",
+        ],
+      },
+      {
+        heading: "Ce costuri sunt incluse și ce plătești tu",
+        paragraphs: [
+          "În tariful lunar intră RCA, ITP, rovinieta, reviziile și schimbul anvelopelor de sezon. Tu plătești doar combustibilul și eventualele taxe de drum din afara rovinietei, de exemplu taxa de pod sau de autostradă în alte țări.",
+          "Prețul exact se stabilește înainte de predare, în funcție de model și de numărul de luni, și rămâne fix pe toată perioada agreată. Nu apar costuri ascunse la final și nu ai de plătit taxă de administrare.",
+        ],
+      },
+      {
+        heading: "Documente necesare pentru închirierea pe termen lung",
+        paragraphs: [
+          "Ai nevoie de carte de identitate sau pașaport și de permis de conducere valabil de minimum un an, la fel ca la închirierea zilnică. Dacă mașina va fi condusă și de altă persoană, anunță-ne de la început ca să trecem și datele ei.",
+          "Pentru firmele care închiriază lunar pentru un angajat, spune-ne la rezervare, ca să stabilim împreună cine conduce mașina și pe ce date se face documentul de închiriere.",
         ],
       },
       {
