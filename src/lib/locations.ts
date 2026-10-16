@@ -406,6 +406,25 @@ export const locations: LocationPage[] = [
           "Aeroportul Cluj este poarta de intrare spre Transilvania: Salina Turda la 45 de minute, Rimetea la o oră și jumătate, Apusenii și Lacul Beliș la două ore, Sighișoara și Alba Iulia la câteva ore de drum bun.",
         ],
       },
+      {
+        heading: "Ce mașină alegi după sosire",
+        paragraphs: [
+          "Dacă vii singur sau în doi, o mașină economică precum Skoda Fabia sau Renault Clio e suficientă pentru oraș și drumuri scurte. Pentru familie și bagaje mari, break-urile Ford Focus și VW Passat au portbagaj generos. Grupurile de până la 7 persoane pot alege Volvo XC90.",
+          "Dacă ești obișnuit doar cu cutia automată, cere Citroën C5 automat și rezervă din timp, pentru că mașinile automate sunt cerute des de cei care vin din străinătate.",
+        ],
+        bullets: [
+          "Economice pentru oraș: Skoda Fabia, Renault Clio",
+          "Break-uri pentru bagaje: Ford Focus, VW Passat",
+          "Automată: Citroën C5",
+          "7 locuri: Volvo XC90",
+        ],
+      },
+      {
+        heading: "Întoarcerea la aeroport",
+        paragraphs: [
+          "La final predai mașina în Gilău sau la un punct stabilit telefonic. Calculează circa 30–40 de minute până la terminal și un timp suplimentar pentru check-in. Dacă zborul tău e foarte devreme dimineața, stabilim ora predării înainte, ca să nu fii în criză de timp.",
+        ],
+      },
     ],
     faq: [
       {
@@ -419,6 +438,14 @@ export const locations: LocationPage[] = [
       {
         q: "Pot rezerva în avans pentru data zborului?",
         a: "Da. Trimiteți data și ora aterizării prin formular sau telefonic și blocăm mașina dorită.",
+      },
+      {
+        q: "Ce se întâmplă dacă zborul meu are întârziere?",
+        a: "Anunță-ne la (0742) 925 934 sau pe WhatsApp și mutăm ora predării în funcție de noua oră a aterizării.",
+      },
+      {
+        q: "Pot închiria dacă vin din afara Uniunii Europene?",
+        a: "Da, cu pașaport și permis de conducere valabil de cel puțin un an. Dacă permisul nu e în alfabet latin, recomandăm și permisul internațional.",
       },
     ],
   },
@@ -1087,6 +1114,25 @@ export const locations: LocationPage[] = [
           "Dacă nu ai nevoie de 7 locuri, dar vrei portbagaj mare, break-urile Ford Focus și VW Passat sunt mai economice la consum și mai ușor de parcat în Cluj-Napoca.",
         ],
       },
+      {
+        heading: "Trasee pentru care alegi un SUV din Cluj",
+        paragraphs: [
+          "Drumul spre Mărișel, Beliș-Fântânele sau Arieșeni urcă și coboară mult, iar iarna poate fi acoperit de zăpadă. Tracțiunea integrală și garda la sol mai mare dau siguranță acolo unde o mașină mică se descurcă greu.",
+          "Pentru grupurile care vin la nunți, botezuri sau evenimente în Cluj și în satele din jur, o singură mașină de 7 locuri înseamnă un singur șofer, o singură parcare și costuri de combustibil împărțite.",
+        ],
+        bullets: [
+          "Apuseni: Mărișel, Beliș, Arieșeni, Padiș",
+          "Transferuri de grup de la Aeroportul Cluj",
+          "Evenimente de familie în județ",
+          "Vacanțe lungi cu bagaje multe",
+        ],
+      },
+      {
+        heading: "Cum rezervi SUV-ul",
+        paragraphs: [
+          "Avem un singur SUV de 7 locuri în flotă, așa că rezervarea din timp contează. Sună sau scrie pe WhatsApp la (0742) 925 934 cu perioada și numărul de pasageri. Predarea se face personal în Gilău sau la un punct stabilit telefonic.",
+        ],
+      },
     ],
     faq: [
       {
@@ -1100,6 +1146,14 @@ export const locations: LocationPage[] = [
       {
         q: "Pot ieși din țară cu SUV-ul?",
         a: "Da, cu acordul nostru dinainte și documentele necesare pregătite.",
+      },
+      {
+        q: "Este SUV-ul potrivit pentru drumuri de munte iarna?",
+        a: "Da. Volvo XC90 are tracțiune integrală și vine cu anvelope de sezon, potrivite pentru drumurile din Apuseni.",
+      },
+      {
+        q: "Cu cât timp înainte trebuie să rezerv SUV-ul?",
+        a: "Cât mai devreme, pentru că avem un singur SUV de 7 locuri. În sezon și de sărbători recomandăm câteva săptămâni.",
       },
     ],
   },
@@ -1141,6 +1195,25 @@ export const locations: LocationPage[] = [
           "Mașinile automate sunt cele mai căutate în sezon. Recomandăm confirmarea perioadei cu 3–7 zile înainte, mai ales vara și în perioada sărbătorilor.",
         ],
       },
+      {
+        heading: "Pentru cine e potrivită o mașină automată",
+        paragraphs: [
+          "Pentru turiștii și românii din diaspora care conduc acasă doar automat, pentru șoferii cu permis recent care vor să se concentreze pe drum și pentru oricine petrece mult timp în coloanele din Cluj-Napoca la orele de vârf.",
+          "Pe drumurile lungi, spre Sibiu, Oradea sau Brașov, cutia automată face călătoria mai relaxantă, iar confortul unei berline se simte după câteva ore de condus.",
+        ],
+        bullets: [
+          "Vizite acasă din diaspora",
+          "Deplasări de serviciu prin oraș",
+          "Excursii în Transilvania",
+          "Șoferi cu experiență mai mică în trafic aglomerat",
+        ],
+      },
+      {
+        heading: "Cum preiei mașina",
+        paragraphs: [
+          "Ne suni sau ne scrii pe WhatsApp la (0742) 925 934 cu perioada dorită. Confirmăm disponibilitatea, apoi predarea se face personal în Gilău sau la un punct stabilit telefonic. La predare îți arătăm comenzile cutiei automate și verificăm împreună mașina.",
+        ],
+      },
     ],
     faq: [
       {
@@ -1150,6 +1223,14 @@ export const locations: LocationPage[] = [
       {
         q: "Ce permis îmi trebuie pentru o mașină automată?",
         a: "Permis categoria B valabil de minimum un an.",
+      },
+      {
+        q: "Pot conduce o mașină automată dacă am permis obținut pe manual?",
+        a: "Da. Permisul categoria B obținut pe cutie manuală îți permite să conduci și mașini automate.",
+      },
+      {
+        q: "Cât de devreme trebuie să rezerv mașina automată?",
+        a: "Ideal cu 3–7 zile înainte, iar în sezon și mai devreme, pentru că avem un număr limitat de mașini automate.",
       },
     ],
   },
@@ -1730,6 +1811,26 @@ export const locations: LocationPage[] = [
           "Clasa economică pentru consum minim, break-urile pentru spațiu și Citroën C5 cu cutie automată pentru confort. Volvo XC90 cu 7 locuri se închiriază lunar doar cu rezervare din timp.",
         ],
       },
+      {
+        heading: "Termen lung sau leasing: ce alegi",
+        paragraphs: [
+          "Leasingul presupune avans, contract pe mai mulți ani, asigurare CASCO plătită separat și grija reviziilor. Închirierea pe termen lung e mai simplă: plătești o sumă fixă pe lună, iar costurile de întreținere obișnuite rămân la noi.",
+          "Diferența cea mai mare este flexibilitatea. Dacă proiectul se termină mai devreme sau nu mai ai nevoie de mașină, anunți și o predai, fără penalități de leasing și fără să vinzi o mașină second-hand.",
+        ],
+        bullets: [
+          "Fără avans și fără garanție blocată pe card",
+          "Fără angajament pe ani de zile",
+          "Fără grija reviziilor, ITP-ului și a anvelopelor",
+          "Un singur cost lunar, ușor de bugetat",
+        ],
+      },
+      {
+        heading: "Cum se face predarea pentru o închiriere lunară",
+        paragraphs: [
+          "Predarea se face personal în Gilău sau la un punct stabilit telefonic în Cluj-Napoca ori Florești. Verificăm împreună mașina, notăm kilometrajul și nivelul de combustibil și îți explicăm tot ce trebuie să știi despre model.",
+          "Pe durata închirierii poți lua legătura direct cu noi la (0742) 925 934 sau pe WhatsApp pentru prelungire, schimbul anvelopelor de sezon sau programarea reviziei.",
+        ],
+      },
     ],
     faq: [
       {
@@ -1743,6 +1844,14 @@ export const locations: LocationPage[] = [
       {
         q: "Cine plătește reviziile?",
         a: "Noi. Reviziile, ITP-ul, rovinieta și schimbul de anvelope de sezon sunt incluse în tariful lunar.",
+      },
+      {
+        q: "Pot prelungi închirierea lunară?",
+        a: "Da. Anunță-ne din timp, la telefon sau pe WhatsApp, și confirmăm prelungirea cu același model, dacă este disponibil.",
+      },
+      {
+        q: "Ce se întâmplă dacă mașina are o problemă tehnică?",
+        a: "Ne suni la (0742) 925 934 și stabilim împreună soluția: rezolvarea problemei sau, când se poate, o mașină de schimb din flotă.",
       },
     ],
   },
