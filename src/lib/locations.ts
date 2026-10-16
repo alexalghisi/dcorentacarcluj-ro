@@ -1141,6 +1141,25 @@ export const locations: LocationPage[] = [
           "Mașinile automate sunt cele mai căutate în sezon. Recomandăm confirmarea perioadei cu 3–7 zile înainte, mai ales vara și în perioada sărbătorilor.",
         ],
       },
+      {
+        heading: "Pentru cine e potrivită o mașină automată",
+        paragraphs: [
+          "Pentru turiștii și românii din diaspora care conduc acasă doar automat, pentru șoferii cu permis recent care vor să se concentreze pe drum și pentru oricine petrece mult timp în coloanele din Cluj-Napoca la orele de vârf.",
+          "Pe drumurile lungi, spre Sibiu, Oradea sau Brașov, cutia automată face călătoria mai relaxantă, iar confortul unei berline se simte după câteva ore de condus.",
+        ],
+        bullets: [
+          "Vizite acasă din diaspora",
+          "Deplasări de serviciu prin oraș",
+          "Excursii în Transilvania",
+          "Șoferi cu experiență mai mică în trafic aglomerat",
+        ],
+      },
+      {
+        heading: "Cum preiei mașina",
+        paragraphs: [
+          "Ne suni sau ne scrii pe WhatsApp la (0742) 925 934 cu perioada dorită. Confirmăm disponibilitatea, apoi predarea se face personal în Gilău sau la un punct stabilit telefonic. La predare îți arătăm comenzile cutiei automate și verificăm împreună mașina.",
+        ],
+      },
     ],
     faq: [
       {
@@ -1150,6 +1169,14 @@ export const locations: LocationPage[] = [
       {
         q: "Ce permis îmi trebuie pentru o mașină automată?",
         a: "Permis categoria B valabil de minimum un an.",
+      },
+      {
+        q: "Pot conduce o mașină automată dacă am permis obținut pe manual?",
+        a: "Da. Permisul categoria B obținut pe cutie manuală îți permite să conduci și mașini automate.",
+      },
+      {
+        q: "Cât de devreme trebuie să rezerv mașina automată?",
+        a: "Ideal cu 3–7 zile înainte, iar în sezon și mai devreme, pentru că avem un număr limitat de mașini automate.",
       },
     ],
   },
@@ -1730,6 +1757,26 @@ export const locations: LocationPage[] = [
           "Clasa economică pentru consum minim, break-urile pentru spațiu și Citroën C5 cu cutie automată pentru confort. Volvo XC90 cu 7 locuri se închiriază lunar doar cu rezervare din timp.",
         ],
       },
+      {
+        heading: "Termen lung sau leasing: ce alegi",
+        paragraphs: [
+          "Leasingul presupune avans, contract pe mai mulți ani, asigurare CASCO plătită separat și grija reviziilor. Închirierea pe termen lung e mai simplă: plătești o sumă fixă pe lună, iar costurile de întreținere obișnuite rămân la noi.",
+          "Diferența cea mai mare este flexibilitatea. Dacă proiectul se termină mai devreme sau nu mai ai nevoie de mașină, anunți și o predai, fără penalități de leasing și fără să vinzi o mașină second-hand.",
+        ],
+        bullets: [
+          "Fără avans și fără garanție blocată pe card",
+          "Fără angajament pe ani de zile",
+          "Fără grija reviziilor, ITP-ului și a anvelopelor",
+          "Un singur cost lunar, ușor de bugetat",
+        ],
+      },
+      {
+        heading: "Cum se face predarea pentru o închiriere lunară",
+        paragraphs: [
+          "Predarea se face personal în Gilău sau la un punct stabilit telefonic în Cluj-Napoca ori Florești. Verificăm împreună mașina, notăm kilometrajul și nivelul de combustibil și îți explicăm tot ce trebuie să știi despre model.",
+          "Pe durata închirierii poți lua legătura direct cu noi la (0742) 925 934 sau pe WhatsApp pentru prelungire, schimbul anvelopelor de sezon sau programarea reviziei.",
+        ],
+      },
     ],
     faq: [
       {
@@ -1743,6 +1790,14 @@ export const locations: LocationPage[] = [
       {
         q: "Cine plătește reviziile?",
         a: "Noi. Reviziile, ITP-ul, rovinieta și schimbul de anvelope de sezon sunt incluse în tariful lunar.",
+      },
+      {
+        q: "Pot prelungi închirierea lunară?",
+        a: "Da. Anunță-ne din timp, la telefon sau pe WhatsApp, și confirmăm prelungirea cu același model, dacă este disponibil.",
+      },
+      {
+        q: "Ce se întâmplă dacă mașina are o problemă tehnică?",
+        a: "Ne suni la (0742) 925 934 și stabilim împreună soluția: rezolvarea problemei sau, când se poate, o mașină de schimb din flotă.",
       },
     ],
   },
