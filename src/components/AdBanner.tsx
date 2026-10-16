@@ -14,9 +14,18 @@ const UNITS = {
 
 export type AdFormat = keyof typeof UNITS;
 
-export function AdBanner({ format, className = "" }: { format: AdFormat; className?: string }) {
+/** Pauză temporară cât timp Google verifică site-ul pentru AdSense. Pune `false` ca să reactivezi. */
+const ADS_PAUSED = true;
+
+export function AdBanner(props: { format: AdFormat; className?: string }) {
+  if (ADS_PAUSED) return null;
+  return <AdBannerInner {...props} />;
+}
+
+function AdBannerInner({ format, className = "" }: { format: AdFormat; className?: string }) {
   const host = useRef<HTMLDivElement>(null);
   const unit = UNITS[format];
+
 
   useEffect(() => {
     const el = host.current;
