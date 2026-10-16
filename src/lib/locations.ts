@@ -433,6 +433,12 @@ export const locations: LocationPage[] = [
         ],
       },
       {
+        heading: "Pași simpli de la aterizare până la volan",
+        paragraphs: [
+          "Mai întâi ne trimiți data, ora aterizării și mașina dorită, la telefon sau pe WhatsApp la (0742) 925 934. Confirmăm disponibilitatea și locul predării. După aterizare ne anunți că ai ajuns, iei un taxi sau un autobuz spre Gilău și ne întâlnim la ora stabilită. Verificăm mașina împreună, notăm kilometrajul și pleci la drum.",
+        ],
+      },
+      {
         heading: "Întoarcerea la aeroport",
         paragraphs: [
           "La final predai mașina în Gilău sau la un punct stabilit telefonic. Calculează circa 30–40 de minute până la terminal și un timp suplimentar pentru check-in. Dacă zborul tău e foarte devreme dimineața, stabilim ora predării înainte, ca să nu fii în criză de timp.",
@@ -1271,6 +1277,12 @@ export const locations: LocationPage[] = [
         heading: "Documente necesare",
         paragraphs: [
           "Ai nevoie de carte de identitate sau pașaport și de permis de conducere categoria B valabil de minimum un an. Pentru cetățenii din afara UE recomandăm și permisul internațional, dacă permisul național nu este în alfabet latin.",
+        ],
+      },
+      {
+        heading: "Dacă mașina automată nu e liberă",
+        paragraphs: [
+          "Avem un număr limitat de mașini automate, așa că uneori Citroën C5 este deja rezervat pe zilele tale. În acest caz îți spunem sincer la telefon și îți propunem fie altă perioadă, fie o mașină cu cutie manuală din flotă, de exemplu o mașină economică pentru oraș sau un break pentru bagaje.",
         ],
       },
       {
