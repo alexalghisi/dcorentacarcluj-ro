@@ -14,8 +14,8 @@ const UNITS = {
 
 export type AdFormat = keyof typeof UNITS;
 
-/** Pauză temporară cât timp Google verifică site-ul pentru AdSense. Pune `false` ca să reactivezi. */
-const ADS_PAUSED = true;
+/** Adsterra banners are enabled; intrusive ad formats remain excluded. */
+const ADS_PAUSED = false;
 
 export function AdBanner(props: { format: AdFormat; className?: string }) {
   if (ADS_PAUSED) return null;
