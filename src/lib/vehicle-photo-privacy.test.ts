@@ -1,4 +1,5 @@
-import { describe, expect, test } from "bun:test";
+import { describe, test } from "node:test";
+import assert from "node:assert/strict";
 import { plateRegions, wrapPhoto } from "./vehicle-photo-privacy";
 
 describe("public fleet privacy", () => {
@@ -8,23 +9,23 @@ describe("public fleet privacy", () => {
     "pbkvzuzixhd72-RO", "ypg2sp1lmszl-RO", "oz6a3xdde8qn-RO"]) {
     test(`${file} has reviewed plate masking`, () => {
       const masks = plateRegions(`/photos/${file}`);
-      expect(masks?.length).toBeGreaterThan(0);
+      assert.ok(masks && masks.length > 0);
       for (const [x, y, w, h] of masks ?? []) {
-        expect(x).toBeGreaterThanOrEqual(0);
-        expect(y).toBeGreaterThanOrEqual(0);
-        expect(w).toBeGreaterThan(0);
-        expect(h).toBeGreaterThan(0);
-        expect(x + w).toBeLessThanOrEqual(1);
-        expect(y + h).toBeLessThanOrEqual(1);
+        assert.ok(x >= 0);
+        assert.ok(y >= 0);
+        assert.ok(w > 0);
+        assert.ok(h > 0);
+        assert.ok(x + w <= 1);
+        assert.ok(y + h <= 1);
       }
     });
   }
   test("unknown uploads fail closed instead of revealing unreviewed plates", () => {
-    expect(plateRegions("/photos/new-car.jpg")).toBeUndefined();
+    assert.equal(plateRegions("/photos/new-car.jpg"), undefined);
   });
   test("photo navigation wraps within the same vehicle gallery", () => {
-    expect(wrapPhoto(-1, 2)).toBe(1);
-    expect(wrapPhoto(2, 2)).toBe(0);
-    expect(wrapPhoto(99, 1)).toBe(0);
+    assert.equal(wrapPhoto(-1, 2), 1);
+    assert.equal(wrapPhoto(2, 2), 0);
+    assert.equal(wrapPhoto(99, 1), 0);
   });
 });
