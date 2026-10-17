@@ -30,7 +30,6 @@ import { ReviewsSection } from "@/components/ReviewsSection";
 import { AdBanner } from "@/components/AdBanner";
 import { reviewsSchema } from "@/lib/reviews";
 import { vehicleImageSrc, type Vehicle } from "@/lib/vehicles";
-import { vehicleSpin } from "@/lib/vehicle-turntables";
 import {
   conflictsFor,
   formatRangeRo,
@@ -481,7 +480,6 @@ function Index() {
       ? dbVehicles.map((v) => ({
           img: vehicleImageSrc(v.image_url),
           images: [v.image_url, ...(v.gallery ?? [])].filter(Boolean).map(vehicleImageSrc),
-          turntable: vehicleSpin(v.name, v.image_url),
           name: v.name,
           example: v.tagline,
           price: v.price_label,
@@ -491,7 +489,6 @@ function Index() {
       : fleet.map((c) => ({
           ...c,
           images: [c.img],
-          turntable: vehicleSpin(c.name),
           id: undefined as string | undefined,
         }))
   ).map((c) => {
@@ -769,7 +766,6 @@ function Index() {
               >
                 <VehicleGallery
                   images={c.images.length > 0 ? c.images : [c.img]}
-                  turntable={c.turntable}
                   name={c.name}
                   busy={c.busy}
                   busyLabel={c.busyLabel}
