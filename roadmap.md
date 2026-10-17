@@ -1,5 +1,5 @@
 # Roadmap
-- [ ] Obfuscate fleet plates and remove inconsistent generated rotation views; verify touch and mouse interaction
+- [x] Obfuscate plates in current public fleet galleries and remove inconsistent generated rotation views; verify touch and mouse photo navigation
 - [x] Restore Adsterra banner ads
 - [ ] Exact realistic 360° for every car: requires consistent real walkaround footage or verified 3D models
 - [x] Adaugă Renault Mégane Break (SJ 80 RLU), o singură mașină cu ambele fotografii reale

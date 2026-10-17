@@ -104,11 +104,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     scripts: [
       {
-        async: true,
-        src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4079300108937036",
-        crossOrigin: "anonymous",
-      },
-      {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
@@ -174,6 +169,15 @@ const SITE_SUSPENDED = false;
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   useEffect(() => {
+    // Auto ads mutate the body: load them only after React has hydrated it.
+    const src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4079300108937036";
+    if (!document.querySelector(`script[src="${src}"]`)) {
+      const script = document.createElement("script");
+      script.src = src;
+      script.async = true;
+      script.crossOrigin = "anonymous";
+      document.head.appendChild(script);
+    }
     let cleanup: (() => void) | undefined;
     import("../lib/conversions").then((m) => {
       cleanup = m.initConversionTracking(
