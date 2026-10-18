@@ -27,7 +27,6 @@ import {
 } from "@/lib/admin.functions";
 import { VehicleGallery } from "@/components/VehicleGallery";
 import { ReviewsSection } from "@/components/ReviewsSection";
-import { AdBanner } from "@/components/AdBanner";
 import { reviewsSchema } from "@/lib/reviews";
 import { vehicleImageSrc, type Vehicle } from "@/lib/vehicles";
 import {
@@ -640,15 +639,6 @@ function Index() {
           </div>
         </section>
 
-        {/* Reclamă — banner principal */}
-        <div className="border-b border-border bg-background py-6">
-          <div className="hidden md:block">
-            <AdBanner format="leaderboard" />
-          </div>
-          <div className="md:hidden">
-            <AdBanner format="mobile" />
-          </div>
-        </div>
 
         {/* Bandă de încredere */}
         <section aria-label="De ce ne aleg clienții" className="border-b border-border bg-surface">
@@ -913,10 +903,6 @@ function Index() {
           </div>
         </section>
 
-        {/* Reclamă — pătrat înainte de întrebări */}
-        <div className="bg-background py-8">
-          <AdBanner format="box" />
-        </div>
 
         {/* FAQ */}
         <section id="intrebari" className="bg-surface py-20 md:py-28">
@@ -972,15 +958,6 @@ function Index() {
 
         <ReviewsSection />
 
-        {/* Reclamă — banner de jos */}
-        <div className="bg-surface py-8">
-          <div className="hidden md:block">
-            <AdBanner format="leaderboard" />
-          </div>
-          <div className="md:hidden">
-            <AdBanner format="mobile" />
-          </div>
-        </div>
 
         <section id="locatie" className="bg-background py-20 md:py-24">
           <div className="mx-auto grid max-w-6xl gap-10 px-5 lg:grid-cols-[1fr_1.1fr]">
