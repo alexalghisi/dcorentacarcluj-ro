@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Car, ArrowRight, Phone, Clock } from "lucide-react";
 
 import { posts as staticPosts, formatDateRo } from "@/lib/blog";
+import { AdBanner } from "@/components/AdBanner";
 import { listAutoPosts } from "@/lib/blog-auto.functions";
 import { SITE_URL, canonical, canonicalLinks, socialImageMeta } from "@/lib/seo";
 
@@ -115,6 +116,8 @@ function BlogIndex() {
           Ghiduri scrise din experiența noastră de zi cu zi în Gilău, Cluj-Napoca și Florești:
           tarife, acte, condiții de închiriere și trasee pe care merită să le faci cu mașina.
         </p>
+
+        <AdBanner format="leaderboard" />
 
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((post) => (

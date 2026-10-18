@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Car, Phone, Mail, MapPin, Check, ArrowRight, ArrowLeft, MessageCircle } from "lucide-react";
 
 import type { LocationPage } from "@/lib/locations";
+import { AdBanner } from "@/components/AdBanner";
 import { locations } from "@/lib/locations";
 
 const PHONE_HREF = "tel:+40742925934";
@@ -122,6 +123,8 @@ export function LocationLanding({ page }: { page: LocationPage }) {
 
           </div>
         </section>
+
+        <AdBanner format="leaderboard" />
 
         <section className="mx-auto max-w-4xl px-5 py-12 md:py-16">
           <div className="space-y-10">

@@ -26,6 +26,7 @@ import {
   trackVehicleView,
 } from "@/lib/admin.functions";
 import { VehicleGallery } from "@/components/VehicleGallery";
+import { AdBanner } from "@/components/AdBanner";
 import { ReviewsSection } from "@/components/ReviewsSection";
 import { reviewsSchema } from "@/lib/reviews";
 import { vehicleImageSrc, type Vehicle } from "@/lib/vehicles";
@@ -904,6 +905,8 @@ function Index() {
         </section>
 
 
+        <AdBanner format="leaderboard" />
+
         {/* FAQ */}
         <section id="intrebari" className="bg-surface py-20 md:py-28">
           <div className="mx-auto max-w-3xl px-5">
@@ -957,6 +960,8 @@ function Index() {
         {/* Local SEO / Google Maps — datele identice cu profilul Google Business */}
 
         <ReviewsSection />
+
+        <AdBanner format="box" />
 
 
         <section id="locatie" className="bg-background py-20 md:py-24">
