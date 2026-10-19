@@ -160,3 +160,52 @@
     background-color: oklch(1 0 0 / 0.1);
   }
 }
+
+/* Hero promo reel: slow cinematic camera moves over real fleet photos. */
+@keyframes hero-reel-push-left {
+  from { transform: scale(1.04) translate3d(1.5%, 0.5%, 0); }
+  to { transform: scale(1.16) translate3d(-2%, -1%, 0); }
+}
+
+@keyframes hero-reel-push-right {
+  from { transform: scale(1.04) translate3d(-1.5%, 0.5%, 0); }
+  to { transform: scale(1.16) translate3d(2%, -1%, 0); }
+}
+
+@keyframes hero-reel-progress {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.hero-reel-push-left {
+  animation-name: hero-reel-push-left;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  will-change: transform;
+}
+
+.hero-reel-push-right {
+  animation-name: hero-reel-push-right;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  will-change: transform;
+}
+
+.hero-reel-vignette {
+  background: radial-gradient(ellipse at center, transparent 55%, rgb(0 0 0 / 0.35) 100%);
+}
+
+.hero-reel-progress {
+  width: 0;
+  animation-name: hero-reel-progress;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-reel-push-left,
+  .hero-reel-push-right,
+  .hero-reel-progress {
+    animation: none;
+  }
+}
