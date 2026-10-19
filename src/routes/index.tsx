@@ -99,7 +99,7 @@ const faq = [
   },
   {
     q: "Livrați mașina în Cluj-Napoca, Florești sau la aeroport?",
-    a: "Baza este în Gilău, la 12 km de Cluj-Napoca. Stabilim împreună un punct convenabil de întâlnire în Cluj-Napoca, Florești sau în zona aeroportului.",
+    a: "Baza este în Gilău, în vestul Clujului, la circa 20 de minute de centrul Cluj-Napoca. Stabilim împreună un punct convenabil de întâlnire în Cluj-Napoca, Florești sau în zona aeroportului.",
   },
   {
     q: "Care este cea mai ieftină mașină de închiriat în Cluj?",
@@ -173,7 +173,7 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@graph": [
             {
-              "@type": "Organization",
+              "@type": ["AutoRental", "LocalBusiness"],
               "@id": `${SITE}#organization`,
               name: "DCO Rent a Car Cluj",
               legalName: "DCO Rent a Car",
@@ -326,30 +326,7 @@ export const Route = createFileRoute("/")({
           })),
         }),
       },
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "HowTo",
-          name: "Cum închiriezi o mașină în Cluj de la DCO Rent a Car",
-          description:
-            "Patru pași simpli pentru închirierea unei mașini în Cluj-Napoca, Gilău sau Florești: alegi mașina, primești prețul, ne întâlnim în Gilău pentru predare și returnezi simplu la final.",
-          totalTime: "PT15M",
-          estimatedCost: {
-            "@type": "MonetaryAmount",
-            currency: "RON",
-            value: "70",
-          },
-          step: steps.map((s, i) => ({
-            "@type": "HowToStep",
-            position: i + 1,
-            name: s.title,
-            text: s.text,
-            url: `${SITE}#proces`,
-          })),
-        }),
-      },
-    ],
+      ],
   }),
 });
 
@@ -969,7 +946,7 @@ function Index() {
             <div>
               <p className="eyebrow">Locație</p>
               <h2 className="mt-3 text-3xl font-bold md:text-4xl">
-                Ne găsiți în Gilău, la 12 km de centrul Cluj-Napoca
+                Ne găsiți în Gilău, la circa 20 de minute de centrul Cluj-Napoca
               </h2>
               <p className="mt-4 text-muted-foreground">
                 Predare și returnare în Gilău, Florești, Cluj-Napoca sau la Aeroportul
@@ -1044,7 +1021,7 @@ function Index() {
               <p>
                 Piața de <strong>rent a car Cluj</strong> este variată: de la firme internaționale
                 din aeroport până la firme locale, precum DCO Rent a Car, cu predare personală în
-                Gilău, la 12 km de centrul Clujului. Alegerea depinde de buget, flexibilitate și de
+                Gilău, în vestul Clujului. Alegerea depinde de buget, flexibilitate și de
                 cât de repede ai nevoie de mașină.
               </p>
               <p>

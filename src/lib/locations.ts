@@ -51,7 +51,7 @@ export const locations: LocationPage[] = [
       {
         heading: "Ce include un rent a car în Cluj la noi",
         paragraphs: [
-          "Tariful afișat este tariful final: include asigurarea RCA, ITP valabil, rovinieta, aerul condiționat și anvelopele de sezon. Nu percepem taxe de aeroport, taxe de birou, taxe pentru al doilea șofer sau suprataxe pentru predare în afara orelor obișnuite — exact costurile care umflă factura la firmele mari de rent a car din Cluj-Napoca.",
+          "Tariful de pornire este 70 lei/zi, iar prețul exact pentru perioada ta îl confirmăm înainte de rezervare. Tariful include asigurarea RCA, ITP valabil, rovinieta, aerul condiționat și anvelopele de sezon. Nu percepem taxe de aeroport, taxe de birou, taxe pentru al doilea șofer sau suprataxe pentru predare în afara orelor obișnuite — exact costurile care umflă factura la firmele mari de rent a car din Cluj-Napoca.",
           "Pentru închirieri de mai multe zile, o săptămână sau o lună, tariful pe zi scade. Prețul final se negociază în funcție de mașina aleasă și de durata închirierii, iar disponibilitatea o confirmăm rapid.",
         ],
         bullets: [
@@ -155,7 +155,7 @@ export const locations: LocationPage[] = [
       {
         heading: "What car rental in Cluj-Napoca includes",
         paragraphs: [
-          "The advertised rate is the final rate: RCA insurance, valid technical inspection, the Romanian road tax (rovinietă), air conditioning and seasonal tyres are all included. We charge no airport fee, no office fee, no second-driver fee and no out-of-hours surcharge — the extras that usually double the bill at international car hire desks in Cluj-Napoca.",
+          "Rates start at 70 RON/day and we confirm the exact price for your dates before you book. RCA insurance, valid technical inspection, the Romanian road tax (rovinietă), air conditioning and seasonal tyres are all included. We charge no airport fee, no office fee, no second-driver fee and no out-of-hours surcharge — the extras that usually double the bill at international car hire desks in Cluj-Napoca.",
           "Rates go down for weekly and monthly rentals. Because we are a small local operator based in Gilău rather than a terminal desk, the daily price stays low all year.",
         ],
         bullets: [
@@ -196,7 +196,7 @@ export const locations: LocationPage[] = [
       },
       {
         q: "Can I pick the car up at Cluj Airport?",
-        a: "Handover is in Gilău, roughly 25 km (30–40 minutes) from the terminal. Skipping airport fees is what keeps the daily rate low.",
+        a: "There is no terminal desk: we agree the handover point (near the airport or at our base in Gilău, 30–40 minutes away) and the time by phone or WhatsApp. Skipping airport fees is what keeps the daily rate low.",
       },
     ],
   },
@@ -247,7 +247,7 @@ export const locations: LocationPage[] = [
       {
         heading: "Cum se face predarea în Cluj-Napoca",
         paragraphs: [
-          "Ne suni sau trimiți o cerere prin formular, confirmăm disponibilitatea mașinii și stabilim locul și ora predării. Baza noastră este în Gilău, la 12 km de Cluj-Napoca, iar pentru clienții din oraș găsim un punct convenabil de întâlnire.",
+          "Ne suni sau trimiți o cerere prin formular, confirmăm disponibilitatea mașinii și stabilim locul și ora predării. Baza noastră este în Gilău, în vestul Clujului, la circa 20 de minute de centrul Cluj-Napoca, iar pentru clienții din oraș găsim un punct convenabil de întâlnire.",
         ],
       },
     ],
@@ -281,7 +281,7 @@ export const locations: LocationPage[] = [
     highlights: [
       { label: "Bază", value: "Gilău" },
       { label: "Tarif de la", value: "70 lei/zi" },
-      { label: "Până la Cluj", value: "12 km" },
+      { label: "Până la Cluj", value: "~20 min" },
       { label: "Lacul Tarnița", value: "25 min" },
     ],
     sections: [
@@ -384,13 +384,13 @@ export const locations: LocationPage[] = [
       {
         heading: "Cum funcționează pentru pasagerii care aterizează în Cluj",
         paragraphs: [
-          "Ne trimiți numărul zborului sau ora aterizării și confirmăm mașina. Preluarea se face în Gilău, la circa 25 km de Aeroportul Internațional Avram Iancu — un drum de 30–40 de minute cu taxi, ride-sharing sau autobuz metropolitan.",
-          "În schimbul acestui transfer scurt, tariful este semnificativ mai mic decât la firmele cu birou în terminal: pe o închiriere de o săptămână diferența poate depăși valoarea a două zile.",
+          "Ne trimiți numărul zborului sau ora aterizării și confirmăm mașina. Nu avem birou în terminal: locul predării (în zona aeroportului sau la baza din Gilău, la 30–40 de minute de Aeroportul Internațional Avram Iancu) și ora le stabilim împreună, în funcție de zbor.",
+          "Pentru că nu plătim spațiu în terminal, tariful este semnificativ mai mic decât la firmele cu birou în terminal: pe o închiriere de o săptămână diferența poate depăși valoarea a două zile.",
         ],
         bullets: [
           "Confirmăm disponibilitatea în funcție de ora aterizării",
           "Fără taxe de aeroport",
-          "Predare personală în Gilău",
+          "Predare personală, la locul stabilit telefonic",
           "Rovinietă inclusă, kilometraj generos",
         ],
       },
@@ -435,7 +435,7 @@ export const locations: LocationPage[] = [
       {
         heading: "Pași simpli de la aterizare până la volan",
         paragraphs: [
-          "Mai întâi ne trimiți data, ora aterizării și mașina dorită, la telefon sau pe WhatsApp la (0742) 925 934. Confirmăm disponibilitatea și locul predării. După aterizare ne anunți că ai ajuns, iei un taxi sau un autobuz spre Gilău și ne întâlnim la ora stabilită. Verificăm mașina împreună, notăm kilometrajul și pleci la drum.",
+          "Mai întâi ne trimiți data, ora aterizării și mașina dorită, la telefon sau pe WhatsApp la (0742) 925 934. Confirmăm disponibilitatea și locul predării. După aterizare ne anunți că ai ajuns, ne întâlnim în locul și la ora stabilite. Verificăm mașina împreună, notăm kilometrajul și pleci la drum.",
         ],
       },
       {
@@ -448,11 +448,11 @@ export const locations: LocationPage[] = [
     faq: [
       {
         q: "Livrați mașina în terminalul Aeroportului Cluj?",
-        a: "Predarea se face în Gilău, la circa 25 km de aeroport (30–40 de minute). Astfel evităm taxele de terminal și păstrăm tariful mic.",
+        a: "Nu avem birou în terminal. Locul predării, în zona aeroportului sau în Gilău, și ora le stabilim telefonic, în funcție de zbor. Așa evităm taxele de terminal și păstrăm tariful mic.",
       },
       {
         q: "Cum ajung de la aeroport la Gilău?",
-        a: "Cu taxi sau ride-sharing în 30–40 de minute, ori cu autobuzul metropolitan din Cluj-Napoca spre Gilău.",
+        a: "Dacă stabilim predarea în Gilău: cu taxi sau ride-sharing în 30–40 de minute, ori cu autobuzul metropolitan prin Cluj-Napoca.",
       },
       {
         q: "Pot rezerva în avans pentru data zborului?",
@@ -762,7 +762,7 @@ export const locations: LocationPage[] = [
       },
       {
         q: "Do you deliver to Cluj Airport?",
-        a: "Handover is in Gilău, about 25 km (30–40 minutes) from the airport. Avoiding terminal fees is what keeps the price low.",
+        a: "There is no terminal desk: we agree the handover point (near the airport or at our base in Gilău, 30–40 minutes away) and the time by phone or WhatsApp. Avoiding terminal fees is what keeps the price low.",
       },
       {
         q: "Is the Romanian road tax included?",
@@ -1021,7 +1021,7 @@ export const locations: LocationPage[] = [
       {
         heading: "Zone de predare",
         paragraphs: [
-          "Baza este în Gilău, la 12 km de Cluj-Napoca. Predăm mașina în Cluj-Napoca, Florești, Gilău sau în zona aeroportului, la ora stabilită împreună.",
+          "Baza este în Gilău, în vestul Clujului, pe DN1. Predăm mașina în Cluj-Napoca, Florești, Gilău sau în zona aeroportului, la ora stabilită împreună.",
         ],
       },
     ],
@@ -1064,7 +1064,7 @@ export const locations: LocationPage[] = [
         heading: "Cum funcționează predarea la aeroportul Cluj",
         paragraphs: [
           "Ne trimiți numărul zborului și ora aterizării, iar noi ne sincronizăm cu programul tău. Dacă zborul întârzie, ajustăm ora predării fără costuri suplimentare.",
-          "Aeroportul Internațional Avram Iancu se află la circa 20 de minute de Gilău, unde este baza noastră, așa că ajungem rapid la un punct de întâlnire convenabil.",
+          "Aeroportul Internațional Avram Iancu se află la circa 30–40 de minute de Gilău (în funcție de trafic), unde este baza noastră, așa că ajungem rapid la un punct de întâlnire convenabil.",
         ],
         bullets: [
           "Fără cozi la ghișeu și fără taxe de terminal",
@@ -1584,7 +1584,7 @@ export const locations: LocationPage[] = [
       {
         heading: "Zonele deservite",
         paragraphs: [
-          "Baza este în Gilău, la 12 km de Cluj-Napoca. Predăm personal în Cluj-Napoca, Florești, Luna de Sus, Someșu Rece și în zona aeroportului, iar pentru alte localități din județ stabilim un punct de întâlnire.",
+          "Baza este în Gilău, în vestul Clujului, pe DN1. Predăm personal în Cluj-Napoca, Florești, Luna de Sus, Someșu Rece și în zona aeroportului, iar pentru alte localități din județ stabilim un punct de întâlnire.",
         ],
       },
     ],
