@@ -26,6 +26,7 @@ import {
   trackVehicleView,
 } from "@/lib/admin.functions";
 import { VehicleGallery } from "@/components/VehicleGallery";
+import { HeroReel } from "@/components/HeroReel";
 import { AdBanner } from "@/components/AdBanner";
 import { ReviewsSection } from "@/components/ReviewsSection";
 import { reviewsSchema } from "@/lib/reviews";
@@ -570,14 +571,18 @@ function Index() {
       <main id="top">
         {/* Hero */}
         <section className="relative isolate overflow-hidden">
-          <img
-            src={heroCar}
-            alt="Flota DCO Rent a Car în Gilău, Cluj: mașini pregătite pentru închiriere"
-            width={1600}
-            height={1008}
-            fetchPriority="high"
-            decoding="async"
-            className="absolute inset-0 h-full w-full object-cover"
+          <HeroReel
+            poster={heroCar}
+            posterAlt="Flota DCO Rent a Car în Gilău, Cluj: mașini pregătite pentru închiriere"
+            slides={[
+              { src: carFabia, caption: "Škoda Fabia · de la 70 lei/zi" },
+              { src: carPassat, caption: "VW Passat Break · de la 70 lei/zi" },
+              { src: carC5, caption: "Citroën C5 automat · de la 70 lei/zi" },
+              { src: carXc90, caption: "Volvo XC90 · 7 locuri" },
+              { src: carClio, caption: "Renault Clio Symbol · de la 70 lei/zi" },
+              { src: carVolvoS40, caption: "Volvo S40 · de la 70 lei/zi" },
+              { src: carFocus, caption: "Ford Focus Break · de la 70 lei/zi" },
+            ]}
           />
           <div className="absolute inset-0 bg-[linear-gradient(100deg,oklch(0.17_0.03_262/0.95)_0%,oklch(0.2_0.05_262/0.85)_52%,oklch(0.2_0.05_262/0.3)_100%)]" />
           <div className="relative mx-auto max-w-6xl px-5 py-24 md:py-32">
