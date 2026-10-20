@@ -38,7 +38,7 @@ import {
   type BookingRange,
 } from "@/lib/bookings";
 
-import heroCar from "@/assets/hero-fleet.jpg";
+import { HeroVideo, HERO_VIDEO_POSTER } from "@/components/HeroVideo";
 import carPassat from "@/assets/car-passat.jpg";
 import carC5 from "@/assets/car-c5.jpg";
 import carFocus from "@/assets/car-focus.jpg";
@@ -164,7 +164,7 @@ export const Route = createFileRoute("/")({
     ],
     links: [
       ...canonicalLinks("/", true),
-      { rel: "preload", as: "image", href: heroCar, fetchPriority: "high" },
+      { rel: "preload", as: "image", href: HERO_VIDEO_POSTER, fetchPriority: "high" },
     ],
     scripts: [
       {
@@ -570,15 +570,7 @@ function Index() {
       <main id="top">
         {/* Hero */}
         <section className="relative isolate overflow-hidden">
-          <img
-            src={heroCar}
-            alt="Flota DCO Rent a Car în Gilău, Cluj: mașini pregătite pentru închiriere"
-            width={1600}
-            height={1008}
-            fetchPriority="high"
-            decoding="async"
-            className="absolute inset-0 h-full w-full object-cover"
-          />
+          <HeroVideo />
           <div className="absolute inset-0 bg-[linear-gradient(100deg,oklch(0.17_0.03_262/0.95)_0%,oklch(0.2_0.05_262/0.85)_52%,oklch(0.2_0.05_262/0.3)_100%)]" />
           <div className="relative mx-auto max-w-6xl px-5 py-24 md:py-32">
             <p className="eyebrow text-signal">Cluj · Gilău · Florești</p>
