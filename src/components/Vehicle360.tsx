@@ -30,14 +30,23 @@ export function Vehicle360({ frames, alt, className = "" }: {
   useEffect(() => {
     let cancelled = false;
     setLoaded(0);
+    // Count a frame as settled on load *or* error, and also when the browser already has it
+    // cached (Safari can complete cached images before onload is observed), so the
+    // viewer never hangs on the loading state.
+    const settle = () => { if (!cancelled) { st.current.drawn = -1; setLoaded((c) => c + 1); } };
     images.current = frames.map((src) => {
       const im = new Image();
-      im.decoding = "async";
-      im.onload = () => { if (!cancelled) { st.current.drawn = -1; setLoaded((c) => c + 1); } };
+      let done = false;
+      const once = () => { if (!done) { done = true; settle(); } };
+      im.onload = once;
+      im.onerror = once;
       im.src = src;
+      if (im.complete) queueMicrotask(once);
       return im;
     });
-    return () => { cancelled = true; };
+    // Safety net: never keep the spinner for more than a few seconds.
+    const timer = window.setTimeout(() => { if (!cancelled) setLoaded((c) => Math.max(c, 1)); }, 4000);
+    return () => { cancelled = true; window.clearTimeout(timer); };
   }, [frames]);
 
   useEffect(() => {
@@ -131,6 +140,16 @@ export function Vehicle360({ frames, alt, className = "" }: {
 
   return (
     <div className={`relative overflow-hidden bg-[#e6e2dd] ${className}`}>
+      {/* Poster: the first angle as a plain image (server-rendered), visible until the canvas paints. */}
+      {n > 0 && (
+        <img
+          src={frames[0]}
+          alt=""
+          aria-hidden="true"
+          draggable={false}
+          className="pointer-events-none absolute inset-0 h-full w-full select-none object-cover"
+        />
+      )}
       <canvas
         ref={canvas}
         role="img"
@@ -142,11 +161,11 @@ export function Vehicle360({ frames, alt, className = "" }: {
         onPointerCancel={onUp}
         onLostPointerCapture={onUp}
         onKeyDown={onKey}
-        className="block h-full w-full cursor-grab touch-pan-y select-none outline-none focus-visible:ring-2 focus-visible:ring-primary active:cursor-grabbing"
+        className="relative block h-full w-full cursor-grab touch-pan-y select-none outline-none focus-visible:ring-2 focus-visible:ring-primary active:cursor-grabbing"
       />
       {loaded === 0 && (
-        <div className="pointer-events-none absolute inset-0 flex items-center justify-center text-xs font-semibold text-muted-foreground">
-          <RotateCw className="mr-2 h-4 w-4 animate-spin" /> Se încarcă vederea 360°
+        <div className="pointer-events-none absolute bottom-3 left-1/2 inline-flex -translate-x-1/2 items-center whitespace-nowrap rounded-full bg-background/90 px-3 py-1 text-xs font-semibold text-muted-foreground shadow">
+          <RotateCw className="mr-2 h-3.5 w-3.5 animate-spin" /> Se încarcă vederea 360°
         </div>
       )}
       {!touched && loaded > 0 && (
