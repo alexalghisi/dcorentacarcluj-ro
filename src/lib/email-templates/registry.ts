@@ -3,10 +3,11 @@ import type { ComponentType } from 'react'
 import { template as syncAlertTemplate } from './sync-alert'
 
 export interface TemplateEntry {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- each template has its own props
   component: ComponentType<any>
-  subject: string | ((data: Record<string, any>) => string)
+  subject: string | ((data: Record<string, unknown>) => string)
   displayName?: string
-  previewData?: Record<string, any>
+  previewData?: Record<string, unknown>
   /** Fixed recipient — overrides caller-provided recipientEmail when set. */
   to?: string
 }
