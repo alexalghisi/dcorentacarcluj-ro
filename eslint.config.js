@@ -37,4 +37,9 @@ export default tseslint.config(
     },
   },
   eslintPluginPrettier,
+  {
+    // Formatting is reported but does not fail lint: Lovable syncs unformatted edits
+    // to main. Run `bun run format` to clean up.
+    rules: { "prettier/prettier": "warn" },
+  },
 );

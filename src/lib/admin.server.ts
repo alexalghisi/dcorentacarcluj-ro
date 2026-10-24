@@ -19,6 +19,8 @@ function sessionConfig() {
 }
 
 export function getAdminSession() {
+  // TanStack Start's server `useSession` is a request helper, not a React hook.
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   return useSession<AdminSessionData>(sessionConfig());
 }
 
