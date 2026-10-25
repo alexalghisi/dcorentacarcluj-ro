@@ -18,6 +18,7 @@ export function adsterraDocument(unit: ReturnType<typeof adsterraUnit>, id: stri
     if(el.tagName==='IMG'&&el.complete&&el.naturalWidth)mark();
   });
   new MutationObserver(watch).observe(document.getElementById('ad'),{childList:true,subtree:true});
+  const probe=setInterval(()=>{if(filled)return clearInterval(probe);watch();document.querySelectorAll('#ad iframe').forEach(f=>{try{const b=f.contentDocument&&f.contentDocument.body;if(b&&b.innerHTML.length>50)mark()}catch(e){}})},500);
   setTimeout(()=>{if(!filled)notify(false)},15000);
   window.atOptions=${JSON.stringify({ ...unit, format: "iframe", params: {} })};
   </script><script src="https://bauval.org/22/${unit.key}" onerror="notify(false)"></script></div></body></html>`;
