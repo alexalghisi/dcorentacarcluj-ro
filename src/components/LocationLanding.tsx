@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Car, Phone, Mail, MapPin, Check, ArrowRight, ArrowLeft, MessageCircle } from "lucide-react";
 
 import type { LocationPage } from "@/lib/locations";
-import { AdBanner } from "@/components/AdBanner";
+import { AdsterraSlot } from "@/components/AdsterraSlot";
 import { locations } from "@/lib/locations";
 
 const PHONE_HREF = "tel:+40742925934";
@@ -124,12 +124,12 @@ export function LocationLanding({ page }: { page: LocationPage }) {
           </div>
         </section>
 
-        <AdBanner format="leaderboard" />
 
         <section className="mx-auto max-w-4xl px-5 py-12 md:py-16">
           <div className="space-y-10">
-            {page.sections.map((s) => (
-              <article key={s.heading}>
+            {page.sections.map((s, index) => (
+              <div key={s.heading}>
+              <article>
                 <h2 className="font-display text-2xl font-bold tracking-tight">{s.heading}</h2>
                 {s.paragraphs.map((p) => (
                   <p key={p} className="mt-3 leading-relaxed text-muted-foreground">
@@ -147,6 +147,10 @@ export function LocationLanding({ page }: { page: LocationPage }) {
                   </ul>
                 ) : null}
               </article>
+              {index === Math.floor(page.sections.length / 2) - 1 &&
+                /flota|masin|auto|suv|break/.test(page.slug) &&
+                <AdsterraSlot placement="fleet-detail-mid-content" />}
+              </div>
             ))}
           </div>
 
@@ -272,6 +276,7 @@ export function LocationLanding({ page }: { page: LocationPage }) {
 
       </main>
 
+      <AdsterraSlot placement="location-before-footer" />
       <footer className="border-t border-border bg-background pb-20 md:pb-0">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-5 py-8 text-sm text-muted-foreground md:flex-row md:items-center md:justify-between">
           <p className="font-semibold text-foreground">DCO RENT A CAR CLUJ</p>

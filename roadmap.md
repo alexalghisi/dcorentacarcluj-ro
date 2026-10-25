@@ -1,4 +1,5 @@
 # Roadmap
+- [x] Add crawler-visible AdSense and responsive isolated Adsterra slots; verify placements and empty-ad collapse (live ad delivery depends on networks)
 - [x] Obfuscate plates in current public fleet galleries and remove inconsistent generated rotation views; verify touch and mouse photo navigation
 - [x] Restore Adsterra banner ads
 - [ ] Exact realistic 360° for every car: requires consistent real walkaround footage or verified 3D models

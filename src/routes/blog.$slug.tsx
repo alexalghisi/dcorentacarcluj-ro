@@ -5,6 +5,7 @@ import { getPost, posts, formatDateRo } from "@/lib/blog";
 import { getAutoPost, listAutoPosts } from "@/lib/blog-auto.functions";
 import type { BlogPost, BlogSection } from "@/lib/blog";
 import { OG_IMAGE, SITE_URL, canonical, canonicalLinks, socialImageMeta } from "@/lib/seo";
+import { AdsterraSlot } from "@/components/AdsterraSlot";
 
 const SITE = SITE_URL;
 
@@ -230,6 +231,7 @@ function BlogPostPage() {
         </Link>
       </main>
 
+      <AdsterraSlot placement="article-before-footer" />
       <footer className="border-t border-border bg-background">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-5 py-8 text-sm text-muted-foreground md:flex-row md:items-center md:justify-between">
           <p className="font-semibold text-foreground">DCO RENT A CAR CLUJ</p>
