@@ -1,4 +1,4 @@
-const turntableFiles = import.meta.glob<string>("../assets/turntable/*.jpg", {
+const turntableFiles = import.meta.glob<string>("../assets/turntable/*.webp", {
   eager: true,
   query: "?url",
   import: "default",
@@ -12,7 +12,7 @@ const ORDER = ["0", "1", "L", "2", "3", "4", "R", "5"];
 
 const framesByKey = Object.entries(turntableFiles).reduce<Record<string, Record<string, string>>>(
   (sets, [path, url]) => {
-    const match = path.match(/\/([^/]+)-([0-9LR])\.jpg$/);
+    const match = path.match(/\/([^/]+)-([0-9LR])\.webp$/);
     if (!match) return sets;
     const key = match[1];
     const angle = match[2];

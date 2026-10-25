@@ -11,5 +11,18 @@ export default defineConfig({
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
+    // Split route loaders out of the entry chunk too (TanStack defaults split only the
+    // components), so content-heavy loaders such as the location pages load per route.
+    router: {
+      codeSplittingOptions: {
+        defaultBehavior: [
+          ["loader"],
+          ["component"],
+          ["pendingComponent"],
+          ["errorComponent"],
+          ["notFoundComponent"],
+        ],
+      },
+    },
   },
 });

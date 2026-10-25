@@ -18,7 +18,7 @@ export const Route = createFileRoute("/api/public/vehicle-image/$")({
         return new Response(await data.arrayBuffer(), {
           headers: {
             "content-type": data.type || "image/jpeg",
-            "cache-control": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800",
+            "cache-control": "public, max-age=604800, s-maxage=2592000, stale-while-revalidate=2592000",
           },
         });
       },

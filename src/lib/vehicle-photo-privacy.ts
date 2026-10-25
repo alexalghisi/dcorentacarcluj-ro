@@ -18,8 +18,21 @@ const regions: Record<string, readonly PlateRegion[]> = {
   "renault-megane-break-2.jpeg": [[0.77, 0.60, 0.16, 0.065], [0.84, 0.55, 0.12, 0.04]],
 };
 
+/**
+ * Resized WebP copies served from /public/fleet keep the exact framing of their source photo,
+ * so they reuse the reviewed regions of the original file name.
+ */
+const optimizedRegions: Record<string, readonly PlateRegion[]> = Object.fromEntries(
+  Object.entries(regions)
+    .filter(([key]) => /\.jpe?g$/.test(key))
+    .map(([key, value]) => [`/fleet/${key.replace(/\.jpe?g$/, "")}.webp`, value]),
+);
+
 export function plateRegions(src: string): readonly PlateRegion[] | undefined {
-  return Object.entries(regions).find(([key]) => src.includes(key))?.[1];
+  return (
+    Object.entries(optimizedRegions).find(([key]) => src.includes(key))?.[1] ??
+    Object.entries(regions).find(([key]) => src.includes(key))?.[1]
+  );
 }
 
 export function wrapPhoto(index: number, count: number): number {

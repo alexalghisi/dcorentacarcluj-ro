@@ -14,6 +14,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { ServiceSuspended } from "../components/ServiceSuspended";
 import { ADSENSE_ACCOUNT, ADSENSE_SCRIPT } from "@/lib/advertising";
+import { afterPageIdle } from "@/lib/idle";
 
 function NotFoundComponent() {
   return (
@@ -106,7 +107,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
     ],
     scripts: [
-      { src: ADSENSE_SCRIPT, async: true, crossOrigin: "anonymous" },
       {
         type: "application/ld+json",
         children: JSON.stringify({
@@ -179,6 +179,22 @@ function RootComponent() {
     });
     return () => cleanup?.();
   }, []);
+
+  // AdSense (account declared in the head meta above) loads only after the page is
+  // interactive, so the ad script never competes with the first paint.
+  useEffect(
+    () =>
+      afterPageIdle(() => {
+        if (document.getElementById("adsense-loader")) return;
+        const s = document.createElement("script");
+        s.id = "adsense-loader";
+        s.async = true;
+        s.crossOrigin = "anonymous";
+        s.src = ADSENSE_SCRIPT;
+        document.head.appendChild(s);
+      }),
+    [],
+  );
 
   return (
     <QueryClientProvider client={queryClient}>

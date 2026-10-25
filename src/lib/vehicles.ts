@@ -38,7 +38,31 @@ export function vehicleImageSrc(imageUrl: string): string {
   return `/api/public/vehicle-image/${imageUrl.split("/").map(encodeURIComponent).join("/")}`;
 }
 
-export const TRANSMISSIONS = ["Manuală", "Automată"];
+/**
+ * Resized WebP copies (public/fleet) of the stored fleet photos, same framing as the originals.
+ * The stored uploads stay untouched for editing; only the public display uses the light copy.
+ */
+const OPTIMIZED_PUBLIC_PHOTOS: Record<string, string> = {
+  "seed/car-fabia.jpg": "/fleet/car-fabia.webp",
+  "seed/car-clio.jpg": "/fleet/car-clio.webp",
+  "seed/car-focus.jpg": "/fleet/car-focus.webp",
+  "seed/car-passat.jpg": "/fleet/car-passat.webp",
+  "seed/car-volvo-s40.jpg": "/fleet/car-volvo-s40.webp",
+  "seed/car-volvo-s40-grey.jpg": "/fleet/car-volvo-s40-grey.webp",
+  "seed/car-c5.jpg": "/fleet/car-c5.webp",
+  "seed/car-xc90.jpg": "/fleet/car-xc90.webp",
+  "/__l5e/assets-v1/9f2248c2-d9e5-4f15-9fcf-1057c1a4eade/renault-megane-break-1.jpeg":
+    "/fleet/renault-megane-break-1.webp",
+  "/__l5e/assets-v1/60f29ec2-c9b7-4e05-91e2-32c524a2595d/renault-megane-break-2.jpeg":
+    "/fleet/renault-megane-break-2.webp",
+};
+
+/** Public fleet cards: a light WebP copy when one exists, otherwise the regular image route. */
+export function publicVehicleImageSrc(imageUrl: string): string {
+  return OPTIMIZED_PUBLIC_PHOTOS[imageUrl] ?? vehicleImageSrc(imageUrl);
+}
+
+export const TRANSMISSIONS =["Manuală", "Automată"];
 export const FUELS = ["Diesel", "Benzină", "Benzină + GPL", "Hibrid", "Electric"];
 export const SEATS = ["4 locuri", "5 locuri", "7 locuri", "9 locuri"];
 
