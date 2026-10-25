@@ -20,6 +20,12 @@ describe("public fleet privacy", () => {
       }
     });
   }
+  for (const file of ["car-fabia", "car-volvo-s40", "car-volvo-s40-grey", "renault-megane-break-1", "renault-megane-break-2"]) {
+    test(`optimized /fleet/${file}.webp reuses the reviewed masking of its source`, () => {
+      const original = plateRegions(`/photos/${file}.${file.startsWith("renault") ? "jpeg" : "jpg"}`);
+      assert.deepEqual(plateRegions(`/fleet/${file}.webp`), original);
+    });
+  }
   test("unknown uploads fail closed instead of revealing unreviewed plates", () => {
     assert.equal(plateRegions("/photos/new-car.jpg"), undefined);
   });

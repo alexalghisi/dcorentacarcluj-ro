@@ -20,14 +20,29 @@ export function Vehicle360({ frames, alt, className = "" }: {
   const canvas = useRef<HTMLCanvasElement>(null);
   const images = useRef<HTMLImageElement[]>([]);
   const [loaded, setLoaded] = useState(0);
+  // The angles are fetched only when the viewer comes near the viewport (or is touched).
+  const [near, setNear] = useState(false);
   const [touched, setTouched] = useState(false);
   const st = useRef({
     pos: 0, vel: 0, dragging: false, pointer: -1, lastX: 0, lastT: 0,
     visible: false, auto: true, reduced: false, drawn: -1, raf: 0, prev: 0,
+    kick: () => {},
   });
+
+  useEffect(() => {
+    const el = canvas.current;
+    if (!el || near) return;
+    if (typeof IntersectionObserver === "undefined") { setNear(true); return; }
+    const observer = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) { setNear(true); observer.disconnect(); }
+    }, { rootMargin: "300px" });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [near]);
 
   // Load every angle; the first one paints as soon as it arrives.
   useEffect(() => {
+    if (!near) return;
     let cancelled = false;
     setLoaded(0);
     // Count a frame as settled on load *or* error, and also when the browser already has it
@@ -47,14 +62,19 @@ export function Vehicle360({ frames, alt, className = "" }: {
     // Safety net: never keep the spinner for more than a few seconds.
     const timer = window.setTimeout(() => { if (!cancelled) setLoaded((c) => Math.max(c, 1)); }, 4000);
     return () => { cancelled = true; window.clearTimeout(timer); };
-  }, [frames]);
+  }, [frames, near]);
 
   useEffect(() => {
     const el = canvas.current;
     if (!el || n === 0) return;
     const s = st.current;
     s.reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const io = new IntersectionObserver(([e]) => { s.visible = !!e?.isIntersecting; }, { threshold: 0.2 });
+    s.prev = 0;
+    const start = () => { if (!s.raf) { s.prev = 0; s.raf = requestAnimationFrame(tick); } };
+    const io = new IntersectionObserver(([e]) => {
+      s.visible = !!e?.isIntersecting;
+      if (s.visible) start();
+    }, { threshold: 0.2 });
     io.observe(el);
 
     const ready = (im?: HTMLImageElement) => !!im && im.complete && im.naturalWidth > 0;
@@ -103,10 +123,13 @@ export function Vehicle360({ frames, alt, className = "" }: {
         }
       }
       draw();
+      // Off-screen and at rest: stop the loop until the viewer scrolls back into view.
+      if (!s.visible && !s.dragging && Math.abs(s.vel) <= 0.002) { s.raf = 0; return; }
       s.raf = requestAnimationFrame(tick);
     };
-    s.raf = requestAnimationFrame(tick);
-    return () => { cancelAnimationFrame(s.raf); io.disconnect(); };
+    s.kick = start;
+    start();
+    return () => { cancelAnimationFrame(s.raf); s.raf = 0; s.kick = () => {}; io.disconnect(); };
   }, [n]);
 
   const onDown = (e: React.PointerEvent<HTMLCanvasElement>) => {
@@ -115,6 +138,8 @@ export function Vehicle360({ frames, alt, className = "" }: {
     s.lastX = e.clientX; s.lastT = performance.now();
     e.currentTarget.setPointerCapture(e.pointerId);
     setTouched(true);
+    setNear(true);
+    s.kick();
   };
   const onMove = (e: React.PointerEvent<HTMLCanvasElement>) => {
     const s = st.current;
@@ -136,6 +161,7 @@ export function Vehicle360({ frames, alt, className = "" }: {
     s.auto = false; s.vel = 0;
     s.pos = (Math.round(s.pos * n) + (e.key === "ArrowRight" ? 1 : -1)) / n;
     setTouched(true);
+    s.kick();
   };
 
   return (
@@ -146,6 +172,10 @@ export function Vehicle360({ frames, alt, className = "" }: {
           src={frames[0]}
           alt=""
           aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+          width={720}
+          height={540}
           draggable={false}
           className="pointer-events-none absolute inset-0 h-full w-full select-none object-cover"
         />

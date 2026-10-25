@@ -43,9 +43,21 @@ export function PrivateVehiclePhoto({ src, alt, className = "", fit = "contain" 
 }) {
   const canvas = useRef<HTMLCanvasElement>(null);
   const [failed, setFailed] = useState(false);
+  // Fetch the photo only when it gets near the viewport, so off-screen cards cost nothing.
+  const [near, setNear] = useState(false);
   useEffect(() => {
     const el = canvas.current;
-    if (!el) return;
+    if (!el || near) return;
+    if (typeof IntersectionObserver === "undefined") { setNear(true); return; }
+    const observer = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) { setNear(true); observer.disconnect(); }
+    }, { rootMargin: "300px" });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [near]);
+  useEffect(() => {
+    const el = canvas.current;
+    if (!el || !near) return;
     const ctx = el.getContext("2d");
     if (!ctx) return;
     ctx.clearRect(0, 0, el.width, el.height);
@@ -68,7 +80,7 @@ export function PrivateVehiclePhoto({ src, alt, className = "", fit = "contain" 
     photo.onerror = () => { if (!cancelled) setFailed(true); };
     photo.src = src;
     return () => { cancelled = true; photo.onload = null; photo.onerror = null; };
-  }, [src]);
+  }, [src, near]);
   return (
     <div className={`relative overflow-hidden bg-surface ${className}`}>
       <canvas ref={canvas} role="img" aria-label={alt}

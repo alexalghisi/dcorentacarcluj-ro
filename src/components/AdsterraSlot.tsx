@@ -1,5 +1,6 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { adsterraDocument, adsterraUnit } from "@/lib/advertising";
+import { afterPageIdle } from "@/lib/idle";
 
 /** External ad code runs in an opaque-origin sandbox, never in the app document. */
 export function AdsterraSlot({ placement }: { placement: string }) {
@@ -8,6 +9,9 @@ export function AdsterraSlot({ placement }: { placement: string }) {
   const frame = useRef<HTMLIFrameElement>(null);
   const [unit, setUnit] = useState<ReturnType<typeof adsterraUnit> | null>(null);
   const [nearby, setNearby] = useState(false);
+  // Ads wait until the page has loaded and is idle, so they never slow the first paint.
+  const [idle, setIdle] = useState(false);
+  useEffect(() => afterPageIdle(() => setIdle(true)), []);
   const [filled, setFilled] = useState(false);
   const [failed, setFailed] = useState(false);
 
@@ -32,7 +36,7 @@ export function AdsterraSlot({ placement }: { placement: string }) {
   }, []);
 
   useEffect(() => {
-    if (!nearby || !unit) return;
+    if (!nearby || !idle || !unit) return;
     const receive = (event: MessageEvent) => {
       if (event.source !== frame.current?.contentWindow || event.data?.type !== "adsterra-fill" || event.data?.id !== id) return;
       if (event.data.filled === true) { setFilled(true); setFailed(false); }
@@ -41,14 +45,14 @@ export function AdsterraSlot({ placement }: { placement: string }) {
     window.addEventListener("message", receive);
     const timeout = window.setTimeout(() => setFailed((previous) => previous || !frame.current?.dataset['filled']), 18000);
     return () => { window.removeEventListener("message", receive); window.clearTimeout(timeout); };
-  }, [nearby, unit, id]);
+  }, [nearby, idle, unit, id]);
 
   return (
     <div ref={sentinel} data-ad-placement={placement} className="relative w-full">
       <div className="absolute top-0 h-px w-px" aria-hidden="true" />
       <div className={filled && !failed ? "flex flex-col items-center gap-2 py-6" : "h-0 overflow-hidden"}>
         {filled && !failed && <span className="text-xs text-muted-foreground">Publicitate</span>}
-        {nearby && unit && !failed && (
+        {nearby && idle && unit && !failed && (
           <iframe
             key={unit.key}
             ref={frame}

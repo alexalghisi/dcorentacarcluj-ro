@@ -29,7 +29,7 @@ import { VehicleGallery } from "@/components/VehicleGallery";
 import { AdsterraSlot } from "@/components/AdsterraSlot";
 import { ReviewsSection } from "@/components/ReviewsSection";
 import { reviewsSchema } from "@/lib/reviews";
-import { vehicleImageSrc, type Vehicle } from "@/lib/vehicles";
+import { publicVehicleImageSrc, type Vehicle } from "@/lib/vehicles";
 import {
   conflictsFor,
   formatRangeRo,
@@ -39,16 +39,7 @@ import {
 } from "@/lib/bookings";
 
 import { HeroVideo, HERO_VIDEO_POSTER } from "@/components/HeroVideo";
-import carPassat from "@/assets/car-passat.jpg";
-import carC5 from "@/assets/car-c5.jpg";
-import carFocus from "@/assets/car-focus.jpg";
-import carFabia from "@/assets/car-fabia.jpg";
-import carClio from "@/assets/car-clio.jpg";
-import carVolvoS40 from "@/assets/car-volvo-s40.jpg";
-import carVolvoS40Grey from "@/assets/car-volvo-s40-grey.jpg";
-import carXc90 from "@/assets/car-xc90.jpg";
 
-import { locations } from "@/lib/locations";
 import { SITE_URL, canonical, canonicalLinks, socialImageMeta } from "@/lib/seo";
 
 
@@ -123,12 +114,16 @@ const faq = [
 
 export const Route = createFileRoute("/")({
   loader: async () => {
-    const [vehicles, busy, reviews] = await Promise.all([
+    const [vehicles, busy, reviews, zones] = await Promise.all([
       getPublicVehicles().catch(() => []),
       getBusyRanges().catch(() => []),
       getApprovedReviews().catch(() => []),
+      // Only the link labels are needed here; the full location content stays out of this page's JS.
+      import("@/lib/locations").then(({ locations }) =>
+        locations.map((l) => ({ slug: l.slug, label: l.linkTitle ?? `Rent a Car ${l.city}` })),
+      ),
     ]);
-    return { vehicles, busy, reviews };
+    return { vehicles, busy, reviews, zones };
   },
 
   errorComponent: () => (
@@ -332,56 +327,56 @@ export const Route = createFileRoute("/")({
 
 const fleet = [
   {
-    img: carFabia,
+    img: "/fleet/car-fabia.webp",
     name: "Škoda Fabia",
     example: "Compactă, economică, perfectă pentru oraș",
     price: "de la 70 lei/zi",
     specs: ["5 locuri", "Manuală", "Benzină"],
   },
   {
-    img: carClio,
+    img: "/fleet/car-clio.webp",
     name: "Renault Clio Symbol",
     example: "Cea mai accesibilă opțiune, consum mic",
     price: "de la 70 lei/zi",
     specs: ["5 locuri", "Manuală", "Benzină"],
   },
   {
-    img: carFocus,
+    img: "/fleet/car-focus.webp",
     name: "Ford Focus Break",
     example: "Portbagaj generos, fiabil pe drum lung",
     price: "de la 70 lei/zi",
     specs: ["5 locuri", "Manuală", "Diesel"],
   },
   {
-    img: carPassat,
+    img: "/fleet/car-passat.webp",
     name: "VW Passat Break",
     example: "Spațios și confortabil, ideal pentru familie",
     price: "de la 70 lei/zi",
     specs: ["5 locuri", "Manuală", "Diesel"],
   },
   {
-    img: carVolvoS40,
+    img: "/fleet/car-volvo-s40.webp",
     name: "Volvo S40 2.0D",
     example: "Berlină sigură și silențioasă",
     price: "de la 70 lei/zi",
     specs: ["5 locuri", "Manuală", "Diesel"],
   },
   {
-    img: carVolvoS40Grey,
+    img: "/fleet/car-volvo-s40-grey.webp",
     name: "Volvo S40",
     example: "A doua unitate S40, disponibilă la cerere",
     price: "de la 70 lei/zi",
     specs: ["5 locuri", "Manuală", "Diesel"],
   },
   {
-    img: carC5,
+    img: "/fleet/car-c5.webp",
     name: "Citroën C5",
     example: "Berlină automată, confort maxim pe autostradă",
     price: "de la 70 lei/zi",
     specs: ["5 locuri", "Automată", "Diesel"],
   },
   {
-    img: carXc90,
+    img: "/fleet/car-xc90.webp",
     name: "Volvo XC90 D5",
     example: "SUV premium 7 locuri, tracțiune integrală",
     price: "la cerere",
@@ -442,10 +437,11 @@ const conditions = [
 
 
 function Index() {
-  const { vehicles: dbVehicles, busy, reviews } = Route.useLoaderData() as {
+  const { vehicles: dbVehicles, busy, reviews, zones } = Route.useLoaderData() as {
     vehicles: Vehicle[];
     busy: BookingRange[];
     reviews: VehicleReview[];
+    zones: { slug: string; label: string }[];
   };
 
   const [from, setFrom] = useState(todayISO());
@@ -455,8 +451,8 @@ function Index() {
   const fleetItems = (
     dbVehicles.length > 0
       ? dbVehicles.map((v) => ({
-          img: vehicleImageSrc(v.image_url),
-          images: [v.image_url, ...(v.gallery ?? [])].filter(Boolean).map(vehicleImageSrc),
+          img: publicVehicleImageSrc(v.image_url),
+          images: [v.image_url, ...(v.gallery ?? [])].filter(Boolean).map(publicVehicleImageSrc),
           name: v.name,
           example: v.tagline,
           price: v.price_label,
@@ -912,14 +908,14 @@ function Index() {
               frecvente. Alegeți localitatea sau tipul de închiriere care vă interesează.
             </p>
             <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {locations.map((l) => (
+              {zones.map((l) => (
                 <Link
                   key={l.slug}
                   to="/$slug"
                   params={{ slug: l.slug }}
                   className="group flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3.5 transition-colors hover:border-primary"
                 >
-                  <span className="font-semibold">{l.linkTitle ?? `Rent a Car ${l.city}`}</span>
+                  <span className="font-semibold">{l.label}</span>
                   <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5" />
                 </Link>
               ))}
@@ -1106,14 +1102,14 @@ function Index() {
       <footer className="border-t border-border bg-background">
         <div className="mx-auto max-w-6xl px-5 py-8">
           <nav aria-label="Zone și servicii" className="flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium">
-            {locations.map((l) => (
+            {zones.map((l) => (
               <Link
                 key={l.slug}
                 className="text-muted-foreground transition-colors hover:text-foreground"
                 to="/$slug"
                 params={{ slug: l.slug }}
               >
-                {l.linkTitle ?? `Rent a Car ${l.city}`}
+                {l.label}
               </Link>
             ))}
             <Link className="text-muted-foreground transition-colors hover:text-foreground" to="/blog">
