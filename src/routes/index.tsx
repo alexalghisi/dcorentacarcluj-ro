@@ -806,8 +806,8 @@ function Index() {
               </article>
             ))}
           </div>
+          <AdsterraSlot placement="homepage-fleet" />
           <div className="mt-12 card-eco p-6 md:p-8">
-            <AdsterraSlot placement="homepage-fleet" />
 
             <p className="text-sm text-muted-foreground">
               Disponibilitatea variază în funcție de perioadă. Sunați la{" "}

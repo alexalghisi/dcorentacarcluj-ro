@@ -127,8 +127,9 @@ export function LocationLanding({ page }: { page: LocationPage }) {
 
         <section className="mx-auto max-w-4xl px-5 py-12 md:py-16">
           <div className="space-y-10">
-            {page.sections.map((s) => (
-              <article key={s.heading}>
+            {page.sections.map((s, index) => (
+              <div key={s.heading}>
+              <article>
                 <h2 className="font-display text-2xl font-bold tracking-tight">{s.heading}</h2>
                 {s.paragraphs.map((p) => (
                   <p key={p} className="mt-3 leading-relaxed text-muted-foreground">
@@ -146,6 +147,10 @@ export function LocationLanding({ page }: { page: LocationPage }) {
                   </ul>
                 ) : null}
               </article>
+              {index === Math.floor(page.sections.length / 2) - 1 &&
+                /flota|masin|auto|suv|break/.test(page.slug) &&
+                <AdsterraSlot placement="fleet-detail-mid-content" />}
+              </div>
             ))}
           </div>
 

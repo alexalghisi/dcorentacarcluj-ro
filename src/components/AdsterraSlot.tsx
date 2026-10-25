@@ -39,7 +39,7 @@ export function AdsterraSlot({ placement }: { placement: string }) {
       if (event.data.filled === false) { setFilled(false); setFailed(true); }
     };
     window.addEventListener("message", receive);
-    const timeout = window.setTimeout(() => setFailed((previous) => previous || !frame.current?.dataset.filled), 18000);
+    const timeout = window.setTimeout(() => setFailed((previous) => previous || !frame.current?.dataset['filled']), 18000);
     return () => { window.removeEventListener("message", receive); window.clearTimeout(timeout); };
   }, [nearby, unit, id]);
 
