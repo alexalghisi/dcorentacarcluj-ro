@@ -56,7 +56,7 @@ export function AdsterraSlot({ placement }: { placement: string }) {
             title={`Publicitate — ${placement}`}
             srcDoc={adsterraDocument(unit, id)}
             sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox"
-            loading="lazy"
+            loading="eager"
             referrerPolicy="strict-origin-when-cross-origin"
             width={unit.width}
             height={unit.height}
