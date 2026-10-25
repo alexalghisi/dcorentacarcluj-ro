@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Car, Phone, Mail, MapPin, Check, ArrowRight, ArrowLeft, MessageCircle } from "lucide-react";
 
 import type { LocationPage } from "@/lib/locations";
-import { AdBanner } from "@/components/AdBanner";
+import { AdsterraSlot } from "@/components/AdsterraSlot";
 import { locations } from "@/lib/locations";
 
 const PHONE_HREF = "tel:+40742925934";
@@ -124,7 +124,6 @@ export function LocationLanding({ page }: { page: LocationPage }) {
           </div>
         </section>
 
-        <AdBanner format="leaderboard" />
 
         <section className="mx-auto max-w-4xl px-5 py-12 md:py-16">
           <div className="space-y-10">
@@ -272,6 +271,7 @@ export function LocationLanding({ page }: { page: LocationPage }) {
 
       </main>
 
+      <AdsterraSlot placement="location-before-footer" />
       <footer className="border-t border-border bg-background pb-20 md:pb-0">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-5 py-8 text-sm text-muted-foreground md:flex-row md:items-center md:justify-between">
           <p className="font-semibold text-foreground">DCO RENT A CAR CLUJ</p>

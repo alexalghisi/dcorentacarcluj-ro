@@ -13,6 +13,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { ServiceSuspended } from "../components/ServiceSuspended";
+import { ADSENSE_ACCOUNT, ADSENSE_SCRIPT } from "@/lib/advertising";
 
 function NotFoundComponent() {
   return (
@@ -78,6 +79,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   head: () => ({
     meta: [
       { charSet: "utf-8" },
+      { name: "google-adsense-account", content: ADSENSE_ACCOUNT },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "DCO Rent a Car Cluj — Mașini de închiriat Gilău & Florești" },
       {
@@ -104,6 +106,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
     ],
     scripts: [
+      { src: ADSENSE_SCRIPT, async: true, crossOrigin: "anonymous" },
       {
         type: "application/ld+json",
         children: JSON.stringify({

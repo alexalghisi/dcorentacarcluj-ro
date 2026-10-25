@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Car, ArrowRight, Phone, Clock } from "lucide-react";
 
 import { posts as staticPosts, formatDateRo } from "@/lib/blog";
-import { AdBanner } from "@/components/AdBanner";
+import { AdsterraSlot } from "@/components/AdsterraSlot";
 import { listAutoPosts } from "@/lib/blog-auto.functions";
 import { SITE_URL, canonical, canonicalLinks, socialImageMeta } from "@/lib/seo";
 
@@ -117,7 +117,6 @@ function BlogIndex() {
           tarife, acte, condiții de închiriere și trasee pe care merită să le faci cu mașina.
         </p>
 
-        <AdBanner format="leaderboard" />
 
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((post) => (
@@ -153,6 +152,7 @@ function BlogIndex() {
 
       </main>
 
+      <AdsterraSlot placement="blog-before-footer" />
       <footer className="border-t border-border bg-background">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-5 py-8 text-sm text-muted-foreground md:flex-row md:items-center md:justify-between">
           <p className="font-semibold text-foreground">DCO RENT A CAR CLUJ</p>
