@@ -1,4 +1,6 @@
 import { Link } from "@tanstack/react-router";
+import { NativeAdSlot } from "@/components/NativeAdSlot";
+import { SponsoredLink } from "@/components/SponsoredLink";
 import { Car, Phone, Mail, MapPin, Check, ArrowRight, ArrowLeft, MessageCircle } from "lucide-react";
 
 import type { LocationPage } from "@/lib/locations";
@@ -154,6 +156,8 @@ export function LocationLanding({ page }: { page: LocationPage }) {
             ))}
           </div>
 
+          <NativeAdSlot placement="location-native" />
+
           <div className="mt-12 rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)] md:p-8">
             <h2 className="font-display text-xl font-bold tracking-tight">
               Rezervă o mașină pentru {page.city}
@@ -281,7 +285,9 @@ export function LocationLanding({ page }: { page: LocationPage }) {
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-5 py-8 text-sm text-muted-foreground md:flex-row md:items-center md:justify-between">
           <p className="font-semibold text-foreground">DCO RENT A CAR CLUJ</p>
           <p>Gilău · Cluj-Napoca · Florești</p>
-          <p>© {new Date().getFullYear()} Toate drepturile rezervate.</p>
+          <p>
+            © {new Date().getFullYear()} Toate drepturile rezervate. <SponsoredLink className="ml-2" />
+          </p>
         </div>
       </footer>
 

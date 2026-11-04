@@ -23,3 +23,32 @@ export function adsterraDocument(unit: ReturnType<typeof adsterraUnit>, id: stri
   window.atOptions=${JSON.stringify({ ...unit, format: "iframe", params: {} })};
   </script><script src="https://bauval.org/22/${unit.key}" onerror="notify(false)"></script></div></body></html>`;
 }
+
+/** Adsterra Native Banner (NativeBanner_1, 4:1 widget). */
+export const ADSTERRA_NATIVE_KEY = "471ff9dfab2afed94172b3c1bae1109a";
+/** Adsterra Social Bar (SocialBar_1) — the only ad script that runs in the page itself. */
+export const ADSTERRA_SOCIAL_BAR_SRC = "https://bauval.org/14/08f2737e64f46d6026af4de4283ec886";
+/** Adsterra Smartlink (Smartlink_1) — used only as a clearly labelled sponsored link. */
+export const ADSTERRA_SMARTLINK = "https://araplhn.org/4/774cb25231e4bd2f08c8dfa892efffb7";
+
+/** Delay before the Social Bar may load, so it never shows during the first seconds of a visit. */
+export const SOCIAL_BAR_DELAY_MS = 12000;
+
+/** Social Bar stays off admin screens and the private review form. */
+export function socialBarAllowed(pathname: string): boolean {
+  const path = pathname.replace(/\/+$/, "") || "/";
+  return !/^\/(admin|recenzie|lovable)(\/|$)/.test(path);
+}
+
+/** Sandboxed document for the native banner; reports fill and its content height to the parent. */
+export function nativeBannerDocument(id: string) {
+  return `<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><base target="_blank"><style>html,body{margin:0;padding:0;overflow:hidden;font-family:system-ui,sans-serif}</style></head><body><div id="wrap"><script>
+  const send=(data)=>parent.postMessage(Object.assign({type:'adsterra-native',id:${JSON.stringify(id)}},data),'*');
+  let filled=false;
+  const height=()=>Math.ceil(document.getElementById('wrap').getBoundingClientRect().height);
+  const check=()=>{const box=document.getElementById('container-${ADSTERRA_NATIVE_KEY}');if(!box)return;const h=height();if(box.children.length&&h>20){filled=true;send({filled:true,height:h})}};
+  new MutationObserver(check).observe(document.body,{childList:true,subtree:true,attributes:true});
+  setInterval(check,1000);
+  setTimeout(()=>{if(!filled)send({filled:false})},15000);
+  </script><script async="async" data-cfasync="false" src="https://bauval.org/21/${ADSTERRA_NATIVE_KEY}" onerror="send({filled:false})"></script><div id="container-${ADSTERRA_NATIVE_KEY}"></div></div></body></html>`;
+}
