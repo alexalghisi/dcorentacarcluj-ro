@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { SponsoredLink } from "@/components/SponsoredLink";
 import { Car, ArrowRight, Phone, Clock } from "lucide-react";
 
 import { posts as staticPosts, formatDateRo } from "@/lib/blog";
@@ -157,7 +158,9 @@ function BlogIndex() {
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-5 py-8 text-sm text-muted-foreground md:flex-row md:items-center md:justify-between">
           <p className="font-semibold text-foreground">DCO RENT A CAR CLUJ</p>
           <p>Gilău · Cluj-Napoca · Florești</p>
-          <p>© {new Date().getFullYear()} Toate drepturile rezervate.</p>
+          <p>
+            © {new Date().getFullYear()} Toate drepturile rezervate. <SponsoredLink className="ml-2" />
+          </p>
         </div>
       </footer>
     </div>

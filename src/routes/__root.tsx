@@ -13,7 +13,13 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { ServiceSuspended } from "../components/ServiceSuspended";
-import { ADSENSE_ACCOUNT, ADSENSE_SCRIPT } from "@/lib/advertising";
+import {
+  ADSENSE_ACCOUNT,
+  ADSENSE_SCRIPT,
+  ADSTERRA_SOCIAL_BAR_SRC,
+  SOCIAL_BAR_DELAY_MS,
+  socialBarAllowed,
+} from "@/lib/advertising";
 import { afterPageIdle } from "@/lib/idle";
 
 function NotFoundComponent() {
@@ -195,6 +201,38 @@ function RootComponent() {
       }),
     [],
   );
+
+  // Adsterra Social Bar: one script in the page, only on public pages, and only after
+  // the visitor has been on the site for a while (or scrolled), so it never greets them.
+  const pathname = useRouterState({ select: (st) => st.location.pathname });
+  const socialBarOk = !SITE_SUSPENDED && socialBarAllowed(pathname);
+  useEffect(() => {
+    if (!socialBarOk || document.getElementById("adsterra-social-bar")) return;
+    let timer: number | undefined;
+    const load = () => {
+      window.removeEventListener("scroll", onScroll);
+      if (timer !== undefined) window.clearTimeout(timer);
+      if (document.getElementById("adsterra-social-bar")) return;
+      const s = document.createElement("script");
+      s.id = "adsterra-social-bar";
+      s.async = true;
+      s.setAttribute("data-cfasync", "false");
+      s.src = ADSTERRA_SOCIAL_BAR_SRC;
+      document.body.appendChild(s);
+    };
+    const onScroll = () => {
+      if (window.scrollY > window.innerHeight) load();
+    };
+    const cancelIdle = afterPageIdle(() => {
+      timer = window.setTimeout(load, SOCIAL_BAR_DELAY_MS);
+      window.addEventListener("scroll", onScroll, { passive: true });
+    });
+    return () => {
+      cancelIdle();
+      window.removeEventListener("scroll", onScroll);
+      if (timer !== undefined) window.clearTimeout(timer);
+    };
+  }, [socialBarOk]);
 
   return (
     <QueryClientProvider client={queryClient}>

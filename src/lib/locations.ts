@@ -1,4 +1,5 @@
 import { countyLocations } from "./locations-county";
+import { intentLocations } from "./locations-intent";
 
 export interface LocationSection {
   heading: string;
@@ -2158,6 +2159,7 @@ export const locations: LocationPage[] = [
     ],
   },
   ...countyLocations,
+  ...intentLocations,
 ];
 
 

@@ -26,6 +26,7 @@ import {
   trackVehicleView,
 } from "@/lib/admin.functions";
 import { VehicleGallery } from "@/components/VehicleGallery";
+import { SponsoredLink } from "@/components/SponsoredLink";
 import { AdsterraSlot } from "@/components/AdsterraSlot";
 import { ReviewsSection } from "@/components/ReviewsSection";
 import { reviewsSchema } from "@/lib/reviews";
@@ -1120,7 +1121,9 @@ function Index() {
           <div className="mt-6 flex flex-col gap-4 border-t border-border pt-6 text-sm text-muted-foreground md:flex-row md:items-center md:justify-between">
             <p className="font-semibold text-foreground">DCO RENT A CAR CLUJ</p>
             <p>Gilău · Cluj-Napoca · Florești</p>
-            <p>© {new Date().getFullYear()} Toate drepturile rezervate.</p>
+            <p>
+              © {new Date().getFullYear()} Toate drepturile rezervate. <SponsoredLink className="ml-2" />
+            </p>
           </div>
         </div>
       </footer>

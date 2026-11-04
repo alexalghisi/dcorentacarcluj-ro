@@ -9,3 +9,5 @@
 - [x] Butonul „Deschide în Google Maps” reparat
 - [x] Articole noi pe blog, 3 pe zi, publicate automat
 - [ ] Monitorizare zilnică a pozițiilor + /admin/seo + e-mail săptămânal: așteaptă cheia SerpApi și domeniul de e-mail
+- [x] Adsterra Native Banner, Social Bar (întârziat, doar pagini publice) și Smartlink în footer
+- [x] SEO din Google Trends: pagini noi non-stop, weekend, ieftin, iarna
