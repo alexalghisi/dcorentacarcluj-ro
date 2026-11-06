@@ -1,3 +1,4 @@
+import { isAdProductionHost } from "@/lib/ad-host";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
@@ -191,7 +192,7 @@ function RootComponent() {
   useEffect(
     () =>
       afterPageIdle(() => {
-        if (document.getElementById("adsense-loader")) return;
+        if (!isAdProductionHost() || document.getElementById("adsense-loader")) return;
         const s = document.createElement("script");
         s.id = "adsense-loader";
         s.async = true;
