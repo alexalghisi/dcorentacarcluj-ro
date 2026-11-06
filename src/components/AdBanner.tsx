@@ -7,6 +7,7 @@
  */
 
 import { useEffect } from "react";
+import { isAdProductionHost } from "@/lib/ad-host";
 
 export type AdFormat = "leaderboard" | "box" | "mobile";
 
@@ -54,7 +55,7 @@ const ADSENSE_CLIENT = "ca-pub-4079300108937036";
 /** Loads Google AdSense (auto ads) once per page view. */
 function useAdSense() {
   useEffect(() => {
-    if (document.getElementById("adsense-loader")) return;
+    if (!isAdProductionHost() || document.getElementById("adsense-loader")) return;
     const s = document.createElement("script");
     s.id = "adsense-loader";
     s.async = true;
