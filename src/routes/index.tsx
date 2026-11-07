@@ -1122,7 +1122,8 @@ function Index() {
             <p className="font-semibold text-foreground">DCO RENT A CAR CLUJ</p>
             <p>Gilău · Cluj-Napoca · Florești</p>
             <p>
-              © {new Date().getFullYear()} Toate drepturile rezervate. <SponsoredLink className="ml-2" />
+              © {new Date().getFullYear()} Toate drepturile rezervate.{" "}
+<Link to="/confidentialitate" className="hover:text-foreground hover:underline">Politica de confidențialitate</Link> <SponsoredLink className="ml-2" />
             </p>
           </div>
         </div>
