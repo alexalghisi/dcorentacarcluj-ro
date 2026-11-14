@@ -117,8 +117,9 @@ export function VehicleGallery({ images, name, busy, busyLabel, rangeLabel, free
     if (!d || d.id !== e.pointerId) return;
     if (e.type === "pointerup") {
       const dx = e.clientX - d.x;
-      set(multi ? d.start - dx / STEP_PX : Math.max(-1, Math.min(1, -dx / (STEP_PX * 1.5))));
+      set(multi ? Math.round(d.start - dx / STEP_PX) : Math.max(-1, Math.min(1, -dx / (STEP_PX * 1.5))));
     }
+    if (multi) set(Math.round(posRef.current));
     drag.current = null;
     setDragging(false);
     stop();
