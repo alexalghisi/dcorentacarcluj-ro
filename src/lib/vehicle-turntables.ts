@@ -64,7 +64,7 @@ export function vehicleSpin(name: string, imageUrl = ""): string[] {
  * real photos), with number plates blurred and every angle aligned on one ground line.
  * All vehicles use eight selected angles; unstable Fabia interpolation steps are excluded.
  */
-const SPIN360_VERSION = "20261020";
+const SPIN360_VERSION = "20261021";
 
 /** Frames of the drag-to-rotate studio view for a fleet vehicle, in turning order (empty if none). */
 export function vehicle360Frames(name: string, imageUrl = ""): string[] {
