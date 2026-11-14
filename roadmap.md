@@ -1,4 +1,6 @@
 # Roadmap
+- [x] Sweep all vehicle viewers for direct dragging and immediate release; repair real-photo mode and verify mouse/touch
+- [x] Repair and verify direct 360° dragging with actual touch gestures and mouse on all studio vehicles
 - [x] Create indexable pages for every active vehicle with local metadata, pickup details, location links and sitemap entries
 - [x] Correct the Fabia's unstable 360° sequence and verify rotation stops on release on phone and desktop
 - [x] Add crawler-visible AdSense and responsive isolated Adsterra slots; verify placements and empty-ad collapse (live ad delivery depends on networks)

@@ -21,8 +21,6 @@ const STEP_PX = 140;
 const MAX_TILT = 38;
 /** Tilt range when there is a single photo: the car "leans" but never fakes a new side. */
 const SINGLE_TILT = 18;
-/** Fastest release speed (photos per second) carried into the settle spring. */
-const MAX_FLICK = 8;
 
 function prefersReducedMotion() {
   return typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
@@ -49,7 +47,7 @@ export function VehicleGallery({ images, name, busy, busyLabel, rangeLabel, free
   /** Continuous position: integer = a photo facing the viewer, fraction = mid-turn. */
   const [pos, setPos] = useState(0);
   const posRef = useRef(0);
-  const drag = useRef<{ id: number; x: number; start: number; lastX: number; lastT: number; v: number } | null>(null);
+  const drag = useRef<{ id: number; x: number; start: number } | null>(null);
   const anim = useRef<number | null>(null);
   const [dragging, setDragging] = useState(false);
   const [hinted, setHinted] = useState(false);
@@ -90,9 +88,11 @@ export function VehicleGallery({ images, name, busy, busyLabel, rangeLabel, free
   const go = (direction: number) => settle(Math.round(posRef.current) + direction);
 
   const onPointerDown = (e: PointerEvent<HTMLDivElement>) => {
-    if (count === 0) return;
+    if (count === 0 || !e.isPrimary || e.button !== 0 || drag.current) return;
+    e.preventDefault();
+    e.currentTarget.focus({ preventScroll: true });
     stop();
-    drag.current = { id: e.pointerId, x: e.clientX, start: posRef.current, lastX: e.clientX, lastT: performance.now(), v: 0 };
+    drag.current = { id: e.pointerId, x: e.clientX, start: posRef.current };
     e.currentTarget.setPointerCapture(e.pointerId);
     setDragging(true);
     setHinted(true);
@@ -101,7 +101,7 @@ export function VehicleGallery({ images, name, busy, busyLabel, rangeLabel, free
   const onPointerMove = (e: PointerEvent<HTMLDivElement>) => {
     const d = drag.current;
     if (!d || d.id !== e.pointerId) return;
-    const now = performance.now();
+    e.preventDefault();
     const dx = e.clientX - d.x;
     if (multi) {
       set(d.start - dx / STEP_PX);
@@ -110,24 +110,20 @@ export function VehicleGallery({ images, name, busy, busyLabel, rangeLabel, free
       const t = Math.max(-1, Math.min(1, -dx / (STEP_PX * 1.5)));
       set(t);
     }
-    const dt = Math.max(1, now - d.lastT);
-    d.v = (-(e.clientX - d.lastX) / STEP_PX) / (dt / 1000);
-    d.lastX = e.clientX;
-    d.lastT = now;
   };
 
-  const end = () => {
+  const end = (e: PointerEvent<HTMLDivElement>) => {
     const d = drag.current;
+    if (!d || d.id !== e.pointerId) return;
+    if (e.type === "pointerup") {
+      const dx = e.clientX - d.x;
+      set(multi ? Math.round(d.start - dx / STEP_PX) : Math.max(-1, Math.min(1, -dx / (STEP_PX * 1.5))));
+    }
+    if (multi) set(Math.round(posRef.current));
     drag.current = null;
     setDragging(false);
-    if (!d) return;
-    // A finger that stopped before lifting has no flick left; cap the rest so the spring
-    // never swings past the target into photos the visitor did not ask for.
-    const v = performance.now() - d.lastT > 80 ? 0 : Math.max(-MAX_FLICK, Math.min(MAX_FLICK, d.v));
-    if (!multi) { settle(0, v); return; }
-    // Inertia: a flick carries the turn to the next photos.
-    const projected = posRef.current + Math.max(-2, Math.min(2, v * 0.18));
-    settle(Math.round(projected), v);
+    stop();
+    if (e.currentTarget.hasPointerCapture(e.pointerId)) e.currentTarget.releasePointerCapture(e.pointerId);
   };
 
   const onKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
@@ -193,7 +189,8 @@ export function VehicleGallery({ images, name, busy, busyLabel, rangeLabel, free
         onPointerCancel={end}
         onLostPointerCapture={end}
         onKeyDown={onKeyDown}
-        className={`relative h-56 touch-pan-y select-none outline-none focus-visible:ring-2 focus-visible:ring-primary ${count ? (dragging ? "cursor-grabbing" : "cursor-grab") : ""}`}
+        onDragStart={(e) => e.preventDefault()}
+        className={`relative h-56 touch-none select-none outline-none focus-visible:ring-2 focus-visible:ring-primary ${count ? (dragging ? "cursor-grabbing" : "cursor-grab") : ""}`}
         style={{ perspective: "900px" }}
       >
         {/* Soft ground shadow that slides opposite the turn, selling the depth. */}
