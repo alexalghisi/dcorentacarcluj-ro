@@ -1,3 +1,5 @@
+import { STUDIO_SEQUENCES } from "./vehicle-studio-sequences";
+
 const turntableFiles = import.meta.glob<string>("../assets/turntable/*.webp", {
   eager: true,
   query: "?url",
@@ -60,28 +62,16 @@ export function vehicleSpin(name: string, imageUrl = ""): string[] {
  * Studio 360° views shown on the public fleet cards, served from /public/spin360/<key>-NN.webp.
  * Each set was built from the angles of that exact unit (same colour, wheels and trim as the
  * real photos), with number plates blurred and every angle aligned on one ground line.
- * Fabia has a full 36-step orbit; the others have 8 evenly spaced angles.
+ * All vehicles use eight selected angles; unstable Fabia interpolation steps are excluded.
  */
-const SPIN360_COUNTS: Record<string, number> = {
-  fabia: 36,
-  clio: 8,
-  passat: 8,
-  c5: 8,
-  xc90: 8,
-  s40grey: 8,
-  s40: 8,
-  focusblack: 8,
-  focus: 8,
-};
 const SPIN360_VERSION = "20261020";
 
 /** Frames of the drag-to-rotate studio view for a fleet vehicle, in turning order (empty if none). */
 export function vehicle360Frames(name: string, imageUrl = ""): string[] {
   const key = keyForVehicle(name, imageUrl);
-  const count = key ? SPIN360_COUNTS[key] : undefined;
-  if (!key || !count) return [];
-  return Array.from(
-    { length: count },
-    (_, i) => `/spin360/${key}-${String(i).padStart(2, "0")}.webp?v=${SPIN360_VERSION}`,
+  const sequence = key ? STUDIO_SEQUENCES[key] : undefined;
+  if (!key || !sequence) return [];
+  return sequence.map(
+    (i) => `/spin360/${key}-${String(i).padStart(2, "0")}.webp?v=${SPIN360_VERSION}`,
   );
 }

@@ -104,10 +104,10 @@ export function Vehicle360({ frames, alt, className = "" }: {
       };
       const a = images.current[i];
       const b = images.current[j];
-      if (!ready(a)) { s.drawn = -1; return; }
+      if (!a || !ready(a)) { s.drawn = -1; return; }
       ctx.globalAlpha = 1;
-      paint(a!, 1);
-      if (mix > 0 && ready(b)) paint(b!, mix);
+      paint(a, 1);
+      if (mix > 0 && b && ready(b)) paint(b, mix);
       ctx.globalAlpha = 1;
     };
 
@@ -153,7 +153,11 @@ export function Vehicle360({ frames, alt, className = "" }: {
     s.vel = s.vel * 0.6 + (d / dt) * 0.4;
     s.lastX = e.clientX; s.lastT = now;
   };
-  const onUp = () => { st.current.dragging = false; st.current.pointer = -1; };
+  const onUp = () => {
+    st.current.dragging = false;
+    st.current.pointer = -1;
+    st.current.vel = 0;
+  };
   const onKey = (e: React.KeyboardEvent<HTMLCanvasElement>) => {
     if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
     e.preventDefault();
