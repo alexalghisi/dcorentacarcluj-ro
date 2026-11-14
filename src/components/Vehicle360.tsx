@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { Hand, RotateCw } from "lucide-react";
 
-/** Pixels of horizontal drag that turn the car by one full revolution. */
-const DRAG_PER_TURN = 900;
+/** Pixels of horizontal drag that turn the car by one full revolution.
+ * With 8 angles this means ~52 px per angle, so a short finger swipe
+ * already moves the car visibly. */
+const DRAG_PER_TURN = 420;
 /** Revolutions per second while the car turns on its own. */
 const AUTO_SPEED = 1 / 18;
 
