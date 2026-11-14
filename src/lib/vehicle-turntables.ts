@@ -75,3 +75,13 @@ export function vehicle360Frames(name: string, imageUrl = ""): string[] {
     (i) => `/spin360/${key}-${String(i).padStart(2, "0")}.webp?v=${SPIN360_VERSION}`,
   );
 }
+
+/**
+ * Whether the studio set may blend between neighbouring angles for a smoother turn.
+ * The Fabia's frames keep the car in slightly different spots, so blending shows a
+ * ghost car there; the other sets stay put and can glide.
+ */
+export function vehicle360Blend(name: string, imageUrl = ""): boolean {
+  const key = keyForVehicle(name, imageUrl);
+  return Boolean(key) && key !== "fabia";
+}
