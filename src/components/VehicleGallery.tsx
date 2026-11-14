@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { PrivateVehiclePhoto } from "@/components/PrivateVehiclePhoto";
 import { Vehicle360 } from "@/components/Vehicle360";
 import { wrapPhoto } from "@/lib/vehicle-photo-privacy";
-import { vehicle360Frames } from "@/lib/vehicle-turntables";
+import { vehicle360Blend, vehicle360Frames } from "@/lib/vehicle-turntables";
 
 export interface VehicleGalleryProps {
   images: string[];
@@ -41,6 +41,7 @@ export function VehicleGallery({ images, name, busy, busyLabel, rangeLabel, free
   const count = photos.length;
   const multi = count > 1;
   const [spinFrames] = useState(() => vehicle360Frames(name));
+  const [spinBlend] = useState(() => vehicle360Blend(name));
   const has360 = spinFrames.length > 0;
   const [mode, setMode] = useState<"360" | "photos">(has360 ? "360" : "photos");
   const show360 = has360 && mode === "360";
@@ -179,7 +180,7 @@ export function VehicleGallery({ images, name, busy, busyLabel, rangeLabel, free
 
   return <div>
     <div className="relative overflow-hidden bg-surface">
-      {show360 ? <Vehicle360 frames={spinFrames} alt={name}
+      {show360 ? <Vehicle360 frames={spinFrames} alt={name} blend={spinBlend}
         className={`h-56 w-full ${busy ? "grayscale" : ""}`} /> : <>
       <div
         role="group"

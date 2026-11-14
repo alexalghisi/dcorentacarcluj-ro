@@ -13,10 +13,14 @@ const AUTO_SPEED = 1 / 18;
  * Frames are evenly spaced around the car; between two neighbours the viewer
  * cross-fades only near the midpoint, so each angle stays sharp.
  */
-export function Vehicle360({ frames, alt, className = "" }: {
+export function Vehicle360({ frames, alt, className = "", blend = true }: {
   frames: string[];
   alt: string;
   className?: string;
+  /** Blend the next angle in near each step's end, so the turn glides instead of jumping.
+   * Only for sets whose car stays in the same spot in every frame; positional drift
+   * between frames would show a ghost car, so those sets keep hard cuts. */
+  blend?: boolean;
 }) {
   const n = frames.length;
   const canvas = useRef<HTMLCanvasElement>(null);
@@ -89,10 +93,12 @@ export function Vehicle360({ frames, alt, className = "" }: {
       const h = Math.max(1, Math.round(rect.height * dpr));
       if (el.width !== w || el.height !== h) { el.width = w; el.height = h; s.drawn = -1; }
       const p = ((s.pos % 1) + 1) % 1 * n;
-      if (Math.round(p) % n === s.drawn) return;
-      s.drawn = Math.round(p) % n;
-      // Show one whole real angle at a time: blending two angles creates a ghost car.
-      const i = Math.round(p) % n;
+      // Redraw on fine sub-steps too, so the blend zone animates smoothly.
+      const q = Math.round(p * 24);
+      if (q === s.drawn) return;
+      s.drawn = q;
+      const i = Math.floor(p) % n;
+      const f = p - Math.floor(p);
       const paint = (im: HTMLImageElement, alpha: number) => {
         const scale = Math.max(w / im.naturalWidth, h / im.naturalHeight);
         const dw = im.naturalWidth * scale;
@@ -104,6 +110,11 @@ export function Vehicle360({ frames, alt, className = "" }: {
       if (!a || !ready(a)) { s.drawn = -1; return; }
       ctx.globalAlpha = 1;
       paint(a, 1);
+      // Near the end of a step, glide into the next angle instead of jumping to it.
+      if (blend && f > 0.55) {
+        const b = images.current[(i + 1) % n];
+        if (b && ready(b)) paint(b, (f - 0.55) / 0.45);
+      }
       ctx.globalAlpha = 1;
     };
 
