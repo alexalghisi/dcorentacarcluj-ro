@@ -5,6 +5,7 @@ import { listAutoPosts } from "@/lib/blog-auto.functions";
 import { locations } from "@/lib/locations";
 
 import { canonical } from "@/lib/seo";
+import { vehicleSlug } from "@/lib/vehicle-seo";
 
 interface SitemapEntry {
   path: string;
@@ -16,9 +17,12 @@ export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
+        const { fetchPublicVehicles } = await import("@/lib/vehicles.server");
+        const vehicles = await fetchPublicVehicles();
         const posts = [...(await listAutoPosts()), ...staticPosts];
         const entries: SitemapEntry[] = [
           { path: "/", changefreq: "weekly", priority: "1.0" },
+          ...vehicles.map((v) => ({ path: `/masini/${vehicleSlug(v)}`, changefreq: "weekly" as const, priority: "0.8" })),
           ...locations.map((l) => ({
             path: `/${l.slug}`,
             changefreq: "monthly" as const,

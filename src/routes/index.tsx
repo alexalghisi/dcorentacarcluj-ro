@@ -31,6 +31,7 @@ import { AdsterraSlot } from "@/components/AdsterraSlot";
 import { ReviewsSection } from "@/components/ReviewsSection";
 import { reviewsSchema } from "@/lib/reviews";
 import { publicVehicleImageSrc, type Vehicle } from "@/lib/vehicles";
+import { vehicleSlug } from "@/lib/vehicle-seo";
 import {
   conflictsFor,
   formatRangeRo,
@@ -734,7 +735,7 @@ function Index() {
                 />
                 <div className="p-6">
                   <div className="flex items-start justify-between gap-3">
-                    <h3 className="text-lg font-semibold">{c.name}</h3>
+                    <h3 className="text-lg font-semibold">{c.id ? <Link to="/masini/$slug" params={{ slug: vehicleSlug({ id: c.id, name: c.name }) }} className="hover:text-primary hover:underline">{c.name}</Link> : c.name}</h3>
                     <span className="whitespace-nowrap rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-secondary-foreground">
                       {c.price}
                     </span>

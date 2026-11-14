@@ -37,7 +37,7 @@ function waLink(city: string) {
   return `https://wa.me/40742925934?text=${encodeURIComponent(text)}`;
 }
 
-export function LocationLanding({ page }: { page: LocationPage }) {
+export function LocationLanding({ page, fleet = [] }: { page: LocationPage; fleet?: { name: string; slug: string }[] }) {
   const nearby = page.nearby ?? [];
   const others = locations
     .filter((l) => l.slug !== page.slug)
@@ -156,6 +156,12 @@ export function LocationLanding({ page }: { page: LocationPage }) {
             ))}
           </div>
 
+          {fleet.length > 0 && <section className="py-8">
+            <h2 className="font-display text-2xl font-bold">{page.lang === "en" ? "Cars for hire" : `Mașini de închiriat pentru ${page.city}`}</h2>
+            <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+              {fleet.map((vehicle) => <li key={vehicle.slug}><Link to="/masini/$slug" params={{ slug: vehicle.slug }} className="inline-flex items-center gap-2 font-semibold text-primary hover:underline">{vehicle.name}<ArrowRight className="h-4 w-4" /></Link></li>)}
+            </ul>
+          </section>}
           <NativeAdSlot placement="location-native" />
 
           <div className="mt-12 rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)] md:p-8">

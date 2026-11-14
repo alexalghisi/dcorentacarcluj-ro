@@ -3,15 +3,18 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import { LocationLanding } from "@/components/LocationLanding";
 import { getLocation } from "@/lib/locations";
 import type { LocationPage } from "@/lib/locations";
+import { getPublicVehicles } from "@/lib/admin.functions";
+import { vehicleSlug } from "@/lib/vehicle-seo";
 import { SITE_URL, canonical, canonicalLinks, socialImageMeta } from "@/lib/seo";
 
 const SITE = SITE_URL;
 
 export const Route = createFileRoute("/$slug")({
-  loader: ({ params }) => {
+  loader: async ({ params }) => {
     const page = getLocation(params.slug);
     if (!page) throw notFound();
-    return { page };
+    const vehicles = await getPublicVehicles();
+    return { page, fleet: vehicles.map((v) => ({ name: v.name, slug: vehicleSlug(v) })) };
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
@@ -115,6 +118,6 @@ export const Route = createFileRoute("/$slug")({
 });
 
 function LocationRoute() {
-  const { page } = Route.useLoaderData() as { page: LocationPage };
-  return <LocationLanding page={page} />;
+  const { page, fleet } = Route.useLoaderData();
+  return <LocationLanding page={page} fleet={fleet} />;
 }
