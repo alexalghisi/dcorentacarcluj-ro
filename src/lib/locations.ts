@@ -608,9 +608,9 @@ export const locations: LocationPage[] = [
     city: "Florești",
     navLabel: "Florești",
     h1: "Închirieri auto Florești (Cluj) — mașini de închiriat de la 70 lei/zi",
-    metaTitle: "Închirieri auto Florești | Mașini de la 70 lei/zi",
+    metaTitle: "Rent a Car Florești Cluj | Închirieri auto de la 70 lei/zi",
     description:
-      "Închirieri auto Florești Cluj: mașini cu predare personală, fără taxă de livrare și fără garanție, de la 70 lei/zi. Sună (0742) 925 934.",
+      "Rent a car Florești: predare în Florești fără taxă de livrare, fără garanție și fără card de credit, de la 70 lei/zi. Sună sau scrie pe WhatsApp: (0742) 925 934.",
     keywords:
       "inchirieri auto floresti, inchirieri masini floresti, rent a car floresti, inchiriere masina floresti, masini de inchiriat floresti cluj, inchiriere auto de weekend floresti",
     intro:
@@ -622,6 +622,13 @@ export const locations: LocationPage[] = [
       { label: "Cluj-Napoca", value: "~15 min" },
     ],
     sections: [
+      {
+        heading: "Preluare și cost în Florești",
+        paragraphs: [
+          "Preluare: ne suni sau ne scrii pe WhatsApp la (0742) 925 934, stabilim ora, iar mașina ți-o predăm personal în Florești (inclusiv Cetatea Fetei, Someșul Rece, Luna de Sus, Tăuți) sau la baza noastră din Gilău, la 5 km. Ai nevoie doar de buletin și permis valabil de cel puțin un an.",
+          "Cost: tariful pornește de la 70 lei/zi, cu preț redus pentru închirieri săptămânale sau lunare. Livrarea în Florești nu se plătește, nu cerem garanție și nu blocăm bani pe card. Prețul final pentru mașina și perioada ta ți-l confirmăm la telefon, înainte de rezervare.",
+        ],
+      },
       {
         heading: "De ce Florești e zona noastră principală",
         paragraphs: [
