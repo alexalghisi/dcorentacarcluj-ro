@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { Hand, RotateCw } from "lucide-react";
+import { draggedPosition, dragTurnDistance, turnFrame } from "@/lib/vehicle-drag";
 
 /** Pixels of horizontal drag that turn the car by one full revolution.
  * With 8 angles this means ~52 px per angle, so a short finger swipe
  * already moves the car visibly. */
-const DRAG_PER_TURN = 420;
 /** Revolutions per second while the car turns on its own. */
 const AUTO_SPEED = 1 / 18;
 
@@ -30,9 +30,10 @@ export function Vehicle360({ frames, alt, className = "", blend = true }: {
   const [near, setNear] = useState(false);
   const [touched, setTouched] = useState(false);
   const st = useRef({
-    pos: 0, vel: 0, dragging: false, pointer: -1, lastX: 0, lastT: 0,
+    pos: 0, dragging: false, pointer: -1, startX: 0, startPos: 0, distance: 360,
     visible: false, auto: true, reduced: false, drawn: -1, raf: 0, prev: 0,
     kick: () => {},
+    paint: () => {},
   });
 
   useEffect(() => {
@@ -54,7 +55,7 @@ export function Vehicle360({ frames, alt, className = "", blend = true }: {
     // Count a frame as settled on load *or* error, and also when the browser already has it
     // cached (Safari can complete cached images before onload is observed), so the
     // viewer never hangs on the loading state.
-    const settle = () => { if (!cancelled) { st.current.drawn = -1; setLoaded((c) => c + 1); } };
+    const settle = () => { if (!cancelled) { st.current.drawn = -1; setLoaded((c) => c + 1); st.current.kick(); } };
     images.current = frames.map((src) => {
       const im = new Image();
       let done = false;
@@ -94,10 +95,11 @@ export function Vehicle360({ frames, alt, className = "", blend = true }: {
       if (el.width !== w || el.height !== h) { el.width = w; el.height = h; s.drawn = -1; }
       const p = ((s.pos % 1) + 1) % 1 * n;
       // Redraw on fine sub-steps too, so the blend zone animates smoothly.
-      const q = Math.round(p * 24);
+      const blending = blend && s.auto && !s.dragging;
+      const q = blending ? Math.round(p * 24) : turnFrame(s.pos, n);
       if (q === s.drawn) return;
       s.drawn = q;
-      const i = Math.floor(p) % n;
+      const i = blending ? Math.floor(p) % n : turnFrame(s.pos, n);
       const f = p - Math.floor(p);
       const paint = (im: HTMLImageElement, alpha: number) => {
         const scale = Math.max(w / im.naturalWidth, h / im.naturalHeight);
@@ -111,7 +113,7 @@ export function Vehicle360({ frames, alt, className = "", blend = true }: {
       ctx.globalAlpha = 1;
       paint(a, 1);
       // Near the end of a step, glide into the next angle instead of jumping to it.
-      if (blend && f > 0.55) {
+      if (blending && f > 0.55) {
         const b = images.current[(i + 1) % n];
         if (b && ready(b)) paint(b, (f - 0.55) / 0.45);
       }
@@ -121,62 +123,64 @@ export function Vehicle360({ frames, alt, className = "", blend = true }: {
     const tick = (now: number) => {
       const dt = Math.min(0.05, (now - (s.prev || now)) / 1000);
       s.prev = now;
-      if (!s.dragging) {
-        if (Math.abs(s.vel) > 0.002) {
-          s.pos += s.vel * dt;
-          s.vel *= Math.pow(0.04, dt);
-        } else if (s.auto && s.visible && !s.reduced) {
-          s.pos += AUTO_SPEED * dt;
-        }
+      if (!s.dragging && s.auto && s.visible && !s.reduced) {
+        s.pos += AUTO_SPEED * dt;
       }
       draw();
       // Off-screen and at rest: stop the loop until the viewer scrolls back into view.
-      if (!s.visible && !s.dragging && Math.abs(s.vel) <= 0.002) { s.raf = 0; return; }
+      if (!s.dragging && (!s.visible || !s.auto || s.reduced)) { s.raf = 0; return; }
       s.raf = requestAnimationFrame(tick);
     };
     s.kick = start;
+    s.paint = draw;
     start();
-    return () => { cancelAnimationFrame(s.raf); s.raf = 0; s.kick = () => {}; io.disconnect(); };
-  }, [n]);
+    return () => { cancelAnimationFrame(s.raf); s.raf = 0; s.kick = () => {}; s.paint = () => {}; io.disconnect(); };
+  }, [n, blend]);
 
   const onDown = (e: React.PointerEvent<HTMLCanvasElement>) => {
     const s = st.current;
-    s.dragging = true; s.pointer = e.pointerId; s.auto = false; s.vel = 0;
-    s.lastX = e.clientX; s.lastT = performance.now();
+    if (!e.isPrimary || e.button !== 0 || s.dragging || n === 0) return;
+    e.preventDefault();
+    e.currentTarget.focus({ preventScroll: true });
+    s.dragging = true; s.pointer = e.pointerId; s.auto = false;
+    s.startX = e.clientX; s.startPos = s.pos;
+    s.distance = dragTurnDistance(e.currentTarget.getBoundingClientRect().width);
+    s.drawn = -1;
     e.currentTarget.setPointerCapture(e.pointerId);
     setTouched(true);
     setNear(true);
     s.kick();
+    s.paint();
   };
   const onMove = (e: React.PointerEvent<HTMLCanvasElement>) => {
     const s = st.current;
     if (!s.dragging || e.pointerId !== s.pointer) return;
-    const now = performance.now();
-    const dx = e.clientX - s.lastX;
-    // Dragging right turns the car towards the viewer's right, like a turntable.
-    const d = -dx / DRAG_PER_TURN;
-    s.pos += d;
-    const dt = Math.max(1, now - s.lastT) / 1000;
-    s.vel = s.vel * 0.6 + (d / dt) * 0.4;
-    s.lastX = e.clientX; s.lastT = now;
+    e.preventDefault();
+    s.pos = draggedPosition(s.startPos, s.startX, e.clientX, s.distance);
+    s.paint();
   };
-  const onUp = () => {
-    st.current.dragging = false;
-    st.current.pointer = -1;
-    st.current.vel = 0;
+  const onUp = (e: React.PointerEvent<HTMLCanvasElement>) => {
+    const s = st.current;
+    if (!s.dragging || e.pointerId !== s.pointer) return;
+    if (e.type === "pointerup") s.pos = draggedPosition(s.startPos, s.startX, e.clientX, s.distance);
+    s.dragging = false;
+    s.pointer = -1;
+    s.paint();
+    if (e.currentTarget.hasPointerCapture(e.pointerId)) e.currentTarget.releasePointerCapture(e.pointerId);
   };
   const onKey = (e: React.KeyboardEvent<HTMLCanvasElement>) => {
     if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
     e.preventDefault();
     const s = st.current;
-    s.auto = false; s.vel = 0;
+    s.auto = false; s.drawn = -1;
     s.pos = (Math.round(s.pos * n) + (e.key === "ArrowRight" ? 1 : -1)) / n;
     setTouched(true);
     s.kick();
+    s.paint();
   };
 
   return (
-    <div className={`relative overflow-hidden bg-[#e6e2dd] ${className}`}>
+    <div className={`relative overflow-hidden bg-surface ${className}`}>
       {/* Poster: the first angle as a plain image (server-rendered), visible until the canvas paints. */}
       {n > 0 && (
         <img
@@ -202,7 +206,8 @@ export function Vehicle360({ frames, alt, className = "", blend = true }: {
         onPointerCancel={onUp}
         onLostPointerCapture={onUp}
         onKeyDown={onKey}
-        className="relative block h-full w-full cursor-grab touch-pan-y select-none outline-none focus-visible:ring-2 focus-visible:ring-primary active:cursor-grabbing"
+        onDragStart={(e) => e.preventDefault()}
+        className="relative block h-full w-full cursor-grab touch-none select-none outline-none focus-visible:ring-2 focus-visible:ring-primary active:cursor-grabbing"
       />
       {loaded === 0 && (
         <div className="pointer-events-none absolute bottom-3 left-1/2 inline-flex -translate-x-1/2 items-center whitespace-nowrap rounded-full bg-background/90 px-3 py-1 text-xs font-semibold text-muted-foreground shadow">
