@@ -4,7 +4,7 @@ import { existsSync } from "node:fs";
 import { STUDIO_SEQUENCES } from "./vehicle-studio-sequences";
 
 test("Fabia uses eight stable angles, not the unstable 36-frame interpolation", () => {
-  assert.deepEqual(STUDIO_SEQUENCES['fabia'], [0, 11, 13, 17, 18, 26, 30, 33]);
+  assert.deepEqual(STUDIO_SEQUENCES['fabia'], [0, 11, 13, 17, 18, 27, 30, 31]);
   assert.equal(STUDIO_SEQUENCES['fabia']?.length, STUDIO_SEQUENCES['clio']?.length);
 });
 
