@@ -17,6 +17,7 @@ import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as MasiniSlugRouteImport } from './routes/masini.$slug'
 import { Route as RecenzieTokenRouteImport } from './routes/recenzie.$token'
 import { Route as ApiPublicHooksBlogDailyRouteImport } from './routes/api/public/hooks/blog-daily'
 import { Route as ApiPublicHooksSerpCheckRouteImport } from './routes/api/public/hooks/serp-check'
@@ -64,6 +65,11 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MasiniSlugRoute = MasiniSlugRouteImport.update({
+  id: '/masini/$slug',
+  path: '/masini/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RecenzieTokenRoute = RecenzieTokenRouteImport.update({
   id: '/recenzie/$token',
   path: '/recenzie/$token',
@@ -104,6 +110,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/login': typeof AdminLoginRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/masini/$slug': typeof MasiniSlugRoute
   '/recenzie/$token': typeof RecenzieTokenRoute
   '/admin/': typeof AdminIndexRoute
   '/blog/': typeof BlogIndexRoute
@@ -120,6 +127,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/login': typeof AdminLoginRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/masini/$slug': typeof MasiniSlugRoute
   '/recenzie/$token': typeof RecenzieTokenRoute
   '/admin': typeof AdminIndexRoute
   '/blog': typeof BlogIndexRoute
@@ -137,6 +145,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/login': typeof AdminLoginRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/masini/$slug': typeof MasiniSlugRoute
   '/recenzie/$token': typeof RecenzieTokenRoute
   '/admin/': typeof AdminIndexRoute
   '/blog/': typeof BlogIndexRoute
@@ -155,6 +164,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/admin/login'
     | '/blog/$slug'
+    | '/masini/$slug'
     | '/recenzie/$token'
     | '/admin/'
     | '/blog/'
@@ -171,6 +181,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/admin/login'
     | '/blog/$slug'
+    | '/masini/$slug'
     | '/recenzie/$token'
     | '/admin'
     | '/blog'
@@ -187,6 +198,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/admin/login'
     | '/blog/$slug'
+    | '/masini/$slug'
     | '/recenzie/$token'
     | '/admin/'
     | '/blog/'
@@ -204,6 +216,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   AdminLoginRoute: typeof AdminLoginRoute
   BlogSlugRoute: typeof BlogSlugRoute
+  MasiniSlugRoute: typeof MasiniSlugRoute
   RecenzieTokenRoute: typeof RecenzieTokenRoute
   AdminIndexRoute: typeof AdminIndexRoute
   BlogIndexRoute: typeof BlogIndexRoute
@@ -272,6 +285,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/masini/$slug': {
+      id: '/masini/$slug'
+      path: '/masini/$slug'
+      fullPath: '/masini/$slug'
+      preLoaderRoute: typeof MasiniSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/recenzie/$token': {
       id: '/recenzie/$token'
       path: '/recenzie/$token'
@@ -324,6 +344,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   AdminLoginRoute: AdminLoginRoute,
   BlogSlugRoute: BlogSlugRoute,
+  MasiniSlugRoute: MasiniSlugRoute,
   RecenzieTokenRoute: RecenzieTokenRoute,
   AdminIndexRoute: AdminIndexRoute,
   BlogIndexRoute: BlogIndexRoute,
