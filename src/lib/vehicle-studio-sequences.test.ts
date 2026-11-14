@@ -4,8 +4,8 @@ import { existsSync } from "node:fs";
 import { STUDIO_SEQUENCES } from "./vehicle-studio-sequences";
 
 test("Fabia uses eight stable angles, not the unstable 36-frame interpolation", () => {
-  assert.deepEqual(STUDIO_SEQUENCES.fabia, [0, 8, 13, 17, 18, 26, 30, 33]);
-  assert.equal(STUDIO_SEQUENCES.fabia?.length, STUDIO_SEQUENCES.clio?.length);
+  assert.deepEqual(STUDIO_SEQUENCES['fabia'], [0, 8, 13, 17, 18, 26, 30, 33]);
+  assert.equal(STUDIO_SEQUENCES['fabia']?.length, STUDIO_SEQUENCES['clio']?.length);
 });
 
 test("every selected studio angle exists in its own vehicle set", () => {
