@@ -1,6 +1,6 @@
 /** Reviewed studio angles only; exclude the Fabia's unstable interpolated steps. */
 export const STUDIO_SEQUENCES: Record<string, readonly number[]> = {
-  fabia: [0, 8, 13, 17, 18, 26, 30, 33],
+  fabia: [0, 11, 13, 17, 18, 26, 30, 33],
   clio: [0, 1, 2, 3, 4, 5, 6, 7],
   passat: [0, 1, 2, 3, 4, 5, 6, 7],
   c5: [0, 1, 2, 3, 4, 5, 6, 7],
