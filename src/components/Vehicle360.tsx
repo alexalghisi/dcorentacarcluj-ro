@@ -87,14 +87,10 @@ export function Vehicle360({ frames, alt, className = "" }: {
       const h = Math.max(1, Math.round(rect.height * dpr));
       if (el.width !== w || el.height !== h) { el.width = w; el.height = h; s.drawn = -1; }
       const p = ((s.pos % 1) + 1) % 1 * n;
-      if (Math.abs(p - s.drawn) < 0.002) return;
-      s.drawn = p;
-      const i = Math.floor(p) % n;
-      const j = (i + 1) % n;
-      const f = p - Math.floor(p);
-      // Hold each angle, blend only through the middle of the step.
-      const t = Math.min(1, Math.max(0, (f - 0.3) / 0.4));
-      const mix = t * t * (3 - 2 * t);
+      if (Math.round(p) % n === s.drawn) return;
+      s.drawn = Math.round(p) % n;
+      // Show one whole real angle at a time: blending two angles creates a ghost car.
+      const i = Math.round(p) % n;
       const paint = (im: HTMLImageElement, alpha: number) => {
         const scale = Math.max(w / im.naturalWidth, h / im.naturalHeight);
         const dw = im.naturalWidth * scale;
@@ -103,11 +99,9 @@ export function Vehicle360({ frames, alt, className = "" }: {
         ctx.drawImage(im, (w - dw) / 2, (h - dh) / 2, dw, dh);
       };
       const a = images.current[i];
-      const b = images.current[j];
       if (!a || !ready(a)) { s.drawn = -1; return; }
       ctx.globalAlpha = 1;
       paint(a, 1);
-      if (mix > 0 && b && ready(b)) paint(b, mix);
       ctx.globalAlpha = 1;
     };
 
