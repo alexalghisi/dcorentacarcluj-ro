@@ -59,6 +59,62 @@ export type Database = {
         }
         Relationships: []
       }
+      booking_requests: {
+        Row: {
+          created_at: string
+          customer_email: string
+          customer_name: string
+          customer_phone: string
+          end_date: string
+          end_time: string
+          id: string
+          note: string
+          pickup_location: string
+          start_date: string
+          start_time: string
+          status: string
+          vehicle_id: string
+        }
+        Insert: {
+          created_at?: string
+          customer_email: string
+          customer_name: string
+          customer_phone: string
+          end_date: string
+          end_time: string
+          id?: string
+          note?: string
+          pickup_location?: string
+          start_date: string
+          start_time: string
+          status?: string
+          vehicle_id: string
+        }
+        Update: {
+          created_at?: string
+          customer_email?: string
+          customer_name?: string
+          customer_phone?: string
+          end_date?: string
+          end_time?: string
+          id?: string
+          note?: string
+          pickup_location?: string
+          start_date?: string
+          start_time?: string
+          status?: string
+          vehicle_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "booking_requests_vehicle_id_fkey"
+            columns: ["vehicle_id"]
+            isOneToOne: false
+            referencedRelation: "vehicles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       fleet_sync_runs: {
         Row: {
           created: number
