@@ -59,6 +59,7 @@ function VehiclePage() {
       <p className="mt-3 text-muted-foreground">{vehicle.tagline}</p>
       {photos[0] && <PrivateVehiclePhoto src={publicVehicleImageSrc(photos[0])} alt={`${vehicle.name} de închiriat în Cluj, Florești și Gilău`} className="mt-6 aspect-[4/3] max-h-[420px] w-full" />}
       <div className="mt-5 flex flex-wrap gap-3">
+        <Button asChild><Link to="/rezervare" search={{ masina: vehicle.id }}>Rezervă online</Link></Button>
         <Button asChild><a href={whatsapp} target="_blank" rel="noopener noreferrer"><MessageCircle /> Cere disponibilitatea</a></Button>
         <Button asChild variant="outline"><a href="tel:+40742925934"><Phone /> (0742) 925 934</a></Button>
       </div>

@@ -27,6 +27,7 @@ import {
   adminToggleVehicle,
 } from "@/lib/admin.functions";
 import { BookingsPanel } from "@/components/admin/BookingsPanel";
+import { adminBookingRequests } from '@/lib/booking-request.functions';
 import { ReviewsAdminPanel } from "@/components/admin/ReviewsAdminPanel";
 import { SeoPrioritiesPanel } from "@/components/admin/SeoPrioritiesPanel";
 import type { Booking } from "@/lib/bookings";
@@ -41,12 +42,13 @@ import {
 export const Route = createFileRoute("/admin/")({
   ssr: false,
   loader: async () => {
-    const [vehicles, stats, bookings] = await Promise.all([
+    const [vehicles, stats, bookings, requests] = await Promise.all([
       adminListVehicles(),
       adminStats(),
       adminListBookings(),
+      adminBookingRequests(),
     ]);
-    return { vehicles, stats, bookings };
+    return { vehicles, stats, bookings, requests };
   },
 
   component: AdminDashboard,
@@ -80,6 +82,7 @@ export const Route = createFileRoute("/admin/")({
 });
 
 function AdminDashboard() {
+  const requests = Route.useLoaderData().requests;
   const { vehicles, stats, bookings } = Route.useLoaderData() as {
     vehicles: Vehicle[];
     stats: { siteViews: number; vehicleViews: number; vehicles: number };
@@ -204,6 +207,7 @@ function AdminDashboard() {
         <SeoPrioritiesPanel />
 
         <BookingsPanel vehicles={vehicles} bookings={bookings} onChange={refresh} />
+        <section className="my-8 border-y border-border py-6"><h2 className="text-xl font-semibold">Cereri de rezervare online</h2>{requests.length === 0 ? <p className="mt-3 text-muted-foreground">Nicio cerere primită.</p> : <ul className="mt-4 divide-y divide-border">{requests.map(r => <li key={r.id} className="space-y-2 py-4"><p className="font-semibold">{r.customer_name} · {vehicles.find(v => v.id === r.vehicle_id)?.name ?? 'Mașină'}</p><p>{r.start_date} {r.start_time.slice(0,5)} → {r.end_date} {r.end_time.slice(0,5)}</p><p className="break-words text-sm">{r.pickup_location} · {r.customer_email} · {r.customer_phone}</p>{r.note && <p className="text-sm text-muted-foreground">{r.note}</p>}<p className="text-xs text-muted-foreground">{r.status === 'pending' ? 'În așteptarea confirmării' : r.status} · {r.id}</p></li>)}</ul>}</section>
 
         <ReviewsAdminPanel vehicles={vehicles} bookings={bookings} />
 
