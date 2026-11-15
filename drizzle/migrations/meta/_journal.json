@@ -29,6 +29,13 @@
       "when": 1791417992803,
       "tag": "0003_create_seo_monitoring_tables",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1794779638746,
+      "tag": "0004_create_booking_requests",
+      "breakpoints": true
     }
   ]
 }

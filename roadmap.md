@@ -1,4 +1,5 @@
 # Roadmap
+- [ ] Booking page with vehicle, dates/times, stored requests and customer/owner email confirmation; verify submission and delivery
 - [x] Sweep all vehicle viewers for direct dragging and immediate release; repair real-photo mode and verify mouse/touch
 - [x] Repair and verify direct 360° dragging with actual touch gestures and mouse on all studio vehicles
 - [x] Create indexable pages for every active vehicle with local metadata, pickup details, location links and sitemap entries
