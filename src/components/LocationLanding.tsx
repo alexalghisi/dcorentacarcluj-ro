@@ -9,6 +9,15 @@ import { locations } from "@/lib/locations";
 
 const PHONE_HREF = "tel:+40742925934";
 
+const ONLINE_BOOKING_SLUGS = new Set([
+  "rent-a-car-floresti-cluj",
+  "rent-a-car-gilau",
+  "rent-a-car-cluj",
+  "inchirieri-masini",
+  "rent-a-car-cluj-napoca",
+  "rent-a-car-huedin",
+]);
+
 const MAPS_URL =
   "https://www.google.com/maps/search/?api=1&query=DCO+Rent+a+Car+Cluj+Gil%C4%83u";
 
@@ -112,6 +121,11 @@ export function LocationLanding({ page, fleet = [] }: { page: LocationPage; flee
             </div>
 
             <div className="mt-8 flex flex-wrap gap-3">
+              {ONLINE_BOOKING_SLUGS.has(page.slug) ? (
+                <Link to="/rezervare" className="btn-base btn-primary">
+                  Rezervă online <ArrowRight className="h-4 w-4" />
+                </Link>
+              ) : null}
               <a href={PHONE_HREF} className="btn-base btn-primary">
                 <Phone className="h-4 w-4" /> Sună acum
               </a>
@@ -172,6 +186,11 @@ export function LocationLanding({ page, fleet = [] }: { page: LocationPage; flee
               Sună sau scrie-ne cu perioada dorită și clasa de mașină. Confirmăm disponibilitatea rapid.
             </p>
             <div className="mt-5 flex flex-wrap gap-3">
+              {ONLINE_BOOKING_SLUGS.has(page.slug) ? (
+                <Link to="/rezervare" className="btn-base btn-primary">
+                  Rezervă online <ArrowRight className="h-4 w-4" />
+                </Link>
+              ) : null}
               <a href={PHONE_HREF} className="btn-base btn-primary">
                 <Phone className="h-4 w-4" /> (0742) 925 934
               </a>

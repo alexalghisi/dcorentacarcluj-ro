@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SlugRouteImport } from './routes/$slug'
 import { Route as ConfidentialitateRouteImport } from './routes/confidentialitate'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as RezervareRouteImport } from './routes/rezervare'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
@@ -39,6 +40,11 @@ const SlugRoute = SlugRouteImport.update({
 const ConfidentialitateRoute = ConfidentialitateRouteImport.update({
   id: '/confidentialitate',
   path: '/confidentialitate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RezervareRoute = RezervareRouteImport.update({
@@ -113,6 +119,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$slug': typeof SlugRoute
   '/confidentialitate': typeof ConfidentialitateRoute
+  '/contact': typeof ContactRoute
   '/rezervare': typeof RezervareRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/login': typeof AdminLoginRoute
@@ -131,6 +138,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$slug': typeof SlugRoute
   '/confidentialitate': typeof ConfidentialitateRoute
+  '/contact': typeof ContactRoute
   '/rezervare': typeof RezervareRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/login': typeof AdminLoginRoute
@@ -150,6 +158,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/$slug': typeof SlugRoute
   '/confidentialitate': typeof ConfidentialitateRoute
+  '/contact': typeof ContactRoute
   '/rezervare': typeof RezervareRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/login': typeof AdminLoginRoute
@@ -170,6 +179,7 @@ export interface FileRouteTypes {
     | '/'
     | '/$slug'
     | '/confidentialitate'
+    | '/contact'
     | '/rezervare'
     | '/sitemap.xml'
     | '/admin/login'
@@ -188,6 +198,7 @@ export interface FileRouteTypes {
     | '/'
     | '/$slug'
     | '/confidentialitate'
+    | '/contact'
     | '/rezervare'
     | '/sitemap.xml'
     | '/admin/login'
@@ -206,6 +217,7 @@ export interface FileRouteTypes {
     | '/'
     | '/$slug'
     | '/confidentialitate'
+    | '/contact'
     | '/rezervare'
     | '/sitemap.xml'
     | '/admin/login'
@@ -225,6 +237,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SlugRoute: typeof SlugRoute
   ConfidentialitateRoute: typeof ConfidentialitateRoute
+  ContactRoute: typeof ContactRoute
   RezervareRoute: typeof RezervareRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   AdminLoginRoute: typeof AdminLoginRoute
@@ -261,6 +274,13 @@ declare module '@tanstack/react-router' {
       path: '/confidentialitate'
       fullPath: '/confidentialitate'
       preLoaderRoute: typeof ConfidentialitateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/rezervare': {
@@ -361,6 +381,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SlugRoute: SlugRoute,
   ConfidentialitateRoute: ConfidentialitateRoute,
+  ContactRoute: ContactRoute,
   RezervareRoute: RezervareRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   AdminLoginRoute: AdminLoginRoute,

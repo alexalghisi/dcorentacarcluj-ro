@@ -555,6 +555,9 @@ function Index() {
             <Link className="transition-colors hover:text-foreground" to="/blog">
               Blog
             </Link>
+            <Link className="transition-colors hover:text-foreground" to="/rezervare">
+              Rezervare
+            </Link>
             <a className="transition-colors hover:text-foreground" href="#contact">
               Contact
             </a>
@@ -1052,7 +1055,15 @@ function Index() {
               </h2>
               <p className="mt-4 max-w-lg text-ink-foreground/75">
                 Răspundem rapid la telefon și WhatsApp, inclusiv pentru
-                rezervări de ultim moment sau curse de la aeroport.
+                rezervări de ultim moment sau curse de la aeroport.{" "}
+                <Link to="/contact" className="font-semibold text-signal underline">
+                  Scrie-ne un mesaj
+                </Link>{" "}
+                sau{" "}
+                <Link to="/rezervare" className="font-semibold text-signal underline">
+                  rezervă online
+                </Link>
+                .
               </p>
               <div className="mt-10 grid gap-5 sm:grid-cols-2">
                 <a
@@ -1116,6 +1127,12 @@ function Index() {
             ))}
             <Link className="text-muted-foreground transition-colors hover:text-foreground" to="/blog">
               Blog
+            </Link>
+            <Link className="text-muted-foreground transition-colors hover:text-foreground" to="/rezervare">
+              Rezervare
+            </Link>
+            <Link className="text-muted-foreground transition-colors hover:text-foreground" to="/contact">
+              Contact
             </Link>
           </nav>
 
