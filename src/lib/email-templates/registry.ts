@@ -2,6 +2,7 @@ import type { ComponentType } from 'react'
 
 import { template as syncAlertTemplate } from './sync-alert'
 import { template as bookingTemplate, ownerTemplate } from './booking-request'
+import { template as contactTemplate, ownerTemplate as contactOwnerTemplate } from './contact-message'
 
 export interface TemplateEntry {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any -- each template has its own props
@@ -24,5 +25,7 @@ export interface TemplateEntry {
 export const TEMPLATES: Record<string, TemplateEntry> = {
   'booking-request': bookingTemplate,
   'booking-request-owner': ownerTemplate,
+  'contact-message': contactTemplate,
+  'contact-message-owner': contactOwnerTemplate,
   'sync-alert': syncAlertTemplate,
 }

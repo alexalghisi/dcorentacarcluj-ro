@@ -1,14 +1,16 @@
 import { useState, type FormEvent } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Car, Mail, MapPin, Phone } from "lucide-react";
+import { useServerFn } from "@tanstack/react-start";
+import { Car, Loader2, Mail, MapPin, Phone } from "lucide-react";
 import { SponsoredLink } from "@/components/SponsoredLink";
+import { contactMessageSchema } from "@/lib/contact";
+import { submitContactMessage } from "@/lib/contact.functions";
 import { canonical, canonicalLinks, SITE_URL, socialImageMeta } from "@/lib/seo";
 
 const PATH = "/contact";
 const TITLE = "Contact rent a car Cluj | DCO Gilău, Florești, Huedin";
 const DESCRIPTION =
   "Contactează DCO Rent a Car pentru închirieri auto în Cluj-Napoca, Florești, Gilău și Huedin. Scrie-ne pe e-mail sau sună la (0742) 925 934.";
-const EMAIL = "Ovidiu_danciu@yahoo.com";
 const PHONE_DISPLAY = "(0742) 925 934";
 const PHONE_HREF = "tel:+40742925934";
 
@@ -49,7 +51,7 @@ export const Route = createFileRoute("/contact")({
             "@type": "AutoRental",
             name: "DCO Rent a Car Cluj",
             telephone: "+40742925934",
-            email: EMAIL,
+            email: "Ovidiu_danciu@yahoo.com",
             url: SITE_URL,
             address: {
               "@type": "PostalAddress",
@@ -80,13 +82,30 @@ function ContactPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
   const [sent, setSent] = useState(false);
+  const submit = useServerFn(submitContactMessage);
 
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const body = [`Nume: ${name}`, `E-mail: ${email}`, "", message].join("\n");
-    window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent("Mesaj — DCO Rent a Car Cluj")}&body=${encodeURIComponent(body)}`;
-    setSent(true);
+    if (submitting) return;
+    setError("");
+    const parsed = contactMessageSchema.safeParse({ name, email, message });
+    if (!parsed.success) {
+      setError(parsed.error.issues[0]?.message ?? "Verifică datele.");
+      return;
+    }
+    setSubmitting(true);
+    try {
+      const response = await submit({ data: parsed.data });
+      if (response.ok) setSent(true);
+      else setError(response.error);
+    } catch {
+      setError("Nu am putut trimite mesajul. Sună la (0742) 925 934.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -126,8 +145,8 @@ function ContactPage() {
               Scrie-ne pentru o mașină de închiriat în Cluj
             </h1>
             <p className="mt-4 max-w-xl leading-relaxed text-muted-foreground">
-              Mesajul pleacă direct pe e-mail, cu numele, adresa ta și textul scris mai jos. Pentru
-              o perioadă anume, poți și{" "}
+              Lasă numele, e-mailul și mesajul. Îl primim direct și îți răspundem pe e-mail. Pentru o
+              perioadă anume, poți și{" "}
               <Link to="/rezervare" className="font-semibold text-primary hover:underline">
                 rezerva online
               </Link>
@@ -146,19 +165,7 @@ function ContactPage() {
                   <span className="font-semibold">{PHONE_DISPLAY}</span>
                 </span>
               </a>
-              <a
-                href={`mailto:${EMAIL}`}
-                className="flex items-start gap-3 rounded-xl border border-border bg-card p-4 transition-colors hover:bg-accent"
-              >
-                <Mail className="mt-0.5 h-5 w-5 text-primary" />
-                <span>
-                  <span className="block text-xs uppercase tracking-widest text-muted-foreground">
-                    E-mail
-                  </span>
-                  <span className="font-semibold">{EMAIL}</span>
-                </span>
-              </a>
-              <div className="flex items-start gap-3 rounded-xl border border-border bg-card p-4 sm:col-span-2">
+              <div className="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
                 <MapPin className="mt-0.5 h-5 w-5 text-primary" />
                 <span>
                   <span className="block text-xs uppercase tracking-widest text-muted-foreground">
@@ -218,13 +225,19 @@ function ContactPage() {
                 />
               </label>
             </div>
-            <button type="submit" className="btn-base btn-primary mt-6 w-full">
-              <Mail className="h-4 w-4" /> Trimite mesajul
+            <button type="submit" disabled={submitting} className="btn-base btn-primary mt-6 w-full disabled:opacity-60">
+              {submitting ? <Loader2 className="h-4 w-4 animate-spin" /> : <Mail className="h-4 w-4" />}
+              {submitting ? "Se trimite…" : "Trimite mesajul"}
             </button>
+            {error ? (
+              <p role="alert" className="mt-3 text-sm text-destructive">
+                {error}
+              </p>
+            ) : null}
             {sent ? (
               <p className="mt-3 rounded-lg bg-primary/10 px-3 py-2 text-xs font-medium text-foreground">
-                S-a deschis e-mailul către {EMAIL}. Dacă nu apare, scrie direct la această adresă
-                sau sună la {PHONE_DISPLAY}.
+                Mesajul a plecat. Îți răspundem pe e-mail. Dacă nu primești confirmarea, sună la{" "}
+                {PHONE_DISPLAY}.
               </p>
             ) : null}
             <p className="mt-3 text-xs text-muted-foreground">
