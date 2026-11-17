@@ -1,5 +1,6 @@
 import { countyLocations } from "./locations-county";
 import { intentLocations } from "./locations-intent";
+import { languageLocations } from "./locations-lang";
 
 export interface LocationSection {
   heading: string;
@@ -14,7 +15,7 @@ export interface LocationPage {
   /** Text folosit în linkurile interne (implicit „Rent a Car {city}”). */
   linkTitle?: string;
   /** Limba conținutului paginii (implicit „ro”). */
-  lang?: "ro" | "en";
+  lang?: "ro" | "en" | "hu";
   h1: string;
   metaTitle: string;
   description: string;
@@ -35,7 +36,7 @@ export const locations: LocationPage[] = [
     navLabel: "Rent a Car Cluj",
     linkTitle: "Rent a Car Cluj",
     h1: "Rent a Car Cluj — mașini de închiriat de la 70 lei/zi, fără garanție",
-    metaTitle: "Rent a Car Cluj | Mașini de închiriat de la 70 lei/zi",
+    metaTitle: "Rent a Car Cluj: prețuri, condiții, predare | DCO",
     description:
       "Rent a car Cluj direct de la proprietar: mașini de închiriat de la 70 lei/zi, fără garanție, rovinietă, AC incluse, predare în Gilău. Sună (0742) 925 934.",
     keywords:
@@ -1625,7 +1626,7 @@ export const locations: LocationPage[] = [
     intro:
       "Vezi ce mașini de închiriat sunt disponibile, cu tarif și clasă, și verifică perioada dorită direct în calendarul de disponibilitate de pe prima pagină.",
     highlights: [
-      { label: "Modele", value: "9 mașini" },
+      { label: "Modele", value: "10 mașini" },
       { label: "Tarif de la", value: "70 lei/zi" },
       { label: "Cutie", value: "Manuală și automată" },
       { label: "Locuri", value: "5 sau 7" },
@@ -2167,6 +2168,7 @@ export const locations: LocationPage[] = [
   },
   ...countyLocations,
   ...intentLocations,
+  ...languageLocations,
 ];
 
 

@@ -22,6 +22,7 @@ import {
   socialBarAllowed,
 } from "@/lib/advertising";
 import { afterPageIdle } from "@/lib/idle";
+import { LOCATION_LANGS } from "@/lib/location-langs";
 
 function NotFoundComponent() {
   return (
@@ -153,12 +154,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   errorComponent: ErrorComponent,
 });
 
-/** Pages whose content is in English (see lang: "en" in src/lib/locations.ts). */
-const EN_PATHS = new Set(["/car-rental-cluj", "/car-rental-cluj-napoca"]);
-
+/** html lang for landing pages written in English or Hungarian. */
+const PATH_LANG: ReadonlyMap<string, string> = LOCATION_LANGS;
 function RootShell({ children }: { children: ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const lang = EN_PATHS.has(pathname.replace(/\/+$/, "")) ? "en" : "ro";
+  const lang = PATH_LANG.get(pathname.replace(/\/+$/, "")) ?? "ro";
   return (
     <html lang={lang}>
       <head>

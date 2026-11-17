@@ -41,8 +41,56 @@ const LANDMARKS: string[] = [
   "Lacul Tarnița și barajul Gilău (weekend)",
 ];
 
-function waLink(city: string) {
-  const text = `Bună ziua! Vreau să închiriez o mașină (${city}). Perioada dorită: `;
+
+type Lang = NonNullable<LocationPage["lang"]>;
+
+/** Interface text for landing pages, so English and Hungarian pages are not half Romanian. */
+const UI: Record<Lang, {
+  waAria: string; call: string; home: string; bookOnline: string; callNow: string; quote: string;
+  fleet: (city: string) => string; bookFor: (city: string) => string; bookText: string; waWrite: string;
+  form: string; faq: (city: string) => string; zones: (city: string) => string; zonesText: string;
+  places: string; landmarks: string; openMaps: string; mapTitle: (city: string) => string;
+  others: string; rights: string; privacy: string; waText: (city: string) => string;
+}> = {
+  ro: {
+    waAria: "Scrie pe WhatsApp", call: "Sună", home: "Acasă", bookOnline: "Rezervă online", callNow: "Sună acum",
+    quote: "Cere o ofertă", fleet: (c) => `Mașini de închiriat pentru ${c}`, bookFor: (c) => `Rezervă o mașină pentru ${c}`,
+    bookText: "Sună sau scrie-ne cu perioada dorită și clasa de mașină. Confirmăm disponibilitatea rapid.",
+    waWrite: "Scrie pe WhatsApp", form: "Formular de rezervare", faq: (c) => `Întrebări frecvente — ${c}`,
+    zones: (c) => `Zone deservite în județul Cluj — ${c}`,
+    zonesText: "Bază în Gilău, la 12 km de centrul Cluj-Napoca. Predăm și preluăm mașina în localitățile de mai jos și la punctele de reper cele mai cerute, la ora stabilită telefonic.",
+    places: "Localități", landmarks: "Puncte de reper pentru predare", openMaps: "Deschide în Google Maps",
+    mapTitle: (c) => `Harta zonelor deservite de DCO Rent a Car — ${c}, județul Cluj`,
+    others: "Alte zone deservite", rights: "Toate drepturile rezervate.", privacy: "Politica de confidențialitate",
+    waText: (c) => `Bună ziua! Vreau să închiriez o mașină (${c}). Perioada dorită: `,
+  },
+  en: {
+    waAria: "Message us on WhatsApp", call: "Call", home: "Home", bookOnline: "Book online", callNow: "Call now",
+    quote: "Get a quote", fleet: () => "Cars for hire", bookFor: () => "Book a car",
+    bookText: "Call or message us with your dates and the type of car. We confirm availability quickly.",
+    waWrite: "Message on WhatsApp", form: "Booking form", faq: () => "Frequently asked questions",
+    zones: () => "Where we hand over cars",
+    zonesText: "Our base is in Gilău, just west of Cluj-Napoca. We hand over and collect cars in the places below and at the most requested landmarks, at a time agreed by phone.",
+    places: "Towns", landmarks: "Handover landmarks", openMaps: "Open in Google Maps",
+    mapTitle: () => "Map of the area served by DCO Rent a Car, Cluj County",
+    others: "Other pages", rights: "All rights reserved.", privacy: "Privacy policy",
+    waText: () => "Hello! I would like to rent a car. Dates: ",
+  },
+  hu: {
+    waAria: "Írjon WhatsAppon", call: "Hívás", home: "Főoldal", bookOnline: "Online foglalás", callNow: "Hívjon most",
+    quote: "Ajánlatkérés", fleet: () => "Bérelhető autók", bookFor: () => "Autófoglalás",
+    bookText: "Hívjon vagy írjon a kívánt időszakkal és az autó típusával. Gyorsan visszaigazoljuk, van-e szabad autó.",
+    waWrite: "Írjon WhatsAppon", form: "Foglalási űrlap", faq: () => "Gyakori kérdések",
+    zones: () => "Hol adjuk át az autót",
+    zonesText: "Telephelyünk Gyalun van, Kolozsvártól nyugatra. Az autót az alábbi településeken és a leggyakoribb találkozási pontokon adjuk át és vesszük vissza, telefonon egyeztetett időben.",
+    places: "Települések", landmarks: "Átadási pontok", openMaps: "Megnyitás a Google Térképen",
+    mapTitle: () => "A DCO Rent a Car által kiszolgált terület térképe, Kolozs megye",
+    others: "További oldalak", rights: "Minden jog fenntartva.", privacy: "Adatvédelmi szabályzat",
+    waText: () => "Jó napot! Autót szeretnék bérelni. Időszak: ",
+  },
+};
+
+function waLink(text: string) {
   return `https://wa.me/40742925934?text=${encodeURIComponent(text)}`;
 }
 
@@ -55,7 +103,8 @@ export function LocationLanding({ page, fleet = [] }: { page: LocationPage; flee
       const ib = nearby.indexOf(b.slug);
       return (ia === -1 ? 999 : ia) - (ib === -1 ? 999 : ib);
     });
-  const whatsapp = waLink(page.city);
+  const t = UI[page.lang ?? "ro"];
+  const whatsapp = waLink(t.waText(page.city));
 
 
   return (
@@ -78,14 +127,14 @@ export function LocationLanding({ page, fleet = [] }: { page: LocationPage; flee
               href={whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Scrie pe WhatsApp"
+              aria-label={t.waAria}
               className="btn-base btn-outline-ink px-4 py-2.5 text-sm"
             >
               <MessageCircle className="h-4 w-4" /> <span className="hidden sm:inline">WhatsApp</span>
             </a>
             <a href={PHONE_HREF} className="btn-base btn-primary px-5 py-2.5 text-sm">
               <Phone className="h-4 w-4" /> <span className="hidden sm:inline">(0742) 925 934</span>
-              <span className="sm:hidden">Sună</span>
+              <span className="sm:hidden">{t.call}</span>
             </a>
           </div>
 
@@ -99,7 +148,7 @@ export function LocationLanding({ page, fleet = [] }: { page: LocationPage; flee
               to="/"
               className="inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground"
             >
-              <ArrowLeft className="h-4 w-4" /> Acasă
+              <ArrowLeft className="h-4 w-4" /> {t.home}
             </Link>
             <p className="mt-6 inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
               <MapPin className="h-3.5 w-3.5" /> {page.city}
@@ -123,17 +172,17 @@ export function LocationLanding({ page, fleet = [] }: { page: LocationPage; flee
             <div className="mt-8 flex flex-wrap gap-3">
               {ONLINE_BOOKING_SLUGS.has(page.slug) ? (
                 <Link to="/rezervare" className="btn-base btn-primary">
-                  Rezervă online <ArrowRight className="h-4 w-4" />
+                  {t.bookOnline} <ArrowRight className="h-4 w-4" />
                 </Link>
               ) : null}
               <a href={PHONE_HREF} className="btn-base btn-primary">
-                <Phone className="h-4 w-4" /> Sună acum
+                <Phone className="h-4 w-4" /> {t.callNow}
               </a>
               <a href={whatsapp} target="_blank" rel="noopener noreferrer" className="btn-base btn-signal">
                 <MessageCircle className="h-4 w-4" /> WhatsApp
               </a>
               <Link to="/" hash="contact" className="btn-base btn-outline-ink">
-                Cere o ofertă <ArrowRight className="h-4 w-4" />
+                {t.quote} <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
 
@@ -171,7 +220,7 @@ export function LocationLanding({ page, fleet = [] }: { page: LocationPage; flee
           </div>
 
           {fleet.length > 0 && <section className="py-8">
-            <h2 className="font-display text-2xl font-bold">{page.lang === "en" ? "Cars for hire" : `Mașini de închiriat pentru ${page.city}`}</h2>
+            <h2 className="font-display text-2xl font-bold">{t.fleet(page.city)}</h2>
             <ul className="mt-5 grid gap-3 sm:grid-cols-2">
               {fleet.map((vehicle) => <li key={vehicle.slug}><Link to="/masini/$slug" params={{ slug: vehicle.slug }} className="inline-flex items-center gap-2 font-semibold text-primary hover:underline">{vehicle.name}<ArrowRight className="h-4 w-4" /></Link></li>)}
             </ul>
@@ -180,35 +229,35 @@ export function LocationLanding({ page, fleet = [] }: { page: LocationPage; flee
 
           <div className="mt-12 rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)] md:p-8">
             <h2 className="font-display text-xl font-bold tracking-tight">
-              Rezervă o mașină pentru {page.city}
+              {t.bookFor(page.city)}
             </h2>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Sună sau scrie-ne cu perioada dorită și clasa de mașină. Confirmăm disponibilitatea rapid.
+              {t.bookText}
             </p>
             <div className="mt-5 flex flex-wrap gap-3">
               {ONLINE_BOOKING_SLUGS.has(page.slug) ? (
                 <Link to="/rezervare" className="btn-base btn-primary">
-                  Rezervă online <ArrowRight className="h-4 w-4" />
+                  {t.bookOnline} <ArrowRight className="h-4 w-4" />
                 </Link>
               ) : null}
               <a href={PHONE_HREF} className="btn-base btn-primary">
                 <Phone className="h-4 w-4" /> (0742) 925 934
               </a>
               <a href={whatsapp} target="_blank" rel="noopener noreferrer" className="btn-base btn-signal">
-                <MessageCircle className="h-4 w-4" /> Scrie pe WhatsApp
+                <MessageCircle className="h-4 w-4" /> {t.waWrite}
               </a>
               <a href="mailto:Ovidiu_danciu@yahoo.com" className="btn-base btn-outline-ink">
                 <Mail className="h-4 w-4" /> Ovidiu_danciu@yahoo.com
               </a>
               <Link to="/" hash="contact" className="btn-base btn-outline-ink">
-                Formular de rezervare <ArrowRight className="h-4 w-4" />
+                {t.form} <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
 
           </div>
 
           <div className="mt-12">
-            <h2 className="font-display text-2xl font-bold tracking-tight">Întrebări frecvente — {page.city}</h2>
+            <h2 className="font-display text-2xl font-bold tracking-tight">{t.faq(page.city)}</h2>
             <div className="mt-5 divide-y divide-border overflow-hidden rounded-2xl border border-border bg-card">
               {page.faq.map((f, i) => (
                 <details key={f.q} open={i === 0} className="group p-5">
@@ -228,18 +277,16 @@ export function LocationLanding({ page, fleet = [] }: { page: LocationPage; flee
 
           <div className="mt-12">
             <h2 className="font-display text-2xl font-bold tracking-tight">
-              Zone deservite în județul Cluj — {page.city}
+              {t.zones(page.city)}
             </h2>
             <p className="mt-3 leading-relaxed text-muted-foreground">
-              Bază în Gilău, la 12 km de centrul Cluj-Napoca. Predăm și preluăm mașina în
-              localitățile de mai jos și la punctele de reper cele mai cerute, la ora stabilită
-              telefonic.
+              {t.zonesText}
             </p>
 
             <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_1.1fr]">
               <div>
                 <h3 className="text-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-                  Localități
+                  {t.places}
                 </h3>
                 <ul className="mt-3 grid grid-cols-2 gap-2 text-sm">
                   {SERVED_AREAS.map((a) => (
@@ -251,7 +298,7 @@ export function LocationLanding({ page, fleet = [] }: { page: LocationPage; flee
                 </ul>
 
                 <h3 className="mt-6 text-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-                  Puncte de reper pentru predare
+                  {t.landmarks}
                 </h3>
                 <ul className="mt-3 space-y-2 text-sm">
                   {LANDMARKS.map((l) => (
@@ -268,13 +315,13 @@ export function LocationLanding({ page, fleet = [] }: { page: LocationPage; flee
                   rel="noopener noreferrer"
                   className="btn-base btn-outline-ink mt-6"
                 >
-                  Deschide în Google Maps <ArrowRight className="h-4 w-4" />
+                  {t.openMaps} <ArrowRight className="h-4 w-4" />
                 </a>
               </div>
 
               <div className="overflow-hidden rounded-2xl border border-border bg-card">
                 <iframe
-                  title={`Harta zonelor deservite de DCO Rent a Car — ${page.city}, județul Cluj`}
+                  title={t.mapTitle(page.city)}
                   src="https://www.openstreetmap.org/export/embed.html?bbox=23.20%2C46.66%2C23.75%2C46.85&layer=mapnik&marker=46.7469%2C23.3736"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -286,7 +333,7 @@ export function LocationLanding({ page, fleet = [] }: { page: LocationPage; flee
 
           <div className="mt-12">
 
-            <h2 className="font-display text-lg font-bold tracking-tight">Alte zone deservite</h2>
+            <h2 className="font-display text-lg font-bold tracking-tight">{t.others}</h2>
             <div className="mt-4 grid gap-3 sm:grid-cols-2">
               {others.map((o) => (
                 <Link
@@ -311,8 +358,8 @@ export function LocationLanding({ page, fleet = [] }: { page: LocationPage; flee
           <p className="font-semibold text-foreground">DCO RENT A CAR CLUJ</p>
           <p>Gilău · Cluj-Napoca · Florești</p>
           <p>
-            © {new Date().getFullYear()} Toate drepturile rezervate.{" "}
-<Link to="/confidentialitate" className="hover:text-foreground hover:underline">Politica de confidențialitate</Link> <SponsoredLink className="ml-2" />
+            © {new Date().getFullYear()} {t.rights}{" "}
+<Link to="/confidentialitate" className="hover:text-foreground hover:underline">{t.privacy}</Link> <SponsoredLink className="ml-2" />
           </p>
         </div>
       </footer>
@@ -320,7 +367,7 @@ export function LocationLanding({ page, fleet = [] }: { page: LocationPage; flee
       {/* Bară fixă mobil: sună + WhatsApp */}
       <div className="fixed inset-x-0 bottom-0 z-50 grid grid-cols-2 gap-2 border-t border-border bg-background/95 p-3 backdrop-blur md:hidden">
         <a href={PHONE_HREF} className="btn-base btn-primary w-full justify-center py-3">
-          <Phone className="h-4 w-4" /> Sună
+          <Phone className="h-4 w-4" /> {t.call}
         </a>
         <a
           href={whatsapp}

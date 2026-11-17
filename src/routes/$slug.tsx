@@ -13,7 +13,8 @@ export const Route = createFileRoute("/$slug")({
   loader: async ({ params }) => {
     const page = getLocation(params.slug);
     if (!page) throw notFound();
-    const vehicles = await getPublicVehicles();
+    // The fleet list is a bonus; a database hiccup must not turn an indexable page into a 500.
+    const vehicles = await getPublicVehicles().catch(() => []);
     return { page, fleet: vehicles.map((v) => ({ name: v.name, slug: vehicleSlug(v) })) };
   },
   head: ({ loaderData }) => {
@@ -24,7 +25,10 @@ export const Route = createFileRoute("/$slug")({
     }
     const { page } = loaderData;
     const url = canonical(`/${page.slug}`);
-    const isEn = page.lang === "en";
+    const lang = page.lang ?? "ro";
+    const isEn = lang === "en";
+    const htmlLang = lang === "ro" ? "ro-RO" : lang;
+    const ogLocale = { ro: "ro_RO", en: "en_GB", hu: "hu_HU" }[lang];
     return {
       meta: [
         { title: page.metaTitle },
@@ -35,50 +39,53 @@ export const Route = createFileRoute("/$slug")({
         { property: "og:title", content: page.metaTitle },
         { property: "og:description", content: page.description },
         { property: "og:url", content: url },
-        { property: "og:locale", content: isEn ? "en_GB" : "ro_RO" },
+        { property: "og:locale", content: ogLocale },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: page.metaTitle },
         { name: "twitter:description", content: page.description },
         ...socialImageMeta(`${page.h1} — DCO Rent a Car`),
       ],
-      links: canonicalLinks(`/${page.slug}`, isEn, isEn ? "en" : "ro-RO"),
+      links: canonicalLinks(`/${page.slug}`, isEn, htmlLang),
       scripts: [
         {
           type: "application/ld+json",
           children: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": ["LocalBusiness", "AutoRental"],
-            "@id": `${url}#business`,
-            parentOrganization: { "@id": `${SITE}#organization` },
-            name: `DCO Rent a Car — ${page.city}`,
+            "@type": "Service",
+            "@id": `${url}#service`,
+            name: page.h1,
+            serviceType: isEn ? "Car rental" : "Închirieri auto",
             description: page.description,
             url,
-            telephone: "+40742925934",
-            email: "Ovidiu_danciu@yahoo.com",
-            priceRange: "de la 70 RON/zi",
-            areaServed: { "@type": "Place", name: page.city },
-            currenciesAccepted: "RON",
-            makesOffer: {
+            inLanguage: htmlLang,
+            // One real business (declared on the homepage); landing pages describe
+            // what it offers in an area instead of inventing a new business per page.
+            provider: {
+              "@type": ["AutoRental", "LocalBusiness"],
+              "@id": `${SITE}#business`,
+              name: "DCO Rent a Car Cluj",
+              url: SITE,
+              telephone: "+40742925934",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Gilău",
+                addressRegion: "Cluj",
+                postalCode: "407310",
+                addressCountry: "RO",
+              },
+            },
+            areaServed: { "@type": "Place", name: page.city.replace(/ \((English|magyar)\)$/, "") },
+            offers: {
               "@type": "Offer",
-              name: `Închiriere auto ${page.city}`,
+              priceCurrency: "RON",
+              availability: "https://schema.org/InStock",
               priceSpecification: {
                 "@type": "UnitPriceSpecification",
                 price: 70,
-                priceCurrency: "RON",
                 minPrice: 70,
+                priceCurrency: "RON",
                 unitCode: "DAY",
               },
-              availability: "https://schema.org/InStock",
-              itemOffered: { "@type": "Service", serviceType: "Închirieri auto" },
-            },
-
-
-
-            address: {
-              "@type": "PostalAddress",
-              addressLocality: "Gilău",
-              addressRegion: "Cluj",
-              addressCountry: "RO",
             },
           }),
         },
@@ -90,9 +97,9 @@ export const Route = createFileRoute("/$slug")({
             "@id": `${url}#faq`,
             url,
             name: `Întrebări frecvente — ${page.city}`,
-            inLanguage: isEn ? "en" : "ro-RO",
+            inLanguage: htmlLang,
             isPartOf: { "@id": `${SITE}#website` },
-            about: { "@id": `${url}#business` },
+            about: { "@id": `${url}#service` },
             mainEntity: page.faq.map((f) => ({
               "@type": "Question",
               name: f.q,
@@ -106,8 +113,8 @@ export const Route = createFileRoute("/$slug")({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Acasă", item: SITE },
-              { "@type": "ListItem", position: 2, name: `Rent a Car ${page.city}`, item: url },
+              { "@type": "ListItem", position: 1, name: "DCO Rent a Car Cluj", item: `${SITE}/` },
+              { "@type": "ListItem", position: 2, name: page.linkTitle ?? `Rent a Car ${page.city}`, item: url },
             ],
           }),
         },
