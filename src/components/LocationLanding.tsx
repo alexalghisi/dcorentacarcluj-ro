@@ -12,8 +12,7 @@ const PHONE_HREF = "tel:+40742925934";
 const ONLINE_BOOKING_SLUGS = new Set([
   "rent-a-car-floresti-cluj",
   "rent-a-car-gilau",
-  "rent-a-car-cluj",
-  "inchirieri-masini",
+  "inchirieri-auto-cluj",
   "rent-a-car-cluj-napoca",
   "rent-a-car-huedin",
 ]);
@@ -102,7 +101,9 @@ export function LocationLanding({ page, fleet = [] }: { page: LocationPage; flee
       const ia = nearby.indexOf(a.slug);
       const ib = nearby.indexOf(b.slug);
       return (ia === -1 ? 999 : ia) - (ib === -1 ? 999 : ib);
-    });
+    })
+    // A short, relevant set reads better than linking every page from every page.
+    .slice(0, 12);
   const t = UI[page.lang ?? "ro"];
   const whatsapp = waLink(t.waText(page.city));
 

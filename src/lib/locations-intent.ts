@@ -75,7 +75,7 @@ export const intentLocations: LocationPage[] = [
         a: "Trimite-ne numărul zborului la (0742) 925 934. Ajustăm ora de întâlnire după ora reală de aterizare.",
       },
     ],
-    nearby: ["rent-a-car-aeroport-cluj", "inchiriere-masina-cluj-aeroport", "rent-a-car-cluj"],
+    nearby: ["rent-a-car-aeroport-cluj", "rent-a-car-cluj-napoca", "rent-a-car-gilau"],
   },
   {
     slug: "inchiriere-masina-weekend-cluj",
@@ -131,7 +131,7 @@ export const intentLocations: LocationPage[] = [
         a: "Da. Ora de predare și de retur se stabilesc împreună, fără suprataxă pentru seară.",
       },
     ],
-    nearby: ["rent-a-car-cluj", "rent-a-car-gilau", "inchiriere-masina-economica-cluj"],
+    nearby: ["rent-a-car-cluj-napoca", "rent-a-car-gilau", "tarife-inchirieri-auto-cluj"],
   },
   {
     slug: "rent-a-car-cluj-ieftin",
@@ -143,7 +143,7 @@ export const intentLocations: LocationPage[] = [
     description:
       "Rent a car ieftin în Cluj, direct de la proprietar: de la 70 lei/zi, fără garanție, fără taxă de aeroport, rovinietă și RCA incluse. Sună (0742) 925 934.",
     keywords:
-      "rent a car cluj ieftin, inchirieri auto ieftine cluj, masini de inchiriat ieftine cluj, rent a car ieftin cluj napoca, inchiriere masina ieftina cluj",
+      "rent a car cluj ieftin, inchirieri auto ieftine cluj, masini de inchiriat ieftine cluj, rent a car ieftin cluj napoca, inchiriere masina ieftina cluj, masina economica de inchiriat cluj, inchiriere masina economica cluj",
     intro:
       "Un rent a car ieftin nu înseamnă doar un tarif mic pe zi, ci și lipsa costurilor adăugate la final. La noi prețul pornește de la 70 lei/zi și include RCA, ITP, rovinietă și aer condiționat — fără taxă de aeroport, fără taxă de birou și fără garanție blocată pe card.",
     highlights: [
@@ -187,10 +187,14 @@ export const intentLocations: LocationPage[] = [
         q: "Este mai ieftin dacă închiriez pentru o lună?",
         a: "Da. Pentru o săptămână sau o lună, tariful pe zi scade. Sună la (0742) 925 934 pentru o ofertă.",
       },
+      {
+        q: "Kilometrajul este limitat?",
+        a: "Discutăm limita de kilometri la rezervare, în funcție de durata închirierii.",
+      },
     ],
     nearby: [
       "tarife-inchirieri-auto-cluj",
-      "inchiriere-masina-economica-cluj",
+      "rent-a-car-cluj-napoca",
       "rent-a-car-cluj-fara-garantie",
     ],
   },

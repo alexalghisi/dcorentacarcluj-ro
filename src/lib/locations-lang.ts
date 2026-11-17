@@ -107,7 +107,7 @@ export const languageLocations: LocationPage[] = [
         a: "Yes, by phone and on WhatsApp at +40 742 925 934.",
       },
     ],
-    nearby: ["car-rental-cluj", "car-rental-cluj-napoca", "rent-a-car-aeroport-cluj"],
+    nearby: ["car-rental-cluj", "rent-a-car-aeroport-cluj", "autoberles-kolozsvar"],
   },
   {
     slug: "autoberles-kolozsvar",

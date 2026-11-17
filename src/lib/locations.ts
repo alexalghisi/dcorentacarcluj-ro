@@ -31,178 +31,6 @@ export interface LocationPage {
 
 export const locations: LocationPage[] = [
   {
-    slug: "rent-a-car-cluj",
-    city: "Cluj",
-    navLabel: "Rent a Car Cluj",
-    linkTitle: "Rent a Car Cluj",
-    h1: "Rent a Car Cluj — mașini de închiriat de la 70 lei/zi, fără garanție",
-    metaTitle: "Rent a Car Cluj: prețuri, condiții, predare | DCO",
-    description:
-      "Rent a car Cluj direct de la proprietar: mașini de închiriat de la 70 lei/zi, fără garanție, rovinietă, AC incluse, predare în Gilău. Sună (0742) 925 934.",
-    keywords:
-      "rent a car cluj, rent a car cluj napoca, cluj rent a car, inchirieri auto cluj, masini de inchiriat cluj, rent a car cluj ieftin, rent a car cluj fara garantie",
-    intro:
-      "DCO Rent a Car este un serviciu local de rent a car în Cluj: închiriezi mașina direct de la proprietar, fără birou de terminal, fără comision de rezervare și fără garanție blocată pe card. Tarifele pornesc de la 70 lei/zi, iar ora de predare o stabilim împreună pe telefon sau WhatsApp.",
-    highlights: [
-      { label: "Tarif de la", value: "70 lei/zi" },
-      { label: "Garanție", value: "Fără" },
-      { label: "Predare", value: "Personală" },
-      { label: "Acoperire", value: "Cluj · Gilău · Florești" },
-    ],
-    sections: [
-      {
-        heading: "Ce include un rent a car în Cluj la noi",
-        paragraphs: [
-          "Tariful de pornire este 70 lei/zi, iar prețul exact pentru perioada ta îl confirmăm înainte de rezervare. Tariful include asigurarea RCA, ITP valabil, rovinieta, aerul condiționat și anvelopele de sezon. Nu percepem taxe de aeroport, taxe de birou, taxe pentru al doilea șofer sau suprataxe pentru predare în afara orelor obișnuite — exact costurile care umflă factura la firmele mari de rent a car din Cluj-Napoca.",
-          "Pentru închirieri de mai multe zile, o săptămână sau o lună, tariful pe zi scade. Prețul final se negociază în funcție de mașina aleasă și de durata închirierii, iar disponibilitatea o confirmăm rapid.",
-        ],
-        bullets: [
-          "Tarife de la 70 lei/zi, negociabile pentru perioade lungi",
-          "Fără garanție și fără card de credit obligatoriu",
-          "Rovinietă, RCA, ITP și AC incluse în preț",
-          "Predare personală în Gilău, Florești sau Cluj-Napoca",
-        ],
-      },
-      {
-        heading: "Flota de rent a car disponibilă în Cluj",
-        paragraphs: [
-          "Flota este proprie și verificată înainte de fiecare predare. Pentru oraș și parcări strâmte în centrul Clujului recomandăm Škoda Fabia sau Renault Clio Symbol, cu consum mic. Pentru bagaje, mutări sau drumuri lungi avem break-uri VW Passat și Ford Focus. Pentru confort există Volvo S40 și Citroën C5 cu cutie automată, iar pentru familii sau grupuri, Volvo XC90 cu 7 locuri.",
-        ],
-        bullets: [
-          "Clasă economică pentru oraș și navetă",
-          "Break-uri pentru bagaje și transport",
-          "Cutie automată disponibilă (Citroën C5)",
-          "7 locuri disponibile (Volvo XC90)",
-        ],
-      },
-      {
-        heading: "Cum închiriezi mașina în 3 pași",
-        paragraphs: [
-          "Trimiți perioada dorită și clasa de mașină pe WhatsApp sau suni la (0742) 925 934. Primești confirmarea disponibilității și tariful exact. La predare ai nevoie de buletin și permis de conducere valabil de minimum un an — atât.",
-          "Predarea se face personal în Gilău (25 km de Aeroportul Avram Iancu), în Florești sau în Cluj-Napoca, la ora stabilită de comun acord. Tocmai pentru că nu avem birou în terminal, tariful zilnic rămâne mic.",
-        ],
-      },
-      {
-        heading: "Rent a car Cluj-Napoca: sfaturi pentru condus și parcare în oraș",
-        paragraphs: [
-          "În centrul Clujului parcarea se plătește în majoritatea zonelor, de obicei prin SMS sau aplicație. Verifică întotdeauna indicatoarele din zonă. Pentru vizite în centru, o mașină mică e mult mai ușor de parcat decât un SUV sau un break.",
-          "Orele de vârf (dimineața și după-amiaza) aglomerează Calea Florești, Calea Turzii, Bulevardul Muncii și drumul spre aeroport. Dacă ai un zbor de prins, pleacă din timp.",
-        ],
-        bullets: [
-          "Mașină mică pentru centru și cartiere aglomerate",
-          "Plata parcării prin SMS sau aplicație, după indicatoare",
-          "Pleacă din timp spre aeroport în orele de vârf",
-        ],
-      },
-      {
-        heading: "Rent a car Cluj pentru turiști, firme și localnici",
-        paragraphs: [
-          "Turiștii închiriază de obicei pentru Salina Turda, Cheile Turzii, Lacul Tarnița, Munții Apuseni sau Transfăgărășan. Firmele cer mașini pentru angajați detașați sau proiecte de câteva săptămâni, cu factură. Localnicii ne sună cel mai des când mașina proprie e în service sau în daună.",
-          "Pentru fiecare situație îți recomandăm mașina potrivită: economică pentru oraș, break pentru bagaje, automată pentru confort sau 7 locuri pentru grupuri.",
-        ],
-      },
-    ],
-    faq: [
-      {
-        q: "Cât costă un rent a car în Cluj?",
-        a: "De la 70 lei/zi pentru clasa economică. Pentru închirieri de o săptămână sau o lună, tariful pe zi este mai mic și se negociază în funcție de mașină.",
-      },
-      {
-        q: "Este nevoie de garanție sau de card de credit?",
-        a: "Nu. Nu blocăm garanție pe card și nu cerem card de credit. Ai nevoie doar de buletin și permis valabil de cel puțin un an.",
-      },
-      {
-        q: "Unde se face predarea mașinii în Cluj?",
-        a: "Predarea este personală, în Gilău, Florești sau Cluj-Napoca, la ora stabilită împreună. Nu există birou în terminalul aeroportului.",
-      },
-      {
-        q: "Aveți mașini cu cutie automată sau de 7 locuri?",
-        a: "Da. Citroën C5 are cutie automată, iar Volvo XC90 are 7 locuri. Confirmă disponibilitatea la (0742) 925 934.",
-      },
-      {
-        q: "Puteți preda mașina la Aeroportul Cluj?",
-        a: "Nu avem birou în aeroport. Predarea e personală, în Gilău sau la un punct stabilit telefonic, iar ora o adaptăm după zborul tău.",
-      },
-      {
-        q: "Pot închiria o mașină în Cluj pentru o lună?",
-        a: "Da. Pentru o lună sau mai mult, tariful pe zi scade și se stabilește în funcție de mașina aleasă. Sună la (0742) 925 934 pentru o ofertă.",
-      },
-      {
-        q: "Pot ieși din țară cu mașina închiriată din Cluj?",
-        a: "Întreabă înainte de rezervare, la (0742) 925 934. Condițiile pentru ieșirea din țară se stabilesc separat, pentru fiecare închiriere.",
-      },
-    ],
-  },
-  {
-    slug: "car-rental-cluj-napoca",
-    city: "Cluj-Napoca (English)",
-    navLabel: "Car rental Cluj-Napoca (EN)",
-    linkTitle: "Car Rental Cluj-Napoca (English)",
-    lang: "en",
-    h1: "Car Rental Cluj-Napoca — rent a car in Cluj from 70 RON/day",
-    metaTitle: "Car Rental Cluj-Napoca | Rent a Car Cluj from 14 €/day",
-    description:
-      "Car rental in Cluj-Napoca from 70 RON/day (≈14 €). No deposit, no credit card, road tax and A/C included. Call +40 742 925 934.",
-    keywords:
-      "car rental cluj napoca, rent a car cluj, car hire cluj napoca, cheap car rental cluj, car rental cluj romania, rent a car cluj no deposit",
-    intro:
-      "Car rental in Cluj-Napoca directly from the owner: no terminal desk, no booking commission and no deposit blocked on your card. Daily rates start at 70 RON (about 14 €) and the pickup time is agreed with you by phone or WhatsApp.",
-    highlights: [
-      { label: "From", value: "70 RON / day" },
-      { label: "Deposit", value: "None" },
-      { label: "Pickup", value: "Gilău / Cluj-Napoca" },
-      { label: "Included", value: "Road tax + A/C" },
-    ],
-    sections: [
-      {
-        heading: "What car rental in Cluj-Napoca includes",
-        paragraphs: [
-          "Rates start at 70 RON/day and we confirm the exact price for your dates before you book. RCA insurance, valid technical inspection, the Romanian road tax (rovinietă), air conditioning and seasonal tyres are all included. We charge no airport fee, no office fee, no second-driver fee and no out-of-hours surcharge — the extras that usually double the bill at international car hire desks in Cluj-Napoca.",
-          "Rates go down for weekly and monthly rentals. Because we are a small local operator based in Gilău rather than a terminal desk, the daily price stays low all year.",
-        ],
-        bullets: [
-          "From 70 RON (≈14 €) per day, lower for long rentals",
-          "No deposit and no credit card required",
-          "Road tax, insurance and A/C included",
-          "English spoken on WhatsApp and by phone",
-        ],
-      },
-      {
-        heading: "Cars available to rent in Cluj",
-        paragraphs: [
-          "Economy cars (Škoda Fabia, Renault Clio Symbol) are ideal for the narrow streets and paid parking of central Cluj-Napoca. Estates (VW Passat, Ford Focus) take luggage for Transylvania road trips, a Volvo S40 and an automatic Citroën C5 cover comfort, and a 7-seat Volvo XC90 works for families or groups.",
-        ],
-        bullets: [
-          "Automatic transmission available (Citroën C5)",
-          "7-seater available (Volvo XC90)",
-          "Estates for luggage and long trips",
-          "All cars checked before every handover",
-        ],
-      },
-      {
-        heading: "How to book and what you need",
-        paragraphs: [
-          "Send your dates and preferred car class on WhatsApp or call +40 742 925 934. You get availability and the exact price back, usually within minutes. At pickup you need a passport or ID card and a driving licence held for at least one year; non-EU drivers should carry an international driving permit if their licence is not in Latin script.",
-          "Handover happens in Gilău (25 km from Cluj Avram Iancu Airport), in Florești or in Cluj-Napoca, at a time we agree together.",
-        ],
-      },
-    ],
-    faq: [
-      {
-        q: "How much is car rental in Cluj-Napoca?",
-        a: "From 70 RON (about 14 €) per day for an economy car. Weekly and monthly rentals get a lower daily rate.",
-      },
-      {
-        q: "Do I need a deposit or a credit card?",
-        a: "No. We do not block a deposit and we do not require a credit card — only an ID or passport and a driving licence held for at least one year.",
-      },
-      {
-        q: "Can I pick the car up at Cluj Airport?",
-        a: "There is no terminal desk: we agree the handover point (near the airport or at our base in Gilău, 30–40 minutes away) and the time by phone or WhatsApp. Skipping airport fees is what keeps the daily rate low.",
-      },
-    ],
-  },
-  {
     slug: "rent-a-car-cluj-napoca",
     city: "Cluj-Napoca",
     navLabel: "Cluj-Napoca",
@@ -373,7 +201,7 @@ export const locations: LocationPage[] = [
     description:
       "Rent a car Aeroport Cluj-Napoca: mașini de închiriat de la 70 lei/zi, fără garanție, predare personală la aterizare. Sună (0742) 925 934.",
     keywords:
-      "rent a car aeroport cluj, inchirieri auto aeroport cluj, masina de inchiriat aeroport cluj napoca",
+      "rent a car aeroport cluj, inchirieri auto aeroport cluj, masina de inchiriat aeroport cluj napoca, inchiriere masina cluj aeroport, rent a car cluj aeroport",
     intro:
       "Vii cu avionul în Cluj? Pregătim mașina pentru ziua și ora aterizării, cu tarife mai mici decât la ghișeele din terminal, pentru că nu plătim spațiu în aeroport.",
     highlights: [
@@ -480,7 +308,7 @@ export const locations: LocationPage[] = [
     description:
       "Închirieri auto Cluj ieftine: mașini de închiriat de la 70 lei/zi pe zi, săptămână sau lună, fără garanție. Predare personală. Sună (0742) 925 934.",
     keywords:
-      "inchirieri auto cluj, inchiriere masina cluj, inchirieri masini cluj, inchirieri auto cluj pret, inchirieri auto ieftine cluj",
+      "inchirieri auto cluj, inchiriere masina cluj, inchirieri masini cluj, inchirieri auto cluj pret, inchirieri auto ieftine cluj, inchirieri masini cluj, inchiriere masina cluj, inchirieri masini, inchiriere masina",
     intro:
       "Închirieri auto în Cluj fără birou de terminal și fără costuri ascunse: tarif de la 70 lei/zi, mașini cu ITP, RCA, rovinietă și aer condiționat, predare personală la ora stabilită împreună.",
     highlights: [
@@ -536,6 +364,30 @@ export const locations: LocationPage[] = [
         q: "Se plătesc taxe suplimentare?",
         a: "Nu. Tariful include ITP, RCA, rovinietă și aer condiționat, fără taxe de birou sau comisioane de rezervare.",
       },
+      {
+        q: "Cât durează rezervarea?",
+        a: "Confirmăm disponibilitatea în câteva minute la telefon sau pe WhatsApp, inclusiv în weekend.",
+      },
+      {
+        q: "Care e perioada minimă de închiriere?",
+        a: "O zi. Nu există perioadă minimă impusă pentru clienții din zona Cluj.",
+      },
+      {
+        q: "Cum se plătește?",
+        a: "Plata se face la predare, în numerar sau prin transfer bancar; pentru firme emitem factură.",
+      },
+      {
+        q: "Pot închiria o mașină în aceeași zi?",
+        a: "Da, dacă modelul dorit este liber. Sună la (0742) 925 934 și confirmăm disponibilitatea imediat.",
+      },
+      {
+        q: "Unde se pot închiria mașinile?",
+        a: "În zona Cluj: Gilău, Cluj-Napoca, Florești și zona aeroportului. Predarea se face personal, la ora stabilită împreună.",
+      },
+      {
+        q: "Am nevoie de card de credit?",
+        a: "Nu. Nu cerem card de credit și nu blocăm garanție; ai nevoie doar de buletin sau pașaport și permis valabil de minimum un an.",
+      },
     ],
   },
   {
@@ -548,7 +400,7 @@ export const locations: LocationPage[] = [
     description:
       "Mașini de închiriat în Cluj: economice, break, berline, cutie automată și 7 locuri. Toate cu ITP, RCA și rovinietă. De la 70 lei/zi.",
     keywords:
-      "masini de inchiriat cluj, inchirieri masini cluj, masina de inchiriat cluj napoca, masini de inchiriat automat cluj, masina 7 locuri de inchiriat cluj",
+      "masini de inchiriat cluj, inchirieri masini cluj, masina de inchiriat cluj napoca, masini de inchiriat automat cluj, masina 7 locuri de inchiriat cluj, masini de inchiriat, flota masini inchiriere cluj",
     intro:
       "Vezi ce mașini de închiriat sunt disponibile în Cluj: de la modele mici și economice pentru oraș, până la break-uri spațioase, o variantă automată și un SUV cu 7 locuri.",
     highlights: [
@@ -601,6 +453,18 @@ export const locations: LocationPage[] = [
       {
         q: "Mașinile au rovinietă și aer condiționat?",
         a: "Toate mașinile au ITP, RCA, rovinietă și aer condiționat incluse în tarif.",
+      },
+      {
+        q: "Câte mașini de închiriat aveți?",
+        a: "Opt modele: de la clasa economică până la un SUV cu 7 locuri, cu cutie manuală sau automată.",
+      },
+      {
+        q: "Pot vedea dacă o mașină e liberă în perioada mea?",
+        a: "Da, pe prima pagină selectezi perioada și mașinile rezervate apar marcate cu data la care devin disponibile.",
+      },
+      {
+        q: "Ce include tariful pentru fiecare mașină?",
+        a: "RCA, ITP valabil, rovinietă, aer condiționat și anvelope de sezon. Nu există taxe de birou sau de al doilea șofer.",
       },
     ],
   },
@@ -722,7 +586,7 @@ export const locations: LocationPage[] = [
     description:
       "Car rental Cluj-Napoca and Gilău from 70 RON/day. Cheap rent a car Cluj with personal handover, no deposit, road tax and A/C included. Call +40742925934.",
     keywords:
-      "car rental cluj, rent a car cluj, car hire cluj napoca, rent a car cluj airport, cheap car rental cluj romania",
+      "car rental cluj, rent a car cluj, car hire cluj napoca, rent a car cluj airport, cheap car rental cluj romania, car rental cluj-napoca, car hire cluj-napoca",
     intro:
       "Rent a car in Cluj directly from the owner — no terminal desk, no booking commission. Cars are checked before every handover and the pickup time is agreed with you by phone or WhatsApp.",
     highlights: [
@@ -776,73 +640,6 @@ export const locations: LocationPage[] = [
       {
         q: "Is the Romanian road tax included?",
         a: "Yes. The rovinietă, insurance, technical inspection and air conditioning are all included in the daily rate.",
-      },
-    ],
-  },
-  {
-    slug: "inchirieri-auto-lunare-cluj",
-    city: "Cluj (termen lung)",
-    navLabel: "Închirieri lunare",
-    linkTitle: "Închirieri auto lunare Cluj",
-    h1: "Închirieri auto lunare în Cluj — rent a car Cluj pe termen lung",
-    metaTitle: "Închirieri auto lunare Cluj | Rent a Car Cluj lunar",
-    description:
-      "Închirieri auto lunare Cluj: mașină pe termen lung la tarif degresiv, factură pe firmă, fără garanție. Sună (0742) 925 934.",
-    keywords:
-      "inchirieri auto lunare cluj, inchiriere masina pe luna cluj, rent a car termen lung cluj, masina de inchiriat pe luna cluj",
-    intro:
-      "Ai nevoie de o mașină pentru o lună sau mai mult în Cluj? Tariful pe zi scade semnificativ, iar factura se poate emite pe firmă.",
-    highlights: [
-      { label: "Perioadă", value: "1 lună+" },
-      { label: "Tarif", value: "Degresiv" },
-      { label: "Factură", value: "Pe firmă" },
-      { label: "Rovinietă", value: "Inclusă" },
-    ],
-    sections: [
-      {
-        heading: "Cui se potrivește închirierea lunară",
-        paragraphs: [
-          "Firmele care au un proiect în Cluj și au nevoie de un autoturism suplimentar, persoanele relocate temporar în oraș și șoferii care rămân fără mașină pe perioada unei reparații lungi sau a unei daune plătesc mult mai puțin pe zi decât la o închiriere de 2–3 zile.",
-          "Pentru perioade lungi stabilim împreună un tarif fix pe lună, fără surprize: rovinieta, RCA, ITP și aerul condiționat sunt deja incluse.",
-        ],
-        bullets: [
-          "Tarif fix pe lună, agreat în avans",
-          "Factură pe firmă la cerere",
-          "Mașină de înlocuire pe perioada daunei",
-          "Kilometraj generos pentru navetă",
-        ],
-      },
-      {
-        heading: "Ce mașini recomandăm pe termen lung",
-        paragraphs: [
-          "Pentru navetă și consum mic: Škoda Fabia sau Renault Clio Symbol. Pentru firme și drumuri lungi: VW Passat break, Ford Focus break sau Volvo S40. Pentru șoferii care conduc doar automat: Citroën C5.",
-        ],
-        bullets: [
-          "Economic pentru navetă zilnică",
-          "Break pentru marfă și bagaje",
-          "Automat disponibil la cerere",
-          "Volvo XC90 cu 7 locuri pentru echipe",
-        ],
-      },
-      {
-        heading: "Cum stabilim tariful lunar",
-        paragraphs: [
-          "Ne suni sau scrii pe WhatsApp cu perioada, clasa de mașină și kilometrajul estimat. Îți dăm un tarif clar pe lună și rezervăm mașina pentru toată perioada.",
-        ],
-      },
-    ],
-    faq: [
-      {
-        q: "Cât costă o mașină închiriată pe o lună în Cluj?",
-        a: "Tariful se stabilește în funcție de clasa mașinii și de kilometraj, iar prețul pe zi este mult mai mic decât la închirierile scurte. Sună pentru o ofertă.",
-      },
-      {
-        q: "Se poate emite factură pe firmă?",
-        a: "Da, pentru închirierile lunare emitem factură pe firmă la cerere.",
-      },
-      {
-        q: "Pot prelungi închirierea după prima lună?",
-        a: "Da, prelungirea se face simplu, telefonic, dacă mașina nu este deja rezervată.",
       },
     ],
   },
@@ -986,121 +783,6 @@ export const locations: LocationPage[] = [
       {
         q: "Ce se întâmplă în caz de daună?",
         a: "Discutăm situația direct, pe baza actelor mașinii, care are RCA valabil. Detaliile le stabilim telefonic înainte de predare.",
-      },
-    ],
-  },
-  {
-    slug: "inchirieri-masini-cluj",
-    city: "Cluj (mașini)",
-    navLabel: "Închirieri mașini",
-    linkTitle: "Închirieri mașini Cluj",
-    h1: "Închirieri mașini Cluj — flotă disponibilă de la 70 lei/zi",
-    metaTitle: "Închirieri Mașini Cluj | Flotă Disponibilă, 70 lei/zi",
-    description:
-      "Închirieri mașini în Cluj de la 70 lei/zi: economice, break-uri, automat și SUV 7 locuri. Predare personală, fără garanție. Sună (0742) 925 934.",
-    keywords:
-      "inchirieri masini cluj, închirieri mașini cluj, inchiriere masina cluj, masini de inchiriat cluj napoca, inchirieri masini cluj napoca",
-    intro:
-      "Închirieri mașini în Cluj cu predare personală și tarife negociabile după durată. Alegi clasa potrivită, noi confirmăm disponibilitatea pe perioada dorită.",
-    highlights: [
-      { label: "Clase", value: "4 tipuri" },
-      { label: "Tarif de la", value: "70 lei/zi" },
-      { label: "Automat", value: "Disponibil" },
-      { label: "7 locuri", value: "Disponibil" },
-    ],
-    sections: [
-      {
-        heading: "Ce mașini poți închiria în Cluj",
-        paragraphs: [
-          "Flota acoperă nevoile obișnuite din Cluj: oraș, drumuri lungi, bagaje și grupuri. Toate mașinile au ITP, RCA, rovinietă și aer condiționat, iar anvelopele sunt de sezon.",
-        ],
-        bullets: [
-          "Economic: Škoda Fabia, Renault Clio Symbol — consum mic, parcare ușoară",
-          "Break: Ford Focus, VW Passat — spațiu pentru bagaje",
-          "Berlină: Volvo S40 și Citroën C5 cu cutie automată",
-          "SUV 7 locuri: Volvo XC90 pentru familii sau grupuri",
-        ],
-      },
-      {
-        heading: "Cât costă închirierea unei mașini în Cluj",
-        paragraphs: [
-          "Tariful pornește de la 70 lei/zi la clasa economică și crește la break, berlină automată și SUV. Pentru perioade de peste 7 zile tariful zilnic scade, iar pentru firme emitem factură.",
-        ],
-      },
-      {
-        heading: "Zone de predare",
-        paragraphs: [
-          "Baza este în Gilău, în vestul Clujului, pe DN1. Predăm mașina în Cluj-Napoca, Florești, Gilău sau în zona aeroportului, la ora stabilită împreună.",
-        ],
-      },
-    ],
-    faq: [
-      {
-        q: "Aveți mașini cu cutie automată de închiriat în Cluj?",
-        a: "Da, Citroën C5 este cu cutie automată. Disponibilitatea o confirmăm telefonic pentru perioada dorită.",
-      },
-      {
-        q: "Se poate închiria o mașină cu 7 locuri în Cluj?",
-        a: "Da, avem un Volvo XC90 cu 7 locuri, potrivit pentru familii și grupuri.",
-      },
-      {
-        q: "Cât durează rezervarea?",
-        a: "Confirmăm disponibilitatea în câteva minute la telefon sau pe WhatsApp, inclusiv în weekend.",
-      },
-    ],
-  },
-  {
-    slug: "inchiriere-masina-cluj-aeroport",
-    city: "Aeroport Cluj (predare)",
-    navLabel: "Predare aeroport",
-    linkTitle: "Închiriere mașină Cluj aeroport",
-    h1: "Închiriere mașină Cluj aeroport — predare la aterizare",
-    metaTitle: "Închiriere Mașină Cluj Aeroport | Predare la Aterizare",
-    description:
-      "Rent a car Aeroport Cluj-Napoca: închiriere mașină la aterizare de la 70 lei/zi, fără garanție. Predare personală. Sună (0742) 925 934.",
-    keywords:
-      "inchiriere masina cluj aeroport, rent a car aeroport cluj, inchirieri auto aeroport cluj napoca, masina de inchiriat aeroport cluj",
-    intro:
-      "Zbori spre Cluj și ai nevoie de mașină de la aterizare? Stabilim predarea în funcție de ora zborului, fără cozi la ghișeu și fără garanție blocată pe card.",
-    highlights: [
-      { label: "Predare", value: "La aterizare" },
-      { label: "Tarif de la", value: "70 lei/zi" },
-      { label: "Garanție", value: "0 lei" },
-      { label: "Zbor întârziat", value: "Reprogramăm" },
-    ],
-    sections: [
-      {
-        heading: "Cum funcționează predarea la aeroportul Cluj",
-        paragraphs: [
-          "Ne trimiți numărul zborului și ora aterizării, iar noi ne sincronizăm cu programul tău. Dacă zborul întârzie, ajustăm ora predării fără costuri suplimentare.",
-          "Aeroportul Internațional Avram Iancu se află la circa 30–40 de minute de Gilău (în funcție de trafic), unde este baza noastră, așa că ajungem rapid la un punct de întâlnire convenabil.",
-        ],
-        bullets: [
-          "Fără cozi la ghișeu și fără taxe de terminal",
-          "Predare sincronizată cu ora zborului",
-          "Documentele mașinii complete: ITP, RCA, rovinietă",
-          "Retur la aeroport la finalul închirierii",
-        ],
-      },
-      {
-        heading: "Ce mașină să alegi pentru un zbor",
-        paragraphs: [
-          "Pentru bagaj de cală recomandăm un break — Ford Focus sau VW Passat. Pentru un city break în Cluj este suficientă o Škoda Fabia sau un Renault Clio Symbol, iar pentru familii avem Volvo XC90 cu 7 locuri.",
-        ],
-      },
-    ],
-    faq: [
-      {
-        q: "Se poate ridica mașina direct de la aeroportul Cluj?",
-        a: "Da, stabilim un punct de întâlnire în zona aeroportului la ora aterizării.",
-      },
-      {
-        q: "Ce se întâmplă dacă zborul întârzie?",
-        a: "Ne anunți și mutăm ora predării, fără costuri suplimentare.",
-      },
-      {
-        q: "Pot returna mașina la aeroport?",
-        a: "Da, returul se poate face în zona aeroportului, la ora stabilită înainte de plecare.",
       },
     ],
   },
@@ -1321,50 +1003,6 @@ export const locations: LocationPage[] = [
     ],
   },
   {
-    slug: "inchiriere-masina-economica-cluj",
-    city: "Cluj (clasa economică)",
-    navLabel: "Clasa economică",
-    linkTitle: "Închiriere mașină economică Cluj",
-    h1: "Mașină economică de închiriat — rent a car Cluj de la 70 lei/zi",
-    metaTitle: "Mașină economică Cluj | Rent a Car Cluj, 70 lei/zi",
-    description:
-      "Mașini economice de închiriat în Cluj de la 70 lei/zi: Škoda Fabia, Renault Clio Symbol. Rent a car Cluj ieftin, fără garanție. Sună (0742) 925 934.",
-    keywords:
-      "inchiriere masina economica cluj, masini ieftine de inchiriat cluj, inchiriere auto ieftin cluj",
-    intro:
-      "Cea mai accesibilă variantă din flotă: mașini mici, cu consum redus, ușor de parcat în centrul Clujului și perfecte pentru deplasări zilnice sau ca înlocuitor cât timp mașina ta este în service.",
-    highlights: [
-      { label: "Tarif", value: "de la 70 lei/zi" },
-      { label: "Consum", value: "Redus" },
-      { label: "Parcare", value: "Ușoară în oraș" },
-      { label: "Predare", value: "Personală" },
-    ],
-    sections: [
-      {
-        heading: "Pentru cine este clasa economică",
-        paragraphs: [
-          "Škoda Fabia și Renault Clio Symbol acoperă cele mai frecvente nevoi: navetă între Cluj și Florești sau Gilău, drumuri în oraș, deplasări scurte în județ. Consumul mic înseamnă cost total mai mic, nu doar tarif mic pe zi.",
-        ],
-        bullets: [
-          "Cel mai bun raport preț/consum din flotă",
-          "Ușor de parcat în centrul Clujului",
-          "Ideală ca mașină de înlocuire în perioada de service",
-          "Reduceri pentru închirieri de peste 7 zile",
-        ],
-      },
-    ],
-    faq: [
-      {
-        q: "Care este cea mai ieftină mașină de închiriat în Cluj?",
-        a: "Clasa economică pornește de la 70 lei pe zi, cu reduceri pentru perioade mai lungi.",
-      },
-      {
-        q: "Kilometrajul este limitat?",
-        a: "Discutăm limita de kilometri la rezervare, în funcție de durata închirierii.",
-      },
-    ],
-  },
-  {
     slug: "inchiriere-break-transport-auto-cluj",
     city: "Cluj (break & transport)",
     navLabel: "Break & transport",
@@ -1488,248 +1126,6 @@ export const locations: LocationPage[] = [
       {
         q: "Se aplică reduceri pentru perioade lungi?",
         a: "Da, pentru închirieri de peste 7 zile și pentru închirieri lunare tariful pe zi scade.",
-      },
-    ],
-  },
-  {
-    slug: "inchiriere-masina-cluj",
-    city: "Cluj (o mașină)",
-    navLabel: "Închiriere mașină",
-    linkTitle: "Închiriere mașină Cluj",
-    h1: "Închiriere mașină Cluj — de la 70 lei/zi, fără garanție",
-    metaTitle: "Închiriere Mașină Cluj | De la 70 lei/zi, Fără Garanție",
-    description:
-      "Închiriere mașină în Cluj de la 70 lei/zi, fără garanție și fără card de credit. Predare personală în Cluj-Napoca, Florești sau Gilău. (0742) 925 934.",
-    keywords:
-      "inchiriere masina cluj, inchiriere auto cluj, inchiriez masina cluj, inchiriere masina cluj napoca, inchiriere masina ieftina cluj",
-    intro:
-      "Ai nevoie de o singură mașină, pentru câteva zile sau pentru o lună? Confirmăm disponibilitatea telefonic în câteva minute, iar predarea se face personal, la ora stabilită împreună.",
-    highlights: [
-      { label: "Tarif de la", value: "70 lei/zi" },
-      { label: "Garanție", value: "0 lei" },
-      { label: "Acte", value: "Buletin + permis" },
-      { label: "Confirmare", value: "Telefonic, rapid" },
-    ],
-    sections: [
-      {
-        heading: "Cât costă să închiriezi o mașină în Cluj",
-        paragraphs: [
-          "Tariful pornește de la 70 lei pe zi pentru clasa economică, iar pentru perioade de peste 7 zile prețul pe zi scade. Nu există taxe ascunse la predare, iar RCA, ITP și rovinieta sunt incluse.",
-          "Pentru închirieri lunare tariful se stabilește telefonic și este semnificativ mai mic decât la firmele mari, care adaugă comisioane de birou, taxe pentru al doilea șofer și garanții blocate pe card.",
-        ],
-        bullets: [
-          "Clasă economică: de la 70 lei/zi",
-          "Break sau familie: tarif comunicat telefonic",
-          "Reducere pentru închirieri de peste 7 zile",
-          "Fără taxă de predare în Cluj-Napoca, Florești sau Gilău",
-        ],
-      },
-      {
-        heading: "Ce mașină alegi în funcție de nevoie",
-        paragraphs: [
-          "Pentru oraș și parcări strâmte recomandăm Škoda Fabia sau Renault Clio Symbol. Pentru bagaje, Ford Focus break sau VW Passat break. Pentru familie sau grup, Volvo XC90 cu 7 locuri, iar dacă vrei cutie automată, Citroën C5.",
-        ],
-      },
-      {
-        heading: "Cum închiriezi o mașină în Cluj, pas cu pas",
-        paragraphs: [
-          "Suni la (0742) 925 934 sau scrii pe WhatsApp perioada dorită. Verificăm disponibilitatea în calendarul flotei, stabilim ora și locul predării și semnăm la fața locului, cu buletin și permis valabil de minimum un an.",
-        ],
-      },
-    ],
-    faq: [
-      {
-        q: "Cât costă închirierea unei mașini în Cluj pe o zi?",
-        a: "De la 70 lei pe zi pentru clasa economică. Pentru celelalte clase tariful se comunică telefonic, în funcție de perioadă.",
-      },
-      {
-        q: "Pot închiria o mașină în Cluj pe o lună?",
-        a: "Da, facem închirieri lunare cu tarif redus pe zi. Perioada și prețul se stabilesc telefonic.",
-      },
-      {
-        q: "Am nevoie de card de credit?",
-        a: "Nu. Nu cerem card de credit și nu blocăm garanție; ai nevoie doar de buletin sau pașaport și permis valabil de minimum un an.",
-      },
-    ],
-  },
-  {
-    slug: "inchirieri-masini",
-    city: "România (Cluj)",
-    navLabel: "Închirieri mașini",
-    linkTitle: "Închirieri mașini",
-    h1: "Închirieri mașini — rent a car Cluj cu flotă proprie, 70 lei/zi",
-    metaTitle: "Închirieri mașini | Rent a Car Cluj de la 70 lei/zi",
-    description:
-      "Închirieri mașini direct de la proprietar: de la 70 lei/zi, fără garanție, predare personală în zona Cluj. Sună la (0742) 925 934.",
-    keywords:
-      "inchirieri masini, masini de inchiriat, inchirieri auto, inchirieri masini ieftine, inchirieri masini fara garantie",
-    intro:
-      "Închirieri mașini fără birocrație de corporație: vorbești direct cu proprietarul flotei, primești confirmarea rapid și plătești doar tariful, fără garanție blocată pe card.",
-    highlights: [
-      { label: "Tarif de la", value: "70 lei/zi" },
-      { label: "Zonă", value: "Cluj și județ" },
-      { label: "Garanție", value: "0 lei" },
-      { label: "Clase", value: "Economic → 7 locuri" },
-    ],
-    sections: [
-      {
-        heading: "Ce include tariful",
-        paragraphs: [
-          "Fiecare mașină este predată cu RCA și ITP valabile, rovinietă și anvelope potrivite sezonului. Politica de combustibil este plin la plin, iar kilometrajul se stabilește de comun acord pentru drumuri lungi.",
-        ],
-        bullets: [
-          "RCA, ITP și rovinietă incluse",
-          "Anvelope de sezon",
-          "Aer condiționat pe toate mașinile",
-          "Al doilea șofer fără taxă suplimentară",
-        ],
-      },
-      {
-        heading: "Clase disponibile",
-        paragraphs: [
-          "Flota acoperă nevoile obișnuite: economic pentru oraș (Škoda Fabia, Renault Clio Symbol), break pentru bagaje (Ford Focus, VW Passat), berlină confortabilă (Volvo S40), automat (Citroën C5) și 7 locuri (Volvo XC90).",
-        ],
-      },
-      {
-        heading: "Zonele deservite",
-        paragraphs: [
-          "Baza este în Gilău, în vestul Clujului, pe DN1. Predăm personal în Cluj-Napoca, Florești, Luna de Sus, Someșu Rece și în zona aeroportului, iar pentru alte localități din județ stabilim un punct de întâlnire.",
-        ],
-      },
-    ],
-    faq: [
-      {
-        q: "Unde se pot închiria mașinile?",
-        a: "În zona Cluj: Gilău, Cluj-Napoca, Florești și zona aeroportului. Predarea se face personal, la ora stabilită împreună.",
-      },
-      {
-        q: "Cât costă cea mai ieftină mașină de închiriat?",
-        a: "Clasa economică pornește de la 70 lei pe zi, cu reducere pentru perioade de peste 7 zile.",
-      },
-      {
-        q: "Se cere garanție?",
-        a: "Nu. Nu blocăm sume pe card și nu cerem depozit în numerar.",
-      },
-    ],
-  },
-  {
-    slug: "masini-de-inchiriat",
-    city: "Cluj (mașini de închiriat)",
-    navLabel: "Mașini de închiriat",
-    linkTitle: "Mașini de închiriat",
-    h1: "Mașini de închiriat — 8 modele rent a car Cluj disponibile",
-    metaTitle: "Mașini de închiriat | Rent a Car Cluj, 8 modele",
-    description:
-      "Mașini de închiriat în zona Cluj: economic, break, automat și 7 locuri, de la 70 lei/zi, fără garanție. Verifică disponibilitatea la (0742) 925 934.",
-    keywords:
-      "masini de inchiriat, masini de inchiriat cluj, auto de inchiriat, masini de inchiriat ieftine, masini de inchiriat fara garantie",
-    intro:
-      "Vezi ce mașini de închiriat sunt disponibile, cu tarif și clasă, și verifică perioada dorită direct în calendarul de disponibilitate de pe prima pagină.",
-    highlights: [
-      { label: "Modele", value: "10 mașini" },
-      { label: "Tarif de la", value: "70 lei/zi" },
-      { label: "Cutie", value: "Manuală și automată" },
-      { label: "Locuri", value: "5 sau 7" },
-    ],
-    sections: [
-      {
-        heading: "Modelele din flotă",
-        paragraphs: [
-          "Flota este întreținută și verificată înainte de fiecare predare. Fiecare mașină are fotografii reale pe site, nu imagini de catalog, ca să știi exact ce primești.",
-        ],
-        bullets: [
-          "Škoda Fabia și Renault Clio Symbol — consum mic, ideale pentru oraș",
-          "Ford Focus break și VW Passat break — portbagaj mare",
-          "Volvo S40 — berlină confortabilă pentru drumuri lungi",
-          "Citroën C5 — cutie automată",
-          "Volvo XC90 — 7 locuri pentru familie sau grup",
-        ],
-      },
-      {
-        heading: "Cum verifici disponibilitatea",
-        paragraphs: [
-          "Pe prima pagină alegi perioada dorită și mașinile deja rezervate apar marcate, cu data la care redevin libere. Astfel nu pierzi timp cu telefoane pentru mașini indisponibile.",
-        ],
-      },
-      {
-        heading: "Rezervare",
-        paragraphs: [
-          "Trimiți cererea prin formular sau scrii pe WhatsApp la (0742) 925 934 cu modelul și perioada. Confirmarea vine rapid, iar predarea se stabilește în Cluj-Napoca, Florești sau Gilău.",
-        ],
-      },
-    ],
-    faq: [
-      {
-        q: "Câte mașini de închiriat aveți?",
-        a: "Opt modele: de la clasa economică până la un SUV cu 7 locuri, cu cutie manuală sau automată.",
-      },
-      {
-        q: "Pot vedea dacă o mașină e liberă în perioada mea?",
-        a: "Da, pe prima pagină selectezi perioada și mașinile rezervate apar marcate cu data la care devin disponibile.",
-      },
-      {
-        q: "Aveți mașini cu cutie automată?",
-        a: "Da, Citroën C5 are cutie automată. Recomandăm rezervarea din timp, fiind cel mai cerut model.",
-      },
-    ],
-  },
-  {
-    slug: "inchiriere-masina",
-    city: "Închiriere mașină",
-    navLabel: "Închiriere auto",
-    linkTitle: "Închiriere mașină",
-    h1: "Închiriere mașină — rent a car Cluj direct de la proprietar",
-    metaTitle: "Închiriere mașină | Rent a Car Cluj, fără garanție",
-    description:
-      "Închiriere mașină de la 70 lei/zi, fără garanție și fără card de credit, cu predare personală în zona Cluj. Sună la (0742) 925 934.",
-    keywords:
-      "inchiriere masina, inchiriere auto, inchiriere masini, inchiriere masina fara garantie, inchiriere masina ieftina",
-    intro:
-      "Închiriere mașină simplă: alegi modelul, confirmăm perioada și semnăm la predare. Fără cozi la birou, fără garanție blocată și fără taxe adăugate ulterior.",
-    highlights: [
-      { label: "Tarif de la", value: "70 lei/zi" },
-      { label: "Garanție", value: "0 lei" },
-      { label: "Predare", value: "Personală" },
-      { label: "Perioadă", value: "1 zi → lunar" },
-    ],
-    sections: [
-      {
-        heading: "De ce direct de la proprietar",
-        paragraphs: [
-          "Vorbești cu persoana care răspunde de mașini, nu cu un call center. Dacă apare o problemă pe drum, ai un număr la care răspunde cineva care poate decide imediat.",
-        ],
-        bullets: [
-          "Fără comision de birou și fără taxe ascunse",
-          "Program de predare flexibil, stabilit împreună",
-          "Al doilea șofer fără cost suplimentar",
-          "Reduceri reale pentru perioade lungi",
-        ],
-      },
-      {
-        heading: "Condiții de închiriere",
-        paragraphs: [
-          "Ai nevoie de buletin sau pașaport și de permis de conducere valabil de minimum un an. Politica de combustibil este plin la plin, iar mașina se returnează la locul stabilit la predare.",
-        ],
-      },
-      {
-        heading: "Perioade de închiriere",
-        paragraphs: [
-          "Închiriem de la o zi până la câteva luni. Pentru mașină de înlocuire cât timp a ta e în service sau în daună, precum și pentru firme care au nevoie de un autoturism suplimentar, tariful lunar este cea mai avantajoasă opțiune.",
-        ],
-      },
-    ],
-    faq: [
-      {
-        q: "Care e perioada minimă de închiriere?",
-        a: "O zi. Nu există perioadă minimă impusă pentru clienții din zona Cluj.",
-      },
-      {
-        q: "Cum se plătește?",
-        a: "Plata se face la predare, în numerar sau prin transfer bancar; pentru firme emitem factură.",
-      },
-      {
-        q: "Pot închiria o mașină în aceeași zi?",
-        a: "Da, dacă modelul dorit este liber. Sună la (0742) 925 934 și confirmăm disponibilitatea imediat.",
       },
     ],
   },
@@ -1863,7 +1259,7 @@ export const locations: LocationPage[] = [
     description:
       "Închiriere mașină pe termen lung în Cluj: tarif lunar avantajos, fără avans și fără garanție, mentenanță inclusă. Sună la (0742) 925 934.",
     keywords:
-      "inchiriere masina termen lung cluj, inchiriere auto lunara cluj, abonament masina cluj, rent a car luna cluj, masina cu abonament cluj",
+      "inchiriere masina termen lung cluj, inchiriere auto lunara cluj, abonament masina cluj, rent a car luna cluj, masina cu abonament cluj, inchirieri auto lunare cluj, inchiriere masina lunar cluj",
     intro:
       "Pentru cei care au nevoie de o mașină câteva luni — proiect de lucru în Cluj, mutare în oraș, mașină în așteptarea unei livrări — închirierea pe termen lung costă mult mai puțin pe zi decât închirierea zilnică.",
     highlights: [
@@ -1953,75 +1349,9 @@ export const locations: LocationPage[] = [
         q: "Ce se întâmplă dacă mașina are o problemă tehnică?",
         a: "Ne suni la (0742) 925 934 și stabilim împreună soluția: rezolvarea problemei sau, când se poate, o mașină de schimb din flotă.",
       },
-    ],
-  },
-  {
-    slug: "flota-masini-inchiriere-cluj",
-    city: "Flota Cluj",
-    navLabel: "Flota de mașini",
-    linkTitle: "Flota de mașini disponibile în Cluj",
-    h1: "Flota de mașini de închiriat în Cluj — economic, break, automat și 7 locuri",
-    metaTitle: "Flota Mașini de Închiriat Cluj | Modele și tarife",
-    description:
-      "Vezi flota de mașini de închiriat în Cluj: clasă economică, break-uri, cutie automată și SUV de 7 locuri, de la 70 lei/zi. Sună (0742) 925 934.",
-    keywords:
-      "flota masini inchiriere cluj, modele masini de inchiriat cluj, masini disponibile rent a car cluj, ce masini se inchiriaza cluj",
-    intro:
-      "Flota este proprie, verificată tehnic și curățată înainte de fiecare predare. Mai jos găsești clasele disponibile în Cluj și pentru ce tip de drum recomandăm fiecare model.",
-    highlights: [
-      { label: "Clase", value: "4" },
-      { label: "Tarif de la", value: "70 lei/zi" },
-      { label: "Automat", value: "Disponibil" },
-      { label: "7 locuri", value: "Disponibil" },
-    ],
-    sections: [
       {
-        heading: "Clasa economică — oraș și navetă",
-        paragraphs: [
-          "Škoda Fabia și Renault Clio Symbol sunt cele mai cerute pentru Cluj-Napoca: consum mic, ușor de parcat în centru și pe străzile înguste din Grigorescu sau Mănăștur. Recomandate pentru 1-3 persoane și bagaj de cabină.",
-        ],
-        bullets: [
-          "Consum redus în oraș",
-          "Ușor de parcat în centru",
-          "Cel mai mic tarif din flotă",
-        ],
-      },
-      {
-        heading: "Break-uri — bagaje, mutări și drumuri lungi",
-        paragraphs: [
-          "VW Passat și Ford Focus break au portbagaj mare și sunt stabile pe autostradă. Alegerea potrivită pentru concedii, transport de marfă ușoară sau mutări între Cluj și alte orașe.",
-        ],
-        bullets: [
-          "Portbagaj mare, banchetă rabatabilă",
-          "Confort pe drum lung",
-          "Potrivite pentru 4-5 persoane cu bagaje",
-        ],
-      },
-      {
-        heading: "Cutie automată și confort",
-        paragraphs: [
-          "Citroën C5 are cutie automată și suspensie confortabilă — cea mai bună alegere pentru traficul din Cluj-Napoca sau pentru șoferii care conduc doar automat. Volvo S40 rămâne o variantă solidă pentru drum lung.",
-        ],
-      },
-      {
-        heading: "7 locuri pentru familii și grupuri",
-        paragraphs: [
-          "Volvo XC90 are 7 locuri și tracțiune bună pe drumuri de munte — potrivit pentru excursii la Tarnița, Beliș sau Apuseni. Fiind cel mai cerut model, recomandăm rezervarea din timp.",
-        ],
-      },
-    ],
-    faq: [
-      {
-        q: "Pot vedea dacă un model e liber în perioada mea?",
-        a: "Da, pe prima pagină selectezi perioada dorită, iar mașinile rezervate apar marcate cu data la care devin disponibile.",
-      },
-      {
-        q: "Ce include tariful pentru fiecare mașină?",
-        a: "RCA, ITP valabil, rovinietă, aer condiționat și anvelope de sezon. Nu există taxe de birou sau de al doilea șofer.",
-      },
-      {
-        q: "Aveți mașini cu cutie automată?",
-        a: "Da, Citroën C5. Fiind foarte cerut, recomandăm rezervarea cu câteva zile înainte.",
+        q: "Se poate emite factură pe firmă?",
+        a: "Da, pentru închirierile lunare emitem factură pe firmă la cerere.",
       },
     ],
   },
@@ -2103,66 +1433,6 @@ export const locations: LocationPage[] = [
       {
         q: "Ce documente îmi trebuie pentru închiriere?",
         a: "Buletin sau pașaport și permis de conducere valabil de cel puțin un an. Pentru firme, datele de facturare.",
-      },
-    ],
-  },
-  {
-    slug: "rent-a-car-apahida-baciu",
-    city: "Apahida & Baciu",
-    navLabel: "Rent a Car Apahida",
-    linkTitle: "Rent a Car Apahida și Baciu",
-    h1: "Rent a Car Apahida și Baciu — mașini de închiriat cu predare la domiciliu",
-    metaTitle: "Rent a Car Apahida & Baciu | Închirieri auto Cluj",
-    description:
-      "Închirieri auto în Apahida și Baciu: mașini de la 70 lei/zi, fără garanție, predare la domiciliu în zona metropolitană Cluj. Sună (0742) 925 934.",
-    keywords:
-      "rent a car apahida, rent a car baciu, inchirieri auto apahida, masini de inchiriat baciu, inchiriere masina zona metropolitana cluj",
-    intro:
-      "Apahida, Baciu, Chinteni și Jucu fac parte din zona metropolitană Cluj, iar predarea se face la domiciliu, fără să pierzi timp în traficul spre centrul Clujului.",
-    highlights: [
-      { label: "Tarif de la", value: "70 lei/zi" },
-      { label: "Predare", value: "La domiciliu" },
-      { label: "Garanție", value: "Fără" },
-      { label: "Zonă", value: "Metropolitan Cluj" },
-    ],
-    sections: [
-      {
-        heading: "De ce contează predarea la domiciliu",
-        paragraphs: [
-          "Din Apahida sau Baciu, un drum dus-întors până la un birou de rent a car din centrul Clujului înseamnă ușor o oră pierdută în trafic. Noi aducem mașina la tine, la ora stabilită, și o preluăm de la aceeași adresă la final.",
-        ],
-        bullets: [
-          "Predare în Apahida, Baciu, Chinteni, Jucu și Florești",
-          "Fără garanție blocată și fără card de credit",
-          "Rovinietă, RCA, ITP și AC incluse în tarif",
-          "Al doilea șofer fără cost suplimentar",
-        ],
-      },
-      {
-        heading: "Potrivit pentru navetă și weekend",
-        paragraphs: [
-          "Pentru naveta zilnică spre Cluj-Napoca recomandăm clasa economică, cu consum mic. Pentru weekend la Tarnița, Beliș sau în Apuseni, break-urile și Volvo XC90 cu 7 locuri sunt cele mai cerute.",
-        ],
-      },
-      {
-        heading: "Rezervare rapidă",
-        paragraphs: [
-          "Trimiți perioada și modelul dorit pe WhatsApp sau suni la (0742) 925 934, iar confirmarea disponibilității vine rapid. La predare ai nevoie doar de buletin și permis valabil de minimum un an.",
-        ],
-      },
-    ],
-    faq: [
-      {
-        q: "Predați mașina în Apahida sau Baciu?",
-        a: "Da, predăm și preluăm autoturismul la adresa ta din Apahida, Baciu, Chinteni, Jucu sau Florești.",
-      },
-      {
-        q: "Se percepe taxă pentru livrarea mașinii?",
-        a: "Nu în zona metropolitană Cluj. Stabilim adresa și ora la rezervare.",
-      },
-      {
-        q: "Pot închiria doar pentru weekend?",
-        a: "Da, închiriem de la o zi. Pentru weekend recomandăm rezervarea din timp, fiind cea mai cerută perioadă.",
       },
     ],
   },

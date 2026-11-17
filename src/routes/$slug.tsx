@@ -1,7 +1,8 @@
-import { createFileRoute, notFound } from "@tanstack/react-router";
+import { createFileRoute, notFound, redirect } from "@tanstack/react-router";
 
 import { LocationLanding } from "@/components/LocationLanding";
 import { getLocation } from "@/lib/locations";
+import { LOCATION_REDIRECTS } from "@/lib/location-redirects";
 import type { LocationPage } from "@/lib/locations";
 import { getPublicVehicles } from "@/lib/admin.functions";
 import { vehicleSlug } from "@/lib/vehicle-seo";
@@ -11,6 +12,8 @@ const SITE = SITE_URL;
 
 export const Route = createFileRoute("/$slug")({
   loader: async ({ params }) => {
+    const merged = LOCATION_REDIRECTS[params.slug];
+    if (merged) throw redirect({ href: merged, statusCode: 301 });
     const page = getLocation(params.slug);
     if (!page) throw notFound();
     // The fleet list is a bonus; a database hiccup must not turn an indexable page into a 500.

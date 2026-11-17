@@ -5,7 +5,6 @@
  */
 export const LOCATION_LANGS: ReadonlyMap<string, string> = new Map([
   ["/car-rental-cluj", "en"],
-  ["/car-rental-cluj-napoca", "en"],
   ["/cluj-airport-car-rental", "en"],
   ["/autoberles-kolozsvar", "hu"],
 ]);

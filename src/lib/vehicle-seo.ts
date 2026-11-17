@@ -2,7 +2,7 @@ import type { Vehicle } from "./vehicles";
 import { canonical } from "./seo";
 
 export const VEHICLE_LOCAL_AREAS = [
-  { city: "Cluj", slug: "rent-a-car-cluj" },
+  { city: "Cluj", slug: "inchirieri-auto-cluj" },
   { city: "Cluj-Napoca", slug: "rent-a-car-cluj-napoca" },
   { city: "Florești", slug: "rent-a-car-floresti-cluj" },
   { city: "Gilău", slug: "rent-a-car-gilau" },

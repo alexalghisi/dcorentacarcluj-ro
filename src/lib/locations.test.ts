@@ -53,3 +53,12 @@ test("no two indexable pages share a title", () => {
   assert.equal(new Set(titles).size, titles.length);
   assert.ok(!titles.includes("Rent a Car Cluj | Mașini de închiriat de la 70 lei/zi"), "clashes with homepage");
 });
+
+test("merged pages redirect to live pages and are no longer listed", async () => {
+  const { LOCATION_REDIRECTS } = await import("./location-redirects");
+  const slugs = new Set(locations.map((l) => l.slug));
+  for (const [from, to] of Object.entries(LOCATION_REDIRECTS)) {
+    assert.ok(!slugs.has(from), `${from} still listed`);
+    assert.ok(to === "/" || slugs.has(to.slice(1)), `${from} -> ${to}`);
+  }
+});

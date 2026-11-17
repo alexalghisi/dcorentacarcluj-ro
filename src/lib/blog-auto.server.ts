@@ -5,7 +5,13 @@ import { posts } from "./blog";
 
 const GATEWAY_URL = "https://ai.gateway.lovable.dev/v1";
 const MODEL = "openai/gpt-6-astra";
-export const POSTS_PER_DAY = 3;
+/**
+ * One article at most every DAYS_BETWEEN_POSTS days (about two a week). Several
+ * AI articles a day is the "scaled content" pattern Google demotes site-wide;
+ * fewer, better articles help the money pages instead of diluting them.
+ */
+export const POSTS_PER_DAY = 1;
+export const DAYS_BETWEEN_POSTS = 3;
 
 const FACTS = `Fapte reale despre firmă (folosește DOAR acestea, nu inventa altele):
 - DCO Rent a Car Cluj, site dcorentacarcluj.ro, telefon/WhatsApp (0742) 925 934.
@@ -41,17 +47,19 @@ function today() {
   return new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Bucharest" }).format(new Date());
 }
 
-/** Writes up to POSTS_PER_DAY new articles today. Safe to call repeatedly: it never exceeds the daily cap. */
+/** Writes one new article if none was published in the last DAYS_BETWEEN_POSTS days. Safe to call repeatedly. */
 export async function generateDailyPosts(): Promise<{ created: string[]; skipped: string }> {
   const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
   const day = today();
 
+  const since = new Date(`${day}T12:00:00Z`);
+  since.setUTCDate(since.getUTCDate() - (DAYS_BETWEEN_POSTS - 1));
   const { count } = await supabaseAdmin
     .from("blog_auto_posts")
     .select("id", { count: "exact", head: true })
-    .eq("published_on", day);
+    .gte("published_on", since.toISOString().slice(0, 10));
   const missing = POSTS_PER_DAY - (count ?? 0);
-  if (missing <= 0) return { created: [], skipped: "Limita zilnică atinsă." };
+  if (missing <= 0) return { created: [], skipped: `Un articol nou la cel mult ${DAYS_BETWEEN_POSTS} zile.` };
 
   const apiKey = process.env["LOVABLE_API_KEY"];
   if (!apiKey) throw new Error("AI not configured");
@@ -73,7 +81,7 @@ Articole deja publicate (NU repeta subiectul, alege un unghi clar diferit):
 ${taken}
 
 Scrie UN articol nou de blog, în română corectă, cu diacritice, pentru oameni care caută închirieri auto în Cluj, Gilău, Florești sau județul Cluj (turiști, localnici, firme). Subiecte posibile: rute și excursii reale din județul Cluj și Transilvania, sfaturi de condus (iarnă, munte, autostradă A3, DN1), acte și reguli, alegerea mașinii, aeroport, evenimente/sezon, costuri de drum. Cuvântul-cheie principal (ex. „rent a car Cluj”, „închirieri auto Cluj”, „mașini de închiriat Cluj”) apare natural în titlu, prima secțiune și o întrebare FAQ, fără înghesuire.
-Reguli: util și concret, 700–1000 de cuvinte în total; nu inventa prețuri, distanțe exacte nesigure, reguli locale nesigure sau recenzii — formulează aproximativ („aproximativ”, „verifică indicatorul”) când nu ești sigur; fără superlative false ca „cei mai buni din Cluj”; la final o secțiune scurtă despre cum închiriezi de la DCO.
+Reguli: util și concret, 1000–1400 de cuvinte în total, cu informații practice pe care cititorul nu le găsește în primele rezultate; nu inventa prețuri, distanțe exacte nesigure, reguli locale nesigure sau recenzii — formulează aproximativ („aproximativ”, „verifică indicatorul”) când nu ești sigur; fără superlative false ca „cei mai buni din Cluj”; la final o secțiune scurtă despre cum închiriezi de la DCO.
 Răspunde DOAR cu JSON valid, fără markdown, cu forma:
 {"slug":"cuvinte-fara-diacritice","title":"...","metaTitle":"max 60 caractere","description":"120-155 caractere","category":"Ghid|Sfaturi|Rute|Turism","excerpt":"...","readingMinutes":6,"sections":[{"heading":"...","paragraphs":["..."],"bullets":["..."]}],"faq":[{"q":"...","a":"..."}]}`;
 

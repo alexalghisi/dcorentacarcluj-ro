@@ -12,7 +12,9 @@
 - [x] 10 pagini locale noi în județul Cluj
 - [x] Recenzii la mașini, doar de la clienții care au închiriat (link unic + aprobare în admin)
 - [x] Butonul „Deschide în Google Maps” reparat
-- [x] Articole noi pe blog, 3 pe zi, publicate automat
+- [x] Articole noi pe blog publicate automat, maximum unul la 3 zile (redus de la 3 pe zi, risc „scaled content”)
+- [x] Comasare pagini SEO cu aceeași intenție, redirect 301 (src/lib/location-redirects.ts)
+- [x] Pagini EN aeroport (/cluj-airport-car-rental) și HU (/autoberles-kolozsvar)
 - [ ] Monitorizare zilnică a pozițiilor + /admin/seo + e-mail săptămânal: așteaptă cheia SerpApi și domeniul de e-mail
 - [x] Adsterra Native Banner, Social Bar (întârziat, doar pagini publice) și Smartlink în footer
 - [x] SEO din Google Trends: pagini noi non-stop, weekend, ieftin, iarna

@@ -216,7 +216,7 @@ export const countyLocations: LocationPage[] = [
     metaTitle: "Rent a Car Apahida | Închirieri auto Apahida, 70 lei/zi",
     description:
       "Mașini de închiriat pentru clienți din Apahida, aproape de Aeroportul Cluj: de la 70 lei/zi, fără garanție. Predare în Gilău sau la un punct stabilit.",
-    keywords: "rent a car apahida, inchirieri auto apahida, masini de inchiriat apahida, inchiriere masina apahida",
+    keywords: "rent a car apahida, inchirieri auto apahida, masini de inchiriat apahida, inchiriere masina apahida, rent a car baciu, inchirieri auto apahida baciu",
     intro: `Apahida e la câțiva kilometri de Aeroportul Internațional Cluj și de parcul industrial Jucu. ${honest("Apahida")}`,
     highlights: [
       { label: "Tarif de la", value: "70 lei/zi" },

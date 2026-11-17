@@ -48,12 +48,11 @@ const HANDOVER_HOURS = [
   "22:00",
 ];
 const TREND_LINKS = [
-  ["rent-a-car-cluj", "Rent a car Cluj"],
   ["rent-a-car-cluj-napoca", "Cluj-Napoca"],
   ["rent-a-car-floresti-cluj", "Florești"],
   ["rent-a-car-gilau", "Gilău"],
   ["rent-a-car-huedin", "Huedin"],
-  ["inchirieri-masini", "Închirieri mașini"],
+  ["inchirieri-auto-cluj", "Închirieri auto Cluj"],
   ["rent-a-car-cluj-non-stop", "Non-stop"],
   ["inchiriere-masina-weekend-cluj", "Weekend"],
   ["rent-a-car-cluj-ieftin", "Ieftin"],
