@@ -76,7 +76,7 @@ const FAQ = [
 
 export const Route = createFileRoute("/rezervare")({
   validateSearch: (input: Record<string, unknown>): { masina?: string } =>
-    typeof input.masina === "string" ? { masina: input.masina } : {},
+    typeof input["masina"] === "string" ? { masina: input["masina"] } : {},
   loader: async () => {
     const [vehicles, busy] = await Promise.all([getPublicVehicles(), getBusyRanges()]);
     return { vehicles, busy };
