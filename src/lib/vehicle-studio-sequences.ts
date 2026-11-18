@@ -9,4 +9,5 @@ export const STUDIO_SEQUENCES: Record<string, readonly number[]> = {
   s40: [0, 1, 2, 3, 4, 5, 6, 7],
   focusblack: [0, 1, 2, 3, 4, 5, 6, 7],
   focus: [0, 1, 2, 3, 4, 5, 6, 7],
+  megane: [0, 1, 2, 3, 4, 5, 6, 7],
 };

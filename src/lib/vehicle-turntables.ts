@@ -36,6 +36,7 @@ function keyForVehicle(name: string, imageUrl = ""): string | null {
   if (value.includes("s40")) return "s40";
   if (value.includes("focus") && (value.includes("negru") || value.includes("black"))) return "focusblack";
   if (value.includes("focus")) return "focus";
+  if (value.includes("megane") || value.includes("mégane")) return "megane";
   return null;
 }
 
@@ -64,7 +65,7 @@ export function vehicleSpin(name: string, imageUrl = ""): string[] {
  * real photos), with number plates blurred and every angle aligned on one ground line.
  * All vehicles use eight selected angles; unstable Fabia interpolation steps are excluded.
  */
-const SPIN360_VERSION = "20261021";
+const SPIN360_VERSION = "20261118";
 
 /** Frames of the drag-to-rotate studio view for a fleet vehicle, in turning order (empty if none). */
 export function vehicle360Frames(name: string, imageUrl = ""): string[] {
@@ -83,5 +84,5 @@ export function vehicle360Frames(name: string, imageUrl = ""): string[] {
  */
 export function vehicle360Blend(name: string, imageUrl = ""): boolean {
   const key = keyForVehicle(name, imageUrl);
-  return Boolean(key) && key !== "fabia";
+  return Boolean(key) && key !== "fabia" && key !== "megane";
 }

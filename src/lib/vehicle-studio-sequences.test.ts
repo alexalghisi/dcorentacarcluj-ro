@@ -16,3 +16,6 @@ test("every selected studio angle exists in its own vehicle set", () => {
     }
   }
 });
+test("Mégane Break has its own eight-angle studio set", () => {
+  assert.deepEqual(STUDIO_SEQUENCES["megane"], [0, 1, 2, 3, 4, 5, 6, 7]);
+});
